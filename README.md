@@ -29,4 +29,7 @@ sass/
 |– mixin/  
 |   |– _mixin.scss   # Sass Variables|  
 |  
+|– image/  
+|   |– treasure/  
+|   |– ship/
 `– style.scss            # Primary Sass file`  
