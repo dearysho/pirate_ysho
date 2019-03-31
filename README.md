@@ -3,13 +3,13 @@ Pirate game webpage
 
 ##sass Structure
 
-sass/
-|
-|– base/
-|   |– _reset.scss       # Reset/normalize
-|   |– _font.scss        # Font
-|   |– _common.scss      # Common
-|   |– _var.scss         # var
+sass/＜/br＞
+|＜/br＞
+|– base/＜/br＞
+|   |– _reset.scss       # Reset/normalize  
+|   |– _font.scss        # Font  
+|   |– _common.scss      # Common  
+|   |– _var.scss         # var  
 |   |– _button.scss      # Button
 |   ...                  # Etc…
 |
