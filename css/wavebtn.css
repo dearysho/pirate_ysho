@@ -1,4 +1,4 @@
-.btnpri{
+.btnpri, .btnsec{
     display: block;
     position: relative;
     width: 100px;
@@ -16,20 +16,20 @@
     background: #c76142;
     display: inline-block;
     height: 100%;
-    width: 10px;
+    width: 5px;
     bottom: 0;
     position: absolute;
     
 }
 
-.btnpri:hover .wave{
+.btnpri:hover .wave,  .btnsec:hover .wave{
     animation-name: dowave;
     animation-duration: 1.8s;
     animation-iteration-count: infinite;
     transition-timing-function: ease-in-out;
 }
 
-.btnpri span{
+.btnpri span, .btnsec span{
     position: relative;
     z-index: 1;
 }
