@@ -13,7 +13,7 @@ function getLocaFirst(){
 	navigator.geolocation.getCurrentPosition(gpsSuccCallback,gpsErrorCallback,{
 		//隨時更新位置
 		enableHighAccuracy: true,
-		timeout: 60000,
+		timeout: 60000000,
 		maximumAge: 60000,
 	});
 }
@@ -34,10 +34,23 @@ function gpsSuccCallback(e){
 	var area = document.getElementById("gameGps");
 	var playerPosition = new google.maps.LatLng(lati,longi);
 	var options = {
-		zoom : 15,
+		zoom : 17,
 		center : playerPosition,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
+
+	//取得五個隨機出現的gps點
+	var treaPosition = {lat:lati,long:longi};
+	var treaPositionSet = [];
+	for (let i = 0; i < 5; i++) {
+		treaPositionSet.push(
+			{lat: lati+Math.round((Math.random()), -5),
+			long:longi+Math.round((Math.random()), -5)})
+	};
+	console.log(playerPosition);
+	console.log(treaPosition);
+	console.log(treaPositionSet);
+
 	//地圖
 	var gameGps = new google.maps.Map(area,options);
 	var marker = new google.maps.Marker({
@@ -46,6 +59,17 @@ function gpsSuccCallback(e){
 		icon: './image/ship/pokemon.gif',
 		title: '航行者!'
 	});
+
+	//將五個隨機出現的gps點放上地圖
+	for (let j = 0; j < array.length; j++) {
+		var marker = new google.maps.Marker({
+			position:,
+			map: gameGps,
+		});	
+	}
+
+
+	//對寶箱註冊事件
 }
 function gpsErrorCallback(e){
 	document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
