@@ -23,14 +23,30 @@
 
 @mixin colXl($num) {
     @media screen and(min-width:1200px){
+@include col-all(12);
+
+@mixin col-xl($num) {
+    @media screen and(min-width: 1200px) {
         @for $i from 1 through $num {
             .colXl-#{$i}{
                 width:($i / $num) * 100%;
+            .col-xl-#{$i} {
+                width: ($i / $num) * 100%;
+                float: left;
+                box-sizing: border-box;
             }
         }
             .wrap{
+
+        .wrap {
             width: 1200px;
+            height: 100vh;
             margin: 50px auto;
+        }
+
+        .meShip img {
+            width: 100%;
+            transform: translateX(-100px);
         }
     }
 }
@@ -38,7 +54,42 @@
 
 body{
     background-image: url('../image/background/1932.jpg');
+@include col-xl(12);
+
+body {
+    background-image: url('/image/background/bgtexture.png');
     background-repeat: no-repeat;
     background-size: cover;
     
+}
+
+
+.meShip img {
+    width: 100%;
+}
+
+.meNews {
+    background-color: #f5ecdd;
+    height: 400px;
+    border: 6px dashed #534741;
+    margin-top: 40px;
+    box-shadow: 5px 5px 3px rgba(20%,20%,40%,0.4);
+}
+
+.radar{
+    padding: 0px 15px;
+    margin: 20px 0;
+}
+
+.radar img{
+    width: 100%;
+}
+
+.field{
+    margin: 60px 0;
+}
+
+.field li{
+    margin: 20px 0;
+    padding: 0px 30px;
 }
