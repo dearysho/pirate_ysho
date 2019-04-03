@@ -2,12 +2,15 @@ var btnpri = document.getElementsByClassName("btnpri");
 var btnsec = document.getElementsByClassName("btnsec");
 
 var waveWidth = 5;
-var waveCount = 20;
 
 function createbtn(btntype){
 
     for(var j = 0; j < btntype.length; j++){
         var wavebox = document.createElement("div");
+
+        var width = window.getComputedStyle(btntype[j]).width;
+
+        var waveCount = (parseInt(width)+40)/parseInt(waveWidth)+1;
 
         for (var i = 0; i < waveCount; i++) {
             var wave = document.createElement("div");
