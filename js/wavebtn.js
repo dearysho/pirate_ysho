@@ -6,7 +6,7 @@ var waveWidth = 5;
 function createbtn(btntype){
 
     for(var j = 0; j < btntype.length; j++){
-        var wavebox = document.createElement("div");
+        var wavebox = document.createDocumentFragment();
 
         var width = window.getComputedStyle(btntype[j]).width;
 
