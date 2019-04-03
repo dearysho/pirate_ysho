@@ -1,3 +1,6 @@
-body{
-	margin: 0;
-}
+//===============
+// 基本參數
+//===============
+@import 'base/var';
+@import 'base/reset';
+@import 'base/common';
