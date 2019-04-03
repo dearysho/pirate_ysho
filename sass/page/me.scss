@@ -1,4 +1,44 @@
-.box{
-    margin: 0;
-    padding: 0;
+// css-reset
+@import'sass/base/reset';
+
+//文字大小字型設定
+@import'sass/base/font';
+
+*{
+    outline: 1px solid black;
+}
+@mixin colAll($num) {
+    @media screen and(max-width:768px){
+        @for $i from 1 through $num {
+            .colAll-#{$i}{
+                width:($i / $num) * 100%;
+            }
+        }
+        .wrap{
+            margin: 20px auto;
+        }
+    }
+}
+@include colAll(12);
+
+@mixin colXl($num) {
+    @media screen and(min-width:1200px){
+        @for $i from 1 through $num {
+            .colXl-#{$i}{
+                width:($i / $num) * 100%;
+            }
+        }
+            .wrap{
+            width: 1200px;
+            margin: 50px auto;
+        }
+    }
+}
+@include colXl(12);
+
+body{
+    background-image: url('../image/background/1932.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
