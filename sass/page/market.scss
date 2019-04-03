@@ -1,0 +1,27 @@
+@import "sass/base/reset.scss";
+@import "sass/base/font.scss";
+
+.marWrap {
+    background-image: url("../image/background/bgtexture.png");
+}
+
+.marBanner{
+    width: 100%;
+    height: 960px;
+    text-align: center;
+
+    h1 {
+        
+    }
+
+    .marTbox {
+        // width: 12.8%;
+        margin: auto;
+        text-align: center;
+    }
+
+    h2 {
+        padding: 10px;
+        display: inline-block;
+    }
+}
