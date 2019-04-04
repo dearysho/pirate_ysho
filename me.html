@@ -11,13 +11,16 @@
 
 <body>
     <div class="wrap">
+        <!-- 標題 -->
         <h1 class="titlePri">俺の海賊船</h1>
+        <!-- 船圖 -->
         <div class="col-all-12 col-xl-5 meShip">
             <img src="image/ship/ship.png" alt="">
         </div>
+        <!-- 個人資訊 -->
         <div class="col-all-12 col-xl-7">
             <div class="meNews">
-                <div class="col-xl-6">
+                <div class="col-xl-6 col-all-6">
                     <ul class="field">
                         <li>
                             <h2 class="textL">帳號:</h2>
@@ -36,12 +39,29 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-xl-6 radar">
+                <!-- 雷達圖 -->
+                <div class="col-xl-6  col-all-6 radar">
                     <img src="image/ship/radar.png" alt="">
                 </div>
             </div>
         </div>
+        <!-- 寶物道具頁籤 -->
+        <div class="col-all-12 col-xl-12 treasure">
+            <ul class="tabs group">
+                <li><a  class="active" href="#/one">寶物</a></li>
+                <li><a href="#/two">造型</a></li>
+            </ul>
+            <!-- 切換頁面 -->
+            <div id="content" >
+                <div id="one">第一頁</div>
+                <div id="two">第二頁</div>
+            </div>
+
+        </div>
     </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/me.js"></script>
 </body>
 
 </html>
