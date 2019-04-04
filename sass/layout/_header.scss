@@ -59,7 +59,6 @@ header::after{
     width: 100%;
 }
 header{
-    background: $beige;
     padding-top: 10px;
     position: relative;
     transition-duration: 0.5s;
@@ -72,6 +71,7 @@ header{
     transition-duration: 0.5s;
     height: 256px;
     overflow: hidden;
+    background: $beige;
 }
 #headerMenu a{
     color:$brown;
@@ -277,7 +277,10 @@ header.hide{
 
 @media screen and (min-width:1200px){
     //PC
-
+    #headerMenu{
+        max-width: 1800px;
+        margin: auto;
+    }
     //調整選單下方角色資訊排版
     #headerMe{
         font-size: 1rem;
