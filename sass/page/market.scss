@@ -1,0 +1,54 @@
+@import "sass/base/reset.scss";
+@import "sass/base/font.scss";
+
+.marWrap {
+    background-image: url("../image/background/BgPage.png");
+    background-repeat: repeat-y;
+}
+
+.marBanner{
+    width: 100%;
+    height: 90vh;
+    text-align: center;
+
+    .mlsl { 
+        display: block;
+        position: absolute;
+        width: 70%;
+        top: 50px;
+        left: -100px;
+    }
+
+
+    h2 {
+        padding: 10px;
+        display: inline-block;
+    }
+
+    
+}
+
+.marMain {
+    width: 1200px;
+    margin: auto;
+    .marTagBox{
+        a{
+            h3{
+                display: inline-block;
+                padding: 10px 20px;
+            }
+        }
+    }
+    .marCont{
+
+    }
+    .marFeaBox{
+        .feaHead, .feaBody, .feaSail{
+            width: 30%;
+        }
+        .marPro {
+            display: inline-block;
+        }
+    }
+    
+}

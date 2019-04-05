@@ -1,15 +1,13 @@
 .btnpri, .btnsec{
-    display: block;
+    display: inline-block;
     position: relative;
-    width: 100px;
-    height: 40px;
+    padding: 10px 20px;
     text-align: center;
-    line-height: 40px;
+    line-height: 100%;
     border-radius: 4px;
     overflow: hidden;
     background-color: rgb(235, 208, 149);
     box-shadow: 1px 1px 4px #000;
-
 }
 
 .wave {
@@ -19,7 +17,7 @@
     width: 5px;
     bottom: 0;
     position: absolute;
-    
+
 }
 
 .btnpri:hover .wave,  .btnsec:hover .wave{
