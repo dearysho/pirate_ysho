@@ -1,16 +1,150 @@
 #gameGps{
-    width: 100vw;
+    position: relative;
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
+}
+/* 兩朵雲 */
+#gameGps::before{
+    display: block;
+    content:'';
+    background:url(../image/gpsGame/cloudLeft.png) no-repeat top left;
+    background-size: 60%;
+    /* content:url(../image/gpsGame/cloud_left.png); */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: -30px;
+    z-index:2;
+    animation-name: cloudLeftMove;
+}
+#gameGps::after{
+    display: block;
+    content:'';
+    background:url(../image/gpsGame/cloudRight.png) no-repeat bottom right;
+    background-size: 60%;
+    /* content:url(../image/gpsGame/cloud_left.png); */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: -150px;
+    z-index:2;
+    animation-name: cloudRightMove;
+    animation-delay: 3s;
+}
+#gameGps::before, #gameGps::after{
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+@keyframes cloudLeftMove {
+    /* 0%   {transform: translateX(0%);}
+    20%  {transform: translateX(5%);}
+    40%  {transform: translateX(10%);}
+    60%  {transform: translateX(0%);}
+    80%  {transform: translateX(-5%);}
+    100% {transform: translateX(0%);} */
+    0%   {transform: translateX(0%);}
+    25%   {transform: translateX(3%);}
+    50%  {transform: translateX(5%);}
+    75%  {transform: translateX(3%);}
+    100% {transform: translateX(0%);}
+}
+@keyframes cloudRightMove {
+    0%   {transform: translateX(0%);}
+    25%   {transform: translateX(-10%);}
+    50%  {transform: translateX(3%);}
+    75%  {transform: translateX(-1%);}
+    100% {transform: translateX(0%);}
+}
+/* 地圖 */
+#gameGpsMap{
+    position: relative;
+    width: calc(100% - 16px);
+    height: 70vh;
+    margin: 7px auto auto;
+    box-sizing: border-box;
+    border: #534741 7px dashed;
+    background-color: #d5d5d5;
+    outline: 7px #534741 double;
+}
+#gameGpsMap::after{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index:1;
+    background-color: rgba(206, 211, 208, 0.6);
+    box-sizing: border-box;
+    border: 7px #534741 double;
 }
 #gameGpsLotto{
-    display: flex;
-    justify-contennpm install gulp-sasst: space-between;
-    outline: 2px red solid;
-    width: 400px;
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 440px;
+    height: 480px;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: #fffcf2;
+    border: #a34f49 7px dashed;
+    /* border: #fffcf2 7px dashed; */
+    box-shadow:0px 0px 0px 2px #000 inset;
+    outline: 2px #000 solid;
+}
+#gameGpsLotto table{
+    border-spacing:5px;
 }
 #gameGpsLotto .gameGpsLottoUnit{
-    display: block;
-    width: 100px;
-    height: 100px;
-    background-color: #f00;
+    /* outline: 2px #0f0 solid; */
+    box-sizing: border-box;
+    width: 110px;
+    height: 110px;
+    background-color: #d5d5d5;
+    border: 2px #5f6f70 soild;
+    /* background-image: url(/image/gpsGame/treaBoxS.svg);
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+#gameGpsLotto .gameGpsLottoActive{
+    /* box-sizing: border-box; */
+    /* border: #c7b299 5px outset; */
+    background-color: #fffcf2;
+    border: #5f6f70 7px dashed;
+    box-shadow:0px 0px 0px 2px #000 inset;
+    outline: 2px #000 solid;
+    background-image: url(/image/gpsGame/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@keyframes gameGpsLottoActiveScale {
+    0%   {transform: scale(1);}
+    20%  {transform: scale(1.15);}
+    40%  {transform: scale(1);}
+    60%  {transform: scale(1.15);}
+    80%  {transform: scale(1);}
+    100% {transform: scale(1.5);}
+  }
+#gameGpsLottoShow{
+    width: 200px;
+    height: 200px;
+    background-color: #fffcf2;
+    border: #a34f49 7px dashed;
+    box-shadow:0px 0px 0px 2px #000 inset,
+               0px 0px 0px 2px #000;
+    /* outline: 2px #000 solid; */
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+#gameGpsLottoShow img{
+    height: 80px;
 }
