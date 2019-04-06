@@ -1,0 +1,12 @@
+@import '../base/font';
+@import '../base/reset';
+@import '../layout/header';
+
+.sRWrap {
+    background-image: url("../image/background/BgPage.png");
+    background-repeat: repeat-y;
+
+    .sRCont {
+        margin-top: 50px;
+    }
+}

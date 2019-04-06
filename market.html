@@ -12,58 +12,127 @@
 
 <body>
     <div class="marWrap">
+        <header>
+            <h1 class="titlePri" id="headerLogo"><a href="javascript:;">
+                    <img src="image/logo.svg" alt="大海賊帝國">
+                </a></h1>
+            <nav id="headerMenu">
+                <ul>
+                    <li><a href="javascript:;">海賊試煉場</a></li>
+                    <li><a href="javascript:;">海上市集</a></li>
+                    <li><a href="javascript:;">情報酒館</a></li>
+                    <li><a href="javascript:;">俺の海賊船</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul id="headerMe">
+                    <li id="headerMeID">
+                        <a href="javascript:;">我是大帥哥</a>
+                    </li>
+                    <li id="headerMeLv">lv.<span>7</span>
+                        <div id="headerExpBar">
+                            <div id="headerExpLine"></div>
+                            <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                        </div>
+
+                    </li>
+                    <li id="headerMeMoney">金幣<span>100</span>G</li>
+                    <li id="headerMeShip"><a href="javascript:;">
+                            <img src="image/ship/shipTemp.png" alt="角色頭像">
+                        </a></li>
+                    <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                    <li id="headerMeTalentL">幸運<span>5</span></li>
+                    <li id="headerMeTalentA">敏捷<span>5</span></li>
+                    <li id="headerMeTalentI">智力<span>5</span></li>
+                </ul>
+            </div>
+        </header>
         <div class="marBanner">
-            <img class="mlsl" src="image/market/mlsl.png" alt="">
+            <div class="mlslBox">
+                <img class="mlsl" src="image/market/mlsl.png" alt="">
+            </div>
+            <img class="marBoard" src="image/market/bmBoard.png">
+            <img class="marBoard" src="image/market/sYBoard.png">
+            <img class="marBoard currentBoard" src="image/market/bmBoard.png">
+
             <h1 class="titlePri">海上市集</h1>
-            <div class="marTitbox">
-                <a href="javascript:;">
-                    <h2>黑市</h2>
+            <div class="marTitBox">
+                <img class="titFrame" src="image/market/titFrame.png" alt="">
+                <a class="marTitInBox" href="javascript:;">
+
+                    <h2 class="marTypeTit titleSec" onmouseover="currentMarket(1)">黑市</h2>
                 </a>
-                <a href="javascript:;">
-                    <h2>造船廠</h2>
+                <a class="marTitInBox" href="javascript:;">
+
+                    <h2 class="marTypeTit titleSec" onmouseover="currentMarket(2)">造船廠</h2>
                 </a>
                 <div class="clearfix"></div>
             </div>
 
             <span>購買海賊船造型，追趕年度最新流行！(單押skr)</span>
         </div>
-        <div class="marMain">
+        <div class="marMain blackMarket">
+
+            <!-- 黑市加在這 -->
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="marMain shipYard">
             <div class="marTagBox">
-                <a href="javascript:;">
+                <img class="marBorDec" src="image/market/marBorDec.png" alt="">
+                <a class="sPTTitle" href="javascript:;">
                     <h3>船頭</h3>
                 </a>
-                <a href="javascript:;">
+                <a class="sPTTitle" href="javascript:;">
                     <h3>船身</h3>
                 </a>
-                <a href="javascript:;">
+                <a class="sPTTitle" href="javascript:;">
                     <h3>船帆</h3>
                 </a>
-                <a href="javascript:;">
+                <a class="sPTTitle" href="javascript:;">
                     <h3>套裝造型</h3>
                 </a>
             </div>
             <div class="marCont">
-                <h2>造船廠精選</h2>
-                <div class="marFeaBox">
-                    <div class="feaHead">
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
+                <img class="marBorDec" src="image/market/marBorDec.png" alt="">
+                <div class="sYProList">
+                    <div class="sYPro">
+                        <img src="image/market/proHeadTemp.png" alt="">
+
+                        <div class="sYProInfo">
+                            <h4>景陳頭</h4>
+                            <span>精選來自黑水溝深海一萬尺的謎之景成的頭</span>
+                        </div>
+                        <div class="purchaseBox">
+                            <span>$777</span>
+                            <a class="addCart" href="javascript:;">
+                                <img src="">
+                                <span>加入購物車</span>
+                            </a>
+                            <a class="buy" href="javascript:;">
+                                <span>直接購買</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="feaBody">
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                    </div>
-                    <div class="feaSail">
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                        <a class="marPro" href="javascript:;"><img src="image/market/"><h4>沒力的頭</h4></a>
-                    </div>
+
+                </div>
+                <div class="shipDisplay">
+
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="js/market.js"></script>
+    <script src="js/header.js"></script>
 </body>
 
 </html>
