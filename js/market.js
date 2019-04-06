@@ -44,13 +44,9 @@ function repositionFrame(n) {
         BoardMove[2].style.opacity = "0";
         BoardMove[2].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.3)";
 
-        // left: 30%;
-        // top: 250px;
-        // transform: perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.5);
-
         mbgiMove[0].style.transform = "translate(0px, 0px) scale(1) ";
     } else {
-        frameMove[0].style.transform = "translateX(88px)";
+        frameMove[0].style.transform = "translateX(100px)";
 
         BoardMove[0].style.top = "580px";
         BoardMove[0].style.left = "-14%";
