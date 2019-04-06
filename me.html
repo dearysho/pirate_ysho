@@ -10,25 +10,24 @@
 </head>
 
 <body>
+    <!-- 標題 -->
     <div class="wrap">
-        <!-- 標題 -->
         <h1 class="titlePri">俺の海賊船</h1>
     </div>
-
+    <!-- 船 -->
     <div class="wrap">
-        <div class="col-xl-5 meShip">
+        <div class="col-12 col-md-5 meShip">
             <img src="image/ship/ship.png" alt="">
         </div>
         <!-- 個人資訊 -->
-        <div class="col-xl-7">
+        <div class="col-12 col-md-7">
             <div class="meNews">
-
-                <ul class="col-xl-6 field">
+                <ul class="col-12 col-md-6 field">
                     <li>
                         帳號: <span>abc123</span>
                     </li>
                     <li>
-                        密碼: <span></span>
+                        密碼: <span>更改密碼</span>
                     </li>
                     <li>
                         ID: <span>祕寶尋者號</span>
@@ -40,46 +39,112 @@
                         金幣: <span>500</span> G
                     </li>
                 </ul>
-
                 <!-- 雷達圖 -->
-                <div class="col-xl-6 radar">
+                <div class="col-12 col-md-6 radar">
+                    <h3>天賦值: <span>3</span></h3>
                     <img src="image/ship/radar.png" alt="">
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 寶物道具頁籤 -->
     <div class="wrap">
-        <!-- 寶物道具頁籤 -->
-        <div class="col-xl-12 treasure">
+        <!-- <div class="col-12 col-md-12 treasure">
             <ul class="tabs group">
                 <li><a class="active" href="#/one">寶物</a></li>
                 <li><a href="#/two">造型</a></li>
-            </ul>
-            <!-- 切換頁面 -->
-            <div id="content">
+            </ul> -->
+        <!-- 切換頁面 -->
+        <!-- <div id="content">
                 <div id="one">第一頁</div>
                 <div id="two">第二頁</div>
             </div>
+        </div> -->
+        <div class="tabs">
+            <div class="tab">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab1" name="tabs" checked="checked">
+                <label for="tab1">寶物</label>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <img src="/image/treasure/trea1.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea2.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea3.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea4.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea5.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea6.svg" alt="">
+                        </li>
+                        
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="tab">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab2" name="tabs">
+                <label for="tab2">造型</label>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <img src="/image/ship/shipHead.png" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/ship/shipSail.png" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/ship/shipSail.png" alt="">
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
         </div>
+        <div class="clearfix"></div>
     </div>
 
 
-
+    <!-- 個人紀錄 -->
     <div class="wrap">
         <h2 class="titleSec">個人紀錄
             <img src="" alt="">
         </h2>
     </div>
-    <div class="wrap">
-        <!-- 紀錄頁籤 -->
-        <div class="col-xl-12 treasure">
+    <!-- <div class="tabs">
+        <div class="tab">
+          <input type="radio" id="tab3" name="tabs" checked="checked">
+          <label for="tab3">111</label>
+          <div class="content">頁籤1內容</div>
+        </div>
+        <div class="tab">
+          <input type="radio" id="tab4" name="tabs">
+          <label for="tab4">222</label>
+          <div class="content">頁籤2內容</div>
+        </div>
+      </div> -->
+    <!-- 紀錄頁籤 -->
+    <!-- <div class="wrap">
+        <div class="col-12 col-md-12">
             <ul class="tabs group">
                 <li><a class="activee" href="#/three">交易紀錄</a></li>
                 <li><a href="#/four">討論紀錄</a></li>
-            </ul>
-            <!-- 切換頁面 -->
-            <div id="content">
+            </ul> -->
+    <!-- 切換頁面 -->
+    <!-- <div id="content">
                 <div id="three">
                     <section class="accordion">
                         <div>
@@ -107,20 +172,15 @@
                             </div>
                         </div>
                     </section>
-
-
-
-
-
                 </div>
                 <div id="four">第二頁</div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/me.js"></script>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/me.js"></script> -->
 </body>
 
 </html>

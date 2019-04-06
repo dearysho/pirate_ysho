@@ -4,39 +4,14 @@
 //文字大小字型設定
 @import'sass/base/font';
 
+//媒體查詢
+@import'sass/base/media';
+
 // * {
 //     outline: 1px solid black;
 // }
 
 
-@media screen and(min-width: 768px) {
-    @for $i from 1 through 12 {
-        .col-xl-#{$i} {
-            width: ($i / 12) * 100%;
-            // float: left;
-            // box-sizing: border-box;
-        }
-    }
-
-    .wrap {
-        margin: 20px auto;
-        display: flex;
-    }
-
-    .tabs {
-        width: 390px;
-    }
-
-    .meNews {
-        flex-direction: row;
-    }
-}
-
-@media screen and(min-width: 1200px) {
-    .meShip img {
-        transform: translateX(-100px);
-    }
-}
 
 
 body {
@@ -49,10 +24,15 @@ body {
     max-width: 1200px;
     // height: 100vh;
     margin: 50px auto;
+    padding: 0 10px;
     // display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    
 }
+
+
 
 .meShip img {
     width: 100%;
@@ -66,12 +46,9 @@ body {
 
 
 .meNews {
-    display: flex;
-    flex-direction: column;
-    // padding-left: 10px;
-    // padding-right: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    // display: flex;
+    // flex-direction: column;
+    margin: 0 10px;
     background-color: #f5ecdd;
     border: 7px dashed #5f6f70;
     // margin-top: 40px;
@@ -80,24 +57,124 @@ body {
 }
 
 .radar {
+    box-sizing: border-box;
     padding: 15px;
+    position: relative;
+    h3{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    }
+    img {
+        width: 50%;
+        display:block;
+        margin: auto;
+    }
 }
 
 
-.radar img {
-    width: 100%;
-}
+// .treasure::after{
+//     content: "";
+//     background-image: url("/image/background/BgBox.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     position: absolute;
+//     width: 800px;
+//     height: 450px;
+//     right: 500px;
+//     z-index: -100;
+
+// }
+
 
 .field {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
 }
 
 .field li {
     margin: 10px 0;
     padding: 0px 20px;
+    font-family: "王漢宗特明體繁";
 }
+
+
+
+
+
+.tabs {
+    position: relative;
+      width: 100%;
+    // height: 280px;
+    margin: auto;
+    padding-bottom: 280px;
+  }
+
+  .tab {
+    float: left;
+  }
+
+  .tab>input[type=radio] {
+    display: none;
+  }
+
+  .tab>label {
+    display: block;
+    position: relative;
+    min-width: 60px;
+    height: 30px;
+    /* margin-right: -1px; */
+    padding: 5px 15px;
+    background: #bcb19e;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+  }
+
+  .tab>.content {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 10px;
+    background: #f5ecdd;
+    box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+  }
+
+  .tab>input[type=radio]:checked+label {
+    background: #f5ecdd;
+    border-bottom: 1px solid transparent;
+    z-index: 2;
+  }
+
+  .tab>input[type=radio]:checked~.content {
+    display: block;
+  }
+
+  .content ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .content ul li{
+      width: 100px;
+      height: 100px;
+      border:  2px solid black;
+      margin: 5px;
+      border-radius: 20%;
+      overflow: hidden;
+      box-sizing: border-box;
+  }
+  .content ul li img{
+      width: 100%;
+  }
+
 
 
 //寶物造型頁籤
@@ -205,13 +282,61 @@ label,
 input,
 select {
     display: block;
-    font-family: 'Microsoft JhengHei';
+    font-family: '王漢宗特明體繁';
 }
 
-label {
-    // font-size: 20px;
-}
+// label {
+//     font-size: 20px;
+// }
 
 .sub-but {
     margin: auto;
 }
+
+
+
+
+@media screen and(min-width: 768px) {
+    .wrap {
+        margin: 20px auto;
+        display: flex;
+    }
+
+    // .tabs {
+    //     width: 100%;
+    // }
+
+    .meNews {
+        display: flex;
+        flex-direction: row;
+    }
+    .radar img{
+        width: 100%;
+    }
+    .treasure{
+        position: relative;
+    }
+    .treasure::after{
+        content: "";
+        background-image: url("/image/background/BgBox.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        right: -100px;
+        top: -100px;
+        z-index: -100;
+    }
+    .tabs {
+        padding-bottom: 130px;
+    }
+}
+
+@media screen and(min-width: 1200px) {
+    .meShip img {
+        transform: translateX(-100px);
+    }
+    
+}
+
