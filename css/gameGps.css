@@ -1,3 +1,4 @@
+/* 最外面那包 */
 #gameGps{
     position: relative;
     width: 100%;
@@ -83,6 +84,7 @@
     box-sizing: border-box;
     border: 7px #534741 double;
 }
+/* 搖獎的燈箱 */
 #gameGpsLotto{
     display: none;
     position: absolute;
