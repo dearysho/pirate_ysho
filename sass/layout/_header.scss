@@ -192,7 +192,6 @@ header.hide{
 
 #headerMenu.hide{ //原高256
     height: 0px; 
-    transition-duration: 0.5s;
 }
 
 #headerMe.hide{
@@ -202,9 +201,10 @@ header.hide{
 }
 @media screen and (min-width:768px){
     //平板
-    header{
-        position: relative;
-        width: auto;
+    #headerMe.hide{
+        top: 10px;
+        // z-index: -1;
+        
     }
     //調整選單為橫排
     #headerLogo{
@@ -288,6 +288,8 @@ header.hide{
     //PC
     header{
         background: transparent;
+        position: relative;
+        width: auto;
     }
     #headerMenu{
         max-width: 1800px;

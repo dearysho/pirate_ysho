@@ -9,6 +9,63 @@
     
 </head>
 <body>
+    
+    <div id="homeBanner">
+        <p class="textEmphasis">
+            如果我們的夢想可以引導你的方向，<br><strong class="textHiliR">那就去追尋吧！</strong><br>
+        </p>
+        <img id="homeBannerLogo" src="image/logo.svg" alt="大海賊帝國">
+        <div id="WrapMap">
+            <div class="homeMap">
+                <img src="image/home/map.svg" alt="大海賊帝國地圖" id="homeMapImg" >
+                <div id="wrapShipArea">
+                    <div id="shipArea">
+                        <object data="image/ship/sail1.svg" type="image/svg+xml" id="partSail"></object>
+                        <img src="image/ship/body1.svg" alt="挑選船身" id="partBody">
+                        <canvas id="combineShip">
+                            你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧
+                        </canvas>
+                        <canvas id="drawFlag">
+                            你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧(ㄏ￣▽￣)ㄏ   ㄟ(￣▽￣ㄟ)
+                        </canvas>
+                        <div id="pen"></div>
+                        <a href="javascript:;" class="btnsec" id="btnBePirate">成為海賊</a>
+                    </div>
+                </div>
+                <a class="homeMapPlace " id="homeMapGame" href="javascript:;">
+                    <img id="mapGameImg" src="image/home/mapGame.svg" alt="海賊試煉場">
+                    <img class="mapLink" src="image/home/mapGameBand.svg" lt="海賊試煉場">
+                    <p class="homeMapMsg textM">
+                        挑戰初、中、高級<strong class="textHiliR">海賊試煉</strong>，以最快的速度航向目的地！<br>
+                        <strong class="textHiliR"> 啟航尋寶</strong>讓你在一成不變的現實生活地圖中發現寶藏！<br>
+                    </p>
+                </a>
+                <a class="homeMapPlace" id="homeMapMarket" href="javascript:;">
+                    <img id="mapMarketImg" src="image/home/mapMarket.svg" alt="海上市集">
+                    <img class="mapLink" src="image/home/mapMarketBand.svg" alt="海上市集">
+                    <p class="homeMapMsg textM">
+                        尋寶獲得的寶藏，高價在<strong class="textHiliR">黑市賣出</strong>，累積自己的財富吧！<br>
+                        <strong class="textHiliR">造船廠</strong>不定期推出海賊船造型，務必來逛逛喔！
+                    </p>
+                </a>
+                <a class="homeMapPlace" id="homeMapBar" href="javascript:;">
+                    <img id="mapBarImg" src="image/home/mapBar.svg" alt="情報酒館">
+                    <img class="mapLink" src="image/home/mapBarBand.svg" alt="情報酒館">
+                    <p class="homeMapMsg textM">
+                        在酒館裡與海賊們討論最新最熱的情報八卦，也許大祕寶就在你身邊!?
+                    </p>
+                </a>
+                <a class="homeMapPlace" id="homeMapMe" href="javascript:;">
+                    <img id="mapMeImg" src="image/home/mapMe.svg" alt="我的海賊船">
+                    <img class="mapLink" src="image/home/mapMeBand.svg" lt="我的海賊船">
+                    <p class="homeMapMsg textM">
+                        管理船艙中的寶物，為海賊船換上最新造型，
+                        還能查看在帝國裡的所有經歷與紀錄。
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
     <header>
         <h1 id="headerLogo"><a href="javascript:;">
             <img src="image/logo.svg" alt="大海賊帝國">
@@ -44,7 +101,114 @@
             </ul>
         </div>
     </header>
+    <div id="homeDIY">
+        <p class="textEmphasis"></p>
+        <div id="DIYPanel">
+            <div id="DIYBodys">
+                <p></p>
+                <img src="" alt="船身1" class="DIYbody" id="DIYbody1">
+                <img src="" alt="船身2" class="DIYbody" id="DIYbody2">
+                <img src="" alt="船身3" class="DIYbody" id="DIYbody3">
+                <div class="btnTer"></div>
+            </div>
+            <div id="DIYSails">
+                <p></p>
+                <img src="" alt="船桅1" class="DIYSail" id="DIYSail1">
+                <img src="" alt="船桅2" class="DIYSail" id="DIYSail2">
+                <img src="" alt="船桅3" class="DIYSail" id="DIYSail3">
+                <div class="btnTer"></div>
+                <div class="btnTer"></div>
+            </div>
+            <div id="DYIFlag">
+                <div id="color-picker-container"></div>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <div class="btnTer"></div>
+                <div class="btnTer"></div>
+                <div class="btnTer"></div>
+            </div>
+        </div>
+    </div>
+    <div id="homeGame">
+        <h2><a href="javascript:;">海賊試煉場</a></h2>
+        <p class="textEmphasis"></p>
+        <div id="homeGamePlay" class="scaleBorder">
+            <!-- 使否先放張圖片？ -->
+            <p></p>
+        </div>
+        <div id="homeGameRank">
+            <p><a href="javascript:;"></a></p>
+            <img class="" src="" alt="懸賞單高階第一">
+            <img class="" src="" alt="懸賞單中階第一">
+            <img class="" src="" alt="懸賞單初階第一">
+        </div>
+        <p class="textEmphasis"><strong class="textHiliR"></strong></p>
+        <div id="homeGameGPS">
+
+        </div>
+        <div id="homeGameTrea">
+            <img src="" alt="藏寶箱">
+            <div class="homeGameTrea1">
+                <img src="" alt="">
+            </div>
+            <div class="homeGameTrea2">
+                <img src="" alt="">
+            </div>
+            <div class="homeGameTrea3">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="homeMarket">
+        <h2><a href="javascript:;">海上市集</a></h2>
+        <p class="textEmphasis"></p>
+        <div id="homeMarketProds">
+            <div>黑市</div>
+            <div>造船廠</div>
+            <div id="homeMarketProdInfo"></div>
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+        <p><a href="javascript:;"><img src="" alt="海上市集"></a></p>
+        <div id="homeMarketShipRank">
+            <p class="textEmphasis"></p>
+        </div>
+    </div>
+    <div id="homeBar">
+        <h2><a href="javascript:;">情報酒館</a></h2>
+        <p class="textEmphasis"></p>
+        <div id="homeBarHot"></div>
+        <p class="textEmphasis"></p>
+        <div id="homeBarNew"></div>
+        <p><a href="javascript:;"><img src="" alt="海上市集"></a></p>
+    </div>
+
+    <div id="homeEnd">
+        <p></p>
+    </div>
+
+    <footer>
+        <img src="" alt="logo">
+    </footer>
+
 
     <script src="js/header.js"></script>
+    <script src="js/wavebtn.js"></script>
 </body>
 </html>

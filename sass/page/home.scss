@@ -1,3 +1,210 @@
 @import '../base/font';
 @import '../base/reset';
 @import '../layout/header';
+
+
+.justHide{
+    display: none;
+}
+
+body{
+    background: url(../../image/background/BgPage.png);
+    background-size: 100% auto;
+}
+p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
+    line-height: 1.5;
+}
+.textEmphasis{
+    font-size: 2rem;
+    text-align: center;
+}
+#homeBanner .textEmphasis{
+    margin: 20px auto;
+}
+#homeBannerLogo{
+    width: 250px;
+    margin: 10px auto -80px auto;
+    display: block;
+    
+}
+
+#WrapMap{
+    width: 100%;
+    overflow: hidden;
+}
+.homeMap{
+    width: 1200px; //之後隨著視角，調整為固定寬度及scale translate之類的
+    position: relative;
+}
+#homeMapImg{
+    width: 100%;
+    opacity: 0.4;
+}
+
+//調整成為海賊的船，此船與客製為同一艘
+#wrapShipArea{
+    position: absolute;
+    width: 15%;
+    top: 40%;
+    left: 9%;
+}
+#shipArea{
+    // width: 10%;
+    height: 200px;
+    // background:yellow;
+    position: relative;
+}
+    //海浪，海浪的位置跟上面shipArea的height有關
+#shipArea::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background:url(../../image/ship/wave1.svg) no-repeat;
+    background-size: 100% 100%;
+    bottom: 10px;
+    left: -10px;
+    z-index: -1;
+}
+#shipArea::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background:url(../../image/ship/wave2.svg) no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    right: -10px;
+}
+
+//船身調整
+#partSail,#partBody,#drawFrame{
+    // width: 750px;
+    position: absolute;
+}
+#drawFlag,#combineShip{
+    position: absolute;
+}
+#pen{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+#btnBePirate{
+    position: absolute;
+}
+
+
+
+//調整地圖上圖片的定位
+.homeMapPlace{
+    position: absolute;
+    opacity: 0.1;
+}
+#homeMapGame{
+    top: 38%;
+    left: 25%;
+    width: 14%;
+}
+#homeMapMarket{
+    top: 32%;
+    left: 40%;
+    width: 15%;
+}
+#homeMapBar{
+    top: 42%;
+    left: 56%;
+    width: 12%;
+}
+#homeMapMe{
+    top: 52%;
+    left: 70%;
+    width: 8%;
+}
+#mapGameImg,#mapMarketImg,#mapBarImg,#mapMeImg{
+    width: 100%;
+}
+
+//調整地圖超連結緞帶的定位
+.mapLink{
+    width: 120px;
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    z-index: 1;
+}
+
+.homeMapMsg{
+    background: $beige;
+    width: 300px;
+    padding: 10px;
+    box-shadow: #a67c52 0 0 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+    z-index: 1;
+}
+.homeMapPlace:hover .homeMapMsg{
+    display: initial;
+}
+
+@media screen and (min-width:768px){
+//調整slogan的字距
+#homeBanner .textEmphasis .textHiliR{
+    letter-spacing: 50px;
+}
+//調整logo與MAP的重疊
+    #homeBannerLogo{
+    margin: 10px auto -20px auto;
+}
+//調整地圖大小及位置
+.homeMap{
+    width: 150%; //之後隨著視角，調整為固定寬度及scale translate之類的
+    transform: scale(1) translateX(-15%) translateY(0px);
+}
+//調整成為海賊的位置到中間
+#wrapShipArea{
+    // position: absolute;
+    width: 10%;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#shipArea{
+    height: 150px;
+}
+
+
+#homeMapImg{
+    // width: 100%;
+    opacity: 1;
+}
+.homeMapPlace{
+    opacity: 1;
+}
+
+}
+@media screen and (min-width:1200px){
+    //.textEmphasis設回3rem，letter-spacing: 50px;
+    .mapLink{width: 200px;}
+
+    #homeBannerLogo{
+        width: 250px;
+        margin: 10px auto -80px auto;
+        display: block;
+        
+    }
+
+}
