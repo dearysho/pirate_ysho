@@ -1,0 +1,37 @@
+@import '../base/font';
+@import '../base/reset';
+@import '../base/lightbox';
+
+input[type="text"]{
+    height: 20px;
+    border-radius:2px;
+    background:#fff;
+    border:1px  #aaa solid;
+    cursor:pointer;
+    margin: 5px;
+}
+.btnpri{
+    margin: 10px;
+}
+.lightbox{
+    width: 450px;
+    height: 320px;
+}
+.axis{
+    width: 450px;
+}
+.paper{
+    text-align: center;
+    padding: 50px 0px;
+    width: 400px;
+    height: 200px;
+}
+.paper::after{
+    right: 7%;
+    top: 15%;
+}
+
+.paper::before{
+    right: 7%;
+    top: 15%;
+}
