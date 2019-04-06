@@ -18,8 +18,11 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     font-size: 2rem;
     text-align: center;
 }
+#homeBanner{
+    height: 100vh;
+}
 #homeBanner .textEmphasis{
-    margin: 20px auto;
+    margin: 50px auto 20px auto;
 }
 #homeBannerLogo{
     width: 250px;
@@ -27,10 +30,10 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     display: block;
     
 }
-
 #WrapMap{
     width: 100%;
     overflow: hidden;
+    position: fixed;
 }
 .homeMap{
     width: 1200px; //之後隨著視角，調整為固定寬度及scale translate之類的
@@ -64,7 +67,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     background:url(../../image/ship/wave1.svg) no-repeat;
     background-size: 100% 100%;
     bottom: 10px;
-    left: -10px;
+    left: -20px;
     z-index: -1;
 }
 #shipArea::after{
@@ -75,7 +78,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     height: 50px;
     background:url(../../image/ship/wave2.svg) no-repeat;
     background-size: 100% 100%;
-    bottom: 0;
+    bottom: -12px;
     right: -10px;
 }
 
@@ -153,7 +156,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     right: 0;
     margin: auto;
     display: none;
-    z-index: 1;
+    z-index: 2;
 }
 .homeMapPlace:hover .homeMapMsg{
     display: initial;
@@ -170,14 +173,14 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 }
 //調整地圖大小及位置
 .homeMap{
-    width: 150%; //之後隨著視角，調整為固定寬度及scale translate之類的
-    transform: scale(1) translateX(-15%) translateY(0px);
+    width: 166%; //之後隨著視角，調整為固定寬度及scale translate之類的
+    transform: scale(1) translateX(-22%) translateY(0px);
 }
 //調整成為海賊的位置到中間
 #wrapShipArea{
     // position: absolute;
     width: 10%;
-    top: 60%;
+    top: 70%;
     left: 0;
     right: 0;
     margin: auto;
@@ -186,7 +189,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     height: 150px;
 }
 
-
+//調整城市圖片可見度
 #homeMapImg{
     // width: 100%;
     opacity: 1;
@@ -198,6 +201,9 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 }
 @media screen and (min-width:1200px){
     //.textEmphasis設回3rem，letter-spacing: 50px;
+    .textEmphasis{
+        font-size: 3rem;
+    }
     .mapLink{width: 200px;}
 
     #homeBannerLogo{
@@ -205,6 +211,21 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
         margin: 10px auto -80px auto;
         display: block;
         
+    }
+    //調整地圖大小及位置
+    .homeMap{
+        width: 100%; //之後隨著視角，調整為固定寬度及scale translate之類的
+        transform: scale(1) translateX(0%) translateY(0px);
+    }
+    //調整成為海賊的位置到中間
+    #wrapShipArea{
+        // width: 15%;
+        top: 40%;
+        left: 14%;
+        right: auto;
+    }
+    #shipArea{
+        height: 200px;
     }
 
 }
