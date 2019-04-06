@@ -6,7 +6,7 @@
     text-align: center;
     margin: -25px auto 0px auto;
     width: 250px;
-    background: url(../../image/headerLogoBg.svg) no-repeat;
+    background:url(../../image/headerLogoBg.svg) no-repeat;
     background-size: 100% 100%;
     transition-duration: 1s;
 }
@@ -47,7 +47,8 @@ header::before{  //上下旗桿
     display: block;
     height: 15px;
     width: 100%;
-    
+    max-width: 1880px;
+    margin: auto;
 }
 header::after{
     content: '';
@@ -57,12 +58,16 @@ header::after{
     display: block;
     height: 15px;
     width: 100%;
+    max-width: 1880px;
+    margin: auto;
 }
 header{
-    padding-top: 10px;
-    position: relative;
+    background: $beige;
+    margin-top: 10px;
+    position: fixed;
     transition-duration: 0.5s;
     // transition-delay: 0.5s;
+    width: 100%;
     top: 0;
 }
 
@@ -93,7 +98,7 @@ header{
     display: grid;
     grid-template:repeat(6,1fr)/repeat(4,1fr);
     margin: auto;
-    top: 449px;
+    top: 439px;
     left: 0;right: 0;
     width: 350px;
     transition-duration: 0.8s;
@@ -197,7 +202,10 @@ header.hide{
 }
 @media screen and (min-width:768px){
     //平板
-
+    header{
+        position: relative;
+        width: auto;
+    }
     //調整選單為橫排
     #headerLogo{
         position: absolute;
@@ -208,7 +216,7 @@ header.hide{
         height: auto;
     }
     #headerMenu a{
-        padding: 30px 0;
+        padding: 20px 0;
         width: 130px;
     }
     #headerMenu li{
@@ -229,8 +237,9 @@ header.hide{
 
     //調整選單下方角色資訊排版
     #headerMe{
-        top: 123px;
+        top: 93px;
         width: 600px;
+        height: 200px;
         grid-template: repeat(3,1fr) / repeat(5,1fr);
         z-index: -1;
     }
@@ -277,6 +286,9 @@ header.hide{
 
 @media screen and (min-width:1200px){
     //PC
+    header{
+        background: transparent;
+    }
     #headerMenu{
         max-width: 1800px;
         margin: auto;
@@ -284,7 +296,6 @@ header.hide{
     //調整選單下方角色資訊排版
     #headerMe{
         font-size: 1rem;
-        top: 123px;
         width: 1100px;
         grid-template:1fr 40px /  repeat(9,1fr);
         z-index: -1;
