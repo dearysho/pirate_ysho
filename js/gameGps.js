@@ -146,7 +146,7 @@ function gameGpsLottoRun() {
 		clearInterval(gameGpsLottoTimer);
 		//放大兩下
 		document.getElementById("gameGpsLottoUnit_"+(nowNum % 12)).classList.remove("gameGpsLottoActive");
-		document.getElementById("gameGpsLottoShow").style.borderColor= '#385478';
+		document.getElementById("gameGpsLottoShow").style.borderColor= '#006ca6';//$blue
 		document.getElementById("gameGpsLottoShow").style.animation = "gameGpsLottoActiveScale 1.5s 1 both";
 		gameGpsLottoShow();
 	}
