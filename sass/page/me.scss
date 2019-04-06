@@ -93,7 +93,7 @@ body {
 
 
 //寶物造型頁籤
-.tabs {
+ul.tabs {
     width: 390px;
     height: 80px;
     margin: 0;
@@ -102,12 +102,12 @@ body {
     overflow: hidden;
 }
 
-.tabs li {
+ul.tabs li {
     float: left;
     width: 130px;
 }
 
-.tabs li a {
+ul.tabs li a {
     position: relative;
     display: block;
     height: 30px;
@@ -118,24 +118,30 @@ body {
     color: #000;
     background-color: #bcb19e;
     border-radius: 8px 8px 0 0;
+    transition: padding 0.2s ease,margin 0.2s ease;
 }
 
-.tabs li:first-child a{
+.tabs li:first-child a {
     z-index: 3;
+    border-radius: 8px 8px 0 0;
 }
-.tabs li:nth-child(2) a{
+
+.tabs li:nth-child(2) a {
     z-index: 2;
 }
-.tabs li:last-child a{
+
+.tabs li:last-child a {
     z-index: 1;
     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, .3);
+    border-radius: 8px 8px 0 0;
 }
 
-ul.tabs li a:hover{
+ul.tabs li a:hover {
     margin: 35px 0 0 0;
     padding: 10px 0 5px 0;
 }
-ul.tabs li a.active{
+
+ul.tabs li a.active {
     margin: 30px 0 0 0;
     padding: 10px 0 10px 0;
     background-color: #f5ecdd;
@@ -143,6 +149,17 @@ ul.tabs li a.active{
     z-index: 4;
     outline: none;
 }
+
+.group::before,
+.group::after {
+    content: "";
+    display: table;
+}
+
+.group::after {
+    clear: both;
+}
+
 #content {
     width: 100%;
     height: 150px;
