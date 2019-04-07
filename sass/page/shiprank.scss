@@ -5,6 +5,15 @@
 .sRWrap {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
+    font-family: $fofaText;
+}
+
+h1, h2, h3, h4 {
+    text-shadow: .1px .1px 0px #000;
+}
+
+span {
+    color: #534c4c;
 }
 
 .sRCont {
@@ -167,18 +176,19 @@
 }
 
 
+
 @media screen and (max-width: 1200px){
 
     .sRDisplay .mainShipRing {
-        margin-top: 5%;
+        margin-top: 9%;
     }
 
     .sRDisplay .mainShipBody {
-        margin-top: 13%;
+        margin-top: 17%;
     }
 
     .sRDisplay .mainShipSail {
-        margin-top: 21%;
+        margin-top: 25%;
     }
 }
 
@@ -201,5 +211,14 @@
 
     .sRDisplay .mainShipSail {
         margin-top: 26%;
+    }
+    .sRDisplay .sRTLeaderBoard .sRTleaderList {
+        flex-wrap: wrap;
+        li {
+            width: 12%;
+        }
+        li:nth-of-type(n+8){
+            display: none;
+        }
     }
 }

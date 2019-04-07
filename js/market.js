@@ -31,15 +31,15 @@ function repositionFrame(n) {
     if (n == 1) {
         frameMove[0].style.transform = "translateX(0px)";
 
-        BoardMove[0].style.top = "420px";
+        BoardMove[0].style.top = "22vw";
         BoardMove[0].style.left = "7%";
         BoardMove[0].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg)";
 
-        BoardMove[1].style.top = "250px";
+        BoardMove[1].style.top = "13vw";
         BoardMove[1].style.left = "30%";
         BoardMove[1].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.5)";
 
-        BoardMove[2].style.top = "150px";
+        BoardMove[2].style.top = "7.9vw";
         BoardMove[2].style.left = "50%";
         BoardMove[2].style.opacity = "0";
         BoardMove[2].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.3)";
@@ -48,20 +48,20 @@ function repositionFrame(n) {
     } else {
         frameMove[0].style.transform = "translateX(100px)";
 
-        BoardMove[0].style.top = "580px";
+        BoardMove[0].style.top = "30vw";
         BoardMove[0].style.left = "-14%";
         BoardMove[0].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg)";
 
-        BoardMove[1].style.top = "420px";
+        BoardMove[1].style.top = "22vw";
         BoardMove[1].style.left = "7%";
         BoardMove[1].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg)";
 
-        BoardMove[2].style.top = "250px";
+        BoardMove[2].style.top = "13vw";
         BoardMove[2].style.left = "30%";
         BoardMove[2].style.opacity = "1";
         BoardMove[2].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.5)";
 
-        mbgiMove[0].style.transform = "translate(-250px, 100px) scale(1.2) ";
+        mbgiMove[0].style.transform = "translate(-13.137%, 5.25vw) scale(1.2) ";
     }
 }
 
@@ -84,7 +84,14 @@ function showType(n) {
     for (j = 0; j < b.length; j++) {
         b[j].className = b[j].className.replace(" current_hot", "");
     }
-    a[switchType - 1].style.display = "block";
+
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    if (w > 1500) {
+        a[switchType - 1].style.display = "block";
+    }else{
+        a[switchType - 1].style.display = "flex";
+    }
     a[switchType - 1].style.animation = "fadeIn .6s";
     b[switchType - 1].className += " current_hot";
 }
