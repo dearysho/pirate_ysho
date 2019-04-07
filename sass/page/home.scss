@@ -2,14 +2,16 @@
 @import '../base/reset';
 @import '../layout/header';
 
-
+.clearfix{
+    clear: both;
+}
 .justHide{
     display: none;
 }
 
 body{
     background: url(../../image/background/BgPage.png);
-    background-size: 100% auto;
+    // background-size: 100% auto;
 }
 p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     line-height: 1.5;
@@ -33,7 +35,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 #WrapMap{
     width: 100%;
     overflow: hidden;
-    position: fixed;
+    // position: fixed;
+    z-index: -1;
 }
 .homeMap{
     width: 1200px; //之後隨著視角，調整為固定寬度及scale translate之類的
@@ -44,65 +47,24 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     opacity: 0.4;
 }
 
-//調整成為海賊的船，此船與客製為同一艘
+//調整成為海賊的船
 #wrapShipArea{
     position: absolute;
     width: 15%;
     top: 40%;
     left: 9%;
+    text-align: center;
 }
-#shipArea{
-    // width: 10%;
-    height: 200px;
-    // background:yellow;
-    position: relative;
-}
-    //海浪，海浪的位置跟上面shipArea的height有關
-#shipArea::before{
-    content: '';
-    display: block;
+#wrapShipArea img{
+    width: 100%;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background:url(../../image/ship/wave1.svg) no-repeat;
-    background-size: 100% 100%;
-    bottom: 10px;
-    left: -20px;
-    z-index: -1;
-}
-#shipArea::after{
-    content: '';
-    display: block;
-    position: absolute;
-    width: 150px;
-    height: 50px;
-    background:url(../../image/ship/wave2.svg) no-repeat;
-    background-size: 100% 100%;
-    bottom: -12px;
-    right: -10px;
 }
 
-//船身調整
-#partSail,#partBody,#drawFrame{
-    // width: 750px;
-    position: absolute;
-}
-#drawFlag,#combineShip{
-    position: absolute;
-}
-#pen{
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
 #btnBePirate{
-    position: absolute;
+    // position: absolute;
+    margin: 150px 0 0 40px;
 }
+
 
 
 
@@ -228,4 +190,379 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
         height: 200px;
     }
 
+}
+
+//===================接下來為第二屏客製
+
+#homeDIY{
+    // height: 100vh;
+    text-align: center;
+}
+#DIYPanel{
+    border: #a67c52 5px double;
+    padding: 10px;
+    margin:10px;
+    transition-duration: 0.5s;
+}
+//客製狀態列的點點
+#DIYStatus svg{
+    width: 15px;
+}
+.st0{fill:none;stroke:#736357;stroke-miterlimit:10;}
+.st1{fill:#736357;stroke:#736357;stroke-miterlimit:10;}
+//客製狀態列的箭頭，及位置調整
+#DIYStatus li:nth-child(n+2)::before{
+    content:'';
+    background: url(../../image/home/arrow.svg) no-repeat;
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 30px;
+    left: -40px;
+}
+#DIYStatus li{
+    position: relative;
+    text-align: center;
+    float: left;
+    width: 40px;
+}
+#DIYStatus li:nth-child(n+2){
+    margin: 0 10px 20px 45px;
+}
+
+//船的部位圖片
+#DIYPanel img{
+    width: 90px;
+    background: $beige;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+//船
+#shipArea{
+    position: relative;
+    height: 280px;
+}
+#partSail,#partBody,#drawFrame{
+    width: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#drawFlag,#combineShip{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: scale(0.4) translateX(-62%) translateY(-75%);
+}
+#pen{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+    //海浪，海浪的位置跟上面shipArea的height有關
+#wrapShipArea::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background:url(../../image/ship/wave1.svg) no-repeat;
+    background-size: 100% 100%;
+    bottom: 10px;
+    left: -20px;
+    z-index: -1;
+}
+#wrapShipArea::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background:url(../../image/ship/wave2.svg) no-repeat;
+    background-size: 100% 100%;
+    bottom: -12px;
+    right: 0px;
+    z-index: -1;
+}
+
+
+//畫畫區的按鈕
+#penColor{
+    border: none;
+    width: 40px;
+    height: 40px;
+    border: #a67c52 2px solid;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background: $blue;
+    border: $beige 3px solid;
+}
+.penWidth{
+    background: $brown;
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    cursor: pointer;
+}
+.penWidth:nth-child(3){
+    height: 5px;
+    outline: $beige 3px solid;
+}
+.penWidth:nth-child(4){
+    height: 10px;
+}
+.penWidth:nth-child(5){
+    height: 15px;
+}
+.penWidth:nth-child(6){
+    height: 20px;
+}
+.fas{
+    color: $brown;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 100px;
+}
+#eraser{
+    border: 2px solid $brown;
+}
+#cleanDraw{
+    border: 2px solid $brown;
+}
+#color-picker-container{
+    width: 250px;
+    margin: auto;
+}
+.btnsec,.btnpri{
+    border: none;
+    margin: 5px;
+}
+.btnsec:focus,.btnpri:focus{
+    outline: none;
+}
+@media screen and (min-width:768px){
+
+//客製狀態列的箭頭，及位置調整
+#DIYStatus li:nth-child(n+2)::before{
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#DIYStatus li{
+    width: auto;
+}
+#DIYStatus li:first-child{
+    margin-left: 130px;
+}
+#DIYStatus li:nth-child(n+2){
+    margin: 0 10px 20px 45px;
+}
+#drawFlag,#combineShip{
+    transform: scale(0.4) translateX(0%) translateY(-75%);
+}
+}
+
+@media screen and (min-width:1200px){
+    #homeDIY .textEmphasis{
+        margin-top: 150px;
+    }
+    #DIYStatus li:first-child{
+        margin-left: auto;
+    }
+    #homeDIY{
+        width: 1200px;
+        margin: auto;
+    }
+    #shipArea{
+        float: left;
+    }
+    #DIYPanel{
+        float: right;
+        margin-top: 100px;
+    }
+    #shipArea{
+        position: relative;
+        height: 700px;
+    }
+    #partSail,#partBody,#drawFrame{
+        width: 750px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    #drawFlag,#combineShip{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    transform: unset;
+    }
+    #homeDIY::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+
+}
+
+
+//電流急急棒
+h2{
+    text-align: center;
+    line-height: 1.5;
+    font-size: 2rem;
+}
+h2 a{
+    font-family: 王漢宗特明體繁;
+}
+
+#homeGame .smaller{
+    font-size: 1.25rem;
+}
+
+#homeGamePlay{
+    // height: 200px;
+    width: calc(100% - 30px);
+    background: rgba(173, 207, 193,0.5);
+    border: #a67c52 5px double;
+    margin: 10px;
+
+}
+#homeGameMsg{
+    width: 250px;
+    margin: auto;
+    padding: 10px;
+    background: $beige;
+}
+
+//懸賞排行
+.homeWanteds{
+    position: relative;
+    height: 400px;
+}
+.wrapWanted{
+    width: 170px;
+    position: absolute;
+}
+.wrapWanted:nth-child(1){
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.wrapWanted:nth-child(2){
+    left: 10px;
+    top: 160px;
+    z-index: -1;
+}
+.wrapWanted:nth-child(3){
+    right: 10px;
+    top: 180px;
+    z-index: -1;
+}
+#homeGameRank>p{
+    margin-left: 20px;
+}
+#homeGameRank .textEmphasis{
+    text-align: left;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+#homeGameRank .textS a{
+    color:$blue;
+    font-size: 1.25rem;
+    font-family: Adobe Heiti Std R;
+}
+.wanted{
+    width: 170px;
+    position: relative;
+    border: #fff14e 3px solid;
+    box-shadow: rgba(166, 124, 82,0.5) 0 0 5px;
+}
+.wantedPaper{
+    width: 100%;
+    vertical-align: middle;
+}
+.wanted p{
+    position: absolute;
+    font-family: 王漢宗特明體繁;
+    text-align: center;
+    line-height: 0.5;
+}
+.wantedShip{
+    width: 75%;
+    position: absolute;
+    top: 10%;
+    left: 0;right: 0;margin: auto;
+}
+.wantName{
+    top: 77%;
+    left: 0;right: 0;margin: auto;
+    font-size: 1.5rem;
+}
+.wantScore{
+    top: 90%;
+    left: 0;right: 0;margin: auto;
+    font-size: 1rem;
+}
+
+@media screen and (min-width:768px){
+
+    .wrapWanted:nth-child(2){
+        left: 25%;
+    }
+    .wrapWanted:nth-child(3){
+        left: 55%;
+        right: auto;
+    }
+
+}
+@media screen and (min-width:1200px){
+    h2{
+        font-size: 3rem
+    }
+
+    #homeGameRank>p{
+        text-align: right;
+        width: 70%;
+        float: left;
+    }
+    .homeWanteds{
+        position: relative;
+        height: 400px;
+        width:calc(30% - 20px);
+        float: left;
+        margin-top: -100px;
+    }
+    .wrapWanted:nth-child(2){
+        top: 100px;
+        left: 9%;
+    }
+    .wrapWanted:nth-child(3){
+        top: 130px;
+        left: 55%;
+        right: auto;
+    }
 }

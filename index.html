@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/home.css">
-    
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="stylesheet" href="css/wavebtn.css">
 </head>
 <body>
     
@@ -19,18 +20,9 @@
             <div class="homeMap">
                 <img src="image/home/map.svg" alt="大海賊帝國地圖" id="homeMapImg" >
                 <div id="wrapShipArea">
-                    <div id="shipArea">
-                        <object data="image/ship/sail1.svg" type="image/svg+xml" id="partSail"></object>
-                        <img src="image/ship/body1.svg" alt="挑選船身" id="partBody">
-                        <canvas id="combineShip">
-                            你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧
-                        </canvas>
-                        <canvas id="drawFlag">
-                            你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧(ㄏ￣▽￣)ㄏ   ㄟ(￣▽￣ㄟ)
-                        </canvas>
-                        <div id="pen"></div>
-                        <a href="javascript:;" class="btnsec" id="btnBePirate">成為海賊</a>
-                    </div>
+                    <img src="image/ship/sail1.svg" alt="成為海賊">
+                    <img src="image/ship/body1.svg" alt="成為海賊">
+                    <a href="javascript:;" class="btnsec" id="btnBePirate">成為海賊</a>
                 </div>
                 <a class="homeMapPlace " id="homeMapGame" href="javascript:;">
                     <img id="mapGameImg" src="image/home/mapGame.svg" alt="海賊試煉場">
@@ -102,69 +94,161 @@
         </div>
     </header>
     <div id="homeDIY">
-        <p class="textEmphasis"></p>
+        <p class="textEmphasis">四個步驟打造<strong class="textHiliR">專屬海賊船</strong></p>
+        <div id="shipArea">
+            <object data="image/ship/sail1.svg" type="image/svg+xml" id="partSail"></object>
+            <img src="image/ship/body1.svg" alt="挑選船身" id="partBody">
+            <canvas id="combineShip">
+                你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧
+            </canvas>
+            <canvas id="drawFlag">
+                你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我你看不到我....好吧，請你<strong>下載並使用<a href="https://www.google.com/intl/zh-TW_ALL/chrome/">google chrome</a></strong>開啟這個網頁吧(ㄏ￣▽￣)ㄏ   ㄟ(￣▽￣ㄟ)
+            </canvas>
+            <div id="pen"></div>
+        </div>
         <div id="DIYPanel">
-            <div id="DIYBodys">
-                <p></p>
-                <img src="" alt="船身1" class="DIYbody" id="DIYbody1">
-                <img src="" alt="船身2" class="DIYbody" id="DIYbody2">
-                <img src="" alt="船身3" class="DIYbody" id="DIYbody3">
-                <div class="btnTer"></div>
+            <ol id="DIYStatus">
+                <li class="textS">
+                        <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 17.8 17.9" style="enable-background:new 0 0 17.8 17.9;" xml:space="preserve">
+                   <g>
+                       <polygon class="st0" points="9.4,9.4 9.4,16.4 16.4,9.4 	"/>
+                       <polygon class="st0" points="8.4,8.4 8.4,1.4 1.4,8.4 	"/>
+                       <polygon class="st1" points="8.4,9.4 1.4,9.4 8.4,16.4 	"/>
+                       <polygon class="st1" points="9.4,8.4 16.4,8.4 9.4,1.4 	"/>
+                   </g>
+                   </svg> <br>
+                    挑選船身</li>
+                <li class="textS">
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.8 17.9" style="enable-background:new 0 0 17.8 17.9;" xml:space="preserve">
+                        <g>
+                            <polygon class="st0" points="9.4,9.4 9.4,16.4 16.4,9.4 	"/>
+                            <polygon class="st0" points="8.4,8.4 8.4,1.4 1.4,8.4 	"/>
+                            <polygon class="st1" points="8.4,9.4 1.4,9.4 8.4,16.4 	"/>
+                            <polygon class="st1" points="9.4,8.4 16.4,8.4 9.4,1.4 	"/>
+                        </g>
+                   </svg> <br>
+                    挑選船帆
+                </li>
+                <li class="textS">
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.8 17.9" style="enable-background:new 0 0 17.8 17.9;" xml:space="preserve">
+                        <g>
+                            <polygon class="st0" points="9.4,9.4 9.4,16.4 16.4,9.4 	"/>
+                            <polygon class="st0" points="8.4,8.4 8.4,1.4 1.4,8.4 	"/>
+                            <polygon class="st1" points="8.4,9.4 1.4,9.4 8.4,16.4 	"/>
+                            <polygon class="st1" points="9.4,8.4 16.4,8.4 9.4,1.4 	"/>
+                        </g>
+                   </svg> <br>
+                    繪製海賊旗
+                </li>
+                <li class="textS">
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.8 17.9" style="enable-background:new 0 0 17.8 17.9;" xml:space="preserve">
+                        <g>
+                            <polygon class="st0" points="9.4,9.4 9.4,16.4 16.4,9.4 	"/>
+                            <polygon class="st0" points="8.4,8.4 8.4,1.4 1.4,8.4 	"/>
+                            <polygon class="st1" points="8.4,9.4 1.4,9.4 8.4,16.4 	"/>
+                            <polygon class="st1" points="9.4,8.4 16.4,8.4 9.4,1.4 	"/>
+                        </g>
+                   </svg> <br>
+                    預覽海賊船
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+            <div id="DIYBodys" >
+                <p class="textS">請由下方船身造型，選擇屬於你的風格</p>
+                <img src="image/ship/body1.svg" alt="船身1" class="DIYbody" id="DIYbody1">
+                <img src="image/ship/body2.svg" alt="船身2" class="DIYbody" id="DIYbody2">
+                <img src="image/ship/body3.svg" alt="船身3" class="DIYbody" id="DIYbody3"><br>
+                <button class="btnsec DIYNext">下一步</button>
             </div>
-            <div id="DIYSails">
-                <p></p>
-                <img src="" alt="船桅1" class="DIYSail" id="DIYSail1">
-                <img src="" alt="船桅2" class="DIYSail" id="DIYSail2">
-                <img src="" alt="船桅3" class="DIYSail" id="DIYSail3">
-                <div class="btnTer"></div>
-                <div class="btnTer"></div>
+            <div id="DIYSails" class="justHide">
+                <p class="textS">請由下方船帆造型，選擇屬於你的風格，<br>
+                    紅色虛線區域為海賊旗繪製區</p>
+                <img src="image/ship/sail1.svg" alt="船桅1" class="DIYSail" id="DIYSail1">
+                <img src="image/ship/sail2.svg" alt="船桅2" class="DIYSail" id="DIYSail2">
+                <img src="image/ship/sail3.svg" alt="船桅3" class="DIYSail" id="DIYSail3"><br>
+                <button class="btnsec DIYPrev">上一步</button>
+                <button class="btnsec DIYNext">下一步</button>
             </div>
-            <div id="DYIFlag">
-                <div id="color-picker-container"></div>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <div class="btnTer"></div>
-                <div class="btnTer"></div>
-                <div class="btnTer"></div>
+            <div id="DYIFlag" class="justHide">
+                <p class="textS">請直接在船帆作畫，<br>
+                    下方工具列可調整畫筆及顏色</p>
+                <span id="penColor"></span>
+                <span class="penWidth" LW="5"></span>
+                <span class="penWidth" LW="10"></span>
+                <span class="penWidth" LW="15"></span>
+                <span class="penWidth" LW="20"></span>
+                <i class='fas fa-eraser' id="eraser"></i>
+                <i class='fas fa-trash-alt' id="cleanDraw"></i>
+                <div id="color-picker-container"></div><br>
+                <button class="btnsec DIYPrev" >上一步</button><br>
+                <button class="btnpri" id="finishDIY" >完成製作</button>
             </div>
         </div>
     </div>
     <div id="homeGame">
-        <h2><a href="javascript:;">海賊試煉場</a></h2>
-        <p class="textEmphasis"></p>
+        <h2><a href="javascript:;" class="textHiliB">海賊試煉場</a></h2>
+        <p class="textEmphasis">駕駛海賊船，挑戰<strong class="textHiliR">海賊試煉遊戲</strong><br>
+            <span class="smaller"> 海流急急棒</span>
+        </p>
         <div id="homeGamePlay" class="scaleBorder">
             <!-- 使否先放張圖片？ -->
-            <p></p>
+            <p class="textM" id="homeGameMsg">
+                航行指南：<br>
+                按下<span class="textHiliB">START!</span> 、移動滑鼠避開礁石、航向目標吧！<br>
+                <br>
+                ※為您推薦<span class="textHiliR">初階試煉</span>，通關即可獲得<span class="textHiliR">金幣10G</span>！
+            </p>    
         </div>
         <div id="homeGameRank">
-            <p><a href="javascript:;"></a></p>
-            <img class="" src="" alt="懸賞單高階第一">
-            <img class="" src="" alt="懸賞單中階第一">
-            <img class="" src="" alt="懸賞單初階第一">
-        </div>
+            <p >
+                <span class="textEmphasis">遊戲高分榜：<strong class="textHiliR">懸賞排行</strong>等你挑戰！</span><br>
+                <span class="textS">
+                    還沒有海賊船嗎?立即
+                    <a href="javascript:;">成為海賊</a>
+                </span>
+            </p>
+            <div class="homeWanteds">
+                <div class="wrapWanted">
+                    <div class="wanted">
+                        <img class="wantedPaper" src="image/home/wanted.svg" alt="懸賞單低階第一">
+                        <p class="wantName">我是大帥哥</p>
+                        <p class="wantScore">高階試煉34.38秒</p>
+                        <img class="wantedShip" src="image/ship/ship.png" alt="我是大帥哥的海賊船">
+                    </div>
+                </div>
+                <div class="wrapWanted">
+                    <div class="wanted">
+                        <img class="wantedPaper" src="image/home/wanted.svg" alt="懸賞單中階第一">
+                        <p class="wantName">我是大帥哥</p>
+                        <p class="wantScore">中階試煉34.38秒</p>
+                        <img class="wantedShip" src="image/ship/ship.png" alt="我是大帥哥的海賊船">
+                    </div>
+                </div>
+                <div class="wrapWanted">
+                    <div class="wanted">
+                        <img class="wantedPaper" src="image/home/wanted.svg" alt="懸賞單高階第一">
+                        <p class="wantName">我是大帥哥</p>
+                        <p class="wantScore">初階試煉34.38秒</p>
+                        <img class="wantedShip" src="image/ship/ship.png" alt="我是大帥哥的海賊船">
+                    </div>
+                </div>
+            </div>
         <p class="textEmphasis"><strong class="textHiliR"></strong></p>
-        <div id="homeGameGPS">
+    </div>
+    <div id="homeGameGPS">
 
+    </div>
+    <div id="homeGameTrea">
+        <img src="" alt="藏寶箱">
+        <div class="homeGameTrea1">
+            <img src="" alt="">
         </div>
-        <div id="homeGameTrea">
-            <img src="" alt="藏寶箱">
-            <div class="homeGameTrea1">
-                <img src="" alt="">
-            </div>
-            <div class="homeGameTrea2">
-                <img src="" alt="">
-            </div>
-            <div class="homeGameTrea3">
-                <img src="" alt="">
-            </div>
+        <div class="homeGameTrea2">
+            <img src="" alt="">
+        </div>
+        <div class="homeGameTrea3">
+            <img src="" alt="">
         </div>
     </div>
     <div id="homeMarket">
@@ -208,7 +292,11 @@
     </footer>
 
 
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/header.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/wavebtn.js"></script>
+    <script src="node_modules/@jaames/iro/dist/iro.min.js"></script>
+    <script src="js/shipDIY.js"></script>
 </body>
 </html>
