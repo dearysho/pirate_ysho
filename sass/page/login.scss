@@ -1,0 +1,69 @@
+@import '../base/font';
+@import '../base/reset';
+@import '../base/lightbox';
+
+
+input[type="text"]{
+    height: 20px;
+    border-radius:2px;
+    background:#fff;
+    border:1px  #aaa solid;
+    cursor:pointer;
+    margin: 5px;
+}
+.btnpri{
+    margin: 10px;
+}
+.lightbox{
+    width: 450px;
+    height: 320px;
+}
+.axis{
+    width: 450px;
+}
+.paper{
+    text-align: center;
+    padding: 50px 0px;
+    width: 400px;
+    height: 200px;
+}
+.paper::after{
+    right: 7%;
+    top: 15%;
+}
+
+.paper::before{
+    right: 7%;
+    top: 15%;
+}
+
+#tab-demo ul > li{
+    display: inline;
+}
+
+.titlePri{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.Data-Title {
+    float: left;
+    width: 25%; /* Label寬度，視情況調整 */
+    margin-right:0px;
+    margin-left: 60px;
+    text-align: right;
+    line-height: 2.2;
+   
+}
+
+.Data-Items {
+    float: left;
+    width: 20%;
+    padding-bottom: 10px;
+    margin-left:0;
+    
+}
+
+.Data-Title > label{
+    margin: 10px;
+}
