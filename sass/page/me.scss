@@ -7,9 +7,9 @@
 //媒體查詢
 @import'sass/base/media';
 
-* {
-    outline: 1px solid black;
-}
+// * {
+//     outline: 1px solid black;
+// }
 
 
 
@@ -78,17 +78,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
+    li {
+        margin: 10px 0;
+        padding: 0px 20px;
+        font-family: "王漢宗特明體繁";
+    }
 }
-
-.field li {
-    margin: 10px 0;
-    padding: 0px 20px;
-    font-family: "王漢宗特明體繁";
-}
-
-
-
 
 // 寶物/造型頁籤
 .tabs {
@@ -131,6 +126,7 @@ body {
     padding: 10px;
     background: #f5ecdd;
     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
+    overflow: scroll;
 }
 
 .tab>input[type=radio]:checked+label {
@@ -147,20 +143,18 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.content ul li {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    margin: 5px;
-    border-radius: 20%;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.content ul li img {
-    width: 100%;
+    li {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        margin: 5px;
+        border-radius: 20%;
+        overflow: hidden;
+        box-sizing: border-box;
+        img {
+            width: 100%;
+        }
+    }
 }
 
 //紀錄頁籤
@@ -169,7 +163,8 @@ body {
     width: 100%;
     // height: 280px;
     margin: auto;
-    padding-bottom: 280px;
+    padding-bottom: 350px;
+    overflow: scroll;
 }
 
 .tabb {
@@ -204,6 +199,7 @@ body {
     padding: 10px;
     background: #f5ecdd;
     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
+    overflow: scroll;
 }
 
 .tabb>input[type=radio]:checked+label {
@@ -221,14 +217,14 @@ body {
 .accordion {
     position: relative;
     width: 100%;
+    input {
+        display: none;
+        opacity: 0;
+        position: absolute;
+        z-index: -50;
+    }
 }
 
-.accordion input {
-    display: none;
-    opacity: 0;
-    position: absolute;
-    z-index: -50;
-}
 
 .accordion .sub-content {
     overflow: hidden;
@@ -238,20 +234,13 @@ body {
 }
 
 .accordion input:checked~.sub-content {
-    height: 100px;
-    border-bottom: 1px solid black;
+    height: 120px;
+    // border-bottom: 1px solid black;
 }
 
 .accordion>label {
     height: 50px;
 }
-
-// label>h3 {
-//     padding-left: 15px;
-//     margin: 10px 0;
-//     cursor: pointer;
-//     display: inline-block;
-// }
 
 form {
     border: 1px solid black;
@@ -277,55 +266,59 @@ label {
     margin: auto;
 }
 
-
 .record {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #000;
-
+    // border-bottom: 1px solid #000;
+    outline: 1px solid #000;
+    li {
+        width: 150px;
+        margin: 0 5px;
+        line-height: 50px;
+        text-align: center;
+        img {
+            width: 100%;
+        }
+    }
+    li:nth-child(1) {
+        width: 30px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 20%;
+        overflow: hidden;
+        font-size: 0;
+        margin: auto;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
 }
 
-.record li {
-    width: 180px;
 
-}
-.record li img{
-    width: 20%;
-
-}
-
-.sub-content ul{
+.sub-content ul {
     display: flex;
     flex-direction: row;
-
+    li {
+        width: 200px;
+        margin: 0 5px;
+        line-height: 80px;
+        // text-align: center;
+        img {
+            width: 100%;
+        }
+    }
+    li:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        border-radius: 20%;
+        overflow: hidden;
+        font-size: 0;
+        margin: 5px;
+        line-height: 80px;
+        // margin-right: 5px;
+        // margin-left: 5px;
+    }
 }
-
-.sub-content ul li img{
-    width: 50%;
-
-}
-
-// .content ul {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-// }
-
-// .content ul li {
-//     width: 100px;
-//     height: 100px;
-//     border: 2px solid black;
-//     margin: 5px;
-//     border-radius: 20%;
-//     overflow: hidden;
-//     box-sizing: border-box;
-// }
-
-// .content ul li img {
-//     width: 100%;
-// }
-
-
 
 //----------------------------------------------------------------
 @media screen and(min-width: 768px) {
@@ -371,7 +364,7 @@ label {
 
 @media screen and(min-width: 1200px) {
     .meShip img {
-        transform: translateX(-100px);
+        transform: translateX(-50px);
     }
 
 }
