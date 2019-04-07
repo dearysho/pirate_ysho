@@ -1,0 +1,41 @@
+// css-reset
+@import'sass/base/reset';
+
+//文字大小字型設定
+@import'sass/base/font';
+
+//
+@import'sass/base/lightbox';
+
+// * {
+//     outline: 1px solid black;
+// }
+
+.lightbox {
+    margin: 20px;
+}
+
+.paper {
+    div {
+        width: 300px;
+        margin: 30px auto;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h2 {
+        margin: 10px 0;
+    }
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    span {
+        margin-right: 10px;
+    }
+}
