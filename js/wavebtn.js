@@ -9,7 +9,7 @@ function createbtn(btntype){
         var wavebox = document.createDocumentFragment();
 
         var width = window.getComputedStyle(btntype[j]).width;
-
+        
         var waveCount = (parseInt(width)+40)/parseInt(waveWidth)+1;
 
         for (var i = 0; i < waveCount; i++) {

@@ -5,6 +5,15 @@
 .marWrap {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
+    font-family: $fofaText;
+}
+
+h1, h2, h3, h4 {
+    text-shadow: .1px .1px 1px #000;
+}
+
+span {
+    color: #534c4c;
 }
 
 .marBanner{
@@ -96,14 +105,14 @@
 
     .currentMar h2 {
         transform: scale(1.2);
-        font-weight: bold;
+        // font-weight: bold;
     }
 }
 
 .marMain {
     width: 80%;
     margin: auto;
-
+    position: relative;
     .marBorDec {
         position: absolute;
         bottom: -8px;
@@ -112,7 +121,7 @@
 }
 
 .shipYard {
-
+    position: relative;
     .marTagBox{
         position: relative;
         a{
@@ -127,8 +136,8 @@
 
     .marCont {
         position: relative;
-        height: 600px;
-        margin-bottom: 100px;
+        padding-bottom: 40px;
+        top: 0;
         h2{
             margin: 30px 0 30px 3%;
         }
@@ -144,12 +153,14 @@
         margin: 30px 0 0 1%;
         position: relative;
         width: 25%;
+        float: left;
         .sYPro {
             width: 100%;
-            height: 100px;
             display: block;
+            position: relative;
             img {
                 position: absolute;
+                z-index: 2;
                 width: 30%;
             }
             .sYProInfo {
@@ -160,13 +171,135 @@
                     padding: 10px 0;
                 }
 
+                span {
+                    padding: 2em;
+                }
+            }
             .purchaseBox {
                 width: 100%;
+                background-color: rgb(218, 179, 121);
+                position: relative;
+                bottom: 0;
+                display: flex;
+                justify-content: flex-end;
+                border-radius: 4px;
+                z-index: 1;
+                margin-top: 15px;
+                overflow: hidden;
+
+                .priceT{
+                    line-height: 36px;
+                    margin-right: 1em;
+                    transform: translateX(6.7rem);
+                    transition: .6s;
+                }
+                
+                .proPrice{
+                    line-height: 36px;
+                    margin-right: 1em;
+                    transform: translateX(6.5rem);
+                    transition: .6s;
+                }
+
+                .checkPro {
+                    position: absolute;
+                    right: 2em;
+                    line-height: 36px;
+                    transition: .6s;
+                }
+                .addCart {
+
+                    img {
+                        position: relative;
+                        width: 2rem;
+                        top: .2em;
+                        margin-right: .2em;
+                    }
+                    span {
+                        position: relative;
+                        bottom: .5em; 
+                        margin-right: 1em;
+                    }
+                    transform: translateY(38px);
+                    transition: .6s;
+                }
+                .buy {
+                    margin-right: 1em;
+                    transform: translateY(38px);
+                    transition: .6s;
+                }
             }
-            }
+            
+        }
+        .purchaseBox:hover .addCart, .purchaseBox:hover .buy {
+            transform: translateY(0px);
+        }
+
+        .purchaseBox:hover .proPrice {
+            transform: translateX(0px);
+        }
+
+        .purchaseBox:hover .priceT {
+            transform: translateX(0px);
+            opacity: 0;
+        }
+
+        .purchaseBox:hover .checkPro {
+            opacity: 0;
         }
     }
-    
+
+
+    .sRShipDisplay {
+        width: 70%;
+        margin: 0 2%;
+        float: left;
+        position: relative;
+        .triRingBgi {
+            width: 70%;
+            position: absolute;
+            margin: 180px 0 0 14%;
+        }
+        h3 {
+            margin: 45px 0 0 0%;
+        }
+        .sRshipParts {
+            display: block;
+            position: absolute;
+            width: 16%;
+            img {
+                width: 50%;
+                transition: .6s;
+            }
+            h4 {
+                display: inline-block;
+                margin: 0;
+
+            }
+        }
+        
+        .sRshipParts:hover img{
+            transform: scale(1.1);
+        }
+
+        .sRSH {
+            margin: 195px 0 0 15.5%;
+        }
+
+        .sRSB {
+            margin: 532px 0 0 45%;
+        }
+
+        .sRSS {
+            margin: 310px 0 0 75%;
+            
+        }
+
+        .CusShip {
+            width: 40%;
+            margin-left: 30%;
+        }
+    }
 }
 
 @-webkit-keyframes fadeIn {

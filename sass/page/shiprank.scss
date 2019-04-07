@@ -74,10 +74,10 @@
     }
 
     .sRDBox:nth-of-type(2) {
-        width: 36%;
-        margin: -110px 0 0 0;
+        width: 30%;
+        margin: 0px 0 0 0;
         height: 0;
-        padding-top: 45%;
+        padding-top: 40%;
         animation: upNDowns 3s ease-in-out infinite;
         overflow: hidden;
     }
@@ -124,6 +124,8 @@
         img:last-of-type{
             position: absolute;
             transition: .3s;
+            width: 40%;
+            margin: 10px 0 0 5%;
         }
         h4 {
             margin: 30% 0 0 56%;
@@ -190,14 +192,14 @@
     }
 
     .sRDisplay .mainShipRing {
-        margin-top: 14%;
+        margin-top: 10%;
     }
 
     .sRDisplay .mainShipBody {
-        margin-top: 22%;
+        margin-top: 18%;
     }
 
     .sRDisplay .mainShipSail {
-        margin-top: 30%;
+        margin-top: 26%;
     }
 }

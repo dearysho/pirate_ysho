@@ -12,12 +12,12 @@ function showMarket(n) {
     if (n > changeMar.length) { switchMarket = 1 }
     if (n < 1) { switchMarket = changeMar.length }
     for (i = 0; i < changeMar.length; i++) {
-        changeMar[i].style.display = "none";
+        changeMar[i].style.zIndex = "-1";
     }
     for (i = 0; i < trigger.length; i++) {
         trigger[i].className = trigger[i].className.replace(" currentMar", "");
     }
-    changeMar[switchMarket - 1].style.display = "block";
+    changeMar[switchMarket - 1].style.zIndex = "1";
     changeMar[switchMarket - 1].style.animation = "fadeIn .6s";
     trigger[switchMarket - 1].className += " currentMar";
 }
@@ -26,7 +26,7 @@ function repositionFrame(n) {
     var frameMove = document.getElementsByClassName("titFrame");
     var BoardMove = document.getElementsByClassName("marBoard");
     var mbgiMove = document.getElementsByClassName("mlsl");
-    
+
 
     if (n == 1) {
         frameMove[0].style.transform = "translateX(0px)";
@@ -51,7 +51,7 @@ function repositionFrame(n) {
         BoardMove[0].style.top = "580px";
         BoardMove[0].style.left = "-14%";
         BoardMove[0].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg)";
-        
+
         BoardMove[1].style.top = "420px";
         BoardMove[1].style.left = "7%";
         BoardMove[1].style.transform = "perspective(1000px) rotateY(42deg) skewY(-12deg)";
@@ -66,27 +66,25 @@ function repositionFrame(n) {
 }
 
 
+var switchType = 1;
+showType(switchType);
 
-// var switchCusType = 1;
-// showCusType(switchCusType);
-
-// function currentCusType(n) {
-//     showCusType(switchCusType = n);
-
-// }
-// function showCusType(n) {
-//     var i;
-//     var changeMar = document.getElementsByClassName("marMain");
-//     var trigger = document.getElementsByClassName("sPTTitle");
-//     if (n > changeMar.length) { switchCusType = 1 }
-//     if (n < 1) { switchCusType = changeMar.length }
-//     for (i = 0; i < changeMar.length; i++) {
-//         changeMar[i].style.display = "none";
-//     }
-//     for (i = 0; i < trigger.length; i++) {
-//         trigger[i].className = trigger[i].className.replace(" currentCusType", "");
-//     }
-//     changeCusType[switchCusType - 1].style.display = "block";
-//     changeCusType[switchCusType - 1].style.animation = "fadeIn .6s";
-//     trigger[switchCusType - 1].className += " currentCusType";
-// }
+function currentType(n) {
+    showType(switchType = n);
+}
+function showType(n) {
+    var j;
+    var a = document.getElementsByClassName("sYProList");
+    var b = document.getElementsByClassName("sPTTitle");
+    if (n > a.length) { switchType = 1 }
+    if (n < 1) { switchType = a.length }
+    for (j = 0; j < a.length; j++) {
+        a[j].style.display = "none";
+    }
+    for (j = 0; j < b.length; j++) {
+        b[j].className = b[j].className.replace(" current_hot", "");
+    }
+    a[switchType - 1].style.display = "block";
+    a[switchType - 1].style.animation = "fadeIn .6s";
+    b[switchType - 1].className += " current_hot";
+}
