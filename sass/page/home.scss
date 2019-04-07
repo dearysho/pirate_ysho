@@ -8,6 +8,7 @@
 .justHide{
     display: none;
 }
+a{color: $blue;}
 
 body{
     background: url(../../image/background/BgPage.png);
@@ -541,9 +542,14 @@ h2 a{
 }
 @media screen and (min-width:1200px){
     h2{
-        font-size: 3rem
+        font-size: 3rem;
+        letter-spacing: 10px;
     }
-
+    #homeGameRank::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
     #homeGameRank>p{
         text-align: right;
         width: 70%;
@@ -565,4 +571,117 @@ h2 a{
         left: 55%;
         right: auto;
     }
+}
+
+//啟航尋寶
+#homeGameGPS{
+    width: calc(100% - 30px);
+    border: #a67c52 5px double;
+    margin: 40px 10px 10px 10px;
+    height: 500px;
+}
+#homeGameGPS .smaller{
+    letter-spacing: 1px;
+}
+#homeGameTrea{
+    position: relative;
+    text-align: right;
+    margin: 10px;
+    width: 355px;
+}
+#homeGameTrea>img{
+    width: 250px;
+}
+.homeTreaImg{
+    position: absolute;
+    width: 150px;
+    top: 0;
+    left: 140px;
+    transform: scale(0.3);
+    
+}
+.homeTreaImg:nth-child(2){animation: popTrea 9s 0s infinite both;}
+.homeTreaImg:nth-child(3){animation: popTrea 9s 3s infinite both;}
+.homeTreaImg:nth-child(4){animation: popTrea 9s 6s infinite both;}
+@keyframes popTrea{
+    0%,25%,100%{opacity: 0;transform: scale(0.3);left: 140px;}
+    3%,22%{opacity: 1;transform: scale(1);left: 20px;}
+}
+
+@media screen and (min-width:768px){
+    
+#homeGameTrea{
+    position: relative;
+    text-align: right;
+    margin: -50px 10px 10px 10px;
+    width: 355px;
+    float: right;
+
+}
+}
+@media screen and (min-width:1200px){
+    #homeGameGPS .smaller{
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }   
+    #homeGameTrea{
+        margin: -80px 80px 10px 10px;
+        width: 400px;
+        float: right;
+    
+    }
+    #homeGameTrea>img{
+        width: 300px;
+    }
+}
+
+
+
+
+
+
+//首頁結尾語
+#homeEnd .textEmphasis{
+    padding: 10px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+#homeEnd .textHiliR{
+    font-size: 2rem;
+    letter-spacing: 5px;
+}
+#homeEnd .textM{
+    width: 250px;
+    margin: auto;
+}
+
+@media screen and (min-width:768px){
+    #homeEnd .textEmphasis{
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+    #homeEnd .textHiliR{
+        letter-spacing: 10px;
+    }
+
+}
+
+@media screen and (min-width:1200px){
+    #homeEnd .textEmphasis{
+        font-size: 3rem;
+        letter-spacing: 10px;
+    }
+    #homeEnd .textHiliR{
+        font-size: 3rem;
+        letter-spacing: 50px;
+    }
+
+}
+
+footer{
+    text-align: center;
+    margin-top: 100px;
+}
+footer img{
+    width: 250px;
 }

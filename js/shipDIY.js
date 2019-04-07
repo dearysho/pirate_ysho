@@ -54,12 +54,18 @@ window.addEventListener('load',function(){
             pen.style.height = LW +"px";
             erase = false;
             $id('eraser').style.border="#362e2b 2px solid";
+            $id('penColor').style.border = "#fffcf2 3px solid";
             for(var i=0;i<4;i++){
                 lineWs[i].style.outline="none";
             }
             e.target.style.outline = "#fffcf2 3px solid";
         })
     }
+    $id('penColor').addEventListener('click',function(){
+        erase = false;
+        $id('eraser').style.border="#362e2b 2px solid";
+        $id('penColor').style.border = "#fffcf2 3px solid";
+    })
 
     //設定canvas寬
     cavDraw.width=750;
@@ -75,8 +81,18 @@ window.addEventListener('load',function(){
     $id('eraser').addEventListener('click',function(){
         erase = true;
         $id('eraser').style.border="#fffcf2 2px solid";
+        $id('penColor').style.border = "#362e2b 3px solid";
     })
 
+    //清空畫布
+    function cleanCav(cav){
+        cav.clearRect(0,0,cavCombine.width,cavCombine.height);
+    }
+
+    //當刪除被按了
+    $id('cleanDraw').addEventListener('click',function(){
+        cleanCav(ctxDraw);
+    })
     //畫線的函數
     function draw(e){
         //檢查是否為橡皮擦
@@ -142,7 +158,7 @@ window.addEventListener('load',function(){
 
 
     $id('finishDIY').addEventListener('click',function(){
-        ctxCombine.clearRect(0,0,cavCombine.width,cavCombine.height);
+        cleanCav(ctxCombine);
         
         
         var area = new Path2D($id('partSail').contentDocument.getElementById('flagArea').getAttribute('d'));
