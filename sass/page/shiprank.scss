@@ -36,7 +36,7 @@
 }
 
 .sRDisplay {
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     position: relative;
@@ -48,7 +48,8 @@
         z-index: 0;
         left: 0;
         height: 0;
-        padding-top: 18%;
+        padding-top: 24%;
+        margin: 0 0 0 30px;
 
         img {
             width: 100%;
@@ -66,10 +67,14 @@
             width: 30%;
             margin: 100px 0 0 36%;
         }
+        
+        .sRarrows + span {
+            margin: 10px 0 0 20%;
+        }
     }
 
     .sRDBox:nth-of-type(2) {
-        width: 40%;
+        width: 36%;
         margin: -110px 0 0 0;
         height: 0;
         padding-top: 45%;
@@ -77,8 +82,8 @@
         overflow: hidden;
     }
 
-    .sRDBox:nth-of-type(3){
-        margin: 100px 0% 0 0%;
+    .sRDBox:last-of-type{
+        margin: 0 30px 0 0;
     }
 
     .sRDBox:nth-of-type(2) .sRShip {
@@ -107,21 +112,21 @@
         display: block;
         z-index: 1;
         width: 14%;
-        margin-top: 180px;
+        // margin-top: 180px;
+        margin-top: 11%;
         right: 12%;
         img {
             display: block;
-            position: relative;
+            position: absolute;
             width: 50%;
             float: left;
         }
         img:last-of-type{
             position: absolute;
-            top: 0;
             transition: .3s;
         }
         h4 {
-            margin: 80px 0 0 6%;
+            margin: 30% 0 0 56%;
             float: left;
         }
     }
@@ -132,12 +137,12 @@
 
 
     .mainShipBody{
-        margin-top: 300px;
+        margin-top: 18%;
         right: 11%;
     }
 
     .mainShipSail{
-        margin-top: 420px;
+        margin-top: 25%;
         right: 12%;
     }
 
@@ -149,8 +154,8 @@
             justify-content: space-evenly;
             width: 100%;
             li{
-                width: 9%;
-                margin: 0 .5%;
+                width: 6%;
+
                 img {
                     width: 100%;
                 }
@@ -160,5 +165,39 @@
 }
 
 
+@media screen and (max-width: 1200px){
 
-	
+    .sRDisplay .mainShipRing {
+        margin-top: 5%;
+    }
+
+    .sRDisplay .mainShipBody {
+        margin-top: 13%;
+    }
+
+    .sRDisplay .mainShipSail {
+        margin-top: 21%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .sRDBox:first-of-type,  .sRDBox:last-of-type {
+        display: none;
+    }
+
+    .sRDisplay .sRDBox:nth-of-type(2) {
+        margin: 0 auto;
+    }
+
+    .sRDisplay .mainShipRing {
+        margin-top: 14%;
+    }
+
+    .sRDisplay .mainShipBody {
+        margin-top: 22%;
+    }
+
+    .sRDisplay .mainShipSail {
+        margin-top: 30%;
+    }
+}
