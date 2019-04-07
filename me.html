@@ -5,63 +5,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Personal information</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/me.css">
 </head>
 
 <body>
+    <!-- 標題 -->
     <div class="wrap">
-        <!-- 標題 -->
         <h1 class="titlePri">俺の海賊船</h1>
-        <!-- 船圖 -->
-        <div class="col-all-12 col-xl-5 meShip">
+    </div>
+    <!-- 船 -->
+    <div class="wrap">
+        <div class="col-12 col-md-5 meShip">
             <img src="image/ship/ship.png" alt="">
         </div>
         <!-- 個人資訊 -->
-        <div class="col-all-12 col-xl-7">
+        <div class="col-12 col-md-7">
             <div class="meNews">
-                <div class="col-xl-6 col-all-6">
-                    <ul class="field">
-                        <li>
-                            <h2 class="textL">帳號:</h2>
-                        </li>
-                        <li>
-                            <h2 class="textL">密碼:</h2>
-                        </li>
-                        <li>
-                            <h2 class="textL">ID:</h2>
-                        </li>
-                        <li>
-                            <h2 class="textL">LV:</h2>
-                        </li>
-                        <li>
-                            <h2 class="textL">金幣:</h2>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="col-12 col-md-6 field">
+                    <li>
+                        帳號: <span>abc123</span>
+                    </li>
+                    <li>
+                        密碼: <span>更改密碼</span>
+                    </li>
+                    <li>
+                        ID: <span>祕寶尋者號</span>
+                    </li>
+                    <li>
+                        LV: <span>10</span>
+                    </li>
+                    <li>
+                        金幣: <span>500</span> G
+                    </li>
+                </ul>
                 <!-- 雷達圖 -->
-                <div class="col-xl-6  col-all-6 radar">
+                <div class="col-12 col-md-6 radar">
+                    <h3>天賦值: <span>3</span></h3>
                     <img src="image/ship/radar.png" alt="">
                 </div>
             </div>
         </div>
-        <!-- 寶物道具頁籤 -->
-        <div class="col-all-12 col-xl-12 treasure">
+    </div>
+
+    <!-- 寶物道具頁籤 -->
+    <div class="wrap">
+        <!-- <div class="col-12 col-md-12 treasure">
             <ul class="tabs group">
-                <li><a  class="active" href="#/one">寶物</a></li>
+                <li><a class="active" href="#/one">寶物</a></li>
                 <li><a href="#/two">造型</a></li>
-            </ul>
-            <!-- 切換頁面 -->
-            <div id="content" >
+            </ul> -->
+        <!-- 切換頁面 -->
+        <!-- <div id="content">
                 <div id="one">第一頁</div>
                 <div id="two">第二頁</div>
             </div>
+        </div> -->
+        <div class="tabs">
+            <div class="tab">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab1" name="tabs" checked="checked">
+                <label for="tab1">寶物</label>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <img src="/image/treasure/trea1.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea2.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea3.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea4.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea5.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/treasure/trea6.svg" alt="">
+                        </li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="tab">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab2" name="tabs">
+                <label for="tab2">造型</label>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <img src="/image/ship/shipHead.png" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/ship/shipSail.png" alt="">
+                        </li>
+                        <li>
+                            <img src="/image/ship/shipSail.png" alt="">
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
         </div>
+        <div class="clearfix"></div>
     </div>
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/me.js"></script>
+
+    <!-- 個人紀錄 -->
+    <div class="wrap">
+        <h2 class="titleSec">個人紀錄
+            <img src="" alt="">
+        </h2>
+    </div>
+    <div class="wrap">
+        <div class="tabss">
+            <div class="tabb">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab3" name="tabss" checked="checked">
+                <label for="tab3">交易紀錄</label>
+                <div class="contentt">
+                    <section class="accordion">
+                        <div>
+                            <input id="ac-1" name="ac-radio" type="radio">
+                            <label for="ac-1">
+                                <ul class="record">
+                                    <li>
+                                        <img src="/image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2019/01/07 購買
+                                    </li>
+                                    <li>
+                                        八加九大刀
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="/image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <input id="ac-2" name="ac-radio" type="radio">
+                            <label for="ac-2">
+                                <ul class="record">
+                                    <li>
+                                        <img src="/image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2019/01/01 販賣
+                                    </li>
+                                    <li>
+                                        青薔薇之劍
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="/image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <input id="ac-3" name="ac-radio" type="radio">
+                            <label for="ac-3">
+                                <ul class="record">
+                                    <li>
+                                        <img src="/image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2018/12/20 購買
+                                    </li>
+                                    <li>
+                                        時穿劍
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="/image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="tabb">
+                <div class="clearfix"></div>
+                <input type="radio" id="tab4" name="tabss" checked="checked">
+                <label for="tab4">討論紀錄</label>
+                <div class="contentt">
+                    內容
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/me.js"></script> -->
 </body>
 
 </html>
