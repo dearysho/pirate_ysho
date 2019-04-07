@@ -65,6 +65,7 @@ body {
         position: absolute;
         top: 15px;
         left: 15px;
+        font-family: "王漢宗特明體繁";
     }
 
     img {
@@ -113,6 +114,7 @@ body {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
+    font-family: "王漢宗特明體繁";
 }
 
 .tab>.content {
@@ -164,7 +166,6 @@ body {
     // height: 280px;
     margin: auto;
     padding-bottom: 350px;
-    overflow: scroll;
 }
 
 .tabb {
@@ -186,6 +187,7 @@ body {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
+    font-family: "王漢宗特明體繁";
 }
 
 .tabb>.contentt {
@@ -272,10 +274,11 @@ label {
     // border-bottom: 1px solid #000;
     outline: 1px solid #000;
     li {
-        width: 150px;
+        width: 180px;
         margin: 0 5px;
         line-height: 50px;
         text-align: center;
+        font-family: "王漢宗特明體繁";
         img {
             width: 100%;
         }
@@ -298,9 +301,10 @@ label {
     display: flex;
     flex-direction: row;
     li {
-        width: 200px;
+        width: 250px;
         margin: 0 5px;
         line-height: 80px;
+        font-family: "王漢宗特明體繁";
         // text-align: center;
         img {
             width: 100%;
