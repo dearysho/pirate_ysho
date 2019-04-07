@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《大海賊帝國》去追尋吧！</title>
+    <link rel="stylesheet" href="css/shiprank.css">
+
+</head>
+
+<body>
+    <div class="sRWrap">
+        <header>
+            <h1 id="headerLogo"><a href="javascript:;">
+                    <img src="image/logo.svg" alt="大海賊帝國">
+                </a></h1>
+            <nav id="headerMenu">
+                <ul>
+                    <li><a href="javascript:;">海賊試煉場</a></li>
+                    <li><a href="javascript:;">海上市集</a></li>
+                    <li><a href="javascript:;">情報酒館</a></li>
+                    <li><a href="javascript:;">俺の海賊船</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul id="headerMe">
+                    <li id="headerMeID">
+                        <a href="javascript:;">我是大帥哥</a>
+                    </li>
+                    <li id="headerMeLv">lv.<span>7</span>
+                        <div id="headerExpBar">
+                            <div id="headerExpLine"></div>
+                            <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                        </div>
+
+                    </li>
+                    <li id="headerMeMoney">金幣<span>100</span>G</li>
+                    <li id="headerMeShip"><a href="javascript:;">
+                            <img src="image/ship/shipTemp.png" alt="角色頭像">
+                        </a></li>
+                    <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                    <li id="headerMeTalentL">幸運<span>5</span></li>
+                    <li id="headerMeTalentA">敏捷<span>5</span></li>
+                    <li id="headerMeTalentI">智力<span>5</span></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="sRCont">
+            <h1 class="titlePri">船匠排行</h1>
+            <div class="sRTitBox">
+                <img class="titFrame" src="image/market/titFrame.png" alt="">
+                <a class="sRTTitle" href="javacript:;">
+                    <h2 class="titleSec" onmouseover="currentRank(1)">本周排行</h2>
+                </a>
+                <a class="sRTTitle" href="javacript:;">
+                    <h2 class="titleSec" onmouseover="currentRank(2)">上周排行</h2>
+                </a>
+            </div>
+            <div class="sRDisplay">
+                <a class="sRDBox" href="javascript:;">
+
+                    <img class="sRShip" src="image/ship/shipComplete.png" alt="">
+                    <img class="sRarrows" src="image/market/lArrow.png" alt="">
+                    <span>上一名</span>
+
+                </a>
+                <a class="sRDBox" href="javascript:;">
+
+                    <img class="sRShip" src="image/ship/shipComplete.png" alt="">
+
+                </a>
+                <a class="mainShipRing mainShipHead" href="javascript:;">
+                    <img src="image/market/partsRing.png" alt="">
+                    <img src="image/ship/shipHead.png" alt="">
+                    <h4 class="titleFou">景陳的頭</h4>
+                    <div class="clearfix"></div>
+                </a>
+                <a class="mainShipRing mainShipBody" href="javascript:;">
+                    <img src="image/market/partsRing.png" alt="">
+                    <img src="image/ship/shipBody.png" alt="">
+                    <h4 class="titleFou">景陳身體</h4>
+                    <div class="clearfix"></div>
+                </a>
+                <a class="mainShipRing mainShipSail" href="javascript:;">
+                    <img src="image/market/partsRing.png" alt="">
+                    <img src="image/ship/shipSail.png" alt="">
+                    <h4 class="titleFou">景陳的帆</h4>
+                    <div class="clearfix"></div>
+                </a>
+
+                <a class="sRDBox" href="javascript:;">
+
+                    <img class="sRShip" src="image/ship/shipComplete.png" alt="">
+                    <img class="sRarrows" src="image/market/rArrow.png" alt="">
+                    <span>下一名</span>
+
+                </a>
+                <div class="sRTLeaderBoard">
+                    <ul class="sRTleaderList">
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                        <li><a href="javascript:;"><img src="image/ship/shipComplete.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sRDisplay">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/header.js"></script>
+    <script src="js/shipRank.js"></script>
+</body>
+
+</html>

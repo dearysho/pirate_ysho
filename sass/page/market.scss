@@ -1,54 +1,558 @@
-@import "sass/base/reset.scss";
-@import "sass/base/font.scss";
+@import '../base/font';
+@import '../base/reset';
+@import '../layout/header';
 
 .marWrap {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
+    font-family: $fofaText;
+}
+
+h1, h2, h3, h4 {
+    text-shadow: .1px .1px 1px #000;
+}
+
+span {
+    color: #534c4c;
 }
 
 .marBanner{
     width: 100%;
-    height: 90vh;
+    height: 600px;
     text-align: center;
+    margin-top: 50px;
+
+    .mlslBox {
+        width: 50%;
+        overflow: hidden;
+        position: absolute;
+        margin-left: -10%;
+    }
+
+    .marBoard {
+        position: absolute;
+        opacity: .65;
+        transition: .6s;
+        left: 7%;
+        top: 420px;
+        transform: perspective(1000px) rotateY(42deg) skewY(-12deg); 
+    }
+
+    .marBoard + .marBoard{
+        left: 30%;
+        top: 250px;
+        transform: perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.5); 
+    }
+
+    .marBoard + .marBoard + .marBoard{
+        left: 50%;
+        top: 150px;
+        transform: perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.3);
+        opacity: 0;
+    }
+
+    // .currentBoard {
+    //     left: 50%;
+    //     top: 150px;
+    //     transform: perspective(1000px) rotateY(42deg) skewY(-12deg) scale(.3);
+    // }
 
     .mlsl { 
-        display: block;
-        position: absolute;
-        width: 70%;
-        top: 50px;
-        left: -100px;
+        width: 120%;
+        transition: .6s;
     }
+
+    h1 {
+        padding-top: 50px;
+    }
+
+    .marTitBox {
+        width: 200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+
+        .titFrame {
+            position: absolute;
+            margin: 33px 0 0 -46px;
+            display: block;
+            transform: translateX(0px);
+            transition: 1s;
+        }
+
+        
+    }
+
+    .marTitBox + span {
+        display: block;
+        margin-top: 80px;
+    }
+
+    .marTitInBox {
+        position: relative;
+        margin: 50px 0 0 10%;
+    }
+
 
 
     h2 {
         padding: 10px;
-        display: inline-block;
+        margin: 0;
+        color: rgb(26, 26, 26);
     }
 
-    
+    .currentMar h2 {
+        transform: scale(1.2);
+        // font-weight: bold;
+    }
 }
 
 .marMain {
-    width: 1200px;
+    width: 80%;
     margin: auto;
+    position: relative;
+    .marBorDec {
+        position: absolute;
+        bottom: -8px;
+        width: 100%;
+    }
+}
+
+.shipYard {
+    position: relative;
     .marTagBox{
+        position: relative;
         a{
+
             h3{
                 display: inline-block;
                 padding: 10px 20px;
             }
         }
-    }
-    .marCont{
 
     }
-    .marFeaBox{
-        .feaHead, .feaBody, .feaSail{
-            width: 30%;
+
+    .marCont {
+        position: relative;
+        padding-bottom: 1vw;
+        top: 0;
+        h2{
+            margin: 30px 0 30px 3%;
         }
-        .marPro {
-            display: inline-block;
+
+        .marBorDec {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     }
+
+    .sYProList {
+        margin: 30px 0 0 1%;
+        position: relative;
+        width: 25%;
+        float: left;
+        .sYPro {
+            width: 100%;
+            display: block;
+            position: relative;
+            margin: 0 0 30px 0;
+            img {
+                position: absolute;
+                z-index: 2;
+                width: 30%;
+            }
+            .sYProInfo {
+                width: 65%;
+                margin: 0px 0 0 35%;
+
+                h4 {
+                    padding: 10px 0;
+                }
+
+                span {
+                    padding: 2em;
+                }
+            }
+            .purchaseBox {
+                width: 100%;
+                background-color: rgb(218, 179, 121);
+                position: relative;
+                bottom: 0;
+                display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+                border-radius: 4px;
+                z-index: 1;
+                margin-top: 15px;
+                overflow: hidden;
+
+                .priceT{
+                    line-height: 36px;
+                    margin-right: 1em;
+                    transform: translateX(6.7rem);
+                    transition: .6s;
+                }
+                
+                .proPrice{
+                    line-height: 36px;
+                    margin-right: 1em;
+                    transform: translateX(6.5rem);
+                    transition: .6s;
+                }
+
+                .checkPro {
+                    position: absolute;
+                    right: 2em;
+                    line-height: 36px;
+                    transition: .6s;
+                }
+                .addCart {
+
+                    img {
+                        position: relative;
+                        width: 2rem;
+                        top: .2em;
+                        margin-right: .2em;
+                    }
+                    span {
+                        position: relative;
+                        bottom: .5em; 
+                        margin-right: 1em;
+                    }
+                    transform: translateY(38px);
+                    transition: .6s;
+                }
+                .buy {
+                    margin-right: 1em;
+                    transform: translateY(38px);
+                    transition: .6s;
+                }
+            }
+            
+        }
+        .purchaseBox:hover .addCart, .purchaseBox:hover .buy {
+            transform: translateY(0px);
+        }
+
+        .purchaseBox:hover .proPrice {
+            transform: translateX(0px);
+        }
+
+        .purchaseBox:hover .priceT {
+            transform: translateX(0px);
+            opacity: 0;
+        }
+
+        .purchaseBox:hover .checkPro {
+            opacity: 0;
+        }
+    }
+
+
+    .sRShipDisplay {
+        width: 70%;
+        margin: 0 2%;
+        float: left;
+        position: relative;
+        .triRingBgi {
+            width: 70%;
+            position: absolute;
+            margin: 15vw 0 0 14%;
+        }
+        h3 {
+            margin: 45px 0 0 0%;
+        }
+        .sRshipParts {
+            display: block;
+            position: absolute;
+            width: 16%;
+            img {
+                width: 50%;
+                transition: .6s;
+            }
+            h4 {
+                display: inline-block;
+                margin: 0;
+
+            }
+        }
+        
+        .sRshipParts:hover img{
+            transform: scale(1.1);
+        }
+
+        .sRSH {
+            margin: 15.8vw 0 0 15.5%;
+        }
+
+        .sRSB {
+            margin: 33vw 0 0 45%;
+        }
+
+        .sRSS {
+            margin: 21.7vw 0 0 75%;
+            
+        }
+
+        .CusShip {
+            width: 40%;
+            margin: 4vw 0 0 30%;
+        }
+    }
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 1800px){
+    .purchaseBox .addCart, .purchaseBox .buy {
+        transform: translateY(0px);
+    }   
+
+    .purchaseBox .proPrice {
+        transform: translateX(0px);
+  
+    }
+
+    .purchaseBox:hover .priceT {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+
+    .purchaseBox:hover .checkPro {
+        opacity: 0;
+    }
+
+    .purchaseBox:hover .proPrice {
+        opacity: 0;
+    }
+
+    .shipYard .sYProList .sYPro .purchaseBox .priceT, .shipYard .sYProList .sYPro .purchaseBox .proPrice{
+        transform: translateX(0);
+        position: absolute;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .priceT {
+        left: 35%;
+    }
+
+    .shipYard .sYProList .sYPro .purchaseBox .proPrice {
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    .shipYard .sYProList {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0 0 0;
+        .sYPro {
+            width: 30%;
+            margin: 15px 1.65% 0 1.65%;
+        }
+    }
+
+    .shipYard{
+        .sRShipDisplay {
+        width: 100%;
+            .triRingBgi {
+                margin: 19vw 0 0 14%;
+            }
+            .sRSH {
+                margin: 20vw 0 0 15.5%;
+            }
+            .sRSB {
+                margin: 45vw 0 0 45%;
+            }
+            .sRSS {
+                margin: 28.7vw 0 0 75%;
+            }
+        }
+        .marCont {
+            padding-bottom: 10vw;
+        }
+
+        
+    }
     
+}
+
+@media screen and (max-width: 1200px){
+    .shipYard .sYProList .sYPro .purchaseBox .priceT {
+        left: 2rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .proPrice {
+        left: 5rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        transform: translateY(0px);
+        margin-top: 2.5rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        transform:  translateY(0px);
+        margin-top: 2.5rem;
+    }
+    
+    .shipYard .sYProList .sYPro .purchaseBox:hover .priceT {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    .shipYard .sYProList .sYPro .purchaseBox:hover .checkPro {
+        opacity: 1;
+    }
+
+    .shipYard .sYProList .sYPro .purchaseBox:hover .proPrice {
+        opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: 1072px){
+    .shipYard .sYProList .sYPro .purchaseBox .checkPro {
+        display: none;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .priceT{
+        left: 32%;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .proPrice{
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 1062px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin: auto;
+        padding-top: 2.5rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin: 1rem auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .marMain {
+        width: 100%;
+    }
+    .shipYard .sRShipDisplay {
+        display: none;
+    }
+    .shipYard .sYProList .sYPro {
+        width: 45%;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox {
+        display: block;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin: 2rem 0 0 0;
+        
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        padding: 1.5rem 0 0 1rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .checkPro {
+        display: none;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .priceT{
+        left: 1rem;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .proPrice{
+        left: 4rem;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin-left: 4vw;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 2vw;
+    }
+    
+}
+
+@media screen and (max-width: 750px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin-left: 2vw;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 1vw;
+    }
+}
+
+@media screen and (max-width: 670px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart span {
+        display: none;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        padding: 0;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 15vw;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin-left: 1vw;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 12vw;
+    }
+}
+
+@media screen and (max-width: 510px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin-left: .5vw;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 12vw;
+    }
+}
+@media screen and (max-width: 490px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        margin-left: 0;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 470px){
+    .shipYard .sYProList .sYPro .purchaseBox .addCart {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        padding: 0;
+    }
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 10vw;
+    }
+}
+
+@media screen and (max-width: 375px){
+
+    .shipYard .sYProList .sYPro .purchaseBox .buy {
+        margin-left: 8.5vw;
+    }
 }
