@@ -4,12 +4,14 @@
 //文字大小字型設定
 @import'sass/base/font';
 
-// * {
-//     outline: 1px solid black;
-// }
+* {
+    outline: 1px solid black;
+}
 
 body {
-    background-image: url("../../image/background/BgPage.png")
+    background-image: url("../../image/background/BgPage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .menu {
@@ -53,15 +55,48 @@ body {
     }
 }
 
-.contentWrap{
+.contentWrap {
     padding-top: 20px;
-    .content{
+
+    h3 {
+        color: $blue;
+        font-family: $fofaText;
+        text-align: center;
+    }
+
+    .content {
         overflow-x: auto;
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
         margin-left: 280px;
+        max-width: 1600px;
         margin-right: 20px;
         border-radius: 30px;
         position: relative;
+
+        table {
+            border-spacing: 1rem;
+
+            tbody {
+                tr {
+
+                    th {
+                        width: 160px;
+                    }
+
+                    td {
+                        text-align: center;
+                        height: 5rem;
+                    background-color: $boxColor;
+                    color: $brown;
+                    line-height: 1.5;
+                    }
+                }
+            }
+
+            img {
+                width: 50px;
+            }
+        }
+
     }
-}
