@@ -4,7 +4,7 @@
 //文字大小字型設定
 @import'sass/base/font';
 
-//
+//登箱
 @import'sass/base/lightbox';
 
 // * {
@@ -38,4 +38,8 @@ label {
     span {
         margin-right: 10px;
     }
+}
+.paper::after,
+.paper::before{
+    display: none;
 }

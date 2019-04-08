@@ -19,6 +19,7 @@
 
 body {
     background-image: url('image/background/bgtexture.png');
+=======
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -337,6 +338,7 @@ select {
         // line-height: 80px;
         // margin-right: 5px;
         // margin-left: 5px;
+        
     }
 }
 
@@ -369,6 +371,7 @@ select {
     .treasure::after {
         content: "";
         background-image: url("/image/background/BgBox.png");
+        background-image: url("../../image/background/BgBox.png");
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
@@ -382,6 +385,7 @@ select {
     .tabs {
         padding-bottom: 130px;
     }
+    
 }
 
 @media screen and(min-width: 1200px) {
