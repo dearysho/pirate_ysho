@@ -4,6 +4,10 @@
 @import '../base/reset';
 // 燈箱
 @import '../base/lightbox';
+//其他的css
+@import '../layout/gameGps.scss';
+@import '../layout/header.scss';
+
 
 // game程式碼
 body{
@@ -125,7 +129,7 @@ body{
 	width: 409px;
 	height: 191px;
 	position: fixed;
-	top: 60px;
+	top: 200px;
 	right: 40px;
 }
 .lifePanel p{
@@ -336,4 +340,12 @@ body{
 	100%{
 		top: 50px;
 	}
+}
+// gps btn
+.gpsbtn{
+	position: absolute;
+    top: 550px;
+    left: 700px;
+    left: 900px;
+    z-index: 10;
 }
