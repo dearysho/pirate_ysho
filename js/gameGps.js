@@ -39,7 +39,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	//gpsStart();
+	gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置
@@ -58,18 +58,18 @@ function gpsStart(e) {
 		title: treaName,
 		animation: google.maps.Animation.BOUNCE,
 	});
-	sideMarker.addListener('click', function (){
+	sideMarker.addListener("click", function(){
 		gameGpsLotto();
-		}//else {} 
-	);
+	});
+	//sideMarker.addListener('click', gameGpsLotto());
 	//將定位點擺到地圖上
 	getTreaPosition();
 	dropMarker();
 	//隨定位移動
 	gameGps.addListener('center_changed', function() {
 		window.setTimeout(function() {
-		  gameGps.panTo(marker.getPosition());
-		}, 10000);
+			gameGps.panTo(marker.getPosition());
+		}, 10000000);
 	});
 	//以所在點為中心畫一個範圍
 	playerCircle = new google.maps.Circle({
