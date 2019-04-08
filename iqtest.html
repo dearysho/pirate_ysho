@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iqtest</title>
+	<link rel="stylesheet" href="css/iqtest.css">
+</head>
+<body>
+	<div class="timeline"></div>
+	<div class="time">
+		<strong id="changeT">時間 20</strong>
+	</div>
+	<div class="ques">
+		<strong class="quesText">第一問: 請問白鬍子的船叫什麼名字?</strong>
+	</div>
+	<div class="option">
+		<a href="javascript:;">
+			<div class="opop o1">
+				<strong class="textHi">A</strong>
+				<strong class="describe">白鯨號</strong>
+				<img class="ans" src="image/iqtest/correct.gif" alt="true">
+			</div>
+		</a>
+		<a href="javascript:;">
+			<div class="opop o2">
+				<strong class="textHi">B</strong>
+				<strong class="describe">白蛇號</strong>
+				<img class="ans" src="image/iqtest/false.gif" alt="false">
+			</div>
+		</a>
+		<a href="javascript:;">
+			<div class="opop o3">
+				<strong class="textHi">C</strong>
+				<strong class="describe">白龍號</strong>
+				<img class="ans" src="image/iqtest/false.gif" alt="false">
+			</div>
+		</a>
+		<a href="javascript:;">
+			<div class="opop o4">
+				<strong class="textHi">D</strong>
+				<strong class="describe">白蝦號</strong>
+				<img class="ans" src="image/iqtest/false.gif" alt="false">
+			</div>
+		</a>
+	</div>
+	<script>
+		var count = 19;
+		var timerId;
+
+		function countdown(){
+			if(count <= 0){
+				if(count%2 == 0){
+					document.getElementById("changeT").innerHTML = '時間到!';
+				}
+				else{
+					document.getElementById("changeT").innerHTML = '';
+				}
+				clearInterval( timerId );
+			}else{
+				document.getElementById("changeT").innerHTML = '時間 '+count;
+			}
+			count--;
+		}
+		function show(e){
+			console.log(e.target);
+			console.log(e.target.children[2].className);
+			e.target.children[2].style.display = 'block';
+			setInterval(change,4000);			
+		}
+		function change(){
+			document.location.href="game.html";
+		}
+		window.addEventListener('load',function(){
+			// setInterval(countdown,800);
+			for(i = 0; i<=3; i++){
+				document.getElementsByClassName("opop")[i].onclick = show;
+			}
+		},false);
+	</script>
+</body>
+</html>
