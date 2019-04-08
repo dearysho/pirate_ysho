@@ -136,14 +136,18 @@ span {
     .marCont {
         position: relative;
         padding-bottom: 1vw;
+        margin-top: 1vw;
         top: 0;
+        box-shadow: 0px 0px 4px .1px #362e2b;
+        border: 2px solid #523a31;
+        border-radius: 4px;
         h2{
             margin: 30px 0 30px 3%;
         }
 
         .marBorDec {
             position: absolute;
-            bottom: 0;
+            margin-bottom: -1vw;
             width: 100%;
         }
     }
@@ -177,7 +181,7 @@ span {
             }
             .purchaseBox {
                 width: 100%;
-                background-color: rgb(218, 179, 121);
+                background-color: #2a3439;
                 position: relative;
                 bottom: 0;
                 display: flex;
@@ -187,7 +191,7 @@ span {
                 z-index: 1;
                 margin-top: 15px;
                 overflow: hidden;
-
+                box-shadow: 0px 0px 4px 0.1px #362e2b;
                 .priceT{
                     line-height: 36px;
                     margin-right: 1em;
@@ -207,6 +211,10 @@ span {
                     right: 2em;
                     line-height: 36px;
                     transition: .6s;
+                    color: #fff;
+                }
+                span {
+                    color: #ffffff;
                 }
                 .addCart {
 
