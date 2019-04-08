@@ -11,8 +11,15 @@
 //     outline: 1px solid black;
 // }
 
+body {
+    background-image: url('../image/background/BgPage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .lightbox {
-    margin: 20px;
+    top: 160px;
+    left: calc(50% - 150px);
 }
 
 .paper {
