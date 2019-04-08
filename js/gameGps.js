@@ -29,9 +29,11 @@ var treaPositionArr = [];
 var markers = [];
 //設定初始地圖
 function initMap(){
+	navigator.geolocation.getCurrentPosition(gpsSuccCallback,gpsErrorCallback,{
 	navigator.geolocation.getCurrentPosition(gpsSuccCallback, gpsErrorCallback,{
 		enableHighAccuracy: true,
 		timeout: 60000,
+		maximumAge: 3600000,
 		maximumAge: 360000,
 	});
 }
@@ -195,7 +197,11 @@ function gameGpsLotto() {
 }
 //window.addEventListener('load',gameGpsLotto);
 
+<<<<<<< HEAD
+//wavebtn
+=======
 //btn.js
+>>>>>>> f956f5462ed40821775d0a6dfee56436a29b59dc
 var btnpri = document.getElementsByClassName("btnpri");
 var btnsec = document.getElementsByClassName("btnsec");
 
