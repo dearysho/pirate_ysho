@@ -344,8 +344,10 @@ body{
 // gps btn
 .gpsbtn{
 	position: absolute;
-    top: 550px;
-    left: 700px;
-    left: 900px;
+    // top: 550px;
+    // left: 700px;
+    // left: 900px;
+    top: calc(50% + 150px);
+    left: 50%;
     z-index: 10;
 }

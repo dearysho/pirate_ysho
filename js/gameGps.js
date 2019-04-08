@@ -29,7 +29,6 @@ var treaPositionArr = [];
 var markers = [];
 //設定初始地圖
 function initMap(){
-	navigator.geolocation.getCurrentPosition(gpsSuccCallback,gpsErrorCallback,{
 	navigator.geolocation.getCurrentPosition(gpsSuccCallback, gpsErrorCallback,{
 		enableHighAccuracy: true,
 		timeout: 60000,
@@ -49,7 +48,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	gpsStart();
+	//gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置
@@ -186,10 +185,12 @@ function gameGpsLottoShow() {
 	var gameGpsLottoPrize = `<p class="textM">恭喜您獲得</p>`;
 	gameGpsLottoPrize += gameGpsLottoShowImg;
 	gameGpsLottoPrize += gameGpsLottoShowMsg;
-	gameGpsLottoPrize += `<a class="btnsec" href="#"><span>繼續航行</span></a>`;
+	gameGpsLottoPrize += `<a class="btnsec" id="closeLottoBtn" href="javascript:"><span>繼續航行</span></a>`;
 	gameGpsLottoPrize += `<a class="btnsec" href="me.html"><span>清點船艙</span></a>`;
 	document.getElementById("gameGpsLottoShow").innerHTML= gameGpsLottoPrize;
-	document.getElementById("gameGpsLottoShow").addEventListener
+	var closeLotto = document.getElementById("closeLottoBtn");closeLotto.addEventListener('click',function ( ) {
+		document.getElementById("gameGpsLotto").style.display = "none";
+	});
 }
 function gameGpsLotto() {
 	document.getElementById("gameGpsLotto").style.display = "block";
@@ -198,16 +199,15 @@ function gameGpsLotto() {
 }
 //window.addEventListener('load',gameGpsLotto);
 
-<<<<<<< HEAD
+
 //wavebtn
-=======
+
 //btn.js
->>>>>>> f956f5462ed40821775d0a6dfee56436a29b59dc
+
 var btnpri = document.getElementsByClassName("btnpri");
 var btnsec = document.getElementsByClassName("btnsec");
 
 var waveWidth = 5;
-
 function createbtn(btntype){
 
     for(var j = 0; j < btntype.length; j++){
