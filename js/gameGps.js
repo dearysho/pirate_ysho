@@ -1,3 +1,10 @@
+//google map api常態關閉 要測試時再跟我說 我再打開
+//開始遊戲的時候觸發按鈕要做的事
+//#gameGps::before left -200%
+//#gameGps::after right -200%
+//執行gpsStart();
+
+
 //======地圖============================
 // 玩家資訊
 var palyerName = '航海士';
@@ -39,7 +46,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	gpsStart();
+	//gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置
