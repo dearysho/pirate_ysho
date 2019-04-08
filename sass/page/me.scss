@@ -248,7 +248,7 @@ body {
 }
 
 .accordion input:checked~.sub-content {
-    height: 130px;
+    height: 180px;
     // border-bottom: 1px solid black;
     background-color: #bcb19e;;
 }
@@ -269,7 +269,6 @@ label,
 input,
 select {
     display: block;
-    // font-family: 'Microsoft JhengHei';
 }
 
 // label {
@@ -323,7 +322,6 @@ select {
         // text-align: center;
         img {
             width: 100%;
-            height: 100%;
         }
     }
     li:nth-child(1) {
@@ -334,9 +332,7 @@ select {
         overflow: hidden;
         font-size: 0;
         margin: 5px;
-        // line-height: 80px;
-        // margin-right: 5px;
-        // margin-left: 5px;
+        
     }
 }
 
@@ -348,10 +344,6 @@ select {
 
         display: flex;
     }
-
-    // .tabs {
-    //     width: 100%;
-    // }
 
     .meNews {
         display: flex;
@@ -382,6 +374,7 @@ select {
     .tabs {
         padding-bottom: 130px;
     }
+    
 }
 
 @media screen and(min-width: 1200px) {
