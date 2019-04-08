@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《大海賊帝國》在情報酒館探索海賊們的秘密吧！</title>
+    <link rel="stylesheet" href="css/barAdd.css">
+</head>
+<body>
+    <div id="addFormWrap">
+        <form action="login.php" method="post" id="addForm">
+            <h2 class="textEmphasis">最高機密</h2>
+            <label for="">情報分類
+                <select name="articleType">
+                    <option value="gps">尋寶</option>
+                    <option value="training">試煉</option>
+                    <option value="other">其他</option>
+                 </select>
+            </label>
+            <label for="articleTit">情報題目</label>
+                <input type="text" id="articleTit">
+            <label for="articleCont">情報內容</label>
+            <textarea name="" id="articleCont" cols="30" rows="10">
+            </textarea>
+            <input type="submit" value="發出情報">
+            <input type="button" value="取消透露，回到上一頁">
+        </form>
+    </div>
+
+    <link rel="stylesheet" href="css/wavebtn.css">
+</body>
+</html>

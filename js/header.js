@@ -1,35 +1,44 @@
 window.addEventListener('load',function(){
     //取得header角色資訊
     var headerMe= document.getElementById("headerMe");
+    var headerMenu = document.querySelector('#headerMenu');
+    var header = document.getElementsByTagName('header')[0];
+    //關閉與開啟header
+    function toggleHeader(){
+        if(headerMe.classList.contains('hide')){
+            headerMe.classList.remove('hide');
+            headerMenu.classList.remove('hide');
+            header.classList.remove('hide');
+        }else{
+            headerMe.classList.add('hide');
+            headerMenu.classList.add('hide');
+            header.classList.add('hide');
+        }
+    }
     //取得視窗寬度，與resize寬度
     var winWidth = window.innerWidth;
     window.addEventListener('resize',function(){
         winWidth = window.innerWidth;
-        //螢幕寬度小於768啟動toggleHeader，大於就remove
-        if(winWidth<768){
+        //螢幕寬度小於1200啟動toggleHeader，大於就remove
+        if(winWidth<1200){
             headerMe.addEventListener('click',toggleHeader);
+            //確保選單都先收起
+            headerMe.classList.add('hide');
+            headerMenu.classList.add('hide');
+            header.classList.add('hide');
         }else{
+            //確保選單都先展開
             headerMe.removeEventListener('click',toggleHeader);
+            headerMe.classList.remove('hide');
+            headerMenu.classList.remove('hide');
+            header.classList.remove('hide');
         }
     })
-    //關閉與開啟header
-    function toggleHeader(){
-        var headerMenu = document.querySelector('#headerMenu');
-            var header = document.getElementsByTagName('header')[0];
-            if(headerMe.classList.contains('hide')){
-                headerMe.classList.remove('hide');
-                headerMenu.classList.remove('hide');
-                header.classList.remove('hide');
-            }else{
-                headerMe.classList.add('hide');
-                headerMenu.classList.add('hide');
-                header.classList.add('hide');
-            }
-    }
-    //網頁剛開啟時螢幕寬度小於768啟動toggleHeader，大於就remove
-    if(winWidth<768){
+    //網頁剛開啟時螢幕寬度小於1200啟動toggleHeader，大於就remove
+    if(winWidth<1200){
         var headerMe= document.getElementById("headerMe");
         headerMe.addEventListener('click',toggleHeader);
+        toggleHeader(); //讓他在手機板時，先出現並隱藏
     }else{
         headerMe.removeEventListener('click',toggleHeader);
     }

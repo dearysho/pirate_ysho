@@ -55,6 +55,22 @@ p{
 	text-align: center;
 	margin: 80px 0;
 }
+
+.titleThi{
+	position: relative;
+	color: #b6b6b6;
+	font-size: 1.35rem;
+	font-family: $fofaText;
+	text-align: center;
+}
+
+.titleFou{
+	position: relative;
+	color: #554e4d;
+	font-size: 1.25rem;
+	font-family: $fofaText;
+}
+
 .titleSec img{
 	width: 110px;
 	position: absolute;
@@ -74,7 +90,6 @@ p{
 	color: $brown;
 	font-family: $fofaText;
 	font-size: 1.25rem;
-	text-align: center;
 }
 //內文小字
 .textS{
