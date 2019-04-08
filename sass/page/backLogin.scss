@@ -16,13 +16,10 @@
 }
 
 .paper {
-    div {
-        width: 300px;
-        margin: 30px auto;
-
-        img {
-            width: 100%;
-        }
+    img {
+        width: 50%;
+        display: block;
+        margin: 40px auto;
     }
 
     h2 {
@@ -30,16 +27,30 @@
     }
 }
 
-label {
+.labelBox {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 10px;
+
     span {
         margin-right: 10px;
+        color: $brown;
+        font-family: Adobe Heiti Std R;
+    }
+
+    input {
+        border-radius: 10px;
+        border: 1px solid transparent;
     }
 }
+
+
+
+.loginform a {
+    margin: 0 181px;
+}
+
 .paper::after,
-.paper::before{
+.paper::before {
     display: none;
 }
