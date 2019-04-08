@@ -82,7 +82,7 @@ function showType(n) {
         a[j].style.display = "none";
     }
     for (j = 0; j < b.length; j++) {
-        b[j].className = b[j].className.replace(" current_hot", "");
+        b[j].className = b[j].className.replace(" currentType", "");
     }
 
     var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -93,5 +93,5 @@ function showType(n) {
         a[switchType - 1].style.display = "flex";
     }
     a[switchType - 1].style.animation = "fadeIn .6s";
-    b[switchType - 1].className += " current_hot";
+    b[switchType - 1].className += " currentType";
 }
