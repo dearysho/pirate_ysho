@@ -310,6 +310,7 @@
 	<script src="js\header.js"></script>
 	<script>
 		function show(){
+			document.getElementsByClassName("gpsbtn")[0].style.display = 'none';
 			var a = document.getElementById("gameGps");
 			var b = window.getComputedStyle(a,'::before');
 			var css = document.getElementById("css");
