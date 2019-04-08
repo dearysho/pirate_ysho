@@ -244,6 +244,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 #shipArea{
     position: relative;
     height: 280px;
+    width: 300px;
+    margin: auto;
 }
 #partSail,#partBody,#drawFrame{
     width: 300px;
@@ -259,7 +261,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     left: 0;
     right: 0;
     margin: auto;
-    transform: scale(0.4) translateX(-62%) translateY(-75%);
+    transform-origin: 0 0;
+    transform: scale(0.4);
 }
 #pen{
     width: 5px;
@@ -270,6 +273,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     top: 0;
     left: 0;
     pointer-events: none;
+    transform: scale(0.4);
 }
 
     //海浪，海浪的位置跟上面shipArea的height有關
@@ -363,6 +367,10 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 @media screen and (min-width:768px){
 
 //客製狀態列的箭頭，及位置調整
+#DIYStatus{
+    width: 453px;
+    margin: auto;
+}
 #DIYStatus li:nth-child(n+2)::before{
     top: 0;
     bottom: 0;
@@ -371,14 +379,11 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 #DIYStatus li{
     width: auto;
 }
-#DIYStatus li:first-child{
-    margin-left: 130px;
-}
 #DIYStatus li:nth-child(n+2){
     margin: 0 10px 20px 45px;
 }
 #drawFlag,#combineShip{
-    transform: scale(0.4) translateX(0%) translateY(-75%);
+    transform: scale(0.4);
 }
 }
 
@@ -425,7 +430,9 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
         display: block;
         clear: both;
     }
-
+    #pen{
+        transform: scale(1);
+    }
 
 }
 
@@ -636,6 +643,102 @@ h2 a{
     }
 }
 
+//海上市集
+#homeMarketProds{
+    position: relative;
+    margin-top: 120px;
+}
+#homeMarketBlack,#homeMarketShip{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    color: $beige;
+    height: 200px;
+    position: absolute;
+    .textM{
+        color: $beige;
+    }
+}
+#homeMarketBlack{
+    background: #005982;
+    z-index: -1;
+    top: -120px;
+    
+}
+#homeMarketShip{
+    background: #006ca6;
+    z-index: -2;
+    left: -20px;
+    top: -30px;
+
+}
+.homeTreaBtn{
+    background: #f5ecdd;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    img{
+        width: 100px;
+    }
+}
+#homeMarketProdInfo{
+    background: #f5ecdd;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    position: relative;
+    .homeProdImg{
+        width: 150px;
+        margin-top: -50px;
+    }
+    .homeProdTalent{
+        img{
+            width: 200px;
+            margin-top: 10px;
+        }
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        font-size: 3rem;
+        width: auto;
+        height: auto;
+        color: #736357;
+    }
+    .fa-arrow-circle-right{
+        right: -25px;
+    }
+    .fa-arrow-circle-left{
+        left: -25px;
+    }
+
+}
+
+@media screen and (min-width:768px){
+    #homeMarketProds{ 
+        ul{
+            float: left;
+        }
+        li{
+            margin: 10px 20px;
+        }
+    }
+    #homeMarketProdInfo{
+        float: left;
+        width: calc(100% - 400px);
+    }
+    #homeMarketProds::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
 
 
 //情報酒館
@@ -649,7 +752,7 @@ h2 a{
     height: auto;
 }
 .homeHotCard{
-    background: $beige;
+    background: #f5ecdd;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
@@ -669,7 +772,7 @@ h2 a{
     }
 }
 .homeNewsCard{
-    background: $beige;
+    background: #f5ecdd;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
@@ -734,13 +837,14 @@ h2 a{
     }
 
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width:1024px){
     #homeBar{
         max-width: 1200px;
         margin: auto;
     }
     .homeHotCard{
-        width: 560px;
+        width: calc(50% - 40px);
+        max-width: 560px;
         height: 200px;
         float: left;
         img{
@@ -767,7 +871,8 @@ h2 a{
             line-height: 60px;
         }
         .cardTitle{
-            width: 790px;
+            width:calc(100% - 370px);
+            margin: 12px 0;
         }
     }
 

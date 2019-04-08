@@ -255,21 +255,49 @@
     <div class="clearfix"></div>
     <div id="homeMarket">
         <h2><a href="javascript:;">海上市集</a></h2>
-        <p class="textEmphasis"></p>
+        <p class="textEmphasis">甚麼都買、甚麼都賣、甚麼都不奇怪</p>
         <div id="homeMarketProds">
-            <div>黑市</div>
-            <div>造船廠</div>
-            <div id="homeMarketProdInfo"></div>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <div id="homeMarketBlack">
+                <p class="textL">黑市</p>
+                <p class="textM">尋寶沒有合適的寶物？<br>
+                    也許其他海賊有在賣呢...</p>
+            </div>
+            <div id="homeMarketShip">
+                <p class="textL">造船廠</p>
+                <p class="textM">不定期推出海賊船造型</p>
+            </div>
+            <ul>
+                <li class="homeTreaBtn"><img src="image/treasure/trea1.svg" alt="寶物1"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea3.svg" alt="寶物3"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea4.svg" alt="寶物4"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea5.svg" alt="寶物5"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea6.svg" alt="寶物6"></li>
+            </ul>
+            <div id="homeMarketProdInfo">
+                <img class="homeProdImg" src="image/treasure/trea6.svg" alt="寶物6">
+                <div class="homeProdInfoCard">
+                    <p class="homeProdName textM">八加九大刀</p>
+                    <p class="homeProdPrice textM">
+                        價格：<strong class="textHiliR">890G</strong>
+                        <div class="btnpri">直接購買</div>
+                    </p>
+                    <p class="homeProdSaler textS">賣家：景成</p>
+                    <p class="homeProdTalent textS">天賦分布：<br>
+                        <img src="image/ship/radar.png" alt="天賦圖">
+                    </p>
+                </div>
+                <i class='fas fa-arrow-circle-right'></i>
+                <i class='fas fa-arrow-circle-left'></i>
+            </div>
+            <ul>
+                <li class="homeTreaBtn"><img src="image/treasure/trea7.svg" alt="寶物7"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+                <li class="homeTreaBtn"><img src="image/treasure/trea2.svg" alt="寶物2"></li>
+            </ul>
         </div>
         <p><a href="javascript:;"><img src="" alt="海上市集"></a></p>
         <div id="homeMarketShipRank">
@@ -439,11 +467,11 @@
     </footer>
 
 
+    <script src="js/wavebtn.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/header.js"></script>
     <script src="js/home.js"></script>
-    <script src="js/wavebtn.js"></script>
-    <script src="node_modules/@jaames/iro/dist/iro.min.js"></script>
+    <script src="js/iro.min.js"></script>
     <script src="js/shipDIY.js"></script>
 </body>
 </html>
