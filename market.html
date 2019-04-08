@@ -8,6 +8,7 @@
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/market.css">
     <link rel="stylesheet" href="css/wavebtn.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -73,117 +74,193 @@
         </div>
         <div class="marMain blackMarket">
             <!------------ 黑市在這 --------------------->
-            <div class="sidebar col-12">
-                <span>購買寶物</span>
-                <form action="">
+            <div id="tab-demo">
+                <ul class="tab-title bmSidebar bmCol-12">
+                    <li><a class="bmBuyPage" href="#tab01">購買寶物</a></li>
+                    <form action="">
+            
+                            <input type="checkbox" id="bmIntelligence">
+                            <label for="bmIntelligence">智力</label>
+                            <input type="checkbox" id="bmPower">
+                            <label for="bmPower">力量</label>
+                            <input type="checkbox" id="bmAgile">
+                            <label for="bmAgile">敏捷</label>
+                            <input type="checkbox" id="bmLucky">
+                            <label for="bmLucky">幸運</label>
+                        
+                    </form>
+                    <img src="image/market/marBorDec.png" alt="" width="100%"> 
 
-                    <input type="checkbox" id="intelligence">
-                    <label for="intelligence">智力</label>
-                    <input type="checkbox" id="power">
-                    <label for="power">力量</label>
-                    <input type="checkbox" id="agile">
-                    <label for="agile">敏捷</label>
-                    <input type="checkbox" id="lucky">
-                    <label for="lucky">幸運</label>
+                    <li><a class="bmSellPage" href="#tab02">販賣寶物</a></li>
+                    </ul>
 
-                </form>
+                    <div id="tab01" class="tab-inner">
+                        <div class="bmWrap bmFlex">
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                            <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                                <p class="bmTitle" >八加九大刀</p>
+                                <p class="bmName">賣家：王大陸</p>
+                                <p class="bmAbility">智力+1 力量+1</p>
+                                <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                                <img src="image/ship/radar.png" alt="" class="bmRadar">
+                                <p class="bmPrice">價格：890 G <br>
+                                    剩餘拍賣時間： 1小時</p>
+                                <a class="btnsec bmBuy" href="#">
+                                    <span>購買</span>
+                                </a>
+                            </div>
+                        
+                        </div>  
+                </div>
 
-            </div>
-            <div class="wrap flex">
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <img src="/image/ship/radar.png" alt="" class="radar">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
-                <div class="box col-6 col-md-3 col-xl-2 ">
-                    <p>八加九大刀</p>
-                    <p>賣家：王大陸</p>
-                    <p>智力+1 力量+1</p>
-                    <img src="image/treasure/trea1.svg" alt="" class="imgtre">
-                    <p>價格：890 G</p>
-                    <p>剩餘拍賣時間： 1小時</p>
-                    <input type="button" value="購買">
-                </div>
 
-            </div>
 
+            <div id="tab02" class="tab-inner">
+                <div class="bmWrap bmFlex ">
+                    <div class="bmWrap1 bmCol-2 bmCol-md-2 bmCol-xl-2">
+                        <p>船艙</p>
+                        <div class="bmCabin ">
+
+                        </div>
+                    </div>
+            
+                    <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                        <p class="bmTitle" >八加九大刀</p>
+                        <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                        <img src="image/ship/radar.png" alt="" class="bmRadar">
+                        <p class="bmPrice">價格：890 G <br>
+                            剩餘拍賣時間： 1小時</p>
+                      
+                    </div>
+                    
+                    <div class="bmBox bmCol-6 bmCol-md-3 bmCol-xl-2 ">
+                        <p class="bmTitle" >八加九大刀</p>
+                        <img src="image/treasure/trea1.svg" alt="" class="bmImgtre">
+                        <img src="image/ship/radar.png" alt="" class="bmRadar">
+                        <p class="bmTime">拍賣時間： 3小時</p>
+                        <div class="bmIntputPrice">
+                            <input type="text" >
+                            <span>G</span>
+                        </div>
+                        <a class="btnsec bmBuy" href="#">
+                            <span>販賣</span>
+                        </a>
+                    </div>
+                </div>
+        </div>
+
+     <img src="image/market/marBorDec.png" alt="" width="100%"> 
+
+
+
+</div>
 
 
 
@@ -540,7 +617,7 @@
     </div>
     <script src="js/wavebtn.js"></script>
     <script src="js/market.js"></script>
-
+    <script src="js/login.js"></script>
     <script src="js/header.js"></script>
 
 </body>
