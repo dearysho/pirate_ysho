@@ -19,8 +19,8 @@ window.addEventListener('load',function(){
     var winWidth = window.innerWidth;
     window.addEventListener('resize',function(){
         winWidth = window.innerWidth;
-        //螢幕寬度小於1200啟動toggleHeader，大於就remove
-        if(winWidth<1200){
+        //螢幕寬度小於1024啟動toggleHeader，大於就remove
+        if(winWidth<1024){
             headerMe.addEventListener('click',toggleHeader);
             //確保選單都先收起
             headerMe.classList.add('hide');
@@ -35,12 +35,14 @@ window.addEventListener('load',function(){
         }
     })
     //網頁剛開啟時螢幕寬度小於1200啟動toggleHeader，大於就remove
-    if(winWidth<1200){
+    if(winWidth<1024){
         var headerMe= document.getElementById("headerMe");
         headerMe.addEventListener('click',toggleHeader);
         toggleHeader(); //讓他在手機板時，先出現並隱藏
     }else{
         headerMe.removeEventListener('click',toggleHeader);
     }
+
+
 
 })
