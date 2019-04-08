@@ -1,0 +1,31 @@
+@import '../base/reset';
+@import '../base/font';
+
+$padV: 768px;
+$pc: 1200px;
+//@media screen and (min-width: ){}
+//@media screen and (min-width: $padV){}
+//@media screen and (min-width: $pc){}
+
+$titleHight: 300px;
+$darkred: #854c46;
+$marginBetweenWrap: 30px;
+$blockBord: #2a3439;
+$lightBrown: #b6a79a;
+$boxColor1: #f5ecdd;
+body {
+    background-image: url(../image/background/BgPage.png)
+}
+#addFormWrap{
+    #addForm{
+        width: 80%;
+        margin: auto;
+        padding: 2rem;
+        border: $red  2px dashed;
+        box-shadow: 0px 0px 0px 2px $brown inset,
+        0px 0px 0px 2px $brown;
+        .textEmphasis{
+            text-align: center;
+        }
+    }
+}
