@@ -1,3 +1,85 @@
-.box{
-	padding-bottom: 50px;
+//reset
+@import '../base/reset';
+
+// 程式碼
+body{
+	background-image: url('../image/iqtest/qabg.jpg');
+}
+.timeline{
+	position: relative;
+	margin: 50px auto 0;
+	width: 1600px;
+	height: 15px;
+	background-color: #456789;
+	-webkit-animation: timeline 32s linear;
+}
+@-webkit-keyframes timeline {
+  0% {
+  	transform: translateX(0);
+    width: 1400px; }
+  50% {
+  	transform: translateX(-700px);
+    width: 0px; }
+  100% {
+  	transform: translateX(-700px);
+    width: 0px; }
+}
+.time{
+	font-size: 30px;
+	font-weight: 700;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+.ques{
+	background-image: url('../image/iqtest/qaq.png');
+	width: 1132px;
+	height: 140px;
+	margin: 30px auto 10px;
+	text-align: center;
+	line-height: 140px;
+}
+.quesText{
+	font-weight: 700;
+	font-size: 30px;
+	letter-spacing: 3px;
+}
+.option{
+	margin: 0 auto;
+	width: 1200px;
+	height: 700px;
+}
+.opop{
+	position: relative;
+	background-image: url('../image/iqtest/qabtn.png');
+	float: left;
+	margin: 50px;
+	margin-bottom: 20px;
+	width: 450px;
+	height: 300px;
+	text-align: center;
+	// overflow: hidden;
+}
+.ans{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.textHi{
+	position: relative;
+	left: -100px;
+	top: -100px;
+	font-weight: 700;
+	font-size: 30px;
+}
+.describe{
+	line-height: 300px;
+	font-weight: 700;
+	font-size: 42px;
+	letter-spacing: 5px;
+}
+a{
+	cursor: pointer;
+	color: #495057;
 }

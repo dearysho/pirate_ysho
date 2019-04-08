@@ -2,11 +2,14 @@
 @import '../base/reset';
 @import '../layout/header';
 
-.marWrap {
+
+body {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
-    font-family: $fofaText;
     background-size: 100% auto;
+}
+.marWrap {
+    font-family: $fofaText;
 }
 
 h1, h2, h3, h4 {
@@ -14,7 +17,7 @@ h1, h2, h3, h4 {
 }
 
 span {
-    color: #534c4c;
+    // color: #534c4c;
 }
 
 .marBanner{
@@ -142,7 +145,7 @@ span {
         box-shadow: 0px 0px 4px .1px #362e2b;
         border: 2px solid #523a31;
         border-radius: 4px;
-        background-color: #f5ecdd;
+        background-color: rgba(245, 236, 221, .5);
         // background-image: url(../image/market/mBGPapper.jpg);
         background-size: 100%;
         h2{
@@ -157,6 +160,8 @@ span {
     }
     
     .sYProList {
+        outline: 1px solid #523a31;
+        box-shadow: 0px 0px 2px 1px #362e2b;
         margin: 30px 0 0 1%;
         position: relative;
         width: 25%;
@@ -167,6 +172,7 @@ span {
             position: relative;
             margin: 0 0 30px 0;
             background-color: #ccc;
+            box-shadow: 0px 0px 5px 1px #362e2b;
             img {
                 position: absolute;
                 z-index: 2;
@@ -574,76 +580,78 @@ span {
         margin-left: 7vw;
     }
 }
-//---------------------------------------------------------------------黑市
-li{
+//-----黑市
+
+
+.tab-title li{
     display: inline;
     margin: 10px;
 }
-.flex{
+.bmFlex{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12{
+.bmCol-1,
+.bmCol-2,
+.bmCol-3,
+.bmCol-4,
+.bmCol-5,
+.bmCol-6,
+.bmCol-7,
+.bmCol-8,
+.bmCol-9,
+.bmCol-10,
+.bmCol-11,
+.bmCol-12{
     padding-left: 10px; 
     padding-right: 10px;
     box-sizing: border-box;
     margin: 10px;
     
 }
-.col-1{ width: 8.333333%; }
-.col-2{ width: 16.666666%; }
-.col-3{ width: 25%;}
-.col-4{ width: 33.333333%; }
-.col-5{ width: 41.666666%; }
-.col-6{ width: calc(50% - 20px); }
-.col-7{ width: 58.333333%; }
-.col-8{ width: 66.666666%; }
-.col-9{ width: 75%; }
-.col-10{ width: 83.333333%; }
-.col-11{ width: 91.666666%; }
-.col-12{ width: 100%; }
+.bmCol-1{ width: 8.333333%; }
+.bmCol-2{ width: 16.666666%; }
+.bmCol-3{ width: 25%;}
+.bmCol-4{ width: 33.333333%; }
+.bmCol-5{ width: 41.666666%; }
+.bmCol-6{ width: calc(50% - 20px); }
+.bmCol-7{ width: 58.333333%; }
+.bmCol-8{ width: 66.666666%; }
+.bmCol-9{ width: 75%; }
+.bmCol-10{ width: 83.333333%; }
+.bmCol-11{ width: 91.666666%; }
+.bmCol-12{ width: 100%; }
 @media screen and (min-width:768px){
-    .col-md-1{ width: 8.333333%; }
-    .col-md-2{ width: 16.666666%; }
-    .col-md-3{ width: calc(25% - 20px);}
-    .col-md-4{ width: 33.333333%; }
-    .col-md-5{ width: 41.666666%; }
-    .col-md-6{ width: 50%; }
-    .col-md-7{ width: 58.333333%; }
-    .col-md-8{ width: 66.666666%; }
-    .col-md-9{ width: 75%; }
-    .col-md-10{ width: 83.333333%; }
-    .col-md-11{ width: 91.666666%; }
-    .col-md-12{ width: 100%; }
+    .bmCol-md-1{ width: 8.333333%; }
+    .bmCol-md-2{ width: 16.666666%; }
+    .bmCol-md-3{ width: calc(25% - 20px);}
+    .bmCol-md-4{ width: 33.333333%; }
+    .bmCol-md-5{ width: 41.666666%; }
+    .bmCol-md-6{ width: 50%; }
+    .bmCol-md-7{ width: 58.333333%; }
+    .bmCol-md-8{ width: 66.666666%; }
+    .bmCol-md-9{ width: 75%; }
+    .bmCol-md-10{ width: 83.333333%; }
+    .bmCol-md-11{ width: 91.666666%; }
+    .bmCol-md-12{ width: 100%; }
 }
 
 
 @media screen and (min-width:1200px){
-    .col-xl-1{ width: 8.333333%; }
-    .col-xl-2{ width: calc(16.66666% - 20px); }
-    .col-xl-3{ width: 25%;}
-    .col-xl-4{ width: 33.333333%; }
-    .col-xl-5{ width: 41.666666%; }
-    .col-xl-6{ width: 50%; }
-    .col-xl-7{ width: 58.333333%; }
-    .col-xl-8{ width: 66.666666%; }
-    .col-xl-9{ width: 75%; }
-    .col-xl-10{ width: 83.333333%; }
-    .col-xl-11{ width: 91.666666%; }
-    .col-xl-12{ width: 100%; }
+    .bmCol-xl-1{ width: 8.333333%; }
+    .bmCol-xl-2{ width: calc(16.66666% - 20px); }
+    .bmCol-xl-3{ width: 25%;}
+    .bmCol-xl-4{ width: 33.333333%; }
+    .bmCol-xl-5{ width: 41.666666%; }
+    .bmCol-xl-6{ width: 50%; }
+    .bmCol-xl-7{ width: 58.333333%; }
+    .bmCol-xl-8{ width: 66.666666%; }
+    .bmCol-xl-9{ width: 75%; }
+    .bmCol-xl-10{ width: 83.333333%; }
+    .bmCol-xl-11{ width: 91.666666%; }
+    .bmCol-xl-12{ width: 100%; }
 
 
 }
@@ -670,12 +678,16 @@ li{
 
 /* 黑市  */
 
-.sidebar{
+.bmSidebar{
     line-height: 2;
 }
 
+.bmSidebar {
+    padding: 0;
+    margin: 10px 0;
+}
 
-.box{
+.bmBox{
     border: 2px solid rgb(202, 132, 26);
     background-color: rgb(248, 216, 167);
     border-radius: 5px;
@@ -683,28 +695,28 @@ li{
     height: 250px;
     
 }
-.box p{
+.bmBox p{
     position: absolute;
 }
-.box .title{
+.bmBox .bmTitle{
     top: 10px;
     left: 5px;
 }
-.box .name{
+.bmBox .bmName{
     font-size: 12px;
     top: 12px;
     right: 5px;
 }
-.box .price{
+.bmBox .bmPrice{
     bottom: 50px;
     line-height: 1.2;
 }
-.box .ability{
+.bmBox .bmAbility{
     font-size: 12px;
     top: 30px;
     left: 5px;
 }
-.imgtre{
+.bmImgtre{
     position: absolute;
     opacity: 1;
     top: 25%;
@@ -715,12 +727,12 @@ li{
 
     
 }
-.box .buy{
+.bmBox .bmBuy{
     position: absolute;
     bottom: 10px;
     left: 28%;
 }
-.radar{
+.bmRadar{
     position: absolute;
     top: 25%;
     left: 20%;
@@ -730,20 +742,20 @@ li{
    
 }
 
-.box:hover .imgtre{
+.bmBox:hover .bmImgtre{
     animation-name:fadeOut;
     animation-duration: 2s;
     animation-fill-mode:forwards;
     
 }
 
-.box:hover .radar{
+.bmBox:hover .bmRadar{
     animation-name:fadeIn;
     animation-duration: 2s;
     animation-fill-mode:forwards;
 }
 
-.imgtre{
+.bmImgtre{
     position: absolute;
     width: 50%;
     top: 25%;
@@ -752,7 +764,7 @@ li{
     height: 84px;
 }
 
-.wrap1{
+.bmWrap1{
     padding: 10px;
     text-align: center;
     margin: 10px ;
@@ -761,10 +773,10 @@ li{
     border-radius: 2px;
     background-color: rgb(253, 215, 169);
 }
-.time{
+.bmTime{
     bottom: 50px;
 }
-.box .intputPrice{
+.bmBox .bmIntputPrice{
     position: absolute;
     bottom: 70px;
 }
