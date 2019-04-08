@@ -1,4 +1,133 @@
-.box {
-  padding-bottom: 50px; }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaXF0ZXN0LmNzcyIsInNvdXJjZXMiOlsiaXF0ZXN0LnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLmJveHtcclxuXHRwYWRkaW5nLWJvdHRvbTogNTBweDtcclxufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxBQUFBLElBQUksQ0FBQTtFQUNILGNBQWMsRUFBRSxJQUFJLEdBQ3BCIn0= */
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: e;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  clear: both; }
+
+body {
+  background-image: url("../image/iqtest/qabg.jpg"); }
+
+.timeline {
+  position: relative;
+  margin: 50px auto 0;
+  width: 1600px;
+  height: 15px;
+  background-color: #456789;
+  -webkit-animation: timeline 32s linear; }
+
+@-webkit-keyframes timeline {
+  0% {
+    transform: translateX(0);
+    width: 1400px; }
+  50% {
+    transform: translateX(-700px);
+    width: 0px; }
+  100% {
+    transform: translateX(-700px);
+    width: 0px; } }
+.time {
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: 100px;
+  top: 100px; }
+
+.ques {
+  background-image: url("../image/iqtest/qaq.png");
+  width: 1132px;
+  height: 140px;
+  margin: 30px auto 10px;
+  text-align: center;
+  line-height: 140px; }
+
+.quesText {
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 3px; }
+
+.option {
+  margin: 0 auto;
+  width: 1200px;
+  height: 700px; }
+
+.opop {
+  position: relative;
+  background-image: url("../image/iqtest/qabtn.png");
+  float: left;
+  margin: 50px;
+  margin-bottom: 20px;
+  width: 450px;
+  height: 300px;
+  text-align: center; }
+
+.ans {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none; }
+
+.textHi {
+  position: relative;
+  left: -100px;
+  top: -100px;
+  font-weight: 700;
+  font-size: 30px; }
+
+.describe {
+  line-height: 300px;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: 5px; }
+
+a {
+  cursor: pointer;
+  color: #495057; }
+
+/*# sourceMappingURL=iqtest.css.map */
