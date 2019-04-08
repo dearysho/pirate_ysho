@@ -136,14 +136,18 @@ span {
     .marCont {
         position: relative;
         padding-bottom: 1vw;
+        margin-top: 1vw;
         top: 0;
+        box-shadow: 0px 0px 4px .1px #362e2b;
+        border: 2px solid #523a31;
+        border-radius: 4px;
         h2{
             margin: 30px 0 30px 3%;
         }
 
         .marBorDec {
             position: absolute;
-            bottom: 0;
+            margin-bottom: -1vw;
             width: 100%;
         }
     }
@@ -177,7 +181,7 @@ span {
             }
             .purchaseBox {
                 width: 100%;
-                background-color: rgb(218, 179, 121);
+                background-color: #2a3439;
                 position: relative;
                 bottom: 0;
                 display: flex;
@@ -187,7 +191,7 @@ span {
                 z-index: 1;
                 margin-top: 15px;
                 overflow: hidden;
-
+                box-shadow: 0px 0px 4px 0.1px #362e2b;
                 .priceT{
                     line-height: 36px;
                     margin-right: 1em;
@@ -207,6 +211,10 @@ span {
                     right: 2em;
                     line-height: 36px;
                     transition: .6s;
+                    color: #fff;
+                }
+                span {
+                    color: #ffffff;
                 }
                 .addCart {
 
@@ -555,4 +563,128 @@ span {
     .shipYard .sYProList .sYPro .purchaseBox .buy {
         margin-left: 8.5vw;
     }
+}
+//-----黑市
+
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12{
+    padding-left: 10px; 
+    padding-right: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    
+}
+.col-1{ width: 8.333333%; }
+.col-2{ width: 16.666666%; }
+.col-3{ width: 25%;}
+.col-4{ width: 33.333333%; }
+.col-5{ width: 41.666666%; }
+.col-6{ width: calc(50% - 20px); }
+.col-7{ width: 58.333333%; }
+.col-8{ width: 66.666666%; }
+.col-9{ width: 75%; }
+.col-10{ width: 83.333333%; }
+.col-11{ width: 91.666666%; }
+.col-12{ width: 100%; }
+@media screen and (min-width:768px){
+    .col-md-1{ width: 8.333333%; }
+    .col-md-2{ width: 16.666666%; }
+    .col-md-3{ width: calc(25% - 20px);}
+    .col-md-4{ width: 33.333333%; }
+    .col-md-5{ width: 41.666666%; }
+    .col-md-6{ width: 50%; }
+    .col-md-7{ width: 58.333333%; }
+    .col-md-8{ width: 66.666666%; }
+    .col-md-9{ width: 75%; }
+    .col-md-10{ width: 83.333333%; }
+    .col-md-11{ width: 91.666666%; }
+    .col-md-12{ width: 100%; }
+}
+
+
+@media screen and (min-width:1200px){
+    .col-xl-1{ width: 8.333333%; }
+    .col-xl-2{ width: calc(16.66666% - 20px); }
+    .col-xl-3{ width: 25%;}
+    .col-xl-4{ width: 33.333333%; }
+    .col-xl-5{ width: 41.666666%; }
+    .col-xl-6{ width: 50%; }
+    .col-xl-7{ width: 58.333333%; }
+    .col-xl-8{ width: 66.666666%; }
+    .col-xl-9{ width: 75%; }
+    .col-xl-10{ width: 83.333333%; }
+    .col-xl-11{ width: 91.666666%; }
+    .col-xl-12{ width: 100%; }
+
+
+}
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+
+/* 黑市  */
+.box{
+    border: 2px solid rgb(202, 132, 26);
+    background-color: rgb(248, 216, 167);
+    border-radius: 5px;
+    
+}
+.imgtre{
+  opacity: 1;
+    
+}
+.radar{
+    opacity: 0;
+   
+}
+
+.box:hover .imgtre{
+    animation-name:fadeOut;
+    animation-duration: 2s;
+    animation-fill-mode:forwards;
+    
+}
+
+.box:hover .radar{
+    animation-name:fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode:forwards;
+}
+
+.imgtre{
+    width: 50%;
 }

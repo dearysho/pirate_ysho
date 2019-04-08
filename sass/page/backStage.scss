@@ -1,0 +1,67 @@
+// css-reset
+@import'sass/base/reset';
+
+//文字大小字型設定
+@import'sass/base/font';
+
+// * {
+//     outline: 1px solid black;
+// }
+
+body {
+    background-image: url("../../image/background/BgPage.png")
+}
+
+.menu {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    box-shadow: 2px 2px 5px #aaa;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    overflow-y: scroll;
+
+    #logo {
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-family: $fofaText;
+        font-size: 1rem;
+
+        #manager {
+            color: $blue;
+        }
+    }
+}
+
+
+
+.menuUl {
+    li {
+        margin: 30px 0;
+        display: block;
+
+        a {
+            color: $brown;
+            font-family: $fofaText;
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.contentWrap{
+    padding-top: 20px;
+    .content{
+        overflow-x: auto;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        margin-left: 280px;
+        margin-right: 20px;
+        border-radius: 30px;
+        position: relative;
+    }
+}
