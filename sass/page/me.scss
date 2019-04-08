@@ -18,7 +18,7 @@
 
 
 body {
-    background-image: url('/image/background/bgtexture.png');
+    background-image: url('../../image/background/bgtexture.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -368,7 +368,7 @@ select {
 
     .treasure::after {
         content: "";
-        background-image: url("/image/background/BgBox.png");
+        background-image: url("../../image/background/BgBox.png");
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
