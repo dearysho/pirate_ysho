@@ -1,8 +1,9 @@
 //google map api常態關閉 要測試時再跟我說 我再打開
 //開始遊戲的時候觸發按鈕要做的事
-//#gameGps::before left -200%
-//#gameGps::after right -200%
-//執行gpsStart();
+//#gameGps::before left -200% 雲
+//#gameGps::after right -200% 雲
+//#gameGpsMap::after 遮罩
+//執行函示gpsStart();
 
 
 //======地圖============================
@@ -28,10 +29,10 @@ var treaPositionArr = [];
 var markers = [];
 //設定初始地圖
 function initMap(){
-	navigator.geolocation.getCurrentPosition(gpsSuccCallback,gpsErrorCallback,{
+	navigator.geolocation.getCurrentPosition(gpsSuccCallback, gpsErrorCallback,{
 		enableHighAccuracy: true,
 		timeout: 60000,
-		maximumAge: 3600000,
+		maximumAge: 360000,
 	});
 }
 function gpsSuccCallback(e) {
@@ -46,7 +47,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	//gpsStart();
+	gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置
@@ -117,7 +118,7 @@ function dropMarker(){
 
 //錯誤訊息
 function gpsErrorCallback(e){
-	// document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
+	//document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
 	//顯示需開啟GPS功能
 }
 //======抽獎============================
@@ -193,3 +194,32 @@ function gameGpsLotto() {
 	gameGpsLottoTimer = setInterval(gameGpsLottoRun, 100);
 }
 //window.addEventListener('load',gameGpsLotto);
+
+//btn.js
+var btnpri = document.getElementsByClassName("btnpri");
+var btnsec = document.getElementsByClassName("btnsec");
+
+var waveWidth = 5;
+
+function createbtn(btntype){
+
+    for(var j = 0; j < btntype.length; j++){
+        var wavebox = document.createDocumentFragment();
+
+        var width = window.getComputedStyle(btntype[j]).width;
+        
+        var waveCount = (parseInt(width)+40)/parseInt(waveWidth)+1;
+
+        for (var i = 0; i < waveCount; i++) {
+            var wave = document.createElement("div");
+            wave.className += " wave";
+            wavebox.appendChild(wave);
+            wave.style.left = i * waveWidth + "px";
+            wave.style.animationDelay = (i / 80) + "s";
+        }
+        btntype[j].appendChild(wavebox);
+    }
+}
+
+createbtn(btnpri);
+createbtn(btnsec);
