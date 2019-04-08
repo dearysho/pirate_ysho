@@ -9,6 +9,7 @@
     display: none;
 }
 a{color: $blue;}
+.btnpri{cursor: pointer;}
 
 body{
     background: url(../../image/background/BgPage.png);
@@ -190,6 +191,14 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     #shipArea{
         height: 200px;
     }
+
+}
+
+//==================首頁header出現的調整
+@media screen and (min-width:1024px){
+header.homeHeadHide{
+    top: -200px;
+}
 
 }
 
@@ -583,13 +592,9 @@ h2 a{
 
 //啟航尋寶
 #homeGameGPS{
-    width: calc(100% - 30px);
-    border: #a67c52 5px double;
-    margin: 40px 10px 10px 10px;
-    height: 500px;
-}
-#homeGameGPS .smaller{
-    letter-spacing: 1px;
+    .smaller{
+        letter-spacing: 1px;
+    }
 }
 #homeGameTrea{
     position: relative;
@@ -644,6 +649,10 @@ h2 a{
 }
 
 //海上市集
+#homeMarket>.textS{
+    text-align: right;
+    margin: 10px 20px;
+}
 #homeMarketProds{
     position: relative;
     margin-top: 120px;
@@ -664,13 +673,13 @@ h2 a{
     background: #005982;
     z-index: -1;
     top: -120px;
-    
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
 }
 #homeMarketShip{
     background: #006ca6;
     z-index: -2;
-    left: -20px;
-    top: -30px;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    top: -120px;
 
 }
 .homeTreaBtn{
@@ -688,15 +697,12 @@ h2 a{
 #homeMarketProdInfo{
     background: #f5ecdd;
     border-radius: 10px;
-    margin: 30px;
+    margin:10px 30px;
     padding: 10px;
+    height: 530px;
     text-align: center;
     box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
     position: relative;
-    .homeProdImg{
-        width: 150px;
-        margin-top: -50px;
-    }
     .homeProdTalent{
         img{
             width: 200px;
@@ -719,8 +725,57 @@ h2 a{
     }
 
 }
+.homeWrapProd{
+    position: absolute;
+    left: 0;right: 0;margin: auto;
+}
+.homeProdImg{
+    width: 150px;
+    margin-top: -50px;
+    opacity: 0;
+    transform: translateX(-50px)  scale(0.8);
+    transition-duration: 0.5s
+}
+.homeProdInfoCard p{
+    opacity: 0;
+    transform: translateY(24px) scale(0.8);
+    transition-duration: 0.5s;
+}
+@for $i from 1 through 6{
+    .homeProdInfoCard p:nth-child(#{$i}){
+        transition-delay:$i*0.1 - 0.1s;
+    }
+}
+.homeProdInfoCard p.homeProdAct{
+    opacity: 1;
+    transform: translateY(0px)  scale(1);
+}
+
+.homeProdImg.homeProdAct{
+    opacity: 1;
+    transform: translateX(0px)  scale(1);
+}
 
 @media screen and (min-width:768px){
+    #homeMarketBlack,#homeMarketShip{
+        width: calc(100% - 350px);
+        height: 300px;
+    }
+    #homeMarketBlack{
+        top: -120px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        
+    }
+    #homeMarketShip{
+        left: 0px;
+        right: 0;
+        margin: auto;
+        top: -100px;
+        transform: rotateZ(-10deg) translateX(-40px);
+    
+    }
     #homeMarketProds{ 
         ul{
             float: left;
@@ -732,6 +787,7 @@ h2 a{
     #homeMarketProdInfo{
         float: left;
         width: calc(100% - 400px);
+        height: 530px;
     }
     #homeMarketProds::after{
         content: '';
@@ -739,7 +795,62 @@ h2 a{
         clear: both;
     }
 }
+@media screen and (min-width:1024px){
+    #homeMarket>.textS{
+        text-align: right;
+        margin: 10px 30% 10px 10px;
+    }
+    #homeMarketBlack{
+        top: -90px;
+        left: -15%;
+        width: 300px;
+        height: 500px;
+    }
+    #homeMarketShip{
+        left: -15%;
+        width: 300px;
+        height: 500px;
+    }
+    #homeMarketProds{ 
+        ul{
+            float: left;
+            width: calc(50% - 300px);
+        }
+        li{
+            float: left;
+            margin: 10px 20px;
+        }
+        li:nth-child(2n){
+            margin: 80px -40px -80px -40px;
+        }
+    }
+    #homeMarketProdInfo{
+        width:400px;
+        margin-left: 100px;
+        height: 370px;
+        .homeProdImg{
+            float: left;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .fa-arrow-circle-left{
+            left: -85px;
+        }
+    }
+    .homeProdInfoCard{
+        text-align: left;
+        padding-left: 150px;
+        .btnpri{
+            position: absolute;    
+            right: 20px;
+        }
+    }
 
+    
+}
 
 //情報酒館
 #homeBar .textEmphasis{
