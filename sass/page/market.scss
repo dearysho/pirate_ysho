@@ -17,7 +17,7 @@ h1, h2, h3, h4 {
 }
 
 span {
-    color: #534c4c;
+    // color: #534c4c;
 }
 
 .marBanner{
@@ -145,7 +145,7 @@ span {
         box-shadow: 0px 0px 4px .1px #362e2b;
         border: 2px solid #523a31;
         border-radius: 4px;
-        background-color: #f5ecdd;
+        background-color: rgba(245, 236, 221, .5);
         // background-image: url(../image/market/mBGPapper.jpg);
         background-size: 100%;
         h2{
@@ -160,6 +160,8 @@ span {
     }
     
     .sYProList {
+        outline: 1px solid #523a31;
+        box-shadow: 0px 0px 2px 1px #362e2b;
         margin: 30px 0 0 1%;
         position: relative;
         width: 25%;
@@ -170,6 +172,7 @@ span {
             position: relative;
             margin: 0 0 30px 0;
             background-color: #ccc;
+            box-shadow: 0px 0px 5px 1px #362e2b;
             img {
                 position: absolute;
                 z-index: 2;
@@ -679,6 +682,10 @@ span {
     line-height: 2;
 }
 
+.bmSidebar {
+    padding: 0;
+    margin: 10px 0;
+}
 
 .bmBox{
     border: 2px solid rgb(202, 132, 26);
