@@ -189,6 +189,7 @@ function gameGpsLottoShow() {
 	gameGpsLottoPrize += `<a class="btnsec" href="#"><span>繼續航行</span></a>`;
 	gameGpsLottoPrize += `<a class="btnsec" href="me.html"><span>清點船艙</span></a>`;
 	document.getElementById("gameGpsLottoShow").innerHTML= gameGpsLottoPrize;
+	document.getElementById("gameGpsLottoShow").addEventListener
 }
 function gameGpsLotto() {
 	document.getElementById("gameGpsLotto").style.display = "block";
