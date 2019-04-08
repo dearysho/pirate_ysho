@@ -8,9 +8,52 @@
     <link rel="stylesheet" href="css/barAdd.css">
 </head>
 <body>
+    <header>
+        <h1 id="headerLogo"><a href="javascript:;">
+            <img src="image/logo.svg" alt="大海賊帝國">
+        </a></h1>
+        <nav id="headerMenu" >
+            <ul>
+                <li><a href="javascript:;">海賊試煉場</a></li>
+                <li><a href="javascript:;">海上市集</a></li>
+                <li><a href="javascript:;">情報酒館</a></li>
+                <li><a href="javascript:;">俺の海賊船</a></li>
+            </ul>
+        </nav>
+        <div>
+            <ul id="headerMe">
+                <li id="headerMeID">
+                    <a href="javascript:;">我是大帥哥</a>
+                </li>
+                <li id="headerMeLv">lv.<span>7</span>
+                    <div id="headerExpBar">
+                        <div id="headerExpLine"></div>
+                        <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                    </div>
+                    
+                </li>
+                <li id="headerMeMoney">金幣<span>100</span>G</li>
+                <li id="headerMeShip"><a href="javascript:;">
+                    <img src="image/ship/shipTemp.png" alt="角色頭像">
+                </a></li>
+                <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                <li id="headerMeTalentL">幸運<span>5</span></li>
+                <li id="headerMeTalentA">敏捷<span>5</span></li>
+                <li id="headerMeTalentI">智力<span>5</span></li>
+            </ul>
+        </div>
+    </header>
     <div id="addFormWrap">
+       <h1 class="titleSec">
+           洩漏情報
+           <img src="image/h2frame.svg" alt="">
+        </h1>
+        <p class="textM">
+            與海賊交換最新的情報風聲
+        </p>
+       <a href="bar.html" id="backToBarBtn">保密防諜回到酒館刺探情報</a>
         <form action="login.php" method="post" id="addForm">
-            <h2 class="textEmphasis">最高機密</h2>
+            <p class="textHiliR">最高機密</p>
             <label for="">情報分類
                 <select name="articleType">
                     <option value="gps">尋寶</option>
@@ -24,10 +67,11 @@
             <textarea name="" id="articleCont" cols="30" rows="10">
             </textarea>
             <input type="submit" value="發出情報">
-            <input type="button" value="取消透露，回到上一頁">
         </form>
     </div>
 
-    <link rel="stylesheet" href="css/wavebtn.css">
+    <script src="js/header.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/wavebtn.js"></script>
 </body>
 </html>
