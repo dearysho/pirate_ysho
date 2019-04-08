@@ -1,8 +1,9 @@
 //google map api常態關閉 要測試時再跟我說 我再打開
 //開始遊戲的時候觸發按鈕要做的事
-//#gameGps::before left -200%
-//#gameGps::after right -200%
-//執行gpsStart();
+//#gameGps::before left -200% 雲
+//#gameGps::after right -200% 雲
+//#gameGpsMap::after 遮罩
+//執行函示gpsStart();
 
 
 //======地圖============================
@@ -29,9 +30,11 @@ var markers = [];
 //設定初始地圖
 function initMap(){
 	navigator.geolocation.getCurrentPosition(gpsSuccCallback,gpsErrorCallback,{
+	navigator.geolocation.getCurrentPosition(gpsSuccCallback, gpsErrorCallback,{
 		enableHighAccuracy: true,
 		timeout: 60000,
 		maximumAge: 3600000,
+		maximumAge: 360000,
 	});
 }
 function gpsSuccCallback(e) {
@@ -117,7 +120,7 @@ function dropMarker(){
 
 //錯誤訊息
 function gpsErrorCallback(e){
-	// document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
+	//document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
 	//顯示需開啟GPS功能
 }
 //======抽獎============================
@@ -194,7 +197,11 @@ function gameGpsLotto() {
 }
 //window.addEventListener('load',gameGpsLotto);
 
+<<<<<<< HEAD
 //wavebtn
+=======
+//btn.js
+>>>>>>> f956f5462ed40821775d0a6dfee56436a29b59dc
 var btnpri = document.getElementsByClassName("btnpri");
 var btnsec = document.getElementsByClassName("btnsec");
 

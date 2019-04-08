@@ -20,7 +20,7 @@
             <p>你好^___^</p>
             <ul class="menuUl">
                 <li>
-                    <a href="backBarCommend.html">討論區文章檢舉管理</a>
+                    <a href="#">討論區文章檢舉管理</a>
                 </li>
                 <li>
                     <a href="#">官方商品管理</a>
@@ -32,7 +32,7 @@
                     <a href="#">測驗題目管理</a>
                 </li>
                 <li>
-                    <a href="backMember.html">會員帳號管理</a>
+                    <a href="#">會員帳號管理</a>
                 </li>
                 <li>
                     <a href="#">管理員帳號管理</a>
@@ -51,32 +51,44 @@
         </div>
         <div class="contentWrap">
             <div class="content">
-                <h3 class="titlePri">討論區留言檢舉管理</h3>
+                <h3 class="titlePri">官方商品管理</h3>
                 <div class="dataTable">
                     <table>
                         <tr>
-                            <th>留言編號</th>
-                            <th>檢舉編號</th>
-                            <th>檢舉內容</th>
-                            <th>檢舉原因</th>
-                            <th>檢舉時間</th>
-                            <th>審核狀態</th>
+                            <th>造型編號</th>
+                            <th>造型名稱</th>
+                            <th>造型部位</th>
+                            <th>圖片</th>
+                            <th>是否為客製化造型</th>
+                            <th>價錢</th>
+                            <th>上架時間</th>
+                            <th>上下架狀態</th>
                         </tr>
                         <tr>
-                            <td>1314520</td>
-                            <td>131452</td>
-                            <td>景成的大秘寶篇章</td>
-                            <td>人家是男生耶 森77</td>
-                            <td>19/02/30</td>
-                            <td><input type="button" value="刪除"></td>
-                        </tr>
-                        <tr>
-                            <td>1314520</td>
-                            <td>131452</td>
-                            <td>\大媽萬歲/</td>
-                            <td>我討厭大媽</td>
-                            <td>19/02/30</td>
-                            <td><input type="button" value="刪除"></td>
+                            <td>000001</td>
+                            <td>abc123</td>
+                            <td>船頭</td>
+                            <td><img src="../image/ship/ship.png" alt=""></td>
+                            <td>
+                                <form action="">
+                                    <select name="CusOrNot">
+                                        <option value="cusY">客製化造型</option>
+                                        <option value="cusN">商城造型</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                <input type="text" name="oMPrice" id="oMPrice" value="777">
+                            </td>
+                            <td>2019.4.9</td>
+                            <td>
+                                <form action="">
+                                    <select name="SaleOrNot">
+                                        <option value="onSale">上架中</option>
+                                        <option value="offSale">已下架</option>
+                                    </select>
+                                </form>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -94,6 +106,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
