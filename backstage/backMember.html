@@ -16,14 +16,14 @@
             <div id="logo">
                 <img src="../image/logo.svg" alt="">
             </div>
-            <p>Hi~ 管理員 <span id="manager">景承</span></p>
+            <p>Hi~ 管理員 <span id="manager">景承</span>♥♥小哥哥♥♥</p>
             <p>你好^___^</p>
             <ul class="menuUl">
                 <li>
-                    <a href="#">討論區文章檢舉管理</a>
+                    <a href="backBarCommend.html">討論區文章檢舉管理</a>
                 </li>
                 <li>
-                    <a href="#">官方商品管理</a>
+                    <a href="backOfficialMerch.html">官方商品管理</a>
                 </li>
                 <li>
                     <a href="#">造型記錄查詢</a>
@@ -32,7 +32,7 @@
                     <a href="#">測驗題目管理</a>
                 </li>
                 <li>
-                    <a href="#">會員帳號管理</a>
+                    <a href="backMember.html">會員帳號管理</a>
                 </li>
                 <li>
                     <a href="#">管理員帳號管理</a>
@@ -41,19 +41,19 @@
                     <a href="#">客製造型管理</a>
                 </li>
                 <li>
-                    <a href="#">寶物商品管理</a>
+                    <a href="backTreasure.html">寶物商品管理</a>
                 </li>
                 <li>
-                    <a href="#">寶物拍賣紀錄查詢</a>
+                    <a href="backTreasureRocard.html">寶物拍賣紀錄查詢</a>
                 </li>
                 <a href="#" class="btnpri" id="logout">登出</a>
             </ul>
         </div>
         <div class="contentWrap">
             <div class="content">
-                <h3>會員管理</h3>
-                <table>
-                    <tbody>
+                <h3 class="titlePri">會員管理</h3>
+                <div class="dataTable">
+                    <table>
                         <tr>
                             <th>編號</th>
                             <th>帳號</th>
@@ -85,23 +85,64 @@
                             </td>
                             <td></td>
                         </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="pagination">
-                <ul>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                    <li> <a href=""></a></li>
-                </ul>
+                        <tr>
+                            <td>2</td>
+                            <td>wl02856836</td>
+                            <td>TISSOT</td>
+                            <td>11000</td>
+                            <td>999</td>
+                            <td>
+                                <img src="../image/ship/ship.png" alt="">
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="commentRight" value="1" checked>
+                                    正常
+                                </label>
+                                <label>
+                                    <input type="radio" name="commentRight" value="0">
+                                    禁言
+                                </label>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>cc001</td>
+                            <td>安安1號</td>
+                            <td>10000</td>
+                            <td>99</td>
+                            <td>
+                                <img src="../image/ship/ship.png" alt="">
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="commentRight" value="1" checked>
+                                    正常
+                                </label>
+                                <label>
+                                    <input type="radio" name="commentRight" value="0">
+                                    禁言
+                                </label>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <ul>
+                        <li id="left"> <a href="#">
+                                < </a> </li> <li> <a href="#">1</a></li>
+                        <li> <a href="#">2</a></li>
+                        <li> <a href="#">3</a></li>
+                        <li> <a href="#">4</a></li>
+                        <li> <a href="#">5</a></li>
+                        <li class="right"> <a href="#"> > </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

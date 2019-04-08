@@ -4,9 +4,9 @@
 //文字大小字型設定
 @import'sass/base/font';
 
-* {
-    outline: 1px solid black;
-}
+// * {
+//     outline: 1px solid black;
+// }
 
 body {
     background-image: url("../../image/background/BgPage.png");
@@ -14,14 +14,17 @@ body {
     background-size: cover;
 }
 
+// 左邊選單
 .menu {
     width: 250px;
     height: 100%;
     position: fixed;
-    box-shadow: 2px 2px 5px #aaa;
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    border: 7px dashed #5f6f70;
+    box-shadow: 0px 0px 0px 2px #000 inset,
+        0px 0px 0px 2px #000;
 
     #logo {
         width: 80%;
@@ -40,8 +43,6 @@ body {
     }
 }
 
-
-
 .menuUl {
     li {
         margin: 30px 0;
@@ -52,17 +53,16 @@ body {
             font-family: $fofaText;
             font-size: 1.25rem;
         }
+        a:hover{
+            color: $blue;
+        }
     }
 }
 
+
+// 右邊table
 .contentWrap {
     padding-top: 20px;
-
-    h3 {
-        color: $blue;
-        font-family: $fofaText;
-        text-align: center;
-    }
 
     .content {
         overflow-x: auto;
@@ -75,21 +75,27 @@ body {
         position: relative;
 
         table {
-            border-spacing: 1rem;
+            border-spacing: 0 1rem;
+            text-align: center;
+            color: $brown;
+            font-family: $fofaText;
 
-            tbody {
-                tr {
+            tr {
 
-                    th {
-                        width: 160px;
-                    }
+                th {
+                    width: 160px;
+                    padding: 1rem 0;
 
-                    td {
-                        text-align: center;
-                        height: 5rem;
-                        
-                    }
                 }
+
+                td {
+                    vertical-align: middle;
+                }
+
+            }
+
+            tr:nth-child(even) {
+                background-color: #BBB09D;
             }
 
             img {
@@ -97,5 +103,32 @@ body {
             }
         }
 
+    }
+}
+
+.dataTable {
+    table {
+        width: 100%;
+        border-spacing: 0.5rem 0rem;
+    }
+
+    width: 100%;
+}
+
+.pagination ul {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination ul li {
+    margin: 10px;
+    font-size: 20px;
+    background-color: $blue;
+    padding: 10px;
+
+    a {
+        color: $beige;
+        margin: 0 5px;
+        font-family: $fofaText;
     }
 }
