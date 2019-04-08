@@ -48,7 +48,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	gpsStart();
+	//gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置

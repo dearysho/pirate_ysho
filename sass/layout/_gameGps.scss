@@ -5,6 +5,9 @@ $pc: 1200px;
 //@media screen and (min-width: $pc){}
 
 //最外面那包
+#gpsGameWrap{
+    position: relative;
+}
 #gameGps{
     position: relative;
     width: 100%;
@@ -95,7 +98,7 @@ $pc: 1200px;
 #gameGpsMap{
     position: relative;
     width: calc(100% - 16px);
-    height: 70vh;
+    height: calc(100% - 150px);
     margin: 7px auto auto;
     box-sizing: border-box;
     border: $brown 7px dashed; //$brown
@@ -189,6 +192,10 @@ $pc: 1200px;
     @media screen and (min-width: $padV){
         width: 200px;
         height: 200px;
+    }
+    .btnsec{
+        border-radius: 0.1rem;
+        padding: 0.1rem 0.5rem;
     }
 }
 #gameGpsLottoShow img{
