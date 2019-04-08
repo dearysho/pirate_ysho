@@ -12,12 +12,12 @@ function showMarket(n) {
     if (n > changeMar.length) { switchMarket = 1 }
     if (n < 1) { switchMarket = changeMar.length }
     for (i = 0; i < changeMar.length; i++) {
-        changeMar[i].style.zIndex = "-1";
+        changeMar[i].style.display = "none";
     }
     for (i = 0; i < trigger.length; i++) {
         trigger[i].className = trigger[i].className.replace(" currentMar", "");
     }
-    changeMar[switchMarket - 1].style.zIndex = "1";
+    changeMar[switchMarket - 1].style.display = "block";
     changeMar[switchMarket - 1].style.animation = "fadeIn .6s";
     trigger[switchMarket - 1].className += " currentMar";
 }
