@@ -1,0 +1,9 @@
+//mediaWidth;
+ $padV: 768px;
+// $padHWidth: 992px;
+// $pcWidth: 1200px;
+@mixin padV($padV) {
+    @media all and (min-width: $padV){
+        @content
+    }
+}

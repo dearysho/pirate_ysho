@@ -67,9 +67,11 @@
     height: 70vh;
     margin: 7px auto auto;
     box-sizing: border-box;
-    border: #534741 7px dashed;
+    border: #534741 7px dashed; 
+                /* $brown */
     background-color: #d5d5d5;
     outline: 7px #534741 double;
+                /* $brown */
 }
 #gameGpsMap::after{
     content:'';
@@ -83,6 +85,7 @@
     background-color: rgba(206, 211, 208, 0.6);
     box-sizing: border-box;
     border: 7px #534741 double;
+                /* $brown */
 }
 /* 搖獎的燈箱 */
 #gameGpsLotto{
@@ -98,6 +101,7 @@
     box-sizing: border-box;
     background-color: #fffcf2;
     border: #a34f49 7px dashed;
+                /* $red */
     /* border: #fffcf2 7px dashed; */
     box-shadow:0px 0px 0px 2px #000 inset;
     outline: 2px #000 solid;
@@ -140,8 +144,10 @@
     height: 200px;
     background-color: #fffcf2;
     border: #a34f49 7px dashed;
-    box-shadow:0px 0px 0px 2px #000 inset,
-               0px 0px 0px 2px #000;
+                /* $red */
+    box-shadow:0px 0px 0px 2px #362e2b inset,
+               0px 0px 0px 2px #362e2b;
+                            /* $brown */
     /* outline: 2px #000 solid; */
     text-align: center;
     vertical-align: middle;
