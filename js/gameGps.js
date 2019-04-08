@@ -46,7 +46,7 @@ function gpsSuccCallback(e) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	};
 	gameGps = new google.maps.Map(area,options);
-	//gpsStart();
+	gpsStart();
 }
 function gpsStart(e) {
 	//設定玩家當前位置
@@ -193,3 +193,32 @@ function gameGpsLotto() {
 	gameGpsLottoTimer = setInterval(gameGpsLottoRun, 100);
 }
 //window.addEventListener('load',gameGpsLotto);
+
+//wavebtn
+var btnpri = document.getElementsByClassName("btnpri");
+var btnsec = document.getElementsByClassName("btnsec");
+
+var waveWidth = 5;
+
+function createbtn(btntype){
+
+    for(var j = 0; j < btntype.length; j++){
+        var wavebox = document.createDocumentFragment();
+
+        var width = window.getComputedStyle(btntype[j]).width;
+        
+        var waveCount = (parseInt(width)+40)/parseInt(waveWidth)+1;
+
+        for (var i = 0; i < waveCount; i++) {
+            var wave = document.createElement("div");
+            wave.className += " wave";
+            wavebox.appendChild(wave);
+            wave.style.left = i * waveWidth + "px";
+            wave.style.animationDelay = (i / 80) + "s";
+        }
+        btntype[j].appendChild(wavebox);
+    }
+}
+
+createbtn(btnpri);
+createbtn(btnsec);
