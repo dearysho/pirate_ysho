@@ -228,7 +228,7 @@ header.homeHeadHide{
 //客製狀態列的箭頭，及位置調整
 #DIYStatus li:nth-child(n+2)::before{
     content:'';
-    background: url(image/home/arrow.svg) no-repeat;
+    background: url(../image/home/arrow.svg) no-repeat;
     display: inline-block;
     width: 40px;
     height: 10px;
