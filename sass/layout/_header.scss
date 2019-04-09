@@ -6,7 +6,7 @@
     text-align: center;
     margin: -25px auto 0px auto;
     width: 250px;
-    background:url(../../image/headerLogoBg.svg) no-repeat;
+    background:url(../image/headerLogoBg.svg) no-repeat;
     background-size: 100% 100%;
     transition-duration: 1s;
 }
@@ -41,7 +41,7 @@
 //選單列
 header::before{  //上下旗桿
     content: '';
-    background-image: url(../../image/navrog.svg);
+    background-image: url(../image/navrog.svg);
     background-size: cover;
     background-position: center;
     display: block;
@@ -52,7 +52,7 @@ header::before{  //上下旗桿
 }
 header::after{
     content: '';
-    background-image: url(../../image/navrog.svg);
+    background-image: url(../image/navrog.svg);
     background-size: cover;
     background-position: center;
     display: block;
