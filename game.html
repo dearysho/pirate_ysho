@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>《大海賊帝國》接受試煉成為真・海賊</title>
+	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/wavebtn.css">
+	<style id="css">
+		
+	</style>
+</head>
+<body>
+	<header>
+        <h1 id="headerLogo"><a href="index.html">
+            <img src="image/logo.svg" alt="大海賊帝國">
+        </a></h1>
+        <nav id="headerMenu" >
+            <ul>
+                <li><a href="game.html">海賊試煉場</a></li>
+                <li><a href="market.html">海上市集</a></li>
+                <li><a href="bar.html">情報酒館</a></li>
+                <li><a href="me.html">俺の海賊船</a></li>
+            </ul>
+        </nav>
+        <div>
+            <ul id="headerMe">
+                <li id="headerMeID">
+                    <a href="javascript:;">我是大帥哥</a>
+                </li>
+                <li id="headerMeLv">lv.<span>7</span>
+                    <div id="headerExpBar">
+                        <div id="headerExpLine"></div>
+                        <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                    </div>
+                    
+                </li>
+                <li id="headerMeMoney">金幣<span>100</span>G</li>
+                <li id="headerMeShip"><a href="javascript:;">
+                    <img src="image/ship/shipTemp.png" alt="角色頭像">
+                </a></li>
+                <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                <li id="headerMeTalentL">幸運<span>5</span></li>
+                <li id="headerMeTalentA">敏捷<span>5</span></li>
+                <li id="headerMeTalentI">智力<span>5</span></li>
+            </ul>
+        </div>
+    </header>
+	<div class="lifePanel">
+		<p class="textHiliR">遊戲次數</p>
+		<img src="image/game/lifePanel.png">
+		<div class="lifeBox">
+			<img src="image/game/life.png" alt="life">
+			<img src="image/game/life.png" alt="life">
+			<img src="image/game/life.png" alt="life">
+			<img src="image/game/life.png" alt="life">
+			<img src="image/game/life.png" alt="life">
+		</div>
+	</div>
+	<div id="choose">
+		<div class="intro">
+			<h2 class="titleSec">
+				海賊試煉
+				<img src="image/h2frame.svg" alt="">
+			</h2>
+			<!-- <img src="image/h2frame.svg"> -->
+			<p class="textM introP">
+				通過海賊試煉,獲得經驗值與金錢!<br>
+				試煉分初級、中級、高級<br>
+				要注意等級數必須符合才能挑戰!
+			</p>
+		</div>
+		<div class="row">
+			<div class="col-4 chooseBox">
+				<a href="javascript:;">
+				<img class="chooseImg" src="image/game/intoGamebg.png" alt="gameInto">
+				<img class="boat" src="image/game/floatBoat.png" alt="boat">
+				<div class="gameInfo">
+					<p class="game-p">
+						<strong class="game-str">通關獎勵</strong>
+						經驗值 50 點
+					</p>
+				</div>
+				<div class="game-appear">
+					<p>初級試煉的障礙物有海星、礁岩和小島，在避免碰觸到的情況下抵達寶箱所在的位置</p>
+				</div>
+				</a>
+			</div>
+			<div class="col-4 chooseBox">
+				<a href="javascript:;">
+				<img class="chooseImg" src="image/game/intoGamebg.png" alt="gameInto">
+				<img class="boat" src="image/game/floatBoat.png" alt="boat">
+				<div class="gameInfo">
+					<p class="game-p">
+						<strong class="game-str">通關獎勵</strong>
+						經驗值 100 點
+					</p>
+				</div>
+				<div class="game-appear">
+					<p>初級試煉的障礙物有海星、礁岩和小島，在避免碰觸到的情況下抵達寶箱所在的位置</p>
+				</div>
+				<div class="block">
+				</div>
+				<img class="lock" src="image/game/lock.png" alt="lock">
+				</a>
+			</div>
+			<div class="col-4 chooseBox">
+				<a href="javascript:;">
+				<img class="chooseImg" src="image/game/intoGamebg.png" alt="gameInto">
+				<img class="boat" src="image/game/floatBoat.png" alt="boat">
+				<div class="gameInfo">
+					<p class="game-p">
+						<strong class="game-str">通關獎勵</strong>
+						經驗值 120 點
+					</p>
+				</div>
+				<div class="game-appear">
+					<p>初級試煉的障礙物有海星、礁岩和小島，在避免碰觸到的情況下抵達寶箱所在的位置</p>
+				</div>
+				<div class="block">
+				</div>
+				<img class="lock" src="image/game/lock.png" alt="lock">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="gameElec">
+		<div class="button_border">
+			<div class="border_in">
+				<span class="icon_movie">
+				</span>
+			</div>
+			<div class="border_out">
+				<svg viewBox="0 0 88 88">
+					<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
+					<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
+					<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
+					<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
+				</svg>
+			</div>
+		</div>
+		<img id="board" src="image/game/board.png">
+		<img id="die" src="image/game/dieArea.png">
+		<img id="sea" src="image/game/sea.png">
+		<img id="treasure" src="image/game/treasureBox.png">
+		<img id="startBoat" src="image/game/gameBoat.png">
+		<div class="gameTime">
+			<p>
+				<span>時間</span>
+				<strong class="myTime textHiliB">50</strong>
+				<span>秒</span>
+			</p>
+			<p>
+				<span>最快通關時間</span>
+				<strong class="fastTime textHiliB">30</strong>
+				<span>秒</span>
+			</p>
+		</div>
+	</div>
+	<div id="gpsGameWrap">
+		<div id="gameGps">
+        <h2 class="titleSec">
+            啟航尋寶
+            <img src="image/h2frame.svg" alt="">
+        </h2>
+        <p class="textM">
+            開啟GPS地圖在生活中尋寶吧！可獲得寶物或金幣！寶藏地圖每隔一小時刷新一次
+            <br>提醒：每開啟一個寶箱扣除1點體力值
+        </p>
+        <div class="button_border gpsbtn">
+			<div class="border_in">
+				<span class="icon_movie">
+				</span>
+			</div>
+			<div class="border_out">
+				<svg viewBox="0 0 88 88">
+					<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
+					<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
+					<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
+					<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
+				</svg>
+			</div>
+		</div>
+    <div id="gameGpsMap">
+    </div>
+    <script src="js/gameGps.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBKB16XDqQ6Qnki2BdJUQXXP4hEpK0_2wo&callback=initMap"></script>
+    <div id="gameGpsLotto">
+        <table>
+            <tr>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_0"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_1"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_2"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_3"></td>
+            </tr>
+            <tr>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_11"></td>
+                <td colspan="2" rowspan="2" id="gameGpsLottoShow">
+                </td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_4"></td>
+            </tr>
+            <tr>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_10"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_5"></td>
+            </tr>
+            <tr>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_9"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_8"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_7"></td>
+                <td class="gameGpsLottoUnit" id="gameGpsLottoUnit_6"></td>
+            </tr>
+        </table>   
+    </div>
+	</div>
+	<div id="rank">
+		<div class="intro">
+			<h2 class="titleSec">
+				懸賞排行
+				<img src="image/h2frame.svg" alt="">
+			</h2>
+			<img src="" alt="">
+			<p class="textM introP">
+				以最快的速度通過海賊試煉，進入懸賞排行成為大家的話題焦點吧
+			</p>
+		</div>
+		<div id="rankArea">
+			<div class="rankPoster top1">
+				<img src="image/game/wanted.png">
+				<img class="wantedBoat" src="image/game/wantedBoat.png" alt="Player's boat">
+				<div class="playerData">
+					<p class="playerName">神提摩</p>
+					<p>初階試煉<strong class="playerTime textHiliB"> 30 </strong>秒</p>
+				</div>
+			</div>
+			<div class="rankPoster top2">
+				<img src="image/game/wanted.png">
+				<img class="wantedBoat" src="image/game/wantedBoat.png" alt="Player's boat">
+				<div class="playerData">
+					<p class="playerName">輪子媽</p>
+					<p>初階試煉<strong class="playerTime textHiliB"> 20 </strong>秒</p>
+				</div>
+			</div>
+			<div class="rankPoster top3">
+				<img src="image/game/wanted.png">
+				<img class="wantedBoat" src="image/game/wantedBoat.png" alt="Player's boat">
+				<div class="playerData">
+					<p class="playerName">垃圾車</p>
+					<p>初階試煉<strong class="playerTime textHiliB"> 35 </strong>秒</p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<ul class="rank4to10">
+				<li class="rankSmall first">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">鱷魚王</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 56 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">大熊</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 66 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">valensika</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 68 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">蓋倫</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 75 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">烏爾加特</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 86 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">大奶媽</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 120 </strong>秒</p>
+					</div>
+				</li>
+				<li class="rankSmall">
+					<img class="wantedSmall" src="image/game/wantedSmall.png" alt="">
+					<img class="wantedBoatSmall" src="image/game/wantedBoatSmall.png" alt="">
+					<div class="playerDataSmall">
+						<p class="playerNameSmall">猴子</p>
+						<p>初階試煉<strong class="playerTimeSmall textHiliB"> 130 </strong>秒</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js\header.js"></script>
+	<script>
+		function show(){
+			document.getElementsByClassName("gpsbtn")[0].style.display = 'none';
+			var a = document.getElementById("gameGps");
+			var b = window.getComputedStyle(a,'::before');
+			var css = document.getElementById("css");
+			var c = css.sheet;
+			console.log(c);
+			console.log(css);
+			// b.style.display = 'none';
+			c.insertRule("#gameGps#gameGps::before{display:none;}", 0);
+			c.insertRule("#gameGps#gameGps::after{display:none;}", 0);
+			c.insertRule("#gameGpsMap#gameGpsMap::after{display:none;}", 0);
+			console.log(c);
+			gpsStart();
+		}
+		window.addEventListener('load',function(){
+			document.getElementsByClassName("gpsbtn")[0].onclick=show;
+		},false);
+	</script>
+</body>
+</html>

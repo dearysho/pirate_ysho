@@ -1,0 +1,355 @@
+// 字型設定
+@import '../base/font';
+// reset
+@import '../base/reset';
+// 燈箱
+@import '../base/lightbox';
+//其他的css
+@import '../layout/gameGps.scss';
+@import '../layout/header.scss';
+
+
+// game程式碼
+body{
+	background-image: url('../image/game/gamebg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+// 選擇關卡
+.row{
+	widows: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+.introP{
+	letter-spacing: 2px;
+	line-height: 1.5;
+}
+#choose{
+	height: 100vh;
+}
+.col-4{
+	width: 280px;
+}
+.col-4 .chooseImg{
+	width: 100%;
+}
+.chooseBox{
+	position: relative;
+	text-align: center;
+	height: 400px;
+	box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.45);
+	transition: all 2s;
+}
+.chooseBox:hover{
+	top: -20px;
+}
+.chooseBox:hover .block{
+	height: 490px;
+}
+.chooseBox:hover .game-appear{
+	display: block;
+	top: 400px;
+}
+.boat{
+	position: absolute;
+	left: 80px;
+	top: 60px;
+	right: 0;
+	bottom: 0;
+	width: 62%;
+}
+// 內文
+.game-p{
+	line-height: 1.8;
+	padding-bottom: 10px;
+}
+.game-str{
+	letter-spacing: 2px;
+	padding-right: 5px;
+	font-weight: 700;
+	color: #fff;
+	font-size: 24px;
+	line-height: 1.5;
+}
+.game-appear{
+	display: none;
+	letter-spacing: 1px;
+	position: absolute;
+	top: 280px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #495057;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 1.4;
+	color: #fff;
+	transition: top 2s;
+}
+.gameInfo{
+	z-index: 2;
+	color: #fff;
+	position: relative;
+	background-color: #495057;
+	top: -30px;
+	padding-top: 20px;
+	z-index: -1;
+}
+// 遮罩&鎖
+.block{
+	opacity: .5;
+	position: absolute;
+	background-color: #fff;
+	width: 280px;
+	height: 400px;
+	top: 0;
+	left: 0;
+}
+.lock{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.gameDetail{
+	/* display: none; */
+}
+.intro{
+	text-align: center;
+	margin: 50px auto;
+}
+
+
+/* life-fix */
+.lifePanel{
+	z-index: 2;
+	width: 409px;
+	height: 191px;
+	position: fixed;
+	top: 200px;
+	right: 40px;
+}
+.lifePanel p{
+	font-weight: 700;
+	font-size: 30px;
+	letter-spacing: 2px;
+	position: absolute;
+	left: 88px;
+	top: 20px;
+}
+.lifeBox{
+	position: relative;
+	top: -70px;
+	left: 50px;
+}
+
+// rank
+#rankArea{
+	margin: 0 auto;
+	width: 1200px;
+	height: 700px;
+	background-image: url('../image/game/rankBg.png');
+}
+.rankPoster{
+	float: left;
+	position: relative;
+	padding: 10px;
+}
+.wantedBoat{
+	position: absolute;
+	left: 70px;
+	top: 50px;
+}
+// 玩家資訊
+.playerData{
+	font-size: 22px;
+	line-height: 0.5;
+	text-align: center;
+	position: absolute;
+	top: 250px;
+	left: 50px;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	font-weight: 700;
+}
+.playerName{
+	font-size: 28px;
+	font-weight: 900;
+}
+.top1{
+	margin-left: 180px;
+	margin-top: 100px;
+}
+.top2{
+	margin-top: 50px;
+}
+.top3{
+	margin-top: 80px;
+}
+/* rank4-10 */
+/* 4to10 */
+.rank4to10{
+	position: relative;
+}
+.rankSmall{
+	float: left;
+	padding: 10px;
+	position: relative;
+}
+.wantedBoatSmall{
+	position: absolute;
+	left: 45px;
+	top: 30px;
+}
+.first{
+	margin-left: 80px;
+}
+.playerDataSmall{
+	font-size: 8px;
+	line-height: 1.5;
+	text-align: center;
+	position: absolute;
+	letter-spacing: 1px;
+	top: 120px;
+	left: 25px;
+}
+.playerNameSmall{
+	font-size: 14px;
+	font-weight: 700;
+}
+#gameElec{
+	position: relative;
+	margin: 100px auto;
+	width: 1200px;
+	height: 100vh;
+}
+#die{
+	z-index: 1;
+	left: 0;
+	top: 50px;
+	position: absolute;
+}
+#sea{
+	z-index: 0;
+	left: 0;
+	top: 150px;
+	position: absolute;
+}
+#treasure{
+	position: absolute;
+	top: 400px;
+	left: 50px;
+}
+#startBoat{
+	z-index: 2;
+	position: absolute;
+	top: 150px;
+	left: 20px;
+}
+.gameTime{
+	letter-spacing: 1px;
+	position: relative;
+	top: -100px;
+}
+.gameTime p{
+	font-size: 22px;
+	text-align: center;
+}
+/* btn */
+.button_border{
+    transition: all .5s ease 1s;
+    opacity: 1;
+    width: 88px;
+    height: 88px;
+    position: relative;
+    top: 200px;
+    left: 50px;
+    z-index: 3;
+    cursor: pointer;
+}
+.icon_movie {
+    background-image: url('../image/game/iconMovie.png');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 24px;
+    display: block;
+    transition: all .4s;
+}
+.button_border:hover .border_in .icon_movie{
+	transform:scale(.8);
+}
+.button_border:hover .border_in{
+	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
+}
+.button_border:hover .border_out{
+	animation: borderCircle 1s linear infinite;
+}
+.border_in {
+	transition: 0.4s;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    display: block;
+}
+.border_in:hover {
+	background-color: #fff;
+}
+.border_out {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 88px;
+    height: 88px;
+    -webkit-animation: borderCircle 3s linear infinite;
+    animation: borderCircle 3s linear infinite;
+}
+.border{
+	fill: none;
+	stroke: #fff;
+}
+@keyframes borderCircle{
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.boat{
+	animation: updown 5s linear infinite;
+}
+@keyframes updown{
+	0%{
+		top: 50px;
+	}
+	50%{
+		top: 80px;
+	}
+	100%{
+		top: 50px;
+	}
+}
+// gps btn
+.gpsbtn{
+	position: absolute;
+    // top: 550px;
+    // left: 700px;
+    // left: 900px;
+    top: calc(50% + 150px);
+    left: 50%;
+    z-index: 10;
+}

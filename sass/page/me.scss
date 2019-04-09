@@ -4,6 +4,9 @@
 //文字大小字型設定
 @import'sass/base/font';
 
+//@herder
+@import'sass/layout/header';
+
 //媒體查詢
 @import'sass/base/media';
 
@@ -15,7 +18,7 @@
 
 
 body {
-    background-image: url('/image/background/bgtexture.png');
+    background-image: url('../image/background/BgPage.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -31,11 +34,26 @@ body {
     box-sizing: border-box;
 
 }
+.meShip{
+    position: relative;
+}
 
-
-
-.meShip img {
+.msShipImg {
     width: 100%;
+    position: relative;
+    animation: updown 5s linear infinite;
+}
+
+@keyframes updown{
+	0%{
+		top: 0px;
+	}
+	50%{
+		top: -30px;
+	}
+	100%{
+		top: 0px;
+	}
 }
 
 .titlePri {
@@ -65,7 +83,7 @@ body {
         position: absolute;
         top: 15px;
         left: 15px;
-        font-family: "王漢宗特明體繁";
+        font-family: $fofaText;
     }
 
     img {
@@ -82,7 +100,7 @@ body {
     li {
         margin: 10px 0;
         padding: 0px 20px;
-        font-family: "王漢宗特明體繁";
+        font-family: $fofaText;
     }
 }
 
@@ -108,13 +126,15 @@ body {
     position: relative;
     min-width: 60px;
     height: 30px;
-    /* margin-right: -1px; */
+    margin-right: -1px;
     padding: 5px 15px;
+    margin-top: 15px;
+    line-height: 25px;
     background: #bcb19e;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
-    font-family: "王漢宗特明體繁";
+    font-family: $fofaText;
 }
 
 .tab>.content {
@@ -128,13 +148,15 @@ body {
     padding: 10px;
     background: #f5ecdd;
     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .tab>input[type=radio]:checked+label {
     background: #f5ecdd;
     border-bottom: 1px solid transparent;
-    z-index: 2;
+    // z-index: 2;
+    
+
 }
 
 .tab>input[type=radio]:checked~.content {
@@ -143,7 +165,7 @@ body {
 
 .content ul {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
     li {
         width: 100px;
@@ -156,8 +178,14 @@ body {
         img {
             width: 100%;
         }
+        :hover{
+            transform: scale(1.05);
+            opacity: .5;
+        }
     }
 }
+
+
 
 //紀錄頁籤
 .tabss {
@@ -183,11 +211,13 @@ body {
     height: 30px;
     /* margin-right: -1px; */
     padding: 5px 15px;
+    margin-top: 15px;
+    line-height: 25px;
     background: #bcb19e;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
-    font-family: "王漢宗特明體繁";
+    font-family: $fofaText;
 }
 
 .tabb>.contentt {
@@ -201,13 +231,12 @@ body {
     padding: 10px;
     background: #f5ecdd;
     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .tabb>input[type=radio]:checked+label {
     background: #f5ecdd;
     border-bottom: 1px solid transparent;
-    z-index: 2;
 }
 
 .tabb>input[type=radio]:checked~.contentt {
@@ -236,8 +265,9 @@ body {
 }
 
 .accordion input:checked~.sub-content {
-    height: 120px;
+    height: 130px;
     // border-bottom: 1px solid black;
+    background-color: #bcb19e;;
 }
 
 .accordion>label {
@@ -259,10 +289,10 @@ select {
     // font-family: 'Microsoft JhengHei';
 }
 
-label {
-    font-size: 20px;
-    margin-top: 15px;
-}
+// label {
+//     font-size: 20px;
+//     margin-top: 15px;
+// }
 
 .sub-but {
     margin: auto;
@@ -278,9 +308,10 @@ label {
         margin: 0 5px;
         line-height: 50px;
         text-align: center;
-        font-family: "王漢宗特明體繁";
+        font-family: $fofaText;
         img {
             width: 100%;
+            height: 100%;
         }
     }
     li:nth-child(1) {
@@ -300,14 +331,16 @@ label {
 .sub-content ul {
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
     li {
         width: 250px;
         margin: 0 5px;
         line-height: 80px;
-        font-family: "王漢宗特明體繁";
+        font-family: $fofaText;
         // text-align: center;
         img {
             width: 100%;
+            height: 100%;
         }
     }
     li:nth-child(1) {
@@ -318,16 +351,79 @@ label {
         overflow: hidden;
         font-size: 0;
         margin: 5px;
-        line-height: 80px;
+        // line-height: 80px;
         // margin-right: 5px;
         // margin-left: 5px;
+        
     }
 }
+
+
+.recordd {
+    display: flex;
+    flex-direction: row;
+    // border-bottom: 1px solid #000;
+    outline: 1px solid #000;
+    li {
+        width: 180px;
+        margin: 0 5px;
+        line-height: 50px;
+        text-align: center;
+        font-family: $fofaText;
+        // img {
+        //     width: 100%;
+        //     height: 100%;
+        // }
+    }
+    // li:nth-child(1) {
+    //     width: 30px;
+    //     height: 30px;
+    //     border: 2px solid black;
+    //     border-radius: 20%;
+    //     overflow: hidden;
+    //     font-size: 0;
+    //     margin: auto;
+    //     margin-right: 5px;
+    //     margin-left: 5px;
+    // }
+}
+
+.sub-contentt ul {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    // li {
+    //     width: 250px;
+    //     margin: 0 5px;
+    //     line-height: 80px;
+    //     font-family: $fofaText;
+    //     // text-align: center;
+    //     img {
+    //         width: 100%;
+    //         height: 100%;
+    //     }
+    // }
+    // li:nth-child(1) {
+    //     width: 100px;
+    //     height: 100px;
+    //     border: 2px solid black;
+    //     border-radius: 20%;
+    //     overflow: hidden;
+    //     font-size: 0;
+    //     margin: 5px;
+        // line-height: 80px;
+        // margin-right: 5px;
+        // margin-left: 5px;
+        
+    }
+
 
 //----------------------------------------------------------------
 @media screen and(min-width: 768px) {
     .wrap {
         margin: 20px auto;
+        margin-top: 100px;
+
         display: flex;
     }
 
@@ -350,13 +446,13 @@ label {
 
     .treasure::after {
         content: "";
-        background-image: url("/image/background/BgBox.png");
+        background-image: url("../../image/background/BgBox.png");
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
         width: 400px;
         height: 400px;
-        right: -100px;
+        right: 0px;
         top: -100px;
         z-index: -100;
     }
@@ -364,11 +460,15 @@ label {
     .tabs {
         padding-bottom: 130px;
     }
+    
 }
 
 @media screen and(min-width: 1200px) {
     .meShip img {
         transform: translateX(-50px);
+    }
+    .treasure::after{
+        right: -100px;
     }
 
 }

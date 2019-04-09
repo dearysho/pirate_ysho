@@ -1,0 +1,116 @@
+@import '../base/reset';
+@import '../base/font';
+@import '../layout/header';
+
+$padV: 768px;
+$padH: 960px;
+$pc: 1200px;
+$bigScreen: 2500px;
+//@media screen and (min-width: ){}
+//@media screen and (min-width: $padV){}
+//@media screen and (min-width: $padH){}
+//@media screen and (min-width: $pc){}
+//@media screen and (min-width: $bigScreen){}
+
+$titleHight: 300px;
+$darkred: #854c46;
+$marginBetweenWrap: 30px;
+$paddingBetweenHeader: 150px;
+$blockBord: #2a3439;
+$lightBrown: #b6a79a;
+$boxColor1: #f5ecdd;
+body {
+    background-image: url(../image/background/BgPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#addFormWrap{
+    width: 100%;
+    margin: auto;
+    padding: 30px 0px 0px;
+    >h1{
+        text-align: center;
+    }
+    .textM{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    @media screen and (min-width: $padH){        
+        background-image: url(../../image/bar/backToBar.svg);
+        background-size: 40%;
+        background-position: 0px -20%;
+        background-repeat: no-repeat;
+    }
+    @media screen and (min-width: $pc){
+        padding: 0px 0px 0px;
+        background-size: 30%;
+    }
+    #backToBarBtn{
+        display: none;
+        @media screen and (min-width: $padH){
+            display: inline;
+            position: relative;
+            top: -120px;
+            left: 5%;
+            font-family: $fofaText;
+            font-size: 0.9rem;
+            color: $brown;
+            background: $beige;
+            opacity: 0.8;
+            padding: 0.5rem 0.5rem;
+            border: $beige  2px solid;
+            letter-spacing: 2px;
+            box-shadow: 0px 0px 0px 2px $brown inset,
+                        0px 0px 0px 2px $brown;
+            &::before{
+                content: "⏎";
+            }
+        }
+        @media screen and (min-width: $pc){
+            display: inline;
+            top: -200px;
+            left: 7%;
+            font-size: 1.1rem;
+            padding: 1rem 1rem;
+        }
+        @media screen and (min-width: $bigScreen){
+            top: -100%;
+        }
+    }
+    #addForm{
+        width: 80%;
+        margin: auto;
+        padding: 2rem;
+        font-family: $fofaTitle;
+        background-image: url(../../image/market/mBGPapper.jpg);
+        box-shadow: 0px 0px 20px 20px $brown;
+        //background-color: $beige;
+        // border: #ccc  7px dashed;
+        // box-shadow: 0px 0px 0px 2px $brown inset,
+        //             0px 0px 0px 2px $brown;
+        @media screen and (min-width: $pc){
+            width: 1000px;
+        }
+        @media screen and (min-width: $bigScreen){
+            width: 1200px;
+        }
+        .textHiliR{
+            text-align: center;
+            font-size: 2rem;
+            font-family: $fofaTitle;
+            letter-spacing: 10px;
+            position: relative;
+            &::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        >label{
+            margin: 1.5rem auto;
+            display: block;
+        }
+    }
+}

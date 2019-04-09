@@ -1,0 +1,27 @@
+$red : #a34f49;
+$blue : #006ca6;
+$brown : #362e2b;
+$beige: #fffcf2;
+
+//網站用字
+$fofaTitle : 王漢宗特明體繁;
+$fofaText : Adobe Heiti Std R;
+
+#login{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 0px;
+    background-image: url(../../image/ship.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 0px 10px 2px $brown;
+    &:hover{
+        box-shadow: 0px 0px 0px 0px $brown;
+        transform: translateY(2px);
+    }
+}

@@ -1,0 +1,458 @@
+@import '../base/reset';
+@import '../base/font';
+@import '../layout/header';
+
+
+$padV: 768px;
+$padH: 960px;
+$pc: 1200px;
+$bigScreen: 2500px;
+//@media screen and (min-width: ){}
+//@media screen and (min-width: $padV){}
+//@media screen and (min-width: $pc){}
+
+$titleHight: 300px;
+$darkred: #854c46;
+$marginBetweenWrap: 30px;
+$paddingBetweenHeader: 150px;
+$blockBord: #2a3439;
+$lightBrown: #b6a79a;
+$boxColor1: #f5ecdd;
+body {
+    background-image: url(../image/background/BgPage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#bartitle {
+    width: 100%;
+    height: $titleHight;
+    background-image: url(../image/bar/barBackground.png);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: 80px -50px;
+    line-height: $titleHight / 1.5;
+    //line-height: $titleHight;
+    text-align: center;
+    @media screen and (min-width: $padV){
+        background-size: 80%;
+        background-position: bottom right;
+    }
+    @media screen and (min-width: $pc){
+        padding-top: $paddingBetweenHeader;
+        background-size: 55%;
+    }
+    .titlePri {
+        margin: auto;
+        vertical-align: bottom;
+    }
+    .btnpri{
+        font-family: $fofaText;
+        color: $beige;
+        background-color: $darkred;
+        vertical-align: top;
+        .wave {
+            background: $red;
+        }
+    }
+}
+//熱門話題
+.hotIssueWrap{
+    width: 100%;
+    height: 100%;
+    margin: auto auto $marginBetweenWrap;
+    background-image: url(../../image/bar/barBrick.svg),
+                      url(../../image/bar/barBrick.svg);
+    //opacity: 0.5;
+    background-size: 90% , 90%;
+    background-position: -10% 100%, 400% 85px;
+    background-repeat: no-repeat, no-repeat;
+    padding-bottom: 30px;
+    @media screen and (min-width: $padV){
+        background-size: 85% , 90%;
+        background-position: -300% 100%, 600% 75px;
+        padding-bottom: 50px;
+    }
+    @media screen and (min-width: $pc){
+        background-size: 50% , 45%;
+        background-position: 0% 110%, 140% 80px;
+        padding-bottom: 30px;
+    }
+    .textM{
+        margin-bottom: $marginBetweenWrap;
+        text-align: center;
+    }
+    #hotIssueCont{
+        a:nth-child(5),a:nth-child(6){
+            display: none;
+            @media screen and (min-width: $padV){
+                display: flex;
+            }
+        }
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: calc(100%-30px);
+        //height: 500px;
+        margin: auto;
+        background-color: $blockBord;
+        background-image: url(../../image/bar/bulletin.svg);
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        padding: 10px;
+        //border: 10px $lightBrown inset;
+        //outline: 10px $lightBrown outset;
+        box-shadow: 0px 0px 1px 3px $lightBrown inset,
+        0px 0px 1px 5px $lightBrown,
+        0px 0px 50px 5px $brown;
+        @media screen and (min-width: $padV){
+            width: 90%;
+        }
+        @media screen and (min-width: $pc){
+            width: 1100px;
+        }
+        .hotIssueBox{
+            display: block;
+            position: relative;
+            color: $brown;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            background: $boxColor1;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 5px;
+            @media screen and (min-width: $pc){
+                width: 500px;
+                height: 200px;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            .hotIssueBoxInfo {
+                width: 90px;
+                text-align: center;
+                margin: auto;
+                @media screen and (min-width: $pc){
+                    width: 200px;
+                }
+                img{
+                    width: 90px;
+                    @media screen and (min-width: $pc){
+                        width: 140px;
+                    }
+                }
+                .textM{
+                    display: none;
+                    @media screen and (min-width: $pc){
+                        display: block;
+                        margin: auto;
+                        padding-left: 1.5rem;
+                        position: relative;
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            display: block;
+                            width: 40px;
+                            height: 30px;
+                            background-image: url(../../image/bar/risk-skull.svg);
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+            .hotIssueBoxCont{
+                padding: 5px 10px;
+                width: calc(100% - 120px);
+                @media screen and (min-width: $pc){
+                    padding: 0px;
+                    width: 350px;
+                }
+                .textM{
+                    text-align: left;
+                    margin: auto;
+                    @media screen and (min-width: $pc){
+                        line-height: 2;
+                    }
+                }
+                .hotIssueBoxContText{
+                    height: 50px;
+                    overflow: hidden;
+                    padding-left: 1rem;
+                    @media screen and (min-width: $pc){
+                        height: auto;
+                    }
+                }
+                .hotIssueBoxContMeg{
+                    font-size: 1rem;
+                    font-family: $fofaText;
+                    text-align: right;
+                    @media screen and (min-width: $pc){
+                        margin-top: 1rem;
+                        font-size: 1.35rem;
+                    }
+                    .hotIssueBoxContView{
+                        position: relative;
+                        padding-left: 35px;
+                        padding-right: 15px;
+                        @media screen and (min-width: $pc){
+                            padding-left: 40px;
+                        }
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            display: block;
+                            width: 1.5rem;
+                            height: 20px;
+                            background-repeat: no-repeat;
+                            background-image: url(../../image/bar/viewed.png);
+                            background-size: contain;
+                            @media screen and (min-width: $pc){
+                                content: "";
+                                display: block;
+                                width: 2rem;
+                                height: 2rem;
+                                background-repeat: no-repeat;
+                                background-image: url(../../image/bar/viewed.png);
+                            }
+                        }
+                    }
+                    .hotIssueBoxContCommend{
+                        @extend .hotIssueBoxContView;
+                        padding-left: 25px;
+                        @media screen and (min-width: $pc){
+                            padding-left: 2rem;
+                        }
+                        &::before{
+                            background-image: url(../../image/bar/commend.png);
+                            @media screen and (min-width: $pc){
+                                content: "";
+                                display: block;
+                                width: 1.5rem;
+                                height: 3rem;
+                            }
+                        }
+                    }
+                    .hotIssueBoxContReport{
+                        position: relative;
+                        background: $boxColor1;
+                        background-image: url(../../image/bar/anchor.svg);
+                        height: 20px;
+                        width: 20px;
+                        margin-right: 5px;
+                        border-radius: 50%;
+                        padding: 0px;
+                        border: 0px;
+                        box-shadow: 0px 2px 2px 0px $lightBrown,
+                                    0px 2px 3px 1px #303030;
+                        @media screen and (min-width: $pc){
+                            height: 30px;
+                            width: 30px;
+                        }
+                        &::after{
+                            content: "通報海軍";
+                            display: none;
+                            position: absolute;
+                            top: -3rem;
+                            left: calc(30px - 4.8rem);
+                            background-color: $blue;
+                            width: 6rem;
+                            height: 2rem;
+                            font-size: 1rem;
+                            color: $beige;
+                            border-radius: 5px;
+                            line-height: 2rem;
+                        }
+                        &::before{
+                            content: "";
+                            display: none;
+                            position: absolute;
+                            top: -2.6rem;
+                            left: 0;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 2.5rem 1rem 0 1rem;
+                            border-color: $blue transparent transparent transparent; 
+                        }
+                        &:hover{
+                            transform: scale(0.9);
+                            box-shadow: 0px 0px 0px 0px #303030;
+                        }
+                        &:hover::before, &:hover::after{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#newsWrap{
+    width: 100%;
+    .textM{
+        text-align: center;
+    }
+    #newsWrapCont{
+        width: 100%;
+        height: 650px;
+        @media screen and (min-width: $padH){
+        background-image: url(../../image/bar/manRight.png),
+                          url(../../image/bar/manLeft.png);
+        background-size: 15%, 15%;
+        background-position: top right, bottom left;
+        background-repeat: no-repeat;
+        }
+        @media screen and (min-width: $pc){
+            background-size: 20%, 10%;
+            background-position: top right, bottom left;
+        }
+        @media screen and (min-width: $bigScreen){
+            background-size: 10%, 5%;
+            background-position: 80% 0%, 20% 100%;
+        }
+    }
+    #newsWrapContList{
+        width: 100%;
+        margin: 10px auto 0;
+        border-spacing: 0px 5px;
+        //@media screen and (min-width: $padV){}
+        @media screen and (min-width: $padH){
+            width: 960px;
+        //outline: 2px #f00 solid;
+        }
+        @media screen and (min-width: $pc){
+            width: 1100px;
+        //outline: 2px #f00 solid;
+        }
+        #newsWrapContListTit{
+            font-family: $fofaText;
+            color: $beige;
+            background-color: $brown;
+            height: 5rem;
+            line-height: 2.5rem;
+            @media screen and (min-width: $padV){
+                height: 50px;
+            }
+            >th{
+                vertical-align: middle;
+            }
+            #newsWrapFilter{
+                text-align: left;
+                padding-left: 0.5rem;
+                @media screen and (min-width: $padV){
+                    border-radius: 10px 0 0 10px;
+                    padding-left: 2rem;
+                }
+                >span{
+                    display: none;
+                    @media screen and (min-width: $padV){
+                        display: inline;
+                    }
+                }
+                >a {
+                    height: 1.5rem;
+                    margin: 5px 10px;
+                    padding: 0.3rem 0.5rem;
+                    font-family: $fofaText;
+                    color: $brown;
+                    text-align: center;
+                    line-height: 1.5;
+                    border-radius: 4px;
+                    background-color: $beige;
+                }
+                #newsWrapListGps{
+                    background-color: #7ccbbd;
+                }
+                #newsWrapListTtraining{
+                    background-color: #ffe3ac;
+                }
+                #newsWrapListOther{
+                    background-color: #fbc9bc;
+                }
+            }
+            >th:last-child{
+                @media screen and (min-width: $padV){
+                    border-radius: 0 10px 10px 0;
+                }
+              }    
+        }
+        .newsWrapContBox{
+            @extend #{#newsWrapContListTit};
+            background-color: $boxColor1;
+            color: $brown;
+            height: 2.5rem;
+            line-height: 1.5;
+            text-align: center;
+            vertical-align: middle;
+            @media screen and (min-width: $pc){
+                line-height: 2.5rem;
+            }
+            >td:first-child{
+                width: 2.5rem;
+                padding: 0 0.5rem;
+                line-height: 1.2;
+                @media screen and (min-width: $padV){
+                    width: 16%;
+                    border-radius: 5px 0 0 5px;
+                }
+                >span{
+                    @media screen and (min-width: $padV){
+                        height: 1.5rem;
+                        margin: 5px 10px;
+                        padding: 0.3rem 0.5rem;
+                        background-color: $beige;
+                        border-radius: 4px;
+                    }
+                }
+              }
+              .newsWrapContBoxTit{
+                  text-align: left;
+                  >a{
+                    color: $brown;
+                  }
+              }  
+            >td:last-child{
+                border-radius: 0 5px 5px 0;
+                }
+            .newsWrapContBoxInfo{
+                width: 15%;
+            }
+            .newsWrapContBoxOwner{
+                width: 20%;
+                >a{
+                    color: $brown; 
+                }
+            }
+        }
+    }
+    #getMoreNews{
+        //outline: 2px #f00 solid;
+        display: block;
+        position: relative;
+        margin: 10px auto 30px;
+        background-color: transparent;
+        text-align: center;
+        border: 0px;
+        font-size: 1.2rem;
+        color:$brown;
+        font-family: $fofaTitle;
+        &::after{
+            content: " ";
+            display: block;
+            position: absolute;
+            bottom: -2rem;
+            left: calc(50% - 1rem);
+            width: 2rem;
+            height: 2rem;
+            background-image: url(../../image/bar/expand-button.svg);
+            background-size: contain;
+            }
+    }    
+}

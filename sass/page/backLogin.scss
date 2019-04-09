@@ -4,25 +4,29 @@
 //文字大小字型設定
 @import'sass/base/font';
 
-//
+//登箱
 @import'sass/base/lightbox';
 
 // * {
 //     outline: 1px solid black;
 // }
 
+body {
+    background-image: url('../image/background/BgPage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .lightbox {
-    margin: 20px;
+    top: 160px;
+    left: calc(50% - 150px);
 }
 
 .paper {
-    div {
-        width: 300px;
-        margin: 30px auto;
-
-        img {
-            width: 100%;
-        }
+    img {
+        width: 50%;
+        display: block;
+        margin: 40px auto;
     }
 
     h2 {
@@ -30,12 +34,30 @@
     }
 }
 
-label {
+.labelBox {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 10px;
+
     span {
         margin-right: 10px;
+        color: $brown;
+        font-family: Adobe Heiti Std R;
     }
+
+    input {
+        border-radius: 10px;
+        border: 1px solid transparent;
+    }
+}
+
+
+
+.loginform a {
+    margin: 0 181px;
+}
+
+.paper::after,
+.paper::before {
+    display: none;
 }
