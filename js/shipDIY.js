@@ -2,7 +2,11 @@ function $id(id){
     return document.getElementById(id); 
 }
 window.addEventListener('load',function(){
-    
+
+    var winWidth = window.innerWidth;
+    window.addEventListener('resize',function(){
+        winWidth = window.innerWidth;
+    })
 
     //取得工具列的船身船帆們
     var DYIsails=document.getElementsByClassName('DIYSail');
@@ -131,8 +135,13 @@ window.addEventListener('load',function(){
     //滑鼠移動在畫布上時，筆刷頭跟著滑鼠移動
     cavDraw.addEventListener('mousemove',function(e){
         var LW = ctxDraw.lineWidth;
-        pen.style.top =(e.offsetY -(LW/2)) +"px";
-        pen.style.left =(e.offsetX -(LW/2)) +"px";
+        if(winWidth<1200){
+            pen.style.top =(e.offsetY*.4 -(LW/2)) +"px";
+            pen.style.left =(e.offsetX*.4 -(LW/2)) +"px";
+        }else{
+            pen.style.top =(e.offsetY -(LW/2)) +"px";
+            pen.style.left =(e.offsetX -(LW/2)) +"px";
+        }
     })
     
 
