@@ -285,16 +285,12 @@ header.hide{
     }
 }
 
-@media screen and (min-width:1024px){
+@media screen and (min-width:1200px){
     //PC
-    
-    #headerLogo{
-        top: 15px;
-    }
-
     header{
         background: transparent;
-        width: 100%;
+        position: relative;
+        width: auto;
     }
     #headerMenu{
         max-width: 1800px;
