@@ -14,34 +14,26 @@
 		<strong class="quesText">第一問: 請問白鬍子的船叫什麼名字?</strong>
 	</div>
 	<div class="option">
-		<a href="javascript:;">
-			<div class="opop o1">
-				<strong class="textHi">A</strong>
-				<strong class="describe">白鯨號</strong>
-				<img class="ans" src="image/iqtest/correct.gif" alt="true">
-			</div>
-		</a>
-		<a href="javascript:;">
-			<div class="opop o2">
-				<strong class="textHi">B</strong>
-				<strong class="describe">白蛇號</strong>
-				<img class="ans" src="image/iqtest/false.gif" alt="false">
-			</div>
-		</a>
-		<a href="javascript:;">
-			<div class="opop o3">
-				<strong class="textHi">C</strong>
-				<strong class="describe">白龍號</strong>
-				<img class="ans" src="image/iqtest/false.gif" alt="false">
-			</div>
-		</a>
-		<a href="javascript:;">
-			<div class="opop o4">
-				<strong class="textHi">D</strong>
-				<strong class="describe">白蝦號</strong>
-				<img class="ans" src="image/iqtest/false.gif" alt="false">
-			</div>
-		</a>
+		<div class="opop o1">
+			<strong class="textHi">A</strong>
+			<strong class="describe">白鯨號</strong>
+			<img class="ans" src="image/iqtest/correct.gif" alt="true">
+		</div>
+		<div class="opop o2">
+			<strong class="textHi">B</strong>
+			<strong class="describe">白蛇號</strong>
+			<img class="ans" src="image/iqtest/false.gif" alt="false">
+		</div>
+		<div class="opop o3">
+			<strong class="textHi">C</strong>
+			<strong class="describe">白龍號</strong>
+			<img class="ans" src="image/iqtest/false.gif" alt="false">
+		</div>
+		<div class="opop o4">
+			<strong class="textHi">D</strong>
+			<strong class="describe">白蝦號</strong>
+			<img class="ans" src="image/iqtest/false.gif" alt="false">
+		</div>
 	</div>
 	<script>
 		var count = 19;
@@ -71,7 +63,7 @@
 			document.location.href="game.html";
 		}
 		window.addEventListener('load',function(){
-			// setInterval(countdown,800);
+			setInterval(countdown,800);
 			for(i = 0; i<=3; i++){
 				document.getElementsByClassName("opop")[i].onclick = show;
 			}

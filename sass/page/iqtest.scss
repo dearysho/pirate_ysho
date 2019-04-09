@@ -1,6 +1,7 @@
 //reset
 @import '../base/reset';
-
+//font
+@import '../base/font';
 // 程式碼
 body{
 	background-image: url('../image/iqtest/qabg.jpg');
@@ -12,6 +13,9 @@ body{
 	height: 15px;
 	background-color: #456789;
 	-webkit-animation: timeline 32s linear;
+}
+.changeT{
+	font-family: $fofaTitle;
 }
 @-webkit-keyframes timeline {
   0% {
@@ -40,7 +44,8 @@ body{
 	line-height: 140px;
 }
 .quesText{
-	font-weight: 700;
+	font-family: $fofaTitle;
+	font-weight: 500;
 	font-size: 30px;
 	letter-spacing: 3px;
 }
@@ -62,8 +67,10 @@ body{
 }
 .ans{
 	position: absolute;
-	top: 0;
+	top: 5px;
 	left: 0;
+	right: 0;
+	bottom: 0;
 	display: none;
 }
 .textHi{
@@ -74,8 +81,9 @@ body{
 	font-size: 30px;
 }
 .describe{
+	font-family: $fofaTitle;
 	line-height: 300px;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 42px;
 	letter-spacing: 5px;
 }

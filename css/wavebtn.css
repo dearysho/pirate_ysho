@@ -10,6 +10,7 @@
     font-family: Adobe Heiti Std R;
     color: #fffcf2;
     letter-spacing: 3px;
+    cursor: pointer;
 }
 .wave {
     display: inline-block;
