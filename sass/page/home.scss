@@ -2,6 +2,11 @@
 @import '../base/reset';
 @import '../layout/header';
 
+
+#homeGame,#homeMarket,#homeBar,#homeEnd{
+    margin-top: 250px;
+}
+
 .clearfix{
     clear: both;
 }
@@ -12,7 +17,7 @@ a{color: $blue;}
 .btnpri{cursor: pointer;}
 
 body{
-    background: url(../../image/background/BgPage.png);
+    background: url(../image/background/BgPage.png);
     // background-size: 100% auto;
 }
 p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
@@ -223,7 +228,7 @@ header.homeHeadHide{
 //客製狀態列的箭頭，及位置調整
 #DIYStatus li:nth-child(n+2)::before{
     content:'';
-    background: url(../../image/home/arrow.svg) no-repeat;
+    background: url(image/home/arrow.svg) no-repeat;
     display: inline-block;
     width: 40px;
     height: 10px;
@@ -292,7 +297,7 @@ header.homeHeadHide{
     position: absolute;
     width: 50px;
     height: 50px;
-    background:url(../../image/ship/wave1.svg) no-repeat;
+    background:url(../image/ship/wave1.svg) no-repeat;
     background-size: 100% 100%;
     bottom: 10px;
     left: -20px;
@@ -304,7 +309,7 @@ header.homeHeadHide{
     position: absolute;
     width: 150px;
     height: 50px;
-    background:url(../../image/ship/wave2.svg) no-repeat;
+    background:url(../image/ship/wave2.svg) no-repeat;
     background-size: 100% 100%;
     bottom: -12px;
     right: 0px;
@@ -951,7 +956,8 @@ h2 a{
 @media screen and (min-width:1024px){
     #homeBar{
         max-width: 1200px;
-        margin: auto;
+        margin-left:auto;
+        margin-right:auto;
     }
     .homeHotCard{
         width: calc(50% - 40px);
@@ -992,7 +998,7 @@ h2 a{
 
 //首頁結尾語
 #homeEnd{
-    margin-top: 50px;
+    margin-top: 250px;
     .textEmphasis{
         padding: 10px;
         font-size: 1.5rem;
