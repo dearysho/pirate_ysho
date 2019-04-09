@@ -1,14 +1,14 @@
 // css-reset
-@import'sass/base/reset';
+@import'../base/reset';
 
 //文字大小字型設定
-@import'sass/base/font';
+@import'../base/font';
 
 //@herder
-@import'sass/layout/header';
+@import'../layout/header';
 
 //媒體查詢
-@import'sass/base/media';
+@import'../base/media';
 
 // * {
 //     outline: 1px solid black;

@@ -355,7 +355,7 @@ a {
   text-align: center;
   margin: -25px auto 0px auto;
   width: 250px;
-  background: url(../../image/headerLogoBg.svg) no-repeat;
+  background: url(../image/headerLogoBg.svg) no-repeat;
   background-size: 100% 100%;
   transition-duration: 1s; }
 
@@ -371,7 +371,7 @@ a {
 
 header::before {
   content: '';
-  background-image: url(../../image/navrog.svg);
+  background-image: url(../image/navrog.svg);
   background-size: cover;
   background-position: center;
   display: block;
@@ -382,7 +382,7 @@ header::before {
 
 header::after {
   content: '';
-  background-image: url(../../image/navrog.svg);
+  background-image: url(../image/navrog.svg);
   background-size: cover;
   background-position: center;
   display: block;
@@ -587,11 +587,13 @@ header.hide {
 
   #headerMeTalentI {
     grid-area: 4/3/span 1/ span 1; } }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
+  #headerLogo {
+    top: 15px; }
+
   header {
     background: transparent;
-    position: relative;
-    width: auto; }
+    width: 100%; }
 
   #headerMenu {
     max-width: 1800px;
