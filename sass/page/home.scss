@@ -10,6 +10,7 @@
     display: none;
 }
 a{color: $blue;}
+.btnpri{cursor: pointer;}
 
 body{
     background: url(../../image/background/BgPage.png);
@@ -194,6 +195,14 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 
 }
 
+//==================首頁header出現的調整
+@media screen and (min-width:1024px){
+header.homeHeadHide{
+    top: -200px;
+}
+
+}
+
 //===================接下來為第二屏客製
 
 #homeDIY{
@@ -245,6 +254,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 #shipArea{
     position: relative;
     height: 280px;
+    width: 300px;
+    margin: auto;
 }
 #partSail,#partBody,#drawFrame{
     width: 300px;
@@ -260,7 +271,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     left: 0;
     right: 0;
     margin: auto;
-    transform: scale(0.4) translateX(-62%) translateY(-75%);
+    transform-origin: 0 0;
+    transform: scale(0.4);
 }
 #pen{
     width: 5px;
@@ -271,6 +283,7 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     top: 0;
     left: 0;
     pointer-events: none;
+    transform: scale(0.4);
 }
 
     //海浪，海浪的位置跟上面shipArea的height有關
@@ -364,6 +377,10 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 @media screen and (min-width:768px){
 
 //客製狀態列的箭頭，及位置調整
+#DIYStatus{
+    width: 453px;
+    margin: auto;
+}
 #DIYStatus li:nth-child(n+2)::before{
     top: 0;
     bottom: 0;
@@ -372,14 +389,11 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 #DIYStatus li{
     width: auto;
 }
-#DIYStatus li:first-child{
-    margin-left: 130px;
-}
 #DIYStatus li:nth-child(n+2){
     margin: 0 10px 20px 45px;
 }
 #drawFlag,#combineShip{
-    transform: scale(0.4) translateX(0%) translateY(-75%);
+    transform: scale(0.4);
 }
 }
 
@@ -426,7 +440,9 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
         display: block;
         clear: both;
     }
-
+    #pen{
+        transform: scale(1);
+    }
 
 }
 
@@ -436,6 +452,7 @@ h2{
     text-align: center;
     line-height: 1.5;
     font-size: 2rem;
+    letter-spacing: 5px;
 }
 h2 a{
     font-family: 王漢宗特明體繁;
@@ -576,13 +593,9 @@ h2 a{
 
 //啟航尋寶
 #homeGameGPS{
-    width: calc(100% - 30px);
-    border: #a67c52 5px double;
-    margin: 40px 10px 10px 10px;
-    height: 500px;
-}
-#homeGameGPS .smaller{
-    letter-spacing: 1px;
+    .smaller{
+        letter-spacing: 1px;
+    }
 }
 #homeGameTrea{
     position: relative;
@@ -636,26 +649,365 @@ h2 a{
     }
 }
 
+//海上市集
+#homeMarket>.textS{
+    text-align: right;
+    margin: 10px 20px;
+}
+#homeMarketProds{
+    position: relative;
+    margin-top: 120px;
+}
+#homeMarketBlack,#homeMarketShip{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    color: $beige;
+    height: 200px;
+    position: absolute;
+    .textM{
+        color: $beige;
+    }
+}
+#homeMarketBlack{
+    background: #005982;
+    z-index: -1;
+    top: -120px;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+}
+#homeMarketShip{
+    background: #006ca6;
+    z-index: -2;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    top: -120px;
+
+}
+.homeTreaBtn{
+    background: #f5ecdd;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    img{
+        width: 100px;
+    }
+}
+#homeMarketProdInfo{
+    background: #f5ecdd;
+    border-radius: 10px;
+    margin:10px 30px;
+    padding: 10px;
+    height: 530px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(166, 124, 82,0.5);
+    position: relative;
+    .homeProdTalent{
+        img{
+            width: 200px;
+            margin-top: 10px;
+        }
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        font-size: 3rem;
+        width: auto;
+        height: auto;
+        color: #736357;
+    }
+    .fa-arrow-circle-right{
+        right: -25px;
+    }
+    .fa-arrow-circle-left{
+        left: -25px;
+    }
+
+}
+.homeWrapProd{
+    position: absolute;
+    left: 0;right: 0;margin: auto;
+}
+.homeProdImg{
+    width: 150px;
+    margin-top: -50px;
+    opacity: 0;
+    transform: translateX(-50px)  scale(0.8);
+    transition-duration: 0.5s
+}
+.homeProdInfoCard p{
+    opacity: 0;
+    transform: translateY(24px) scale(0.8);
+    transition-duration: 0.5s;
+}
+@for $i from 1 through 6{
+    .homeProdInfoCard p:nth-child(#{$i}){
+        transition-delay:$i*0.1 - 0.1s;
+    }
+}
+.homeProdInfoCard p.homeProdAct{
+    opacity: 1;
+    transform: translateY(0px)  scale(1);
+}
+
+.homeProdImg.homeProdAct{
+    opacity: 1;
+    transform: translateX(0px)  scale(1);
+}
+
+@media screen and (min-width:768px){
+    #homeMarketBlack,#homeMarketShip{
+        width: calc(100% - 350px);
+        height: 300px;
+    }
+    #homeMarketBlack{
+        top: -120px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        
+    }
+    #homeMarketShip{
+        left: 0px;
+        right: 0;
+        margin: auto;
+        top: -100px;
+        transform: rotateZ(-10deg) translateX(-40px);
+    
+    }
+    #homeMarketProds{ 
+        ul{
+            float: left;
+        }
+        li{
+            margin: 10px 20px;
+        }
+    }
+    #homeMarketProdInfo{
+        float: left;
+        width: calc(100% - 400px);
+        height: 530px;
+    }
+    #homeMarketProds::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+@media screen and (min-width:1024px){
+    #homeMarket>.textS{
+        text-align: right;
+        margin: 10px 30% 10px 10px;
+    }
+    #homeMarketBlack{
+        top: -90px;
+        left: -15%;
+        width: 300px;
+        height: 500px;
+    }
+    #homeMarketShip{
+        left: -15%;
+        width: 300px;
+        height: 500px;
+    }
+    #homeMarketProds{ 
+        ul{
+            float: left;
+            width: calc(50% - 300px);
+        }
+        li{
+            float: left;
+            margin: 10px 20px;
+        }
+        li:nth-child(2n){
+            margin: 80px -40px -80px -40px;
+        }
+    }
+    #homeMarketProdInfo{
+        width:400px;
+        margin-left: 100px;
+        height: 370px;
+        .homeProdImg{
+            float: left;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .fa-arrow-circle-left{
+            left: -85px;
+        }
+    }
+    .homeProdInfoCard{
+        text-align: left;
+        padding-left: 150px;
+        .btnpri{
+            position: absolute;    
+            right: 20px;
+        }
+    }
+
+    
+}
+
+//情報酒館
+#homeBar .textEmphasis{
+    text-align: left;
+    letter-spacing: 5px;
+    margin: 10px;
+}
+#homeBar i{
+    font-size: 1rem;
+    height: auto;
+}
+.homeHotCard{
+    background: #f5ecdd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    color: $brown;
+    img{
+        width: 100px;
+        float: left;
+        margin-right: 10px;
+    }
+    .textL{
+        width: 235px;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .textS{
+        text-align: right;
+    }
+}
+.homeNewsCard{
+    background: #f5ecdd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    color: $brown;
+    .textL{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    p{
+        float: left;
+    }
+    .cardCat{
+        width: 50px;
+    }
+    .cardTitle{
+        width: 275px;
+        span{
+            font-size: 1rem;
+            background: #7ccbbd;
+            border-radius: 5px;
+            display: inline-block;
+            padding: 3px 10px;
+            font-weight: normal;
+            
+        }
+    }
+    .cardTime{
+        margin-left: 20px;
+    }
+}
+.homeMore{
+    margin: 0 20px;
+}
+
+@media screen and (min-width:768px){
+    .homeHotCard{
+        img{
+            width: 150px;
+        }
+        .textL{
+            width: 555px;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+    }
+
+    .homeNewsCard{
+        .textL{
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        .cardTitle{
+            width: 400px;
+        }
+        .cardIcon{
+            line-height: 60px;
+        }
+        .cardTime{
+            text-align: center;
+            width: 100px;
+        }
+    }
+
+}
+@media screen and (min-width:1024px){
+    #homeBar{
+        max-width: 1200px;
+        margin: auto;
+    }
+    .homeHotCard{
+        width: calc(50% - 40px);
+        max-width: 560px;
+        height: 200px;
+        float: left;
+        img{
+            width: 200px;
+        }
+        .textL{
+            width: 555px;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+    }
+    #homeBarHot::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .homeNewsCard{
+        p{
+            float: left;
+        }
+        .cardCat{
+            width: 100px;
+            line-height: 60px;
+        }
+        .cardTitle{
+            width:calc(100% - 370px);
+            margin: 12px 0;
+        }
+    }
 
 
-
-
+}
 
 //首頁結尾語
-#homeEnd .textEmphasis{
-    padding: 10px;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
+#homeEnd{
+    margin-top: 50px;
+    .textEmphasis{
+        padding: 10px;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .textHiliR{
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+    .textM{
+        width: 250px;
+        margin: auto;
+    }
 }
-#homeEnd .textHiliR{
-    font-size: 2rem;
-    letter-spacing: 5px;
-}
-#homeEnd .textM{
-    width: 250px;
-    margin: auto;
-}
-
 @media screen and (min-width:768px){
     #homeEnd .textEmphasis{
         font-size: 2rem;
@@ -679,6 +1031,8 @@ h2 a{
 
 }
 
+
+//竟然是footer
 footer{
     text-align: center;
     margin-top: 100px;
