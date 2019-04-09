@@ -16,54 +16,55 @@
             <div id="logo">
                 <img src="../image/logo.svg" alt="">
             </div>
-            <p>Hi~ 管理員 <span id="manager">景承</span></p>
+            <p>Hi~ 管理員 <span id="manager">景承</span>♥</p>
             <p>你好^___^</p>
             <ul class="menuUl">
                 <li>
-                    <a href="#">討論區文章檢舉管理</a>
+                    <a href="backAdministrator.html">管理員帳號管理</a>
                 </li>
                 <li>
-                    <a href="#">官方商品管理</a>
+                    <a href="backMember.html">會員帳號管理</a>
                 </li>
                 <li>
-                    <a href="#">造型記錄查詢</a>
+                    <a href="backOfficialMerch.html">官方商品管理</a>
                 </li>
                 <li>
-                    <a href="#">測驗題目管理</a>
+                    <a href="backMerchRecord.html">造型記錄查詢</a>
                 </li>
                 <li>
-                    <a href="#">會員帳號管理</a>
+                    <a href="backTreasure.html">寶物商品管理</a>
                 </li>
                 <li>
-                    <a href="#">管理員帳號管理</a>
+                    <a href="backTreasureRocard.html">寶物拍賣紀錄查詢</a>
                 </li>
                 <li>
-                    <a href="#">客製造型管理</a>
+                    <a href="backIQTest.html">測驗題目管理</a>
                 </li>
                 <li>
-                    <a href="#">寶物商品管理</a>
+                    <a href="backBarArticle.html">討論區文章檢舉管理</a>
                 </li>
                 <li>
-                    <a href="#">寶物拍賣紀錄查詢</a>
+                    <a href="backBarCommend.html">討論區留言檢舉管理</a>
                 </li>
-                <a href="#" class="btnpri" id="logout">登出</a>
+                <a href="#" class="btnpri" id="logout">
+                    <span>登出</span>
+                </a>
             </ul>
         </div>
         <div class="contentWrap">
             <div class="content">
-                <h3>測驗題目管理</h3>
-                <table>
-                    <tbody>
+                <h3 class="titlePri">測驗題目管理</h3>
+                <div class="dataTable">
+                    <table>
                         <tr>
-                            <th >題目編號</th>
-                            <th >題目內容</th>
-                            <th >給分</th>
-                            <th >選項1</th>
-                            <th >選項2</th>
-                            <th >選項3</th>
-                            <th >選項4</th>
-                            <th >正確選項</th>
-                            
+                            <th>題目編號</th>
+                            <th>題目內容</th>
+                            <th>給分</th>
+                            <th>選項1</th>
+                            <th>選項2</th>
+                            <th>選項3</th>
+                            <th>選項4</th>
+                            <th>正確選項</th>
                         </tr>
                         <tr>
                             <td>1</td>
@@ -74,15 +75,24 @@
                             <td>3.鳴人</td>
                             <td>4.佐助</td>
                             <td>1</td>
-
                         </tr>
-
-                    </tbody>
-                </table>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <ul>
+                        <li id="left"> <a href="#">
+                                < </a> </li> <li> <a href="#">1</a></li>
+                        <li> <a href="#">2</a></li>
+                        <li> <a href="#">3</a></li>
+                        <li> <a href="#">4</a></li>
+                        <li> <a href="#">5</a></li>
+                        <li class="right"> <a href="#"> > </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
+    <script src="../js/wavebtn.js"></script>
 </body>
 
 </html>

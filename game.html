@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>game</title>
+	<title>《大海賊帝國》接受試煉成為真・海賊</title>
 	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/wavebtn.css">
 	<style id="css">
 		
 	</style>
@@ -322,6 +323,7 @@
 			c.insertRule("#gameGps#gameGps::after{display:none;}", 0);
 			c.insertRule("#gameGpsMap#gameGpsMap::after{display:none;}", 0);
 			console.log(c);
+			gpsStart();
 		}
 		window.addEventListener('load',function(){
 			document.getElementsByClassName("gpsbtn")[0].onclick=show;
