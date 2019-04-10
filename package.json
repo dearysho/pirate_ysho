@@ -1,7 +1,7 @@
 {
   "name": "tweenmax",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pirate game webpage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,13 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "jquery": "^3.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asterlin/Pirate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asterlin/Pirate/issues"
+  },
+  "homepage": "https://github.com/asterlin/Pirate#readme"
 }

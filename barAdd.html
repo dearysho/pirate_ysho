@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》在情報酒館探索海賊們的秘密吧！</title>
     <link rel="stylesheet" href="css/barAdd.css">
+    <link rel="stylesheet" href="css/wavebtn.css">
 </head>
 <body>
     <header>
@@ -53,20 +54,27 @@
         </p>
        <a href="bar.html" id="backToBarBtn">保密防諜回到酒館刺探情報</a>
         <form action="login.php" method="post" id="addForm">
-            <p class="textHiliR">最高機密</p>
-            <label for="">情報分類
-                <select name="articleType">
-                    <option value="gps">尋寶</option>
-                    <option value="training">試煉</option>
-                    <option value="other">其他</option>
-                 </select>
-            </label>
-            <label for="articleTit">情報題目</label>
-                <input type="text" id="articleTit">
-            <label for="articleCont">情報內容</label>
-            <textarea name="" id="articleCont" cols="30" rows="10">
-            </textarea>
-            <input type="submit" value="發出情報">
+            <h2 class="textHiliR">最高機密</h2>
+            <div id="addFormCont">
+                <div id="articleTypeTit">
+                    <span>情報分類</span>
+                    <label for="articleTypeGps"><input type="radio" name="articleType" class="articleTypeBtn" id="articleTypeGps">尋寶</label>
+                    <label for="articleTypeEle"><input type="radio" name="articleType" class="articleTypeBtn" id="articleTypeEle">試煉</label>
+                    <label for="articleTypeOth"><input type="radio" name="articleType" class="articleTypeBtn" id="articleTypeOth">其他</label>
+                </div>
+                <label for="articleTit">情報題目</label>
+                    <input type="text" id="articleTit">
+                <div id="articleCont">
+                    <span id="articleContTit">情報內容</span>
+                    <textarea name="articleCont" id="articleCont" cols="30" rows="10">
+                    </textarea>
+                </div>
+            </div>
+            <!-- <input class="btnpri" type="submit" value="發出情報"> -->
+            <a class="btnpri" href="barAdd.html">
+                    <span><label for="submitArticle"></label>發出情報</span>
+            </a>
+            <input type="submit"  id="submitArticle">
         </form>
     </div>
 

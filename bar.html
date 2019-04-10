@@ -11,46 +11,48 @@
 </head>
 <body>
     <header>
-            <h1 id="headerLogo"><a href="index.html">
-                <img src="image/logo.svg" alt="大海賊帝國">
-            </a></h1>
-            <nav id="headerMenu" >
-                <ul>
-                    <li><a href="game.html">海賊試煉場</a></li>
-                    <li><a href="market.html">海上市集</a></li>
-                    <li><a href="bar.html">情報酒館</a></li>
-                    <li><a href="me.html">俺の海賊船</a></li>
-                </ul>
-            </nav>
-            <div>
-                <ul id="headerMe">
-                    <li id="headerMeID">
-                        <a href="javascript:;">我是大帥哥</a>
-                    </li>
-                    <li id="headerMeLv">lv.<span>7</span>
-                        <div id="headerExpBar">
-                            <div id="headerExpLine"></div>
-                            <p id="headerExp"><span>1000</span>/<span>10000</span></p>
-                        </div>
-                        
-                    </li>
-                    <li id="headerMeMoney">金幣<span>100</span>G</li>
-                    <li id="headerMeShip"><a href="javascript:;">
-                        <img src="image/ship/shipTemp.png" alt="角色頭像">
-                    </a></li>
-                    <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
-                    <li id="headerMeTalentL">幸運<span>5</span></li>
-                    <li id="headerMeTalentA">敏捷<span>5</span></li>
-                    <li id="headerMeTalentI">智力<span>5</span></li>
-                </ul>
-            </div>
-        </header>
+        <h1 id="headerLogo"><a href="index.html">
+            <img src="image/logo.svg" alt="大海賊帝國">
+        </a></h1>
+        <nav id="headerMenu" >
+            <ul>
+                <li><a href="game.html">海賊試煉場</a></li>
+                <li><a href="market.html">海上市集</a></li>
+                <li><a href="bar.html">情報酒館</a></li>
+                <li><a href="me.html">俺の海賊船</a></li>
+            </ul>
+        </nav>
+        <div>
+            <ul id="headerMe">
+                <li id="headerMeID">
+                    <a href="javascript:;">我是大帥哥</a>
+                </li>
+                <li id="headerMeLv">lv.<span>7</span>
+                    <div id="headerExpBar">
+                        <div id="headerExpLine"></div>
+                        <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                    </div>
+                    
+                </li>
+                <li id="headerMeMoney">金幣<span>100</span>G</li>
+                <li id="headerMeShip"><a href="javascript:;">
+                    <img src="image/ship/shipTemp.png" alt="角色頭像">
+                </a></li>
+                <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                <li id="headerMeTalentL">幸運<span>5</span></li>
+                <li id="headerMeTalentA">敏捷<span>5</span></li>
+                <li id="headerMeTalentI">智力<span>5</span></li>
+            </ul>
+        </div>
+    </header>
+<!-- 頁面標題 -->
     <div id="bartitle">
         <h1 class="titlePri">情報酒館</h1>
         <a class="btnpri" href="barAdd.html">
                 <span>洩漏情報</span>
         </a>
     </div>
+<!-- 熱門話題 -->
     <div class="hotIssueWrap">
         <h2 class="titleSec">
                 熱門情報
@@ -60,7 +62,7 @@
             眾所皆知的熱門八卦你不能不知道
         </p>
         <div id="hotIssueCont">
-            <a class="hotIssueBox" href="#">
+            <a class="hotIssueBox" href="barArticle.html">
                 <div class="hotIssueBoxInfo">
                     <img src="image/bar/hotIssueImg_1.png" alt="">
                     <p class="textM">蒙其·D·魯夫</p>
@@ -164,7 +166,9 @@
             </a>
         </div>
     </div>
+<!-- 最新情報 -->
     <div id="newsWrap">
+    <!-- 最新情報標題列 -->
         <h2 class="titleSec">
             最新情報
             <img src="image/h2frame.svg" alt="">
@@ -172,130 +176,38 @@
         <p class="textM">
             最新、最熱、道聽塗說、以訛傳訛的情報風聲，各式各樣的八卦在等著你
         </p>
+    <!-- 最新情報內容-->
         <div id="newsWrapCont">
-            <table id="newsWrapContList">
-                <tr id="newsWrapContListTit">
-                    <th colspan="2" id="newsWrapFilter">
-                        <span>篩選：</span>
-                        <a id="newsWrapListAll" class="newsWrapListBtn" href="#">ALL</a>
-                        <a id="newsWrapListGps" class="newsWrapListBtn" href="#">尋寶</a>
-                        <a id="newsWrapListTtraining" class="newsWrapListBtn" href="#">試煉</a>
-                        <a id="newsWrapListOther" class="newsWrapListBtn" href="#">其他 </a>
-                    </th>
-                    <th>人氣 / 回覆</th>
-                    <th>洩密者/走漏時間</th>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></th>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-                <tr class="newsWrapContBox">
-                    <td><span class="newsWrapContBoxName">綜合討論</span></td>
-                    <td class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></td>
-                    <td class="newsWrapContBoxInfo">1314/520</td>
-                    <td class="newsWrapContBoxOwner">
-                        <a href="＃">景成船長</a>
-                        <span>/190409</span>
-                    </td>
-                </tr>
-            </table>
-            <button id="getMoreNews">點擊搜集更多情報</button>
+        <!-- 內容標題列 -->
+            <div id="newsWrapContListTit">
+                <div id="newsWrapFilter">
+                    <span id="newsWrapListType">篩選：</span>
+                    <a id="newsWrapListAll" class="newsWrapListBtn" href="#">ALL</a>
+                    <a id="newsWrapListGps" class="newsWrapListBtn" href="#">尋寶</a>
+                    <a id="newsWrapListTtraining" class="newsWrapListBtn" href="#">試煉</a>
+                    <a id="newsWrapListOther" class="newsWrapListBtn" href="#">其他 </a>
+                </div>
+                <div class="newsWrapInfo">人氣 / 回覆</div>
+                <div class="newsWrapOwner">洩密者/走漏時間</div>
+            </div>
+        <!-- 內容列 -->
+            <div class="newsWrapContBox">
+                <div class="newsWrapContBoxCont">
+                    <div class="newsWrapContBoxName">綜合討論</div>
+                    <div class="newsWrapContBoxTit"> <a href="#"> 【尋寶】2019新地圖</a></div>
+                </div>
+                <div class="newsWrapInfo">
+                    <span class="newsWrapContBoxView">1314</span>
+                    <span class="newsWrapContBoxCommend">520</span>
+                </div>
+                <div class="newsWrapOwner">
+                    <a href="javascript:">景成船長</a>
+                    <span class="newsWrapContBoxTime">190409</span>
+                </div>
+            </div>
         </div>
+    <!-- 更多的按鈕 -->
+        <input type="button" value="點擊搜集更多情報" id="getMoreNews">
     </div>
     <script src="js/wavebtn.js"></script>
     <script src="js/bar.js"></script>
