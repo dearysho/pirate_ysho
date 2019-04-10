@@ -1,0 +1,95 @@
+//reset
+@import '../base/reset';
+//font
+@import '../base/font';
+
+body{
+	background-image: url('../image/iqtest/qabg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+// title
+.resultSlogan{
+	background-image: url('../image/iqtest/qaq.png');
+	width: 1132px;
+	height: 142px;
+	line-height: 142px;
+	margin: 50px auto;
+	text-align: center;
+}
+.titlePri{
+	color: $brown;
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 5px;
+}
+// brain area
+.row{
+	margin: 0 auto;
+	max-width: 1200px;
+}
+.col-6{
+	float: left;
+	position: relative;
+	height: 660px;
+	width: 48%;
+	padding: 0px 12px;
+	margin-bottom: 25px;
+}
+.brain{
+	width: 86.8055%;
+	height: 400px;
+	padding: 0 50px;
+}
+.abc{
+	opacity: 1;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 150px;
+	animation: spark 1s infinite;
+}
+.grade{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 36px;
+}
+.correctop{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 36px;
+}
+// 說明area
+.redar{
+	width: 100%;
+	height: 400px;
+	background-color: #fff;
+}
+.titleSec{
+	font-family: $fofaTitle;
+	margin: 20px auto;
+	font-size: 30px;
+	letter-spacing: 2.5px;
+}
+.textM{
+	font-family: $fofaTitle;
+	letter-spacing: 1.5px;
+	padding: 0 20px;
+	text-align: left;
+}
+.btnpri{
+	left: 50%;
+	transform: translateX(-50%);
+}
+// keyframes
+@keyframes spark{
+	0%{
+		display: block;
+		opacity: 1;
+	}
+	100%{
+		display: none;
+		opacity: 0;
+	}
+}

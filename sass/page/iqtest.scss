@@ -40,16 +40,15 @@ body{
 .ques{
 	background-image: url('../image/iqtest/qaq.png');
 	width: 1132px;
-	height: 140px;
+	height: 142px;
 	margin: 30px auto 10px;
 	text-align: center;
-	line-height: 140px;
+	line-height: 142px;
 }
-.quesText{
-	font-family: $fofaTitle;
-	font-weight: 500;
-	font-size: 30px;
-	letter-spacing: 3px;
+.titlePri{
+	color: $brown;
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 5px;
 }
 .option{
 	margin: 0 auto;
@@ -92,10 +91,10 @@ body{
 // chat
 #chat{
 	position: fixed;
-  	left: 30px;
-  	bottom: 30px;
-  	width: 400px;
-  	height: 450px;
+  	left: 80px;
+  	bottom: 80px;
+  	width: 350px;
+  	height: 400px;
 }
 .head{
 	position: absolute;
@@ -108,6 +107,7 @@ body{
 	z-index: 2;
 	position: relative;
 	left: 100px;
+	animation: floatcloud 10s linear;
 }
 .chatting{
 	text-align: center;
@@ -119,4 +119,21 @@ body{
 	position: absolute;
 	z-index: 3;
 	letter-spacing: 0.7px;
+}
+@keyframes floatcloud{
+	0%{
+		top: 0px
+	}
+	25%{
+		top: 15px;
+	}
+	50%{
+		top: 0px
+	}
+	75%{
+		top: -10px
+	}
+	100%{
+		top: 0px
+	}
 }
