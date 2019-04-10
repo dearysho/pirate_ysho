@@ -653,19 +653,25 @@ body {
   position: relative;
   text-align: center;
   height: 400px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.45);
-  transition: all 2s; }
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.45); }
 
 .chooseBox:hover {
-  top: -20px; }
+  animation: gametop .5s linear; }
 
 .chooseBox:hover .block {
-  height: 490px; }
+  height: 486px; }
 
 .chooseBox:hover .game-appear {
   display: block;
   top: 400px; }
 
+@keyframes gametop {
+  0% {
+    top: 0px; }
+  50% {
+    top: -50px; }
+  100% {
+    top: 0px; } }
 .boat {
   position: absolute;
   left: 80px;
@@ -681,14 +687,14 @@ body {
 .game-str {
   letter-spacing: 2px;
   padding-right: 5px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   font-size: 24px;
   line-height: 1.5; }
 
 .game-appear {
   display: none;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   position: absolute;
   top: 280px;
   padding-top: 10px;
@@ -698,15 +704,15 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   line-height: 1.4;
-  color: #fff;
-  transition: top 2s; }
+  color: #fff; }
 
 .gameInfo {
+  font-family: 王漢宗特明體繁;
   z-index: 2;
   color: #fff;
   position: relative;
   background-color: #495057;
-  top: -30px;
+  top: -30.5px;
   padding-top: 20px;
   z-index: -1; }
 
@@ -727,31 +733,9 @@ body {
 .gameDetail {
   /* display: none; */ }
 
-.intro {
+.introGame {
   text-align: center;
-  margin: 50px auto; }
-
-/* life-fix */
-.lifePanel {
-  z-index: 2;
-  width: 409px;
-  height: 191px;
-  position: fixed;
-  top: 200px;
-  right: 40px; }
-
-.lifePanel p {
-  font-weight: 700;
-  font-size: 30px;
-  letter-spacing: 2px;
-  position: absolute;
-  left: 88px;
-  top: 20px; }
-
-.lifeBox {
-  position: relative;
-  top: -70px;
-  left: 50px; }
+  margin: 200px auto 30px; }
 
 #rankArea {
   margin: 0 auto;
