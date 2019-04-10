@@ -123,7 +123,9 @@ p {
   font-size: 1rem; }
 
 body {
-  background-image: url("../image/iqtest/qabg.jpg"); }
+  background-image: url("../image/iqtest/qabg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .timeline {
   position: relative;
@@ -176,11 +178,11 @@ body {
   position: relative;
   background-image: url("../image/iqtest/qabtn.png");
   float: left;
-  margin: 50px;
-  margin-bottom: 20px;
+  margin: 20px 75px 20px;
   width: 450px;
   height: 300px;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
 
 .ans {
   position: absolute;
@@ -204,8 +206,34 @@ body {
   font-size: 42px;
   letter-spacing: 5px; }
 
-a {
-  cursor: pointer;
-  color: #495057; }
+#chat {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  width: 400px;
+  height: 450px; }
+
+.head {
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+
+.cloud {
+  width: 250px;
+  height: 200px;
+  z-index: 2;
+  position: relative;
+  left: 100px; }
+
+.chatting {
+  text-align: center;
+  font-size: 22px;
+  font-family: 王漢宗特明體繁;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 3;
+  letter-spacing: 0.7px; }
 
 /*# sourceMappingURL=iqtest.css.map */

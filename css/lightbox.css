@@ -1,0 +1,199 @@
+/* lightbox平常是none,當觸發事件時更改display = 'block' */
+/* paper是書寫的區域 */
+/* leave或是popbg被點擊時lightbox.style.display = 'none' */
+p {
+  line-height: 1.5; }
+
+.textEmphasis {
+  font-size: 3rem;
+  color: #362e2b;
+  font-family: 王漢宗特明體繁;
+  letter-spacing: 10px; }
+
+.textHiliR {
+  color: #a34f49; }
+
+.textHiliB {
+  color: #006ca6; }
+
+.titlePri {
+  font-family: 王漢宗特明體繁;
+  color: #006ca6;
+  font-size: 3rem;
+  text-align: center;
+  margin: 10px;
+  font-size: 20px; }
+
+.titleSec {
+  position: relative;
+  color: #362e2b;
+  font-size: 1.5rem;
+  font-family: Adobe Heiti Std R;
+  text-align: center;
+  margin: 80px 0; }
+
+.titleThi {
+  position: relative;
+  color: #443c3a;
+  font-size: 1.35rem;
+  font-family: Adobe Heiti Std R;
+  text-align: center; }
+
+.titleFou {
+  position: relative;
+  color: #554e4d;
+  font-size: 1.25rem;
+  font-family: Adobe Heiti Std R; }
+
+.titleSec img {
+  width: 110px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1; }
+
+.textL {
+  font-family: Adobe Heiti Std R;
+  font-size: 1.5rem; }
+
+.textM {
+  color: #362e2b;
+  font-family: Adobe Heiti Std R;
+  font-size: 1.25rem;
+  text-align: center; }
+
+.textS {
+  font-family: Adobe Heiti Std R;
+  font-size: 1rem; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: e;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  clear: both; }
+
+.lightbox{
+  display: block;
+}
+
+.popbg{
+  position: fixed;
+  z-index: 19;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.85); }
+
+.info{
+  z-index: 20;
+  left: 50%;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  width: 450px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  position: fixed; }
+
+.axis {
+  width: 450px;
+  height: 20px;
+  background-image: linear-gradient(0deg, rgba(175, 69, 7, 0.5) 0%, transparent 80%), linear-gradient(90deg, #af4507 30px, #f5ba61 30px, #f5ba61 60px, #af4507 60px);
+  background-size: 60px 100%;
+  border: 3px solid #724a0e;
+  border-radius: 15px;
+  position: absolute; }
+
+.axis1 {
+  top: 0; }
+
+.axis2 {
+  bottom: 0; }
+
+.paper {
+  text-align: center;
+  margin: auto;
+  width: 400px;
+  height: 200px;
+  padding: 50px 0px;
+  background-image: linear-gradient(0deg, rgba(255, 211, 130, 1) 0%, rgba(255, 211, 130, 1) 100%);
+  border: 2px solid #c28c3a; }
+
+.leave{
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
+.leave::after{
+  content: " ";
+  width: 40px;
+  height: 8px;
+  position: absolute;
+  background-color: brown;
+  transform: rotate(45deg);
+  right: 7%;
+  top: 40%;
+}
+.leave::before {
+  content: " ";
+  width: 40px;
+  height: 8px;
+  background-color: brown;
+  transform: rotate(135deg);
+  position: absolute;
+  right: 7%;
+  top: 40%;
+}
+.btnpri {
+  margin: 10px; }
