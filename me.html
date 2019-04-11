@@ -50,7 +50,7 @@
         <h1 class="titlePri">俺の海賊船</h1>
     </div>
     <!-- 船 -->
-    <div class="wrap">
+    <div class="wrap backImg1">
         <div class="col-12 col-md-5 meShip">
             <img class="msShipImg" src="image/ship/ship.png" alt="">
         </div>
@@ -77,7 +77,11 @@
                 <!-- 雷達圖 -->
                 <div class="col-12 col-md-6 radar">
                     <h3>天賦值: <span>3</span></h3>
-                    <img src="image/ship/radar.png" alt="">
+                    <!-- <img src="image/ship/radar.png" alt=""> -->
+                    <div class="chartRadarDiv" style="max-width:300px">
+                        <canvas id="chartRadar" style="height:50px; width: 50px;"></canvas>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -151,120 +155,150 @@
 
 
     <!-- 個人紀錄 -->
-    <div class="wrap">
+    <!-- <div class="wrap">
         <h2 class="titleSec">個人紀錄
             <img src="image/h2frame.svg" alt="">
         </h2>
-        <ul class="tabUl">
-            <li class="tabLi" target="#panel-1">交易紀錄</li>
-            <li class="tabLi" target="#panel-2">討論紀錄</li>
-        </ul>
-    </div>
+    </div> -->
 
     <div class="wrap">
-        <div>
-            <!-- <ul class="tabUl">
+        <div class=" wrapInside">
+            <h2 class="titleSec">個人紀錄
+                <img src="image/h2frame.svg" alt="">
+            </h2>
+            <ul class="tabUl">
                 <li class="tabLi" target="#panel-1">交易紀錄</li>
                 <li class="tabLi" target="#panel-2">討論紀錄</li>
-            </ul> -->
-
-            <div class="box" id="panel-1">
+            </ul>
+            <div class="aa">
+                <div class="box" id="panel-1">
                     <section class="accordion">
-                            <div>
-                                <input id="ac-1" name="ac-radio" type="radio">
-                                <label for="ac-1">
-                                    <ul class="record">
-                                        <li>
-                                            <img src="image/treasure/trea1.svg" alt="">
-                                        </li>
-                                        <li>
-                                            2019/01/07 購買
-                                        </li>
-                                        <li>
-                                            八加九大刀
-                                        </li>
-                                    </ul>
-                                </label>
-                                <div class="sub-content">
-                                    <ul>
-                                        <li>
-                                            <img src="image/treasure/trea1.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <p>購買日期: <span>2019/01/07</span></p>
-                                            <p>買家: <span>景承</span></p>
-                                            <p>價格: <span>250</span> G</p>
-                                            <p>天賦值: <span>力量+3</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <div>
+                            <input id="ac-1" name="ac-radio" type="radio">
+                            <label for="ac-1">
+                                <ul class="record">
+                                    <li>
+                                        <img src="image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2019/01/07 購買
+                                    </li>
+                                    <li>
+                                        八加九大刀
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <p>購買日期: <span>2019/01/07</span></p>
+                                        <p>買家: <span>景承</span></p>
+                                        <p>價格: <span>250</span> G</p>
+                                        <p>天賦值: <span>力量+3</span></p>
+                                    </li>
+                                </ul>
                             </div>
-                            <div>
-                                <input id="ac-2" name="ac-radio" type="radio">
-                                <label for="ac-2">
-                                    <ul class="record">
-                                        <li>
-                                            <img src="image/treasure/trea2.svg" alt="">
-                                        </li>
-                                        <li>
-                                            2019/01/01 販賣
-                                        </li>
-                                        <li>
-                                            青薔薇之劍
-                                        </li>
-                                    </ul>
-                                </label>
-                                <div class="sub-content">
-                                    <ul>
-                                        <li>
-                                            <img src="image/treasure/trea2.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <p>販賣日期: <span>2019/01/01</span></p>
-                                            <p>買家: <span>國徽</span></p>
-                                            <p>價格: <span>100</span> G</p>
-                                            <p>天賦值: <span>力量+2</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div>
+                            <input id="ac-2" name="ac-radio" type="radio">
+                            <label for="ac-2">
+                                <ul class="record">
+                                    <li>
+                                        <img src="image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2019/01/01 販賣
+                                    </li>
+                                    <li>
+                                        青薔薇之劍
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <p>販賣日期: <span>2019/01/01</span></p>
+                                        <p>買家: <span>國徽</span></p>
+                                        <p>價格: <span>100</span> G</p>
+                                        <p>天賦值: <span>力量+2</span></p>
+                                    </li>
+                                </ul>
                             </div>
-                            <div>
-                                <input id="ac-3" name="ac-radio" type="radio">
-                                <label for="ac-3">
-                                    <ul class="record">
-                                        <li>
-                                            <img src="image/treasure/trea3.svg" alt="">
-                                        </li>
-                                        <li>
-                                            2018/12/20 購買
-                                        </li>
-                                        <li>
-                                            時穿劍
-                                        </li>
-                                    </ul>
-                                </label>
-                                <div class="sub-content">
-                                    <ul>
-                                        <li>
-                                            <img src="image/treasure/trea3.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <p>購買日期: <span>2019/01/07</span></p>
-                                            <p>買家: <span>景承</span></p>
-                                            <p>價格: <span>5487</span> G</p>
-                                            <p>天賦值: <span>敏捷+5</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div>
+                            <input id="ac-3" name="ac-radio" type="radio">
+                            <label for="ac-3">
+                                <ul class="record">
+                                    <li>
+                                        <img src="image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li>
+                                        2018/12/20 購買
+                                    </li>
+                                    <li>
+                                        時穿劍
+                                    </li>
+                                </ul>
+                            </label>
+                            <div class="sub-content">
+                                <ul>
+                                    <li>
+                                        <img src="image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <p>購買日期: <span>2019/01/07</span></p>
+                                        <p>買家: <span>景承</span></p>
+                                        <p>價格: <span>5487</span> G</p>
+                                        <p>天賦值: <span>敏捷+5</span></p>
+                                    </li>
+                                </ul>
                             </div>
-                        </section>
-
+                        </div>
+                    </section>
+                </div>
+                <div class="box" id="panel-2">
+                    <section class="accordion">
+                        <div>
+                            <input id="ac-4" name="ac-radio" type="radio">
+                            <label for="ac-4">
+                                <ul class="recordd">
+                                    <li>
+                                        【競技】
+                                    </li>
+                                    <li>
+                                        如何打贏大媽
+                                    </li>
+                                    <li>
+                                        2018/12/25
+                                    </li>
+                                </ul>
+                            </label>
+                        </div>
+                        <div>
+                            <input id="ac-5" name="ac-radio" type="radio">
+                            <label for="ac-5">
+                                <ul class="recordd">
+                                    <li>
+                                        【尋寶】
+                                    </li>
+                                    <li>
+                                        金斧頭GET
+                                    </li>
+                                    <li>
+                                        2019/01/01
+                                    </li>
+                                </ul>
+                            </label>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div class="box" id="panel-2">我们开始到这里了TAB-2
-
-            </div>
-
-
         </div>
     </div>
 
@@ -409,7 +443,6 @@
                                         </li>
                                     </ul>
                                 </label>
-                                
                             </div>
                     </section>
                 </div>
@@ -420,6 +453,77 @@
     </div> -->
     <script src="js/header.js"></script>
     <script src="js/me.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+    <script type="text/javascript">
+
+        //定義變數
+        var chartRadarDOM;
+        var chartRadarData;
+        var chartRadarOptions;
+
+        //載入雷達圖
+        Chart.defaults.global.legend.display = false;
+        Chart.defaults.global.defaultFontColor = 'rgba(0,0,74, 1)'; //字的顏色
+        chartRadarDOM = document.getElementById("chartRadar");
+        chartRadarData;
+        chartRadarOptions =
+            {
+                scale:
+                {
+                    ticks:
+                    {
+                        fontSize: 16,
+                        beginAtZero: true,
+                        maxTicksLimit: 7,
+                        min: 0,
+                        max: 50,
+                    },
+                    pointLabels:
+                    {
+                        fontSize: 18,
+                        color: '#0044BB'
+                    },
+                    gridLines:
+                    {
+                        color: '#009FCC'
+                    }
+                }
+            };
+
+        console.log("---------Rader Data--------");
+        var graphData = new Array();
+        graphData.push(40);//力量
+        graphData.push(20);//智力
+        graphData.push(18);//幸運
+        graphData.push(25);//敏捷
+
+
+        console.log("--------Rader Create-------------");
+        console.log(graphData);
+
+        //CreateData
+        chartRadarData = {
+            labels: ['力量', '智力', '幸運', '敏捷'],
+            datasets: [{
+                label: "Skill Level",
+                backgroundColor: "rgba(17, 34, 51,0.8)",
+                borderColor: "rgba(63,63,74,.8)",
+                pointBackgroundColor: "rgba(63,63,74,1)",
+                pointBorderColor: "rgba(0,0,0,0)",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(0,0,0,0.3)",
+                pointBorderWidth: 5,
+                data: graphData
+            }]
+        };
+
+        //Draw
+        var chartRadar = new Chart(chartRadarDOM, {
+            type: 'radar',
+            data: chartRadarData,
+            options: chartRadarOptions
+        });
+    </script>
 </body>
 
 </html>
