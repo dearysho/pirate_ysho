@@ -1,0 +1,31 @@
+@import '../base/reset';
+@import '../base/font';
+@import '../base/button';
+@import '../layout/header';
+
+$padV: 768px;
+$padH: 960px;
+$pc: 1200px;
+$bigScreen: 2500px;
+//@media screen and (min-width: ){}
+//@media screen and (min-width: $padV){}
+//@media screen and (min-width: $padH){}
+//@media screen and (min-width: $pc){}
+//@media screen and (min-width: $bigScreen){}
+
+
+$darkred: #854c46;
+$blockBord: #2a3439;
+$lightBrown: #b6a79a;
+$boxColor1: #f5ecdd;
+body {
+    background-image: url(../image/background/BgPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+//文章
+#barArticleWrap{
+    outline: 2px #000 solid;
+    @media screen and (min-width: $padH){}
+    @media screen and (min-width: $pc){}
+}
