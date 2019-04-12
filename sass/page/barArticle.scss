@@ -26,6 +26,7 @@ body {
 //文章
 #barArticleWrap{
     outline: 2px #000 solid;
+    width: 100%;
     @media screen and (min-width: $padH){}
     @media screen and (min-width: $pc){}
 }

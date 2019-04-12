@@ -138,7 +138,7 @@ a {
     text-align: center;
     margin-bottom: 2rem; }
   #gameGps::before {
-    display: block;
+    display: none;
     content: '';
     background: url(../image/gpsGame/cloudLeft.png) no-repeat top left;
     background-size: 100%;
@@ -159,7 +159,7 @@ a {
         top: 200px;
         left: -80px; } }
   #gameGps::after {
-    display: block;
+    display: none;
     content: '';
     background: url(../image/gpsGame/cloudRight.png) no-repeat bottom right;
     background-size: 100%;
