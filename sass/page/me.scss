@@ -32,9 +32,11 @@ body {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    position: relative
 
 }
-.meShip{
+
+.meShip {
     position: relative;
 }
 
@@ -44,16 +46,18 @@ body {
     animation: updown 5s linear infinite;
 }
 
-@keyframes updown{
-	0%{
-		top: 0px;
-	}
-	50%{
-		top: -30px;
-	}
-	100%{
-		top: 0px;
-	}
+@keyframes updown {
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: -30px;
+    }
+
+    100% {
+        top: 0px;
+    }
 }
 
 .titlePri {
@@ -70,8 +74,9 @@ body {
     background-color: #f5ecdd;
     border: 7px dashed #5f6f70;
     // margin-top: 40px;
-    box-shadow: 0px 0px 0px 2px #000 inset,
-        0px 0px 0px 2px #000;
+    box-shadow: 0px 0px 0px 2px #000 inset;
+    // 0px 0px 0px 2px #000;
+    outline: 7px #362e2b double;
 }
 
 .radar {
@@ -97,6 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
     li {
         margin: 10px 0;
         padding: 0px 20px;
@@ -155,7 +161,7 @@ body {
     background: #f5ecdd;
     border-bottom: 1px solid transparent;
     // z-index: 2;
-    
+
 
 }
 
@@ -167,6 +173,7 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
     li {
         width: 100px;
         height: 100px;
@@ -175,10 +182,12 @@ body {
         border-radius: 20%;
         overflow: hidden;
         box-sizing: border-box;
+
         img {
             width: 100%;
         }
-        :hover{
+
+        :hover {
             transform: scale(1.05);
             opacity: .5;
         }
@@ -188,66 +197,90 @@ body {
 
 
 //紀錄頁籤
-.tabss {
-    position: relative;
-    width: 100%;
-    // height: 280px;
-    margin: auto;
-    padding-bottom: 350px;
-}
-
-.tabb {
-    float: left;
-}
-
-.tabb>input[type=radio] {
-    display: none;
-}
-
-.tabb>label {
-    display: block;
-    position: relative;
-    min-width: 60px;
-    height: 30px;
-    /* margin-right: -1px; */
-    padding: 5px 15px;
-    margin-top: 15px;
-    line-height: 25px;
-    background: #bcb19e;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    text-align: center;
+.wrapInside {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     font-family: $fofaText;
 }
 
-.tabb>.contentt {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    padding: 10px;
-    background: #f5ecdd;
-    box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
-    overflow-y: scroll;
+.tabUl {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+
+}
+.tabUl li{
+    background-color: #f5ecdd;
+    padding: 10px 20px;
 }
 
-.tabb>input[type=radio]:checked+label {
-    background: #f5ecdd;
-    border-bottom: 1px solid transparent;
-}
-
-.tabb>input[type=radio]:checked~.contentt {
-    display: block;
+.aa{
+    background-color: #f5ecdd;
 }
 
 
-// 手風琴
+// .tabss {
+//     position: relative;
+//     width: 100%;
+//     // height: 280px;
+//     margin: auto;
+//     padding-bottom: 350px;
+// }
+
+// .tabb {
+//     float: left;
+// }
+
+// .tabb>input[type=radio] {
+//     display: none;
+// }
+
+// .tabb>label {
+//     display: block;
+//     position: relative;
+//     min-width: 60px;
+//     height: 30px;
+//     /* margin-right: -1px; */
+//     padding: 5px 15px;
+//     margin-top: 15px;
+//     line-height: 25px;
+//     background: #bcb19e;
+//     border-top-left-radius: 8px;
+//     border-top-right-radius: 8px;
+//     text-align: center;
+//     font-family: $fofaText;
+// }
+
+// .tabb>.contentt {
+//     display: none;
+//     position: absolute;
+//     top: 50px;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     z-index: 1;
+//     padding: 10px;
+//     background: #f5ecdd;
+//     box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
+//     overflow-y: scroll;
+// }
+
+// .tabb>input[type=radio]:checked+label {
+//     background: #f5ecdd;
+//     border-bottom: 1px solid transparent;
+// }
+
+// .tabb>input[type=radio]:checked~.contentt {
+//     display: block;
+// }
+
+
+// // 手風琴
 .accordion {
     position: relative;
     width: 100%;
+
     input {
         display: none;
         opacity: 0;
@@ -267,7 +300,8 @@ body {
 .accordion input:checked~.sub-content {
     height: 130px;
     // border-bottom: 1px solid black;
-    background-color: #bcb19e;;
+    background-color: #bcb19e;
+    ;
 }
 
 .accordion>label {
@@ -303,17 +337,20 @@ select {
     flex-direction: row;
     // border-bottom: 1px solid #000;
     outline: 1px solid #000;
+
     li {
         width: 180px;
         margin: 0 5px;
         line-height: 50px;
         text-align: center;
         font-family: $fofaText;
+
         img {
             width: 100%;
             height: 100%;
         }
     }
+
     li:nth-child(1) {
         width: 30px;
         height: 30px;
@@ -332,17 +369,20 @@ select {
     display: flex;
     flex-direction: row;
     margin: 10px 0;
+
     li {
         width: 250px;
         margin: 0 5px;
         line-height: 80px;
         font-family: $fofaText;
+
         // text-align: center;
         img {
             width: 100%;
             height: 100%;
         }
     }
+
     li:nth-child(1) {
         width: 100px;
         height: 100px;
@@ -354,7 +394,7 @@ select {
         // line-height: 80px;
         // margin-right: 5px;
         // margin-left: 5px;
-        
+
     }
 }
 
@@ -364,6 +404,7 @@ select {
     flex-direction: row;
     // border-bottom: 1px solid #000;
     outline: 1px solid #000;
+
     li {
         width: 180px;
         margin: 0 5px;
@@ -375,6 +416,7 @@ select {
         //     height: 100%;
         // }
     }
+
     // li:nth-child(1) {
     //     width: 30px;
     //     height: 30px;
@@ -411,11 +453,23 @@ select {
     //     overflow: hidden;
     //     font-size: 0;
     //     margin: 5px;
-        // line-height: 80px;
-        // margin-right: 5px;
-        // margin-left: 5px;
-        
-    }
+    // line-height: 80px;
+    // margin-right: 5px;
+    // margin-left: 5px;
+
+}
+.backImg1::before {
+    content: "";
+    background-image: url("../../image/background/770.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    left: -400px;
+    top: -100px;
+    z-index: -100;
+}
 
 
 //----------------------------------------------------------------
@@ -440,9 +494,9 @@ select {
         width: 100%;
     }
 
-    .treasure {
-        position: relative;
-    }
+    // .treasure {
+    //     position: relative;
+    // }
 
     .treasure::after {
         content: "";
@@ -460,14 +514,15 @@ select {
     .tabs {
         padding-bottom: 130px;
     }
-    
+
 }
 
 @media screen and(min-width: 1200px) {
     .meShip img {
         transform: translateX(-50px);
     }
-    .treasure::after{
+
+    .treasure::after {
         right: -100px;
     }
 
