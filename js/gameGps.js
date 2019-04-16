@@ -260,7 +260,7 @@ function playGps() {
 }
 function succCallback(e) {
     lati = e.coords.latitude;
-	long = e.coords.longitude;
+	  long = e.coords.longitude;
     console.log({lati, long});
     map.setZoom(17);
     map.setCenter({lat: lati, lng: long});
@@ -318,6 +318,8 @@ function circle() {
     circle.setMap(map);
 }
 function addEvent(){
+  
+
     for (let i = 0; i < treaPosArr.length; i++) {
         while ((Math.pow(treaPosArr[i][0], 2)+Math.pow(treaPosArr[i][1], 2)) < Math.pow(0.008, 2)) {
             treas[i].setAnimation(google.maps.Animation.BOUNCE);
@@ -383,4 +385,4 @@ function drawWheel(){
     ctx.closePath();
     ctx.fill();
 }
-window.addEventListener('load',drawWheel);
+// window.addEventListener('load',drawWheel);
