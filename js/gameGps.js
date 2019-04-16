@@ -1,232 +1,388 @@
-//google map api常態關閉 要測試時再跟我說 我再打開
-//開始遊戲的時候觸發按鈕要做的事
-//#gameGps::before left -200% 雲
-//#gameGps::after right -200% 雲
-//#gameGpsMap::after 遮罩
-//執行函示gpsStart();
 
-
-//======地圖============================
+var map, lati, long, pos, player;
 // 玩家資訊
 var palyerName = '航海士';
-var palyerShip = './image/gpsGame/position.png';
-//寶物
+var palyerIcon = 'image/gpsGame/position.png';
+//寶箱
+var treaPosArr = [];
+var treas = [];
 var treaName = '景成船長的大秘寶!';
-var treaLocal = './image/gpsGame/treaBoxS.png';
-//變數
-var gameGps;
-var initPosition;
-var lati;
-var long;
-var player;
-var playLati;
-var playLong;
-var playerPosition;
-var playerCircle;
-var sidePosition;
-var sideMarker;
-var treaPositionArr = [];
-var markers = [];
-//設定初始地圖
+var treaIcon = 'image/gpsGame/marker.gif';
+//地圖
 function initMap(){
-	navigator.geolocation.getCurrentPosition(gpsSuccCallback, gpsErrorCallback,{
-		enableHighAccuracy: true,
-		timeout: 60000,
-		maximumAge: 3600000,
-		maximumAge: 360000,
-	});
+    map = new google.maps.Map(document.getElementById('gpsMap'), {
+        zoom: 7,
+        center: {lat: 23.975650, lng: 120.97388194},
+        styles: [
+            {"elementType": "geometry","stylers": [{"color": "#ebe3cd"}]},
+            {"elementType": "labels.text.fill", "stylers": [{"color": "#523735"}]},
+            {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#f5f1e6"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#c9b2a6"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#dcd2be"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#ae9e90"
+                }
+              ]
+            },
+            {
+              "featureType": "landscape.man_made",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }
+              ]
+            },
+            {
+              "featureType": "landscape.natural",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#93817c"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.attraction",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.business",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#a5b076"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#447530"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#f5f1e6"
+                }
+              ]
+            },
+            {
+              "featureType": "road.arterial",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#fdfcf8"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#f8c967"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#e9bc62"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway.controlled_access",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#e98d58"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway.controlled_access",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#db8555"
+                }
+              ]
+            },
+            {
+              "featureType": "road.local",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#806b63"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#8f7d77"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#ebe3cd"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.station",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dfd2ae"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#b9d3c2"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#92998d"
+                }
+              ]
+            }
+          ]
+      });
+    playGps();
 }
-function gpsSuccCallback(e) {
-	lati = e.coords.latitude;
-	long = e.coords.longitude;
-	var accuracy = e.coords.accuracy;
-	var area = document.getElementById("gameGpsMap");
-	initPosition = new google.maps.LatLng(lati,long);
-	var options = {
-		zoom : 17,
-		center : initPosition,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-	};
-	gameGps = new google.maps.Map(area,options);
-	//gpsStart();
-}
-function gpsStart(e) {
-	//設定玩家當前位置
-	player = new google.maps.Marker({
-		position: initPosition,
-		map: gameGps,
-		icon: palyerShip,
-		title: palyerName,
-	});
-	//一個在旁邊的gps點
-	sidePosition = new google.maps.LatLng((lati+0.0005),(long+0.0005));
-	sideMarker = new google.maps.Marker({
-		position: sidePosition,
-		map: gameGps,
-		icon: treaLocal,
-		title: treaName,
-		animation: google.maps.Animation.BOUNCE,
-	});
-	sideMarker.addListener("click", function(){
-		gameGpsLotto();
-	});
-	//sideMarker.addListener('click', gameGpsLotto());
-	//將定位點擺到地圖上
-	getTreaPosition();
-	dropMarker();
-	//隨定位移動
-	gameGps.addListener('center_changed', function() {
-		window.setTimeout(function() {
-			gameGps.panTo(marker.getPosition());
-		}, 10000000);
-	});
-	//以所在點為中心畫一個範圍
-	playerCircle = new google.maps.Circle({
-		strokeColor: '#a34f49',
-		strokeOpacity: 1,
-		strokeWeight: 3,
-		fillColor: '#a34f49',
-		fillOpacity: 0.2,
-		map: gameGps,
-		center: initPosition,
-		radius: 100,
-	});
-	//偵測寶箱是否在區域內
-	// if (google.maps.geometry.poly.isLocationOnEdge(marker, playerCircle, 10e-1)) {
-	// 	console.log("get!");
-	// };
-
-}
-//取得四個隨機出現的gps點
-function getTreaPosition() {
-	for (let i = 0; i < 5; i++) {
-		treaPositionArr.push({lat: lati+0.01*Math.random(),lng: long+0.01*Math.random()});
-	};
-}
-//釘選寶箱地點
-function dropMarker(){
-	for (var i = 0; i < treaPositionArr.length; i++) {
-        markers.push(new google.maps.Marker({
-			position: treaPositionArr[i],
-			map: gameGps,
-			icon: treaLocal,
-			title: treaName,
-			animation: google.maps.Animation.DROP,
-		  }))
-		};
-}
-
-
-//錯誤訊息
-function gpsErrorCallback(e){
-	//document.getElementById('position').innerHTML=`錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`;
-	//顯示需開啟GPS功能
-}
-//======抽獎============================
-var nowNum = 0;//gameGpsLottoActive的位置
-var gameGpsLottoStop;//停止的點
-var gameGpsLottoTimer;
-var gameGpsLottoPrizeType;//0=錢 1=武器
-var gameGpsLottoPrizeNum;//第幾個
-var gameGpsLottoWeaponArr = [`景成之劍`,`景成之刀`,`景成之鏈`,`景成之匕首`,`景成之標`,`景成之彈`];
-var gameGpsLottoBonusArr = [];
-
-for (let i = 0; i < 6; i++) {
-	gameGpsLottoBonusArr.push(Math.ceil(Math.random()*10) *100)
-}
-
-//跑幾次
-function gameGpsLottoRand(min, max) {
-	var gameGpsLottoStop = Math.floor(Math.random() * (max - min - 1) + min);
-	return gameGpsLottoStop;
-}
-
-//速度跟停留的點
-function gameGpsLottoRun() {
-	nowNum++;
-	nowNumActive = nowNum % 12;
-	document.getElementById("gameGpsLottoUnit_" + nowNumActive).classList.add("gameGpsLottoActive");
-	if (nowNum == gameGpsLottoStop - 5) {
-		//從前五格開始減速
-		clearInterval(gameGpsLottoTimer);
-		gameGpsLottoTimer = setInterval(gameGpsLottoRun, 300);
-	}if (nowNum >= gameGpsLottoStop) {
-		//消除計時器
-		clearInterval(gameGpsLottoTimer);
-		//放大兩下
-		document.getElementById("gameGpsLottoUnit_"+(nowNum % 12)).classList.remove("gameGpsLottoActive");
-		document.getElementById("gameGpsLottoShow").style.borderColor= '#006ca6';//$blue
-		document.getElementById("gameGpsLottoShow").style.animation = "gameGpsLottoActiveScale 1.5s 1 both";
-		gameGpsLottoShow();
-	}
-	nowNumActive--;
-	if (nowNumActive === -1) {
-		document.getElementById("gameGpsLottoUnit_11").classList.remove("gameGpsLottoActive");
-	}else{
-		document.getElementById("gameGpsLottoUnit_" + nowNumActive).classList.remove("gameGpsLottoActive");
-
-	}
-}
-//show獎品
-function gameGpsLottoShow() {
-	var gameGpsLottoShowImg;
-	var gameGpsLottoShowMsg;
-	gameGpsLottoPrizeType = gameGpsLottoStop % 2;//0=錢 1=武器
-	gameGpsLottoPrizeNum = gameGpsLottoStop % 6;//第幾個
-	if (gameGpsLottoPrizeNum == 1) {
-		gameGpsLottoShowImg = `<img src="image/treasure/trea1.svg" alt="weapon"></img><br>`;
-		let weapon  = gameGpsLottoWeaponArr[gameGpsLottoPrizeNum];
-		gameGpsLottoShowMsg = `武器-${weapon}<br>`
-	} else {
-		gameGpsLottoShowImg = `<img src="image/gpsGame/bonus.png" alt="bonus"></img><br>`;
-		let bonus  = gameGpsLottoBonusArr[gameGpsLottoPrizeNum];
-		gameGpsLottoShowMsg = `金幣${bonus}枚<br>`;
-	}
-	var gameGpsLottoPrize = `<p class="textM">恭喜您獲得</p>`;
-	gameGpsLottoPrize += gameGpsLottoShowImg;
-	gameGpsLottoPrize += gameGpsLottoShowMsg;
-	gameGpsLottoPrize += `<a class="btnsec" id="closeLottoBtn" href="javascript:"><span>繼續航行</span></a>`;
-	gameGpsLottoPrize += `<a class="btnsec" href="me.html"><span>清點船艙</span></a>`;
-	document.getElementById("gameGpsLottoShow").innerHTML= gameGpsLottoPrize;
-	var closeLotto = document.getElementById("closeLottoBtn");closeLotto.addEventListener('click',function ( ) {
-		document.getElementById("gameGpsLotto").style.display = "none";
-	});
-}
-function gameGpsLotto() {
-	document.getElementById("gameGpsLotto").style.display = "block";
-	gameGpsLottoStop = gameGpsLottoRand(12, 48);
-	gameGpsLottoTimer = setInterval(gameGpsLottoRun, 100);
-}
-//window.addEventListener('load',gameGpsLotto);
-
-
-//wavebtn
-
-//btn.js
-
-var btnpri = document.getElementsByClassName("btnpri");
-var btnsec = document.getElementsByClassName("btnsec");
-
-var waveWidth = 5;
-function createbtn(btntype){
-
-    for(var j = 0; j < btntype.length; j++){
-        var wavebox = document.createDocumentFragment();
-
-        var width = window.getComputedStyle(btntype[j]).width;
-        
-        var waveCount = (parseInt(width)+40)/parseInt(waveWidth)+1;
-
-        for (var i = 0; i < waveCount; i++) {
-            var wave = document.createElement("div");
-            wave.className += " wave";
-            wavebox.appendChild(wave);
-            wave.style.left = i * waveWidth + "px";
-            wave.style.animationDelay = (i / 80) + "s";
-        }
-        btntype[j].appendChild(wavebox);
+function playGps() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(succCallback);
+    } else {
+        errorCallback();
     }
 }
+function succCallback(e) {
+    lati = e.coords.latitude;
+	  long = e.coords.longitude;
+    console.log({lati, long});
+    map.setZoom(17);
+    map.setCenter({lat: lati, lng: long});
+    player = new google.maps.Marker({
+		position: {lat: lati, lng: long},
+		map: map,
+		icon: palyerIcon,
+		title: palyerName,
+    });
+    map.addListener('center_changed', function() {
+        window.setTimeout(function() {
+            map.panTo(player.getPosition());
+        }, 3000);
+        circle();
+        addEvent();
+    });
+    circle();
+    getTreaPosition()
+    dropTreas();
+    //addEvent();
+    // treas.addEventListener("click", function(){
+    //     console.log(click);
+    // });
+}
+function getTreaPosition() {
+    treaPosArr.push({lat: (lati+0.0005),lng: (long+0.0005)});
+    for (let i = 0; i < 4; i++) {
+        treaPosArr.push({lat: lati+ 0.008*(Math.random()*2 - 1),lng: long+ 0.008*(Math.random()*2 - 1)});
+    }
+}
+function dropTreas(){
+    for (var i = 0; i < treaPosArr.length; i++) {
+        treas.push(new google.maps.Marker({
+            position: treaPosArr[i],
+			map: map,
+			icon: treaIcon,
+			title: treaName,
+			animation: google.maps.Animation.DROP,
+        }))
+    };
+}
+function circle() {
+    var circleCoords = [];
+    for (let i = 1; i < 21; i++) {
+        circleCoords.push({lat: lati+0.001*(Math.cos(0.31*i)), lng: long+0.001*(Math.sin(0.31*i))});
+    }
+    var circle = new google.maps.Polygon({
+        paths: circleCoords,
+        strokeColor: '#a34f49', 
+        strokeOpacity: 1,
+        strokeWeight: 3,
+        fillColor: '#a34f49',
+        fillOpacity: 0.2,
+      });
+    circle.setMap(map);
+}
+function addEvent(){
+  
 
-createbtn(btnpri);
-createbtn(btnsec);
+    for (let i = 0; i < treaPosArr.length; i++) {
+        while ((Math.pow(treaPosArr[i][0], 2)+Math.pow(treaPosArr[i][1], 2)) < Math.pow(0.008, 2)) {
+            treas[i].setAnimation(google.maps.Animation.BOUNCE);
+            treas[i].addEventListener("click", function(){
+                console.log(click);
+            });
+        } 
+    }
+}
+function errorCallback(e) {
+    console.log(e.code);
+    console.log(e.message);
+}
+
+//輪盤
+var canvas = document.getElementById('luckyWheel');
+var ctx = canvas.getContext('2d');
+canvas.width = 400;
+canvas.height = 400;
+function drawWheel(){
+    ctx.fillStyle = '#362e2b';
+    ctx.beginPath();
+    ctx.arc(200,200,140,0, 2*(Math.PI) ,false);
+    ctx.fill();
+
+    for (let i = 1; i < 11; i++) {
+        ctx.fillStyle = '#fffcf2';
+        ctx.beginPath();
+        ctx.moveTo(135*Math.cos((3/20)*i),135*Math.sin((3/20)*i));
+        ctx.arc(135*Math.cos((3/20)*i),135*Math.sin((3/20)*i),5,0,2*(Math.PI) ,false);
+        ctx.fill();  
+    }
+
+    ctx.fillStyle = '#a34f49';
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,0, 0.2*(Math.PI) ,false);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120, 0.4*(Math.PI), 0.6*(Math.PI) ,false);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120, 0.8*(Math.PI), (Math.PI) ,false);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,1.8*(Math.PI),1.6*(Math.PI),true);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,1.4*(Math.PI), 1.2*(Math.PI) ,true);
+    ctx.moveTo(200,200);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = '#006ca6';
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,0.2*(Math.PI),0.4*(Math.PI),false);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120, 0.6*(Math.PI), 0.8*(Math.PI) ,false);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,0,1.8*(Math.PI) ,true);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120,1.6*(Math.PI), 1.4*(Math.PI) ,true);
+    ctx.moveTo(200,200);
+    ctx.arc(200,200,120, 1.2*(Math.PI), (Math.PI) ,true);
+    ctx.moveTo(200,200);
+    ctx.closePath();
+    ctx.fill();
+}
+// window.addEventListener('load',drawWheel);
