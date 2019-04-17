@@ -132,10 +132,13 @@ body {
 .timeline {
   position: relative;
   margin: 50px auto 0;
-  width: 1600px;
-  height: 15px;
-  background-color: #456789;
-  -webkit-animation: timeline 32s linear; }
+  width: 1400px;
+  height: 30px;
+  background-color: #456789; }
+
+.timeAddKeyframe{
+  -webkit-animation: timeline 32s linear;
+}
 
 .changeT {
   font-family: 王漢宗特明體繁; }

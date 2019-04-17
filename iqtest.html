@@ -6,7 +6,11 @@
 	<link rel="stylesheet" href="css/iqtest.css">
 </head>
 <body>
-	<div class="timeline" id="timeRow"></div>
+	<div id="mytime">
+		<div class="timeline timeAddKeyframe" id="timeRow"></div>
+		<div id="mytimeHeight"></div>
+	</div>
+	
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
@@ -45,40 +49,38 @@
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script>
 		var count = 19;
-		var qsNext;
 		var level = 0;
+		var qsNextTimer;
+		var showTimer;
 		var timesRun = 0;
-
-		$('#getJSONButton').click(function(){
-				$.getJSON('JSON_XML_CSV/animal.json',function(data){
-					$('#feedback').html('<h2>'+data[0].Note+'</h2>');
-				});
-		});
+		var truea = 3;
 
 		// reset題目
 		function reset(){
-			document.getElementById("question").innerText = ('第二問: 請問警成的女朋友叫什麼名字?');
-			document.getElementById("question").innerText = ('asdasd女朋友叫什麼名字?');
-			$('#question').text('asdasdas');
-			$.getJSON('json/iqtest.json',function(data){
-					$('#question').html('<h2>'+data[0].Note+'</h2>');
-				});
+			$('#question').text('第二問: 請問景盛有幾個女朋友?');
+			$('.ans').css('display','none');
+			$('#mytimeHeight').css('height','');
+			$('#timeRow').css('display','block');
+			$('.describe').eq(0).text('0');
+			$('.describe').eq(1).text('1');
+			$('.describe').eq(2).text('2');
+			$('.describe').eq(3).text('3');
+			$('#timeRow').width(1400);
+			clearInterval(showTimer);
+			goNext();
 		}
 
-		// 第2~5題
+		// reset時間條
 		function goNext(){
 			count = 19;
-			console.log('goNext: ',count);
-			reset();
-			var qsNext = setInterval(countdown,800);
-			// time
-			// ques
-			// op
+			qsNextTimer = setInterval(countdown,800);
 		}
 
 		// 時間條
 		function countdown(){
 			if(count <= 0){
+				$('#timeRow').css('display','none');
+				$('#mytimeHeight').css('height','80px');
 				count%2 == 0?
 					document.getElementById("changeT").innerHTML = '時間到!' :
 					document.getElementById("changeT").innerHTML = '';
@@ -87,33 +89,26 @@
 			}
 			count--;
 			timesRun++;
-			if( timesRun == 29 ){
-				clearInterval(qsNext);
+			if( timesRun == 25 ){
+				clearInterval(qsNextTimer);
 				timesRun = 0;
-				goNext();
+				reset();
 			}
 			console.log('countDown: ',count);
-			if(count == -10)goNext();
 		}
 
 		// 選擇答案
 		function show(e){
-			console.log(e.target);
-			console.log(e.target.children[2].className);
-			reset();
 			e.target.children[2].style.display = 'block';
-			setInterval(change,4000);			
+			clearInterval(qsNextTimer);
+			$('#timeRow').css('display','none');
+			$('#mytimeHeight').css('height','80px');
+			showTimer = setInterval(reset,4000);
 		}
-
-
-		function change(){
-			document.location.href="iqtest-result.html";
-		}
-
 
 		window.addEventListener('load',function(){
 			// 第一題
-			qsNext = setInterval(countdown,800);
+			qsNextTimer = setInterval(countdown,800);
 			for(i = 0; i<=3; i++){
 				document.getElementsByClassName("opop")[i].onclick = show;
 			}
