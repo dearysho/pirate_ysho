@@ -6,12 +6,12 @@
 	<link rel="stylesheet" href="css/iqtest.css">
 </head>
 <body>
-	<div class="timeline"></div>
+	<div class="timeline" id="timeRow"></div>
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
 	<div class="ques">
-		<h1 class="titlePri">第一問: 請問白鬍子的船叫什麼名字?</h1>
+		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
 	</div>
 	<div class="option">
 		<div class="opop o1">
@@ -42,35 +42,78 @@
 		</div>
 		<img class="head" src="image/iqtest/qahead.png" alt="head">
 	</div>
+	<script src="js/jquery-3.3.1.min.js"></script>
 	<script>
 		var count = 19;
-		var timerId;
+		var qsNext;
+		var level = 0;
+		var timesRun = 0;
 
+		$('#getJSONButton').click(function(){
+				$.getJSON('JSON_XML_CSV/animal.json',function(data){
+					$('#feedback').html('<h2>'+data[0].Note+'</h2>');
+				});
+		});
+
+		// reset題目
+		function reset(){
+			document.getElementById("question").innerText = ('第二問: 請問警成的女朋友叫什麼名字?');
+			document.getElementById("question").innerText = ('asdasd女朋友叫什麼名字?');
+			$('#question').text('asdasdas');
+			$.getJSON('json/iqtest.json',function(data){
+					$('#question').html('<h2>'+data[0].Note+'</h2>');
+				});
+		}
+
+		// 第2~5題
+		function goNext(){
+			count = 19;
+			console.log('goNext: ',count);
+			reset();
+			var qsNext = setInterval(countdown,800);
+			// time
+			// ques
+			// op
+		}
+
+		// 時間條
 		function countdown(){
 			if(count <= 0){
-				if(count%2 == 0){
-					document.getElementById("changeT").innerHTML = '時間到!';
-				}
-				else{
+				count%2 == 0?
+					document.getElementById("changeT").innerHTML = '時間到!' :
 					document.getElementById("changeT").innerHTML = '';
-				}
-				clearInterval( timerId );
 			}else{
 				document.getElementById("changeT").innerHTML = '時間 '+count;
 			}
 			count--;
+			timesRun++;
+			if( timesRun == 29 ){
+				clearInterval(qsNext);
+				timesRun = 0;
+				goNext();
+			}
+			console.log('countDown: ',count);
+			if(count == -10)goNext();
 		}
+
+		// 選擇答案
 		function show(e){
 			console.log(e.target);
 			console.log(e.target.children[2].className);
+			reset();
 			e.target.children[2].style.display = 'block';
 			setInterval(change,4000);			
 		}
+
+
 		function change(){
 			document.location.href="iqtest-result.html";
 		}
+
+
 		window.addEventListener('load',function(){
-			setInterval(countdown,800);
+			// 第一題
+			qsNext = setInterval(countdown,800);
 			for(i = 0; i<=3; i++){
 				document.getElementsByClassName("opop")[i].onclick = show;
 			}
