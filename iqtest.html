@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div id="mytime">
-		<div class="timeline timeAddKeyframe" id="timeRow"></div>
+		<div class="timeline" id="timeRow"></div>
 		<div id="mytimeHeight"></div>
 	</div>
 	
@@ -57,14 +57,19 @@
 
 		// reset題目
 		function reset(){
-			$('#question').text('第二問: 請問景盛有幾個女朋友?');
-			$('.ans').css('display','none');
+			// $.getJSON('json/iqtest.json',function(data){
+			// 		$('#question').html('<h2>'+data[2].question+'</h2>');
+			// 	});
+			$.getJSON('json/iqtest.json',function(data){
+					$('#question').text(data[0].question);
+					$('.describe').eq(0).text(data[0].op1);
+					$('.describe').eq(1).text(data[0].op2);
+					$('.describe').eq(2).text(data[0].op3);
+					$('.describe').eq(3).text(data[0].op4);
+				});
+			$('.ans').css('display','none');//gif檔消失
 			$('#mytimeHeight').css('height','');
 			$('#timeRow').css('display','block');
-			$('.describe').eq(0).text('0');
-			$('.describe').eq(1).text('1');
-			$('.describe').eq(2).text('2');
-			$('.describe').eq(3).text('3');
 			$('#timeRow').width(1400);
 			clearInterval(showTimer);
 			goNext();
@@ -94,16 +99,17 @@
 				timesRun = 0;
 				reset();
 			}
-			console.log('countDown: ',count);
+			// console.log('countDown: ',count);
 		}
 
 		// 選擇答案
 		function show(e){
 			e.target.children[2].style.display = 'block';
 			clearInterval(qsNextTimer);
+
 			$('#timeRow').css('display','none');
 			$('#mytimeHeight').css('height','80px');
-			showTimer = setInterval(reset,4000);
+			showTimer = setInterval(reset,3000);
 		}
 
 		window.addEventListener('load',function(){
