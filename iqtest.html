@@ -57,9 +57,6 @@
 
 		// reset題目
 		function reset(){
-			// $.getJSON('json/iqtest.json',function(data){
-			// 		$('#question').html('<h2>'+data[2].question+'</h2>');
-			// 	});
 			$.getJSON('json/iqtest.json',function(data){
 					$('#question').text(data[0].question);
 					$('.describe').eq(0).text(data[0].op1);
