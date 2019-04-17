@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《大海賊帝國》去追尋吧！</title>
+    <link rel="stylesheet" href="css/mme.css">
+</head>
+
+<body>
+    <!-- 選單 -->
+    <header>
+        <h1 id="headerLogo"><a href="index.html">
+                <img src="image/logo.svg" alt="大海賊帝國">
+            </a></h1>
+        <nav id="headerMenu">
+            <ul>
+                <li><a href="game.html">海賊試煉場</a></li>
+                <li><a href="market.html">海上市集</a></li>
+                <li><a href="bar.html">情報酒館</a></li>
+                <li><a href="me.html">俺の海賊船</a></li>
+            </ul>
+        </nav>
+        <div>
+            <ul id="headerMe">
+                <li id="headerMeID">
+                    <a href="javascript:;">我是大帥哥</a>
+                </li>
+                <li id="headerMeLv">lv.<span>7</span>
+                    <div id="headerExpBar">
+                        <div id="headerExpLine"></div>
+                        <p id="headerExp"><span>1000</span>/<span>10000</span></p>
+                    </div>
+                </li>
+                <li id="headerMeMoney">金幣<span>100</span>G</li>
+                <li id="headerMeShip"><a href="javascript:;">
+                        <img src="image/ship/shipTemp.png" alt="角色頭像">
+                    </a></li>
+                <li id="headerMeTalentS">力量<span>◆◆◆◆◇</span></li>
+                <li id="headerMeTalentL">幸運<span>5</span></li>
+                <li id="headerMeTalentA">敏捷<span>5</span></li>
+                <li id="headerMeTalentI">智力<span>5</span></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="meTitle ">
+        <h1 class="titlePri">俺の海賊船</h1>
+    </div>
+
+    <div class="wrap">
+        <div class="col-12 col-md-5 drawing">
+            <div class="meShip">
+                <img src="image/ship/shipComplete.png" alt="">
+            </div>
+            <h2 class="titlePri">船體設計圖</h2>
+        </div>
+        <!-- 個人資訊 -->
+        <div class="col-12 col-md-7 boxNews">
+            <div class="meNews">
+                <ul class="col-12 col-md-6 field">
+                    <li>
+                        帳號: <span>abc123</span>
+                    </li>
+                    <li>
+                        密碼: <span>更改密碼</span>
+                    </li>
+                    <li>
+                        ID: <span>祕寶尋者號</span>
+                    </li>
+                    <li>
+                        LV: <span>10</span>
+                    </li>
+                    <li>
+                        金幣: <span>500</span> G
+                    </li>
+                </ul>
+                <!-- 雷達圖 -->
+                <div class="col-12 col-md-6 radar">
+                    <h3>天賦值: <span id="points">30</span> 點</h3>
+                    <div class="chartRadarDiv">
+                        <canvas id="chartRadar" style="height:50px; width: 50px;"></canvas>
+                    </div>
+                    <button id="butS" class="but">力量</button>
+                    <button id="butI" class="but">智力</button>
+                    <button id="butL" class="but">幸運</button>
+                    <button id="butA" class="but">敏捷</button>
+                </div>
+            </div>
+            <div class="bookMark">
+                <ul class="tabUl">
+                    <li class="tabLi" target="#panel-1">交易紀錄</li>
+                    <li class="tabLi" target="#panel-2">討論紀錄</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="js/header.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+    <script type="text/javascript">
+        // 建立4個var 為了之後要傳入radar(代號,代號,代號,代號)
+        var str = 0;
+        var int = 0;
+        var lcu = 0;
+        var agi = 0;
+
+        function addSkill(e) {
+            // 1.get技能點數
+            // 2.把技能點數轉為number
+            var Points = parseInt(document.getElementById('points').innerText);
+            // alert(typeof Points);
+
+            // 3.判斷技能點數>=1時才能夠加技能(利用if-else)
+            // console.log(e.target.innerText);
+            if (Points >= 1) {
+                document.getElementById('points').innerText = Points - 1;
+                // 4.判斷哪個btn被點(利用e.target 與 if-else)
+                if (e.target.innerText == '力量') {
+                    str += 5;
+                } else if (e.target.innerText == '智力') {
+                    int += 5;
+                } else if (e.target.innerText == '幸運') {
+                    lcu += 5;
+                } else if (e.target.innerText == '敏捷') {
+                    agi += 5;
+                }
+                // 4個變數帶入radar( , , , )
+                radar(str, int, lcu, agi);
+            } else {
+                alert("技能點數不足");
+            }
+        }
+
+        function radar(str, int, lcu, agi) {
+            //定義變數
+            var chartRadarDOM;
+            var chartRadarData;
+            var chartRadarOptions;
+
+            //載入雷達圖
+            Chart.defaults.global.legend.display = false;
+            Chart.defaults.global.defaultFontColor = 'rgba(0,0,74, 1)'; //字的顏色
+            chartRadarDOM = document.getElementById("chartRadar");
+            chartRadarData;
+            chartRadarOptions =
+                {
+                    scale:
+                    {
+                        ticks:
+                        {
+                            fontSize: 16,
+                            beginAtZero: true,
+                            maxTicksLimit: 10,
+                            min: 0,
+                            max: 100
+                        },
+                        pointLabels:
+                        {
+                            fontSize: 25,
+                            color: '#0044BB'
+                        },
+                        gridLines:
+                        {
+                            color: '#009FCC'
+                        }
+                    }
+                };
+
+            console.log("---------Rader Data--------");
+            var graphData = new Array();
+            graphData.push(str);
+            graphData.push(int);
+            graphData.push(lcu);
+            graphData.push(agi);
+
+
+            console.log("--------Rader Create-------------");
+            console.log(graphData);
+
+            //CreateData
+            chartRadarData = {
+                labels: ['力量', '智力', '幸運', '敏捷'],
+                datasets: [{
+                    label: "Skill Level",
+                    backgroundColor: "rgba(17, 34, 51,0.8)",
+                    borderColor: "rgba(63,63,74,.8)",
+                    pointBackgroundColor: "rgba(63,63,74,1)",
+                    pointBorderColor: "rgba(0,0,0,0)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(0,0,0,0.3)",
+                    pointBorderWidth: 5,
+                    data: graphData
+                }]
+            };
+
+            //Draw
+            var chartRadar = new Chart(chartRadarDOM, {
+                type: 'radar',
+                data: chartRadarData,
+                options: chartRadarOptions
+            });
+        }
+
+        function init() {
+            radar(str, int, lcu, agi); //第一次呼叫radar,為了在loading頁面時radar出現
+            for (var i = 0; i <= 3; i++) {
+                document.getElementsByClassName('but')[i].onclick = addSkill;
+            }
+        }
+        window.onload = init;
+    </script>
+</body>
+
+</html>
