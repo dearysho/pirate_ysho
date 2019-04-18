@@ -10,9 +10,9 @@
 //媒體查詢
 @import'../base/media';
 
-* {
-    outline: .5px solid rgb(240, 9, 9);
-}
+// * {
+//     outline: .5px solid rgb(240, 9, 9);
+// }
 
 body {
     background-image: url('../image/background/BgPage.png');
@@ -28,7 +28,7 @@ body {
 
 .meTitle::before {
     content: "";
-    background-image: url("../../image/background/shipWindow.png");
+    background-image: url("../image/background/shipWindow.png");
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
@@ -83,31 +83,47 @@ body {
     position: absolute;
     top: -135px;
     right: 20px;
-    
-
     img {
         width: 100%;
-        // border: 2px solid black;
-        // transform-style: preserve-3d;
-        // transform: rotateX(-50deg);
         position: absolute;
-        // top: -150px;
-        // right: 50px;
-
     }
 }
+.meShip img:nth-child(2){
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    transform: rotateX(60deg);
+    top: 60px;
+    right: 20px;
+    z-index: 1;
+    // animation: light 5s infinite linear;
+}
 
-// .meShip::before{
+// .meShip::before {
 //     content: "";
-//     background-image: url("../../image/background/light.png");
+//     background-image: url("../image/background/light.png");
 //     background-repeat: no-repeat;
 //     background-size: 100%;
 //     position: absolute;
 //     display: block;
-//     width: 50px;
-//     height: 50px;
+//     width: 450px;
+//     height: 450px;
+//     z-index: 1;
+//     transform: rotateX(60deg);
+//     right: -80px;
+//     top: 40px;
+//     // animation: light 5s infinite linear;
 // }
 
+@keyframes light {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 
 .titlePri {
@@ -240,31 +256,10 @@ a.tabs-menu.tabs-menu-active {
 /************CSS Animation***********/
 
 .animated {
-    -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
-@-webkit-keyframes bounceIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(.3);
-    }
-
-    50% {
-        opacity: 1;
-        -webkit-transform: scale(1.05);
-    }
-
-    70% {
-        -webkit-transform: scale(.9);
-    }
-
-    100% {
-        -webkit-transform: scale(1);
-    }
-}
 
 @keyframes bounceIn {
     0% {
@@ -287,7 +282,6 @@ a.tabs-menu.tabs-menu-active {
 }
 
 .bounceIn {
-    -webkit-animation-name: bounceIn;
     animation-name: bounceIn;
 }
 
@@ -356,20 +350,76 @@ a.tabs-menu.tabs-menu-active {
         padding-left: 90px;
         transform-style: preserve-3d;
         transform: rotateX(50deg);
+        animation-name: lyingDown;
+        animation-duration: .5s;
+
     }
 
     .boxNews:hover {
         transform: rotateX(0deg);
+        animation-name: standUp;
+        animation-duration: .5s;
     }
+
+    @keyframes standUp {
+        0% {
+            transform: rotateX(50deg);
+        }
+
+
+        20% {
+            transform: rotateX(40deg);
+        }
+
+        40% {
+            transform: rotateX(30deg);
+        }
+
+        60% {
+            transform: rotateX(20deg);
+        }
+
+        80% {
+            transform: rotateX(10deg);
+        }
+
+        100% {
+            transform: rotateX(0deg);
+        }
+    }
+
+    @keyframes lyingDown {
+        0% {
+            transform: rotateX(0deg);
+        }
+
+
+        20% {
+            transform: rotateX(10deg);
+        }
+
+        40% {
+            transform: rotateX(20deg);
+        }
+
+        60% {
+            transform: rotateX(30deg);
+        }
+
+        80% {
+            transform: rotateX(40deg);
+        }
+
+        100% {
+            transform: rotateX(50deg);
+        }
+    }
+
+
 
     .meTitle::before {
         content: "";
-        //   content: url("../../image/background/shipWindow.png");
         background-image: url("../../image/background/shipWindow.png");
-        // background-repeat: no-repeat;
-        // background-size: 100%;
-        // position: absolute;
-        // display: block;
         width: 600px;
         height: 600px;
         top: -170px;
@@ -377,8 +427,6 @@ a.tabs-menu.tabs-menu-active {
         right: 0;
         opacity: .6;
         margin: auto;
-
-
     }
 }
 
