@@ -15,10 +15,10 @@
 			<img src="image/iqtest/brain.png" alt="brain" class="brain">
 			<p class="abc">B</p>
 			<p class="grade">
-				<strong class="textHiliR">70 </strong>/ 100分
+				<strong class="textHiliR" id="grade">70 </strong>/ 100分
 			</p>
 			<p class="correctop">
-				7題中<strong class="textHiliR"> 4 </strong>題正確
+				7題中<strong class="textHiliR" id="correct"> 4 </strong>題正確
 			</p>
 		</div>
 		<div class="col-6">
@@ -30,5 +30,12 @@
 		<a class="btnpri" href="game.html"><span>海賊試煉場</span></a>
 	</div>
 	<script src="js/wavebtn.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script>
+		var storage = sessionStorage;
+		grade = storage['grade'];
+		$('#grade').text(`${grade} `);
+		$('#correct').text(` ${grade/20} `);
+	</script>
 </body>
 </html>
