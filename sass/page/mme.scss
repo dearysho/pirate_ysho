@@ -10,9 +10,9 @@
 //媒體查詢
 @import'../base/media';
 
-// * {
-//     outline: .5px solid rgb(240, 9, 9);
-// }
+* {
+    outline: .5px solid rgb(240, 9, 9);
+}
 
 body {
     background-image: url('../image/background/BgPage.png');
@@ -34,31 +34,44 @@ body {
     // align-items: center;
     // justify-content: center;
     box-sizing: border-box;
-    position: relative
+    position: relative;
+    // perspective: 1200px;
+
 }
 
-.drawing{
+.drawing {
     box-sizing: border-box;
     // border: 2px solid black;
     background-color: #f5ecdd;
+    // transform-style: preserve-3d;
     // transform: rotateX(50deg);
     box-shadow: 0 0 6px #000;
+    padding: 30px 0;
 
-    
-    h2{
+    h2 {
         margin: 0 0 90px;
-        color:$red;
+        color: $red;
     }
 }
 
-.meShip{
+.meShip {
     width: 70%;
-    margin: auto;
-    padding: 30px 0;
+    margin: 30PX auto;
+    // padding: 30px 0;
+    position: relative;
+    border: 2px solid black;
+    // transform: rotateX(-50deg);
+    // top: 200px;
 
-    img{
+    img {
         width: 100%;
-        border: 2px solid black;
+        // border: 2px solid black;
+        // transform-style: preserve-3d;
+        // transform: rotateX(-50deg);
+        position: relative;
+        // top: -150px;
+        // right: 50px;
+
     }
 }
 
@@ -69,7 +82,7 @@ body {
     align-items: center;
 }
 
-.boxNews{
+.boxNews {
     // margin: 5px 10px;
     padding: 10px 0 0;
 }
@@ -100,28 +113,132 @@ body {
         display: block;
         margin: auto;
     }
-    .but{
+
+    .but {
         position: absolute;
+
     }
-    #butS{
+
+    #butS {
         top: 30px;
         left: 140px;
     }
-    #butI{
+
+    #butI {
         right: 15px;
         top: 150px;
     }
-    #butL{
+
+    #butL {
         bottom: 35px;
         left: 140px;
     }
-    #butA{
+
+    #butA {
         left: 15px;
         top: 150px;
     }
 }
 
+//寶物造型頁籤
+#tabs-nav {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: left
+}
 
+a.tabs-menu {
+    display: inline-block;
+    background-color: #1b91ab;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    padding: 5px 10px;
+    text-shadow: 1px 1px 0px #1b91ab;
+    font-weight: bold;
+    text-decoration: none;
+    border: solid 1px #1b91ab;
+    border-bottom: 0;
+    border-radius: 3px 3px 0 0;
+}
+
+a.tabs-menu.tabs-menu-active {
+    background-color: #fff;
+    text-shadow: 1px 1px 0px #ffffff;
+    border: solid 1px #1b91ab;
+    color: #6b6b6b;
+    border-bottom: 0;
+}
+
+.tabs-container {
+    border: solid 1px #1b91ab;
+    margin-top: -1px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.tabs-panel {
+    display: none;
+    min-height: 150px;
+    overflow: auto;
+    padding: 10px;
+    max-height: 200px;
+}
+
+/************CSS Animation***********/
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.bounceIn {
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
 
 
 
@@ -133,13 +250,26 @@ body {
 
     .wrap {
         display: flex;
+        perspective: 1200px;
     }
 
     .meNews {
         display: flex;
     }
-    .drawing{
+
+    .drawing {
         margin: 0 20px;
+        transform-style: preserve-3d;
+        transform: rotateX(60deg);
+    }
+
+    .meShip {
+        img {
+            transform: rotateX(-60deg);
+            top: -220px;
+            right: 80px;
+
+        }
     }
 
 }
