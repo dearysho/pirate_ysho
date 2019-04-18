@@ -171,7 +171,8 @@ body {
 .content ul {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    
 
     li {
         width: 100px;
@@ -179,7 +180,7 @@ body {
         border: 2px solid black;
         margin: 5px;
         border-radius: 20%;
-        overflow: hidden;
+        overflow-y:hidden;
         box-sizing: border-box;
 
         img {

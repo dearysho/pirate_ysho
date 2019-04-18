@@ -23,34 +23,56 @@ body {
 .meTitle {
     margin: auto;
     padding-top: 100px;
+    position: relative;
+}
+
+.meTitle::before {
+    content: "";
+    background-image: url("../../image/background/shipWindow.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 600px;
+    top: -100px;
+    left: 0;
+    right: 0;
+    opacity: .6;
+    margin: auto;
+
+}
+
+.meTitle::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #362e2b;
+    bottom: -170px;
+    opacity: .6;
+
 }
 
 .wrap {
     max-width: 1200px;
-    // height: 100vh;
-    margin: 50px auto;
+    margin: 120px auto;
     padding: 10px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     box-sizing: border-box;
     position: relative;
     // perspective: 1200px;
 
 }
 
+
+
 .drawing {
+    position: relative;
     box-sizing: border-box;
-    // border: 2px solid black;
-    background-color: #f5ecdd;
-    // transform-style: preserve-3d;
-    // transform: rotateX(50deg);
-    box-shadow: 0 0 6px #000;
     padding: 30px 0;
 
-    h2 {
-        margin: 0 0 90px;
-        color: $red;
+    img {
+        width: 100%;
     }
 }
 
@@ -58,23 +80,33 @@ body {
     width: 70%;
     margin: 30PX auto;
     // padding: 30px 0;
-    position: relative;
-    border: 2px solid black;
-    // transform: rotateX(-50deg);
-    // top: 200px;
+    position: absolute;
+    top: -135px;
+    right: 20px;
+    
 
     img {
         width: 100%;
         // border: 2px solid black;
         // transform-style: preserve-3d;
         // transform: rotateX(-50deg);
-        position: relative;
+        position: absolute;
         // top: -150px;
         // right: 50px;
 
     }
 }
 
+// .meShip::before{
+//     content: "";
+//     background-image: url("../../image/background/light.png");
+//     background-repeat: no-repeat;
+//     background-size: 100%;
+//     position: absolute;
+//     display: block;
+//     width: 50px;
+//     height: 50px;
+// }
 
 
 
@@ -94,6 +126,18 @@ body {
     box-shadow: 0px 0px 0px 2px rgb(245, 234, 234) inset;
     // 0px 0px 0px 2px #000;
     outline: 7px #362e2b double;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    li {
+        margin: 10px 0;
+        padding: 0px 20px;
+        font-family: $fofaText;
+    }
 }
 
 .radar {
@@ -141,49 +185,56 @@ body {
 }
 
 //寶物造型頁籤
+
+.bookMark {
+    margin-top: 50px;
+    color: $brown;
+    font-family: $fofaText;
+}
+
 #tabs-nav {
     margin: 0;
     padding: 0;
     position: relative;
-    text-align: left
+    text-align: left;
+    //     display: flex;
 }
 
 a.tabs-menu {
     display: inline-block;
-    background-color: #1b91ab;
-    font-size: 12px;
+    background-color: #bcb19e;
     font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    padding: 5px 10px;
-    text-shadow: 1px 1px 0px #1b91ab;
+    color: rgb(20, 19, 19);
+    padding: 10px 20px;
+    // text-shadow: 1px 1px 0px #1b91ab;
     font-weight: bold;
     text-decoration: none;
-    border: solid 1px #1b91ab;
+    // border: solid 1px #1b91ab;
     border-bottom: 0;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 a.tabs-menu.tabs-menu-active {
-    background-color: #fff;
+    background-color: #f5ecdd;
     text-shadow: 1px 1px 0px #ffffff;
-    border: solid 1px #1b91ab;
+    // border: solid 1px #1b91ab;
     color: #6b6b6b;
     border-bottom: 0;
 }
 
 .tabs-container {
-    border: solid 1px #1b91ab;
+    // border: solid 1px #1b91ab;
     margin-top: -1px;
-    background-color: #fff;
-    overflow: hidden;
+    background-color: #f5ecdd;
+    overflow-y: hidden;
 }
 
 .tabs-panel {
     display: none;
-    min-height: 150px;
+    height: 100px;
     overflow: auto;
     padding: 10px;
-    max-height: 200px;
+    // max-height: 200px;
 }
 
 /************CSS Animation***********/
@@ -241,16 +292,44 @@ a.tabs-menu.tabs-menu-active {
 }
 
 
+// 頁籤內容物
+.content ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    li {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        margin: 5px;
+        border-radius: 20%;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        img {
+            width: 100%;
+        }
+
+        :hover {
+            transform: scale(1.05);
+            opacity: .5;
+        }
+    }
+}
+
+
 
 
 @media screen and(min-width: 768px) {
     .meTitle {
-        padding-top: 220px;
+        padding-top: 210px;
     }
 
     .wrap {
         display: flex;
-        perspective: 1200px;
+        perspective: 1000px;
+        margin: 80px auto;
     }
 
     .meNews {
@@ -258,20 +337,49 @@ a.tabs-menu.tabs-menu-active {
     }
 
     .drawing {
+        position: relative;
         margin: 0 20px;
         transform-style: preserve-3d;
-        transform: rotateX(60deg);
+        transform: rotateX(40deg);
     }
 
     .meShip {
-        img {
-            transform: rotateX(-60deg);
-            top: -220px;
-            right: 80px;
+        position: absolute;
+        transform: rotateX(-40deg);
+        top: -315px;
+        right: 80px;
 
-        }
+
     }
 
+    .boxNews {
+        padding-left: 90px;
+        transform-style: preserve-3d;
+        transform: rotateX(50deg);
+    }
+
+    .boxNews:hover {
+        transform: rotateX(0deg);
+    }
+
+    .meTitle::before {
+        content: "";
+        //   content: url("../../image/background/shipWindow.png");
+        background-image: url("../../image/background/shipWindow.png");
+        // background-repeat: no-repeat;
+        // background-size: 100%;
+        // position: absolute;
+        // display: block;
+        width: 600px;
+        height: 600px;
+        top: -170px;
+        left: 0;
+        right: 0;
+        opacity: .6;
+        margin: auto;
+
+
+    }
 }
 
 @media screen and(min-width: 1200px) {}
