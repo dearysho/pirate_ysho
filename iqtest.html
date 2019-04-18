@@ -48,23 +48,31 @@
 	</div>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script>
+		var storage = sessionStorage;
 		var count = 19;
 		var level = 0;
 		var qsNextTimer;
 		var showTimer;
 		var timesRun = 0;
 		var truea = 3;
+		var grade = 0;
 
 		// reset題目
 		function reset(){
-			$.getJSON('json/iqtest.json',function(data){
-					$('#question').text(data[0].question);
-					$('.describe').eq(0).text(data[0].op1);
-					$('.describe').eq(1).text(data[0].op2);
-					$('.describe').eq(2).text(data[0].op3);
-					$('.describe').eq(3).text(data[0].op4);
-				});
 			$('.ans').css('display','none');//gif檔消失
+			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
+			
+			if( level == 4 ) change();//測驗結束
+			$.getJSON('json/iqtest.json',function(data){
+				console.log('level: ', level);
+					$('#question').text(data[level].question);
+					$('.describe').eq(0).text(data[level].op1);
+					$('.describe').eq(1).text(data[level].op2);
+					$('.describe').eq(2).text(data[level].op3);
+					$('.describe').eq(3).text(data[level].op4);
+					$('.ans').eq(parseInt(data[level].trueans)).attr('src','image/iqtest/correct.gif');//correct
+					level++;
+				});
 			$('#mytimeHeight').css('height','');
 			$('#timeRow').css('display','block');
 			$('#timeRow').width(1400);
@@ -102,11 +110,22 @@
 		// 選擇答案
 		function show(e){
 			e.target.children[2].style.display = 'block';
+			if( e.target.children[2].src.indexOf('correct') != -1 ){
+				grade += 20;//答對加分
+			}			
+			console.log(e.target.children[2].src.indexOf('correct'));
+			console.log(e.target.children[2].src);
+			console.log(grade);
 			clearInterval(qsNextTimer);
 
 			$('#timeRow').css('display','none');
 			$('#mytimeHeight').css('height','80px');
 			showTimer = setInterval(reset,3000);
+		}
+
+		function change(){
+			storage['grade'] = grade;
+			window.location="iqtest-result.html"
 		}
 
 		window.addEventListener('load',function(){
