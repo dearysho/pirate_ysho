@@ -31,7 +31,7 @@ body{
 .col-6{
 	float: left;
 	position: relative;
-	height: 660px;
+	height: 600px;
 	width: 48%;
 	padding: 0px 12px;
 	margin-bottom: 25px;
@@ -61,10 +61,8 @@ body{
 	font-size: 36px;
 }
 // 說明area
-.redar{
-	width: 100%;
-	height: 400px;
-	background-color: #fff;
+.radar{
+	// border: 2px solid red;
 }
 .titleSec{
 	font-family: $fofaTitle;

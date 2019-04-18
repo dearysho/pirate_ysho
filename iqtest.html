@@ -56,6 +56,10 @@
 		var timesRun = 0;
 		var truea = 3;
 		var grade = 0;
+		var str = 0;//力量
+		var int = 0;//智力
+		var lcu = 0;//幸運
+		var agi = 0;//敏捷
 
 		// reset題目
 		function reset(){
@@ -110,12 +114,54 @@
 		// 選擇答案
 		function show(e){
 			e.target.children[2].style.display = 'block';
-			if( e.target.children[2].src.indexOf('correct') != -1 ){
+			if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
 				grade += 20;//答對加分
+				switch(level){//第幾題
+					case 0:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 1:
+						str += 10;
+						int += 15;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 2:
+						str += 5;
+						int += 10;
+						lcu += 5;
+						agi += 10;
+						break;
+					case 3:
+						str += 15;
+						int += 10;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 4:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 5:
+						str += 5;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+				}
 			}			
 			console.log(e.target.children[2].src.indexOf('correct'));
 			console.log(e.target.children[2].src);
 			console.log(grade);
+			console.log(str);
+			console.log(int);
+			console.log(lcu);
+			console.log(agi);
 			clearInterval(qsNextTimer);
 
 			$('#timeRow').css('display','none');
@@ -125,7 +171,11 @@
 
 		function change(){
 			storage['grade'] = grade;
-			window.location="iqtest-result.html"
+			storage['str'] = str;
+			storage['int'] = int;
+			storage['lcu'] = lcu;
+			storage['agi'] = agi;
+			window.location="iqtest-result.html";
 		}
 
 		window.addEventListener('load',function(){
