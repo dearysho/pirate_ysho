@@ -4,18 +4,50 @@
 	<meta charset="UTF-8">
 	<title>iqtest</title>
 	<link rel="stylesheet" href="css/iqtest.css">
+	<style type="text/css">
+		#teemo{
+			position: absolute;
+			width: 180px;
+			/* display: none; */
+		}
+		#bonus1{
+			position: fixed;
+			top: 90px;
+			left: 30%;
+		}
+	</style>
 </head>
 <body>
 	<div id="mytime">
 		<div class="timeline" id="timeRow"></div>
 		<div id="mytimeHeight"></div>
 	</div>
+	<div id="bonus1">
+		<img src="image/iqtest/teemo.png" alt="teemo" id="teemo">
+		<div class="button_border">
+			<div class="border_in">
+				<div class="bg_focus cover"></div>
+				<span class="icon_movie"></span>
+			</div>
+			<div class="border_out">
+				<svg viewBox="0 0 88 88">
+					<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
+					<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
+					<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
+					<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
+				</svg>
+			</div>
+		</div>
+	</div>
+	
 	
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
+	
 	<div class="ques">
-		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
+			<!-- 請問白鬍子的船叫什麼名字? -->
+		<h1 class="titlePri" id="question">我是誰?</h1>
 	</div>
 	<div class="option">
 		<div class="opop o1">
@@ -65,8 +97,9 @@
 		function reset(){
 			$('.ans').css('display','none');//gif檔消失
 			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
-			
-			if( level == 4 ) change();//測驗結束
+			console.log('level: ', level);
+			if( level == 2 ) $('#teemo').css('display','block');//提摩題
+			if( level == 5 ) change();//測驗結束
 			$.getJSON('json/iqtest.json',function(data){
 				console.log('level: ', level);
 					$('#question').text(data[level].question);
@@ -154,14 +187,7 @@
 						agi += 5;
 						break;
 				}
-			}			
-			console.log(e.target.children[2].src.indexOf('correct'));
-			console.log(e.target.children[2].src);
-			console.log(grade);
-			console.log(str);
-			console.log(int);
-			console.log(lcu);
-			console.log(agi);
+			}
 			clearInterval(qsNextTimer);
 
 			$('#timeRow').css('display','none');
