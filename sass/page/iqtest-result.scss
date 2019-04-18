@@ -23,6 +23,9 @@ body{
 	font-family: 王漢宗特明體繁;
 	letter-spacing: 5px;
 }
+.y{
+	color: $brown;
+}
 // brain area
 .row{
 	margin: 0 auto;
@@ -35,6 +38,9 @@ body{
 	width: 48%;
 	padding: 0px 12px;
 	margin-bottom: 25px;
+}
+.radar{
+	position: relative;
 }
 .brain{
 	width: 86.8055%;
@@ -66,7 +72,7 @@ body{
 }
 .titleSec{
 	font-family: $fofaTitle;
-	margin: 20px auto;
+	margin: 40px auto;
 	font-size: 30px;
 	letter-spacing: 2.5px;
 }
@@ -80,7 +86,118 @@ body{
 	left: 50%;
 	transform: translateX(-50%);
 }
+// ex-btn
+.exBtn1{
+	top: 50px;
+}
+.exBtn2{
+	top: -10px;
+	left: 350px;
+}
+.exBtn3{
+	top: 150px;
+	left: 450px;
+}
+.exBtn4{
+	top: 200px;
+	left: 150px;
+}
+.button_border{
+	transition: all .5s ease 1s;
+	opacity: 1;
+	transform: scale(1);
+	width: 88px;
+	height: 88px;
+	position: absolute;
+	cursor: pointer;
+}
+.exBtn1 span{
+	background-image: url(../image/iqtest/str.png);
+}
+.exBtn2 span{
+	background-image: url(../image/iqtest/int.png);
+}
+.exBtn3 span{
+	background-image: url(../image/iqtest/lcu.png);
+}
+.exBtn4 span{
+	background-image: url(../image/iqtest/agi.png);
+}
+span {	
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 24px;
+	display: block;
+	transition: all .4s;
+}
+.border_in {
+	overflow: hidden;
+	transition: 0.4s;
+	width: 60px;
+	height: 60px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -30px;
+	margin-top: -30px;
+	display: block;
+}
+.border_out {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 88px;
+	height: 88px;
+	animation: borderCircle 3s linear infinite;
+}
+.border{
+	fill: none;
+	stroke: #fff;
+}
+.bg_focus {
+	background-image: url('img/product_pie.jpg');
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+.button_border .border_out svg,.button_border .border_in,.button_border .border_in span,.border_in .bg_focus {
+transition:all .3s
+}
+
+.button_border:hover .border_out svg {
+transform: scale(1.95)
+}
+
+.button_border:hover .border_in {
+transform: scale(2.6)
+}
+
+.button_border:hover .border_in span {
+transform: scale(.5);
+opacity: 0;
+
+}
+
+.button_border:hover .border_in .bg_focus {
+opacity: 1;
+
+}
+.cover {
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat
+}
+
 // keyframes
+// brain
 @keyframes spark{
 	0%{
 		display: block;
@@ -89,5 +206,14 @@ body{
 	100%{
 		display: none;
 		opacity: 0;
+	}
+}
+// btn
+@keyframes borderCircle{
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }

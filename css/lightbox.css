@@ -18,20 +18,15 @@ p {
 
 .titlePri {
   font-family: 王漢宗特明體繁;
-  color: #006ca6;
   font-size: 3rem;
   text-align: center;
   margin: 0 10px;
-  padding: 20px 0;
-  font-size: 20px; }
+}
 
-.titleSec {
-  position: relative;
-  color: #362e2b;
-  font-size: 1.5rem;
-  font-family: Adobe Heiti Std R;
-  text-align: center;
-  margin: 80px 0; }
+.titlePriX{
+  padding: 40px 0 20px;
+  color: #006ca6;
+}
 
 .titleThi {
   position: relative;
@@ -58,12 +53,7 @@ p {
   font-family: Adobe Heiti Std R;
   font-size: 1.5rem; }
 
-.textM {
-  color: #362e2b;
-  font-family: Adobe Heiti Std R;
-  font-size: 1.25rem;
-  font-size: 18px;
-  text-align: center; }
+
 
 .textS {
   font-family: Adobe Heiti Std R;
@@ -203,5 +193,12 @@ a {
   margin: 10px; }
 
   p{
-    padding-bottom: 50px;
+    font-family: 王漢宗特明體繁;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: left;
+    color: #362e2b;
+    letter-spacing: 2px;
+    padding: 0 20px;
+    padding-bottom: 100px;
   }
