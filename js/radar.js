@@ -1,8 +1,8 @@
 // 建立4個var 為了之後要傳入radar(代號,代號,代號,代號)
-var str = 0;
-var int = 0;
-var lcu = 0;
-var agi = 0;
+var str = 0;//力量
+var int = 0;//智力
+var lcu = 0;//幸運
+var agi = 0;//敏捷
 
 function addSkill(e) {
     // 1.get技能點數
