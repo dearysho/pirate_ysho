@@ -28,7 +28,7 @@
 	<div class="row">
 		<div class="col-6">
 			<img src="image/iqtest/brain.png" alt="brain" class="brain">
-			<p class="abc">B</p>
+			<p id="abc">B</p>
 			<p class="grade">
 				<strong class="textHiliR" id="grade">70 </strong>/ 100分
 			</p>
@@ -171,8 +171,13 @@
 		lcu = parseInt(storage['lcu']);//幸運
 		agi = parseInt(storage['agi']);//敏捷
 		$('#grade').text(`${grade} `);
-		$('#correct').text(` ${grade/20} `);
-
+		$('#correct').text(` ${grade/14} `);
+		if( grade>90 )
+			$('#abc').text(`A`);
+		else if( grade>=70 )
+			$('#abc').text(`B`);
+		else
+			$('#abc').text(`C`);
 		function radar(){
 			//定義變數
 			var chartRadarDOM;
@@ -243,7 +248,10 @@
     		// e.target.style.display = 'block'; // i代入這個頁面的第幾個燈箱
 		}
 		function off(e){
-			e.target.parentNode.parentNode.style.display = 'none';  // i代入這個頁面的第幾個燈箱
+			e.target.parentNode.parentNode.style.display = 'none';  //按叉叉
+		}
+		function off2(e){
+			e.target.parentNode.style.display = 'none';				//按popbg
 		}
 
 		function init() {
@@ -251,9 +259,8 @@
 			for(i=0; i<=3; i++){
 				document.getElementsByClassName('button_border')[i].onclick = show;
 				document.getElementsByClassName("leave")[i].onclick=off;    // i代入這個頁面的第幾個燈箱
-				document.getElementsByClassName("popbg")[i].onclick=off;    // i代入這個頁面的第幾個燈箱
-			}
-				
+				document.getElementsByClassName("popbg")[i].onclick=off2;    // i代入這個頁面的第幾個燈箱
+			}				
 		}
 		window.onload = init;
 	</script>

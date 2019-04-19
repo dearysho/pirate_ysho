@@ -8,12 +8,12 @@
 		#teemo{
 			position: absolute;
 			width: 180px;
-			/* display: none; */
 		}
 		#bonus1{
 			position: fixed;
 			top: 90px;
 			left: 30%;
+			display: none;
 		}
 	</style>
 </head>
@@ -46,8 +46,7 @@
 	</div>
 	
 	<div class="ques">
-			<!-- 請問白鬍子的船叫什麼名字? -->
-		<h1 class="titlePri" id="question">我是誰?</h1>
+		<h1 class="titlePri" id="question">請問白鬍子的船叫什麼名字?</h1>
 	</div>
 	<div class="option">
 		<div class="opop o1">
@@ -98,7 +97,7 @@
 			$('.ans').css('display','none');//gif檔消失
 			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
 			console.log('level: ', level);
-			if( level == 2 ) $('#teemo').css('display','block');//提摩題
+			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
 			if( level == 5 ) change();//測驗結束
 			$.getJSON('json/iqtest.json',function(data){
 				console.log('level: ', level);
@@ -148,7 +147,7 @@
 		function show(e){
 			e.target.children[2].style.display = 'block';
 			if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
-				grade += 20;//答對加分
+				grade += 14;//答對加分
 				switch(level){//第幾題
 					case 0:
 						str += 10;
@@ -186,10 +185,19 @@
 						lcu += 10;
 						agi += 5;
 						break;
+					case 6:
+						str += 15;
+						int += 15;
+						lcu += 10;
+						agi += 15;
+						break;
 				}
 			}
 			clearInterval(qsNextTimer);
 
+
+			if( level == 5 )
+				$('#teemo').attr("src","image/iqtest/teemoAns.png");
 			$('#timeRow').css('display','none');
 			$('#mytimeHeight').css('height','80px');
 			showTimer = setInterval(reset,3000);

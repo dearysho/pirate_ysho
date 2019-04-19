@@ -37,7 +37,7 @@ body{
 	height: 600px;
 	width: 48%;
 	padding: 0px 12px;
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 }
 .radar{
 	position: relative;
@@ -47,7 +47,7 @@ body{
 	height: 400px;
 	padding: 0 50px;
 }
-.abc{
+#abc{
 	opacity: 1;
 	position: absolute;
 	top: 15%;
@@ -60,11 +60,13 @@ body{
 	text-align: center;
 	font-family: $fofaTitle;
 	font-size: 36px;
+	padding-bottom: 25px;
 }
 .correctop{
 	text-align: center;
 	font-family: $fofaTitle;
 	font-size: 36px;
+	padding-bottom: 25px;
 }
 // 說明area
 .radar{
@@ -159,7 +161,7 @@ span {
 	stroke: #fff;
 }
 .bg_focus {
-	background-image: url('img/product_pie.jpg');
+	background-image: url('../image/iqtest/leaderHead.png');
 	position: absolute;
 	left: 0;
 	top: 0;
