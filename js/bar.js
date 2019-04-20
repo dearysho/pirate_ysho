@@ -1,10 +1,19 @@
-
-function hotIssueBoxContText() {
-    var text = get
-    
+// function hotIssueBoxContText() {
+//     var text = get
+// }
+function addArt() {
+    var artBtn = document.getElementsByClassName('artBtn');
+    var artBox = document.getElementById('addFormWrap');
+    //artBox.style.display = 'block';
+    artBtn[0].addEventListener('click',function() {
+        artBox.style.display = 'block';
+    });
+    artBtn[1].addEventListener('click',function() {
+        artBox.style.display = 'none';
+    });
 }
 function doFirst() {
-    
+    addArt()
 }
 window.addEventListener('load',doFirst());
 // function newsRotate(){
