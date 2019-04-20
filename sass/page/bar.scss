@@ -11,11 +11,46 @@ $pcMax: 2500px;
 $brownO40: rgba(54,46,43,0.4);
 $lightBrown: #b6a79a;
 $boxColor: #f5ecdd;
+$titleHight: 300px;
+$paddingBetweenHeader: 150px;
 
 body {
     background-image: url(../image/background/BgPage.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
+//頁面標題
+#bartitle {
+    width: 100%;
+    height: $titleHight;
+    background-image: url(../image/bar/barBackground.png);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: 80px -50px;
+    line-height: $titleHight / 1.5;
+    //line-height: $titleHight;
+    text-align: center;
+    @media screen and (min-width: $padV){
+        background-size: 80%;
+        background-position: bottom right;
+    }
+    @media screen and (min-width: $pc){
+        padding-top: $paddingBetweenHeader;
+        background-size: 55%;
+    }
+    .titlePri {
+        margin: auto;
+        vertical-align: bottom;
+    }
+    .btnpri{
+        font-family: $fofaText;
+        color: $beige;
+        //background-color: $darkred;
+        vertical-align: top;
+        .wave {
+            background: $red;
+        }
+    }
 }
 //熱門話題
 #hotIssue{
@@ -330,4 +365,192 @@ body {
         background-image: url(../../image/bar/expand-button.svg);
         background-size: contain;
         }
-}   
+}
+// 新增討論燈箱
+#addFormWrap{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px 0px 0px;
+    background-color: $brownO40;
+    >h1{
+        text-align: center;
+    }
+    .textM{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    @media screen and (min-width: $padH){        
+        background-image: url(../image/bar/backToBar.svg);
+        background-size: 40%;
+        background-position: 0px -20%;
+        background-repeat: no-repeat;
+    }
+    @media screen and (min-width: $pc){
+        padding: 0px 0px 0px;
+        background-size: 30%;
+    }
+    #backToBarBtn{
+        display: none;
+        @media screen and (min-width: $padH){
+            display: inline;
+            position: relative;
+            top: -120px;
+            left: 5%;
+            font-family: $fofaText;
+            font-size: 0.9rem;
+            color: $brown;
+            background: $beige;
+            opacity: 0.8;
+            padding: 0.5rem 0.5rem;
+            border: $beige  2px solid;
+            letter-spacing: 2px;
+            box-shadow: 0px 0px 0px 2px $brown inset,
+                        0px 0px 0px 2px $brown;
+            &::before{
+                content: "⏎";
+            }
+        }
+        @media screen and (min-width: $pc){
+            display: inline;
+            top: -200px;
+            left: 7%;
+            font-size: 1.1rem;
+            padding: 1rem 1rem;
+        }
+        @media screen and (min-width: $pcMax){
+            top: -100%;
+        }
+    }
+    #addForm{
+        width: 80%;
+        margin: auto;
+        padding: 2rem;
+        font-family: $fofaTitle;
+        background-image: url(../image/market/mBGPapper.jpg);
+        background-size: cover;
+        box-shadow: 0px 0px 50px 10px $brown;
+        //background-color: $beige;
+        // border: #ccc  7px dashed;
+        // box-shadow: 0px 0px 0px 2px $brown inset,
+        //             0px 0px 0px 2px $brown;
+        @media screen and (min-width: $pc){
+            width: 1000px;
+        }
+        @media screen and (min-width: $pcMax){
+            width: 1200px;
+        }
+        .textHiliR{
+            text-align: center;
+            font-size: 2rem;
+            font-family: $fofaTitle;
+            letter-spacing: 10px;
+            position: relative;
+            &::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        //表格
+        #addFormCont{
+            width: 100%;
+            padding-top: 1.5rem;
+            color: $brown;
+            font-size: 1.25rem;
+            #articleTypeTit{
+                position: relative;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0px;
+                    left: -5px;
+                    background-color: $brown;
+                    opacity: 0.7;
+                }
+                .articleTypeBtn{
+                    position: relative;
+                    padding-left: 1rem;
+                    display: inline-block;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    &::before{
+                        content: "";
+                        width: 1rem;
+                        height: 1rem;
+                        position: absolute;
+                        top: -0.8rem;
+                        left: -5px;
+                        border-radius: 50%;
+                        border: 2px $brown solid;
+                    }
+                    &:checked::before{
+                        border-color: $blue;
+                        background: $blue;
+                        box-shadow: 0px 0px 0px 2px #fff inset; 
+                    }
+                }
+            }
+            #articleTit{
+                font-size: 1.25rem;
+                font-family: $fofaTitle;
+                color: $blue;
+                background: transparent;
+                border-width: 0px;
+                padding-top: 0.5rem;
+                outline: 0px;
+                //border-bottom: 2px $brown dashed;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+            #articleCont{
+                position: relative;
+                padding: 1rem 0rem 0.5rem;
+                margin: 0.5rem 0;
+                background: transparent;
+                border-width: 0px;
+                outline: 0px;
+                &::before, &::after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0px;
+                    left: -5px;
+                    background-color: $brown;
+                    opacity: 0.7;
+                }
+                &::after{
+                    top: 0rem;
+                    left: -5px;
+                }
+                span{
+                    display: block;
+                }
+                #articleCont{
+                    width: 100%;
+                    font-size: 1.2rem;
+                    font-family: $fofaTitle;
+                    color: $blue;
+                    padding-left: 1rem;
+                }
+            }
+        }
+        .btnpri{
+            left: calc(100% - 8rem);
+        }
+    }
+}
+#submitArticle{
+    opacity: 0;
+}
