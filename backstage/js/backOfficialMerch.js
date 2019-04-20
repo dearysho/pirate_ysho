@@ -34,6 +34,7 @@ window.onload = function () {
                             cusYN: cusYN,
                             merchPrice: merchPrice,
                             saleYN: saleYN,
+                            merchId: 0,
                         },
                         type: 'GET',
                         success: function () {
@@ -70,6 +71,7 @@ window.onload = function () {
                             cusYN: cusYN,
                             merchPrice: merchPrice,
                             saleYN: saleYN,
+                            merchId: 0,
                         },
                         type: 'GET',
                         success: function () {
@@ -101,9 +103,9 @@ window.onload = function () {
         // var sec = nowTime.getSeconds();
 
         // var nowTime = yyyy + '.' + mm + '.' + dd  + '.' + hr  + '.' + min  + '.' + sec;
+        var newTr = document.createElement('TR');
 
         var newMerch = `
-        <tr>
         <td class="merchNo"></td>
         <td class="merchName"><input type="text" name="merchName" value="" placeholder="請輸入造型名稱"></td>
         <td class="merchPart">
@@ -137,9 +139,12 @@ window.onload = function () {
             <button class="updateList removeIt" style="display:none">修改</button>
             <button class="addToList currentEdit">確認</button>
         </td>
-    </tr>
     `;
-        document.getElementById('merchTable').innerHTML += newMerch;
+
+    newTr.innerHTML = newMerch;
+    var merchTable = document.getElementById('merchTable');
+    var firstMerch = merchTable.getElementsByTagName('tbody')[1];
+    merchTable.insertBefore(newTr, firstMerch);
 
 
         addRemove();
@@ -190,52 +195,47 @@ window.onload = function () {
             };
         }
 
+        var updateBtn = document.getElementsByClassName('updateList');
+
+
+        for (var i = 0; i < updateBtn.length; i++) {
+
+            updateBtn[i].onclick = function (e) {
+
+                var merchUpdate = e.target.parentNode.parentNode;
+                var merchName = merchUpdate.getElementsByClassName('merchName')[0].childNodes[0].value;
+                var merchPart = merchUpdate.getElementsByClassName('merchPart')[0].getElementsByTagName('select')[0].value;
+                var merchImg = merchUpdate.getElementsByClassName('merchImg')[0].getElementsByTagName('input')[0].value;
+                var cusYN = merchUpdate.getElementsByClassName('cusYN')[0].getElementsByTagName('select')[0].value;
+                var merchPrice = merchUpdate.getElementsByClassName('merchPrice')[0].getElementsByTagName('input')[0].value;
+                var saleYN = merchUpdate.getElementsByClassName('saleYN')[0].getElementsByTagName('select')[0].value;
+                var merchId = merchUpdate.getElementsByClassName('merchNo')[0].innerHTML;
+
+                $.ajax({
+                    url: 'php/editMerch.php',
+                    data: {
+                        doType: 'update',
+                        merchName: merchName,
+                        merchPart: merchPart,
+                        merchImg: merchImg,
+                        cusYN: cusYN,
+                        merchPrice: merchPrice,
+                        saleYN: saleYN,
+                        merchId: merchId,
+                    },
+                    type: 'GET',
+                    success: function () {
+                        alert('修改完成');
+                    },
+                    error: function (e) {
+                        alert('出錯囉???');
+                    }
+                });
+            };
+        }
+
     }
 
-    var updateBtn = document.getElementsByClassName('updateList');
 
-    for(var i=0;i<updateBtn.length;i++){
-
-    updateBtn[i].onclick = function (e) {
-
-        var merchUpdate = e.target.parentNode.parentNode;
-        var merchName = merchUpdate.getElementsByClassName('merchName')[0].childNodes[0].value;
-        var merchPart = merchUpdate.getElementsByClassName('merchPart')[0].getElementsByTagName('select')[0].value;
-        var merchImg = merchUpdate.getElementsByClassName('merchImg')[0].getElementsByTagName('input')[0].value;
-        var cusYN = merchUpdate.getElementsByClassName('cusYN')[0].getElementsByTagName('select')[0].value;
-        var merchPrice = merchUpdate.getElementsByClassName('merchPrice')[0].getElementsByTagName('input')[0].value;
-        var saleYN = merchUpdate.getElementsByClassName('saleYN')[0].getElementsByTagName('select')[0].value;
-        var merchId = merchUpdate.getElementsByClassName('merchNo')[0].innerHTML;
-
-        console.log(merchId);
-        console.log(merchName);
-        console.log(merchPart);
-        console.log(merchImg);
-        console.log(cusYN);
-        console.log(merchPrice);
-        console.log(saleYN);
-
-        $.ajax({
-            url: 'php/editMerch.php',
-            data: {
-                doType: 'update',
-                merchName: merchName,
-                merchPart: merchPart,
-                merchImg: merchImg,
-                cusYN: cusYN,
-                merchPrice: merchPrice,
-                saleYN: saleYN,
-                merchId: merchId,
-            },
-            type: 'GET',
-            success: function () {
-                alert('修改完成');
-            },
-            error: function (e) {
-                alert('出錯囉???');
-            }
-        });
-    };
-}
 
 };
