@@ -1,0 +1,139 @@
+// 字型設定
+@import '../base/font';
+// reset
+@import '../base/reset';
+body {
+    background-image: url(../image/background/BgPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*{
+	outline: 1px solid red;
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+
+// title
+#playTitle {
+    margin: 100px auto;
+    position: relative;
+}
+// titleSec
+#playTitleSec {
+	width: 1200px;
+	margin: 0 auto 50px;
+}
+.titleSec {
+	margin: 0 10px 50px;
+}
+.titFrame{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;
+}
+#playTitleSec h2{
+	top: 25px;
+}
+.s1 {
+	position: relative;
+	text-align: center;
+	margin: 0 10px;
+	display: inline-block;
+	width: 750px;
+}
+.s2 {
+	position: relative;
+	text-align: center;
+	margin: 0 10px;
+	display: inline-block;
+	width: 400px;
+}
+// GameOrGps
+#gameOrGps{
+	margin: 0 auto;
+	width: 1200px;
+	height: 500px;
+}
+#gameArea{
+	display: inline-block;
+	position: relative;
+	width: 750px;
+	height: 500px;
+	margin: 0 10px;
+}
+#gpsArea{
+	display: inline-block;
+	width: 400px;
+	height: 500px;
+	margin: 0 10px;
+}
+.ele{
+	cursor: pointer;
+	position: absolute;
+	background-color: #16a085;
+	width: 450px;
+	height: 500px;
+	transition: all 1s ease;
+}
+#element1{
+	-webkit-clip-path: polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0);
+	left: 50px;
+}
+#element2{
+	-webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
+	left: 155px;
+}
+#element3{
+	-webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
+	left: 260px;
+}
+#blueArea{
+	background-color: #0089A7;
+	// opacity: 0.6;
+	position: absolute;
+	top: 350px;
+	height: 150px;
+	width: 450px;
+	text-align: center;
+	color: white;
+}
+.ele img{
+	position: absolute;
+	margin: 0 auto;
+	left: 60px;
+	top: 310px;
+	z-index: 2;
+}
+#element2 img{
+	display: none;
+}
+#element3 img{
+	display: none;
+}
+.ele p{
+	text-align: left;
+	display: inline-block;
+	width: 120px;
+	letter-spacing: 1px;
+	line-height: 1.5;
+	font-family: $fofaText;
+}
+.ele p:first-child{
+	letter-spacing: 1.5px;
+	font-size: 22px;
+	width: 450px;
+	text-align: center;
+	margin-top: 25px;
+}
+// gameTitle
+#gameTitle{
+	position: relative;
+	height: 75px;
+	width: 1200px;
+	margin: 100px auto;
+}
+#gameTitle h2{
+	top: 25px;
+}

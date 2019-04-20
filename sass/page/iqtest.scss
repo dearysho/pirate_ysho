@@ -50,7 +50,7 @@ body{
 	font-family: 王漢宗特明體繁;
 	letter-spacing: 5px;
 }
-.option{
+#option{
 	margin: 0 auto;
 	width: 1200px;
 	height: 700px;
@@ -136,4 +136,253 @@ body{
 	100%{
 		top: 0px
 	}
+}
+// bonusBtn
+.button_border{
+	transition: all .5s ease 1s;
+	opacity: 1;
+	transform: scale(1);
+	width: 88px;
+	height: 88px;
+	position: absolute;
+	left: 150px;
+	top: 50px;
+	cursor: pointer;
+}
+.icon_movie {
+	background-image: url(../image/iqtest/question.png);
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 24px;
+	display: block;
+	transition: all .4s;
+}
+.border_in {
+	overflow: hidden;
+	transition: 0.4s;
+	width: 60px;
+	height: 60px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -30px;
+	margin-top: -30px;
+	display: block;
+}
+.border_out {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 88px;
+	height: 88px;
+	animation: borderCircle 3s linear infinite;
+}
+.border{
+	fill: none;
+	stroke: #fff;
+}
+.bg_focus {
+	background-image: url('../image/iqtest/leaderHead.png');
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+.button_border .border_out svg,.button_border .border_in,.button_border .border_in span,.border_in .bg_focus {
+transition:all .3s
+}
+
+.button_border:hover .border_out svg {
+transform: scale(1.95)
+}
+
+.button_border:hover .border_in {
+transform: scale(2.6)
+}
+
+.button_border:hover .border_in span {
+transform: scale(.5);
+opacity: 0;
+
+}
+
+.button_border:hover .border_in .bg_focus {
+opacity: 1;
+
+}
+.cover {
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat
+}
+@keyframes borderCircle{
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+// 第7題
+#teemo{
+			position: absolute;
+			width: 180px;
+		}
+		#bonus1{
+			position: fixed;
+			top: 90px;
+			left: 30%;
+			display: none;
+		}
+		/* 第7題目 */
+.container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  perspective: 1000px;
+  margin-left:40%;
+  margin-top:5%;
+}
+
+#safe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+#safe .side {
+  width: 300px;
+  height: 300px;
+  display: block;
+  position: absolute;
+  background-color:#4A5151;
+}
+#safe .front  { transform: rotateY(   0deg ) translateZ( 150px ); }
+#safe .back   { transform: rotateX( 180deg ) translateZ( 150px ); }
+#safe .right  { transform: rotateY(  90deg ) translateZ( 150px ); }
+#safe .left   { transform: rotateY( -90deg ) translateZ( 150px);}
+#safe .top    { transform: rotateX(  90deg ) translateZ( 150px);}
+#safe .bottom { transform: rotateX( -90deg ) translateZ( 150px);}
+#safe .side {border:1px solid grey;}
+
+
+#safe { transform: translateZ( -100px )rotateX(-20deg) rotatey(-25deg); }
+.keypad {
+   position:relative;
+  z-index:3;
+  padding:5px;
+  width:120px;
+  height:110px;
+  border:1px solid black;
+  margin-top:25%;
+  margin-left:50%;
+  background-color:white;
+}
+ol li {
+  list-style-type:none;
+  display:inline-block;
+  width:30%;
+  text-align:center;
+  border:1px solid black;
+  margin-bottom:2px;
+}
+
+ol li:hover {
+  cursor:pointer;
+}
+
+ol li:active {
+  background-color:black;
+  color:white;
+}
+
+section.results {
+  letter-spacing: 2px;
+  font-family: $fofaTitle;
+  width:100%;
+  clear:both;
+  margin-top:100px;
+  text-align:center;
+  font-size:1.5em;
+}
+span.results{
+  display:none;
+}
+#wrong,#right {
+  font-size:3em;
+  text-align:center;
+  display:none;
+}
+
+#wrong {
+  color:red;
+}
+
+.open {
+  transform-origin:-10%;
+  height: 120% !important;
+  top: 40px;
+  width: 120% !important;
+  left: -39px;
+  transform-style:preserve3d;
+}
+.treasure {
+  display:none;
+  position:absolute;
+  top: 80%;
+  left: 31%;
+}
+.treasure > div {
+  position:absolute;
+  
+}
+.treasure > div:nth-child(1){
+ left:25px;
+  top:10px;
+}
+
+.treasure > div:nth-child(2){
+ left:-40px;
+ top:25px;
+}
+.treasure > div:nth-child(3){
+ left:4px;
+  top:30px;
+}
+.treasure > div:nth-child(4){
+left: 40px;
+top: -20px;
+
+}
+
+.treasure > div:nth-child(5){
+top: -10px;
+left: -10px;
+
+}
+.coin {
+  width:50px;
+  height:50px;
+  background-color:#FFD700;
+  border-radius:25px;
+  box-shadow:1px 1px 2px black;
+}
+#bonus2{
+	display: none;
+}
+#wrong span{
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 2px;
+}
+#right span{
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 2px;
 }

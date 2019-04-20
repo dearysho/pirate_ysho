@@ -4,20 +4,103 @@
 	<meta charset="UTF-8">
 	<title>iqtest</title>
 	<link rel="stylesheet" href="css/iqtest.css">
+	<style type="text/css">
+		*{
+			outline: 1px solid red;
+			box-sizing:border-box;
+    		margin:0;padding:0;
+		}
+	</style>
 </head>
 <body>
 	<div id="mytime">
 		<div class="timeline" id="timeRow"></div>
 		<div id="mytimeHeight"></div>
 	</div>
+	<div id="bonus1">
+		<img src="image/iqtest/teemo.png" alt="teemo" id="teemo">
+		<div class="button_border">
+			<div class="border_in">
+				<div class="bg_focus cover"></div>
+				<span class="icon_movie"></span>
+			</div>
+			<div class="border_out">
+				<svg viewBox="0 0 88 88">
+					<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
+					<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
+					<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
+					<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
+				</svg>
+			</div>
+		</div>
+	</div>
+	
 	
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
+	
 	<div class="ques">
 		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
 	</div>
-	<div class="option">
+	<!-- 第7題目 -->
+	<div id="bonus2">
+		<section class="container">
+	    <div id="safe">
+	      <div class="front side">
+	        <div class="keypad">
+	          <ol class="keys">
+	           <li>0</li>
+	           <li>1</li>
+	           <li>2</li>
+	           <li>3</li>
+	           <li>4</li>
+	           <li>5</li>
+	           <li>6</li>
+	           <li>7</li>
+	           <li>8</li>
+	           <li>9</li>
+	           <li>A</li>
+	           <li>B</li>
+	           <li>C</li>
+	           <li>D</li>
+	          </ol>
+	        </div>
+	      </div>
+	   
+	      <div class="back side"></div>
+	      <div class="right side"></div>
+	      <div class="left side"></div>
+	      <div class="top side"></div>
+	      <div class="bottom side"></div>
+	    </div>
+	       <div class="treasure">
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	       </div>
+	  </section>
+
+	  <section class="results">
+	    <span class="results">你已經輸入:</span>
+	    <span id="entered"></span>
+	  </section>
+	  <div id="wrong">
+	    <span>錯誤!</span>
+	  </div>
+	  <div id="right">
+	    <span>正確!</span>
+	  </div>
+	</div>
+	
+	<div id="option">
 		<div class="opop o1">
 			<strong class="textHi">A</strong>
 			<strong class="describe">白鯨號</strong>
@@ -56,13 +139,58 @@
 		var timesRun = 0;
 		var truea = 3;
 		var grade = 0;
+		var str = 0;//力量
+		var int = 0;//智力
+		var lcu = 0;//幸運
+		var agi = 0;//敏捷
+
+		// 
+		$('li').click(function(){
+			var code = 'CD106';
+			var number = $(this).text();
+		    $('span.results').show();
+		    $('#wrong').hide();
+		    $('#entered').append(number);
+		    var enteredLength = $('#entered').text().length;
+		    var entered = $('#entered').text();
+		    if (enteredLength == 5 && entered === code) {
+			    $('#entered').empty();
+			    $('.keypad').delay( 400 ).fadeOut(0);
+			    $('.front').addClass('open').animate({  borderSpacing: -180 }, {
+				    step: function(now,fx) {
+				      $(this).css('transform','rotateY('+ now +'deg)');         
+					},duration:1000},'linear');
+					$('span.results').hide();
+					$('#right').show();
+					$('#hint,#anotherhint').hide();
+					$('.treasure').fadeIn(2000);
+					grade += 14;
+					str += 10;
+					int += 10;
+					lcu += 15;
+					agi += 15;
+					setInterval(change,3000);
+			}
+			if (enteredLength == 5 && entered !== code){
+				$('#wrong').show();
+				$('span.results').hide();
+				$('#entered').empty();
+				setInterval(change,3000);
+			}      
+		});
 
 		// reset題目
 		function reset(){
 			$('.ans').css('display','none');//gif檔消失
 			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
-			
-			if( level == 4 ) change();//測驗結束
+			console.log('level: ', level);
+			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
+			if( level == 5 ){
+				$('#question').text('哈囉');
+				$('#bonus1').css('display','none');
+				$('#option').css('display','none');
+				$('#bonus2').css('display','block');
+			}
 			$.getJSON('json/iqtest.json',function(data){
 				console.log('level: ', level);
 					$('#question').text(data[level].question);
@@ -82,6 +210,7 @@
 
 		// reset時間條
 		function goNext(){
+			timesRun = 0;
 			count = 19;
 			qsNextTimer = setInterval(countdown,800);
 		}
@@ -110,14 +239,58 @@
 		// 選擇答案
 		function show(e){
 			e.target.children[2].style.display = 'block';
-			if( e.target.children[2].src.indexOf('correct') != -1 ){
-				grade += 20;//答對加分
-			}			
-			console.log(e.target.children[2].src.indexOf('correct'));
-			console.log(e.target.children[2].src);
-			console.log(grade);
+			if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
+				grade += 14;//答對加分
+				switch(level){//第幾題
+					case 0:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 1:
+						str += 10;
+						int += 15;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 2:
+						str += 5;
+						int += 10;
+						lcu += 5;
+						agi += 10;
+						break;
+					case 3:
+						str += 15;
+						int += 10;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 4:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 5:
+						str += 5;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 6:
+						str += 15;
+						int += 15;
+						lcu += 10;
+						agi += 15;
+						break;
+				}
+			}
 			clearInterval(qsNextTimer);
 
+
+			if( level == 5 )
+				$('#teemo').attr("src","image/iqtest/teemoAns.png");
 			$('#timeRow').css('display','none');
 			$('#mytimeHeight').css('height','80px');
 			showTimer = setInterval(reset,3000);
@@ -125,7 +298,11 @@
 
 		function change(){
 			storage['grade'] = grade;
-			window.location="iqtest-result.html"
+			storage['str'] = str;
+			storage['int'] = int;
+			storage['lcu'] = lcu;
+			storage['agi'] = agi;
+			window.location="iqtest-result.html";
 		}
 
 		window.addEventListener('load',function(){

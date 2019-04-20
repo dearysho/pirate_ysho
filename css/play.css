@@ -1,0 +1,254 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "王漢宗特明體繁";
+  src: url(../font/WT004.TTF); }
+@font-face {
+  font-family: "Adobe Heiti Std R";
+  src: url(../font/ADOBEHEITISTD-REGULAR.OTF); }
+p {
+  line-height: 1.5; }
+
+.textEmphasis {
+  font-size: 3rem;
+  color: #362e2b;
+  font-family: 王漢宗特明體繁;
+  letter-spacing: 10px; }
+
+.textHiliR {
+  color: #a34f49; }
+
+.textHiliB {
+  color: #006ca6; }
+
+.titlePri {
+  font-family: 王漢宗特明體繁;
+  color: #006ca6;
+  font-size: 3rem;
+  text-align: center; }
+
+.titleSec {
+  position: relative;
+  color: #362e2b;
+  font-size: 1.5rem;
+  font-family: Adobe Heiti Std R;
+  text-align: center;
+  margin: 80px 0; }
+
+.titleThi {
+  position: relative;
+  color: #443c3a;
+  font-size: 1.35rem;
+  font-family: Adobe Heiti Std R;
+  text-align: center; }
+
+.titleFou {
+  position: relative;
+  color: #554e4d;
+  font-size: 1.25rem;
+  font-family: Adobe Heiti Std R; }
+
+.titleSec img {
+  width: 110px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1; }
+
+.textL {
+  font-family: Adobe Heiti Std R;
+  font-size: 1.5rem; }
+
+.textM {
+  color: #362e2b;
+  font-family: Adobe Heiti Std R;
+  font-size: 1.25rem;
+  text-align: center; }
+
+.textS {
+  font-family: Adobe Heiti Std R;
+  font-size: 1rem; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: e;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  clear: both; }
+
+body {
+  background-image: url(../image/background/BgPage.png);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+* {
+  outline: 1px solid red;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+#playTitle {
+  margin: 100px auto;
+  position: relative; }
+
+#playTitleSec {
+  width: 1200px;
+  margin: 0 auto 50px; }
+
+.titleSec {
+  margin: 0 10px 50px; }
+
+.titFrame {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; }
+
+#playTitleSec h2 {
+  top: 25px; }
+
+.s1 {
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+  display: inline-block;
+  width: 750px; }
+
+.s2 {
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+  display: inline-block;
+  width: 400px; }
+
+#gameOrGps {
+  margin: 0 auto;
+  width: 1200px;
+  height: 500px; }
+
+#gameArea {
+  display: inline-block;
+  position: relative;
+  width: 750px;
+  height: 500px;
+  margin: 0 10px; }
+
+#gpsArea {
+  display: inline-block;
+  width: 400px;
+  height: 500px;
+  margin: 0 10px; }
+
+.ele {
+  cursor: pointer;
+  position: absolute;
+  background-color: #16a085;
+  width: 450px;
+  height: 500px;
+  transition: all 1s ease; }
+
+#element1 {
+  -webkit-clip-path: polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0);
+  left: 50px; }
+
+#element2 {
+  -webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
+  left: 155px; }
+
+#element3 {
+  -webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
+  left: 260px; }
+
+#blueArea {
+  background-color: #0089A7;
+  position: absolute;
+  top: 350px;
+  height: 150px;
+  width: 450px;
+  text-align: center;
+  color: white; }
+
+.ele img {
+  position: absolute;
+  margin: 0 auto;
+  left: 60px;
+  top: 310px;
+  z-index: 2; }
+
+#element2 img {
+  display: none; }
+
+#element3 img {
+  display: none; }
+
+.ele p {
+  text-align: left;
+  display: inline-block;
+  width: 120px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-family: Adobe Heiti Std R; }
+
+.ele p:first-child {
+  letter-spacing: 1.5px;
+  font-size: 22px;
+  width: 450px;
+  text-align: center;
+  margin-top: 25px; }
+
+#gameTitle {
+  position: relative;
+  height: 75px;
+  width: 1200px;
+  margin: 100px auto; }
+
+#gameTitle h2 {
+  top: 25px; }
+
+/*# sourceMappingURL=play.css.map */
