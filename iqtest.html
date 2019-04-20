@@ -4,14 +4,49 @@
 	<meta charset="UTF-8">
 	<title>iqtest</title>
 	<link rel="stylesheet" href="css/iqtest.css">
+	<style type="text/css">
+		#teemo{
+			position: absolute;
+			width: 180px;
+		}
+		#bonus1{
+			position: fixed;
+			top: 90px;
+			left: 30%;
+			display: none;
+		}
+	</style>
 </head>
 <body>
-	<div class="timeline" id="timeRow"></div>
+	<div id="mytime">
+		<div class="timeline" id="timeRow"></div>
+		<div id="mytimeHeight"></div>
+	</div>
+	<div id="bonus1">
+		<img src="image/iqtest/teemo.png" alt="teemo" id="teemo">
+		<div class="button_border">
+			<div class="border_in">
+				<div class="bg_focus cover"></div>
+				<span class="icon_movie"></span>
+			</div>
+			<div class="border_out">
+				<svg viewBox="0 0 88 88">
+					<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
+					<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
+					<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
+					<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
+				</svg>
+			</div>
+		</div>
+	</div>
+	
+	
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
+	
 	<div class="ques">
-		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
+		<h1 class="titlePri" id="question">請問白鬍子的船叫什麼名字?</h1>
 	</div>
 	<div class="option">
 		<div class="opop o1">
@@ -44,41 +79,54 @@
 	</div>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script>
+		var storage = sessionStorage;
 		var count = 19;
-		var qsNext;
 		var level = 0;
+		var qsNextTimer;
+		var showTimer;
 		var timesRun = 0;
-
-		$('#getJSONButton').click(function(){
-				$.getJSON('JSON_XML_CSV/animal.json',function(data){
-					$('#feedback').html('<h2>'+data[0].Note+'</h2>');
-				});
-		});
+		var truea = 3;
+		var grade = 0;
+		var str = 0;//力量
+		var int = 0;//智力
+		var lcu = 0;//幸運
+		var agi = 0;//敏捷
 
 		// reset題目
 		function reset(){
-			document.getElementById("question").innerText = ('第二問: 請問警成的女朋友叫什麼名字?');
-			document.getElementById("question").innerText = ('asdasd女朋友叫什麼名字?');
-			$('#question').text('asdasdas');
+			$('.ans').css('display','none');//gif檔消失
+			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
+			console.log('level: ', level);
+			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
+			if( level == 5 ) change();//測驗結束
 			$.getJSON('json/iqtest.json',function(data){
-					$('#question').html('<h2>'+data[0].Note+'</h2>');
+				console.log('level: ', level);
+					$('#question').text(data[level].question);
+					$('.describe').eq(0).text(data[level].op1);
+					$('.describe').eq(1).text(data[level].op2);
+					$('.describe').eq(2).text(data[level].op3);
+					$('.describe').eq(3).text(data[level].op4);
+					$('.ans').eq(parseInt(data[level].trueans)).attr('src','image/iqtest/correct.gif');//correct
+					level++;
 				});
+			$('#mytimeHeight').css('height','');
+			$('#timeRow').css('display','block');
+			$('#timeRow').width(1400);
+			clearInterval(showTimer);
+			goNext();
 		}
 
-		// 第2~5題
+		// reset時間條
 		function goNext(){
 			count = 19;
-			console.log('goNext: ',count);
-			reset();
-			var qsNext = setInterval(countdown,800);
-			// time
-			// ques
-			// op
+			qsNextTimer = setInterval(countdown,800);
 		}
 
 		// 時間條
 		function countdown(){
 			if(count <= 0){
+				$('#timeRow').css('display','none');
+				$('#mytimeHeight').css('height','80px');
 				count%2 == 0?
 					document.getElementById("changeT").innerHTML = '時間到!' :
 					document.getElementById("changeT").innerHTML = '';
@@ -87,33 +135,86 @@
 			}
 			count--;
 			timesRun++;
-			if( timesRun == 29 ){
-				clearInterval(qsNext);
+			if( timesRun == 25 ){
+				clearInterval(qsNextTimer);
 				timesRun = 0;
-				goNext();
+				reset();
 			}
-			console.log('countDown: ',count);
-			if(count == -10)goNext();
+			// console.log('countDown: ',count);
 		}
 
 		// 選擇答案
 		function show(e){
-			console.log(e.target);
-			console.log(e.target.children[2].className);
-			reset();
 			e.target.children[2].style.display = 'block';
-			setInterval(change,4000);			
-		}
+			if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
+				grade += 14;//答對加分
+				switch(level){//第幾題
+					case 0:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 1:
+						str += 10;
+						int += 15;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 2:
+						str += 5;
+						int += 10;
+						lcu += 5;
+						agi += 10;
+						break;
+					case 3:
+						str += 15;
+						int += 10;
+						lcu += 10;
+						agi += 10;
+						break;
+					case 4:
+						str += 10;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 5:
+						str += 5;
+						int += 5;
+						lcu += 10;
+						agi += 5;
+						break;
+					case 6:
+						str += 15;
+						int += 15;
+						lcu += 10;
+						agi += 15;
+						break;
+				}
+			}
+			clearInterval(qsNextTimer);
 
+
+			if( level == 5 )
+				$('#teemo').attr("src","image/iqtest/teemoAns.png");
+			$('#timeRow').css('display','none');
+			$('#mytimeHeight').css('height','80px');
+			showTimer = setInterval(reset,3000);
+		}
 
 		function change(){
-			document.location.href="iqtest-result.html";
+			storage['grade'] = grade;
+			storage['str'] = str;
+			storage['int'] = int;
+			storage['lcu'] = lcu;
+			storage['agi'] = agi;
+			window.location="iqtest-result.html";
 		}
-
 
 		window.addEventListener('load',function(){
 			// 第一題
-			qsNext = setInterval(countdown,800);
+			qsNextTimer = setInterval(countdown,800);
 			for(i = 0; i<=3; i++){
 				document.getElementsByClassName("opop")[i].onclick = show;
 			}
