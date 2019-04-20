@@ -78,7 +78,7 @@
                         <?php
 try {
     require_once("php/connectPirates.php");
-    $sql = "select * from customlist;";
+    $sql = "select * from customlist ORDER BY modelId DESC;";
     $product=$pdo->query($sql);
 
     if ($product->rowCount() == 0) {
@@ -188,7 +188,7 @@ try {
     </div>
     <script src="../js/wavebtn.js"></script>
     
-    <script src="../backstage/js/backOfficialMerch.js"></script>
+    <script src="js/backOfficialMerch.js"></script>
 </body>
 
 </html>
