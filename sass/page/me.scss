@@ -10,9 +10,9 @@
 //媒體查詢
 @import'../base/media';
 
-// * {
-//     outline: .5px solid rgb(240, 9, 9);
-// }
+* {
+    outline: .5px solid rgb(125, 131, 211);
+}
 
 body {
     background-image: url('../image/background/BgPage.png');
@@ -74,7 +74,8 @@ body {
 // 第一屏
 .wrap {
     max-width: 1200px;
-    margin: 120px auto;
+    margin: auto;
+    margin-top: 120px;
     padding: 10px;
     box-sizing: border-box;
     position: relative;
@@ -292,7 +293,8 @@ body {
 // 紀錄頁籤
 .filewrap {
     // width: 800px;
-    margin: 120px auto;
+    margin: 0 auto;
+    margin-top: 20px;
     padding: 10px;
     box-sizing: border-box;
     position: static;
@@ -340,6 +342,7 @@ body {
         overflow-y: hidden;
         float: left;
         width: 90%;
+        height: 400px;
         box-sizing: border-box;
 
         .tabs-panel1 {
@@ -363,6 +366,8 @@ body {
         margin: auto;
         perspective: 1000px;
         display: flex;
+        overflow: hidden;
+        max-width: 1900px;
     }
 
     .meTitle {
@@ -411,11 +416,13 @@ body {
             transform: rotateX(50deg);
             animation-name: lyingDown;
             animation-duration: .5s;
+            z-index: -1;
 
             &:hover {
                 transform: rotateX(0deg);
                 animation-name: standUp;
                 animation-duration: .5s;
+                z-index: 50;
             }
 
             .meNews {
@@ -426,7 +433,7 @@ body {
 
     }
 
-    //個人資訊動畫
+    //個人資訊動畫站起來
     @keyframes standUp {
         0% {
             transform: rotateX(50deg);
@@ -454,6 +461,7 @@ body {
         }
     }
 
+    //個人資訊動畫躺下
     @keyframes lyingDown {
         0% {
             transform: rotateX(0deg);
@@ -485,33 +493,36 @@ body {
     // 紀錄頁籤---------------------
     .filewrap {
         max-width: 600px;
+        margin-top: 60px;
         position: absolute;
+        padding-left: 65px;
         // right: 180px;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        
+        left: 1500px;
+
+        #js-tabs1 {
+            position: relative;
+            transform: rotateX(50deg);
+            margin: 25px;
+
+            &:hover {
+                transform: rotateX(0deg);
+                animation-name: standUp;
+                animation-duration: .5s;
+                z-index: 1;
+            }
+        }
+
+
     }
 
 
 
-    #js-tabs1 {
-        position: relative;
-        transform: rotateX(50deg);
-        margin: 25px;
-    }
 
-    #js-tabs1:hover {
-        transform: rotateX(0deg);
-        animation-name: standUp;
-        animation-duration: .5s;
-    }
+
+
 
 
 
 
 
 }
-
-@media screen and(min-width: 1200px) {}
