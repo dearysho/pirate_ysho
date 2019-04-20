@@ -23,9 +23,11 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin: auto;
+    outline: 2px #000 solid;
     @media screen and (min-width: $padV){}
     @media screen and (min-width: $pc){
         width: 1200px;
+        height: 550px;
     }
     .hotIssueBox{
         //margin: 1rem 1rem 0;
@@ -108,6 +110,50 @@ body {
         }
     }
 }
+//放火燒
+#hotIssue{
+    //-webkit-clip-path: url(../../image/bar/take_4.svg);
+    animation: firePath 10s;
+    //background-color: #f00;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: bottom right;
+    -webkit-mask-size: contain;
+    // position: relative;
+    // &::after{
+    //     content: url(../../image/bar/fire.gif);
+    //     display: block;
+    //     width: 20%;
+    //     height: 100%;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    // }
+}
+@keyframes firePath{
+     0%{ -webkit-mask-image: url(../../image/bar/take_11.svg); }
+    10%{ -webkit-mask-image: url(../../image/bar/take_10.svg);}
+    20%{ -webkit-mask-image: url(../../image/bar/take_9.svg);}
+    30%{ -webkit-mask-image: url(../../image/bar/take_8.svg);}
+    40%{ -webkit-mask-image: url(../../image/bar/take_7.svg);}
+    50%{ -webkit-mask-image: url(../../image/bar/take_6.svg);}
+    60%{ -webkit-mask-image: url(../../image/bar/take_5.svg);}
+    70%{ -webkit-mask-image: url(../../image/bar/take_4.svg);}
+    80%{ -webkit-mask-image: url(../../image/bar/take_3.svg);}
+    90%{ -webkit-mask-image: url(../../image/bar/take_2.svg);}
+    100%{ -webkit-mask-image: url(../../image/bar/take_1.svg);}
+    0%{ -webkit-mask-image: url(../../image/bar/take_11.svg); }
+    10%{ -webkit-mask-image: url(../../image/bar/take_10.svg);}
+    20%{ -webkit-mask-image: url(../../image/bar/take_9.svg);}
+    30%{ -webkit-mask-image: url(../../image/bar/take_8.svg);}
+    40%{ -webkit-mask-image: url(../../image/bar/take_7.svg);}
+    50%{ -webkit-mask-image: url(../../image/bar/take_6.svg);}
+    60%{ -webkit-mask-image: url(../../image/bar/take_5.svg);}
+    70%{ -webkit-mask-image: url(../../image/bar/take_4.svg);}
+    80%{ -webkit-mask-image: url(../../image/bar/take_3.svg);}
+    90%{ -webkit-mask-image: url(../../image/bar/take_2.svg);}
+    100%{ -webkit-mask-image: url(../../image/bar/take_1.svg);}
+}
+
 
 //最新情報
 #newsWrapCont{
@@ -157,11 +203,14 @@ body {
         #newsWrapListGps{
             background-color: #7ccbbd;
         }
-        #newsWrapListTtraining{
+        #newsWrapListTraining{
             background-color: #ffe3ac;
         }
         #newsWrapListOther{
             background-color: #fbc9bc;
+        }
+        #newsWrapListNavy{
+            background-color: #45a0c7;
         }
     }
 }
