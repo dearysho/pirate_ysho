@@ -6,7 +6,7 @@ $errMsg = "";
 try {
     require_once("connectPirate.php");
     $sql = "select * from manager";
-    $manager=$pdo->query($sql);
+    $manager = $pdo->query($sql);
 } catch (PDOException $e) {
     $errMsg .=  "錯誤原因" . $e->getMessage() . "<br>";
     $errMsg .=  "錯誤行號" . $e->getLine() . "<br>";
@@ -28,9 +28,9 @@ echo $errMsg;
 
 <body>
     <div class="backstage">
-    <?php
-       require_once("backMenu.php");
-    ?>
+        <?php
+        require_once("backMenu.php");
+        ?>
         <div class="contentWrap">
             <div class="content">
                 <h3 class="titlePri">管理員帳號管理</h3>
@@ -42,15 +42,15 @@ echo $errMsg;
                             <th>權限</th>
                         </tr>
                         <?php
-                        while ($memberRow = $manager -> fetch()) {
+                        while ($memberRow = $manager->fetch()) {
                             ?>
-                            <td><?php echo $memberRow['managerAcc']?></td>
-                            <td><?php echo $memberRow['managerSignUpTime']?></td>
-                            <td><?php echo $memberRow['managerStatus']?></td>
-                        </tr>
+                            <td><?php echo $memberRow['managerAcc'] ?></td>
+                            <td><?php echo $memberRow['managerSignUpTime'] ?></td>
+                            <td><?php echo $memberRow['managerStatus'] ?></td>
+                            </tr>
                         <?php
-                        }
-                        ?>
+                    }
+                    ?>
                     </table>
                 </div>
                 <div class="pagination">

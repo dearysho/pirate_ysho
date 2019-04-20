@@ -6,8 +6,8 @@ $errMsg = "";
 try {
     require_once("connectPirate.php");
     $sql = "select * from member";
-    $members=$pdo->query($sql);
-    $totalRec= $members -> fetchColumn();
+    $members = $pdo->query($sql);
+    $totalRec = $members->fetchColumn();
 } catch (PDOException $e) {
     $errMsg .=  "錯誤原因" . $e->getMessage() . "<br>";
     $errMsg .=  "錯誤行號" . $e->getLine() . "<br>";
@@ -29,71 +29,53 @@ echo $errMsg;
 
 <body>
     <div class="backstage">
-    <?php
-       require_once("backMenu.php");
-    ?>
+        <?php
+        require_once("backMenu.php");
+        ?>
     </div>
-        <div class="contentWrap">
-            <div class="content">
-                <h3 class="titlePri">會員管理</h3>
-                <div class="dataTable">
-                    <table>
-                        <tr>
-                            <!-- <th>編號</th> -->
-                            <th>帳號</th>
-                            <th>ID</th>
-                            <th>等級</th>
-                            <th>金錢</th>
-                            <th>得票數</th>
-                            <th>海賊船</th>
-                            <th>狀態</th>
-                            <!-- <th>編輯狀態</th> -->
-                        </tr>
-                        
-                           
-                            <!-- <td>
-                                <img src="../image/ship/ship.png" alt="">
-                            </td>
-                            <td>
-                                <label>
-                                    <input type="radio" name="commentRight" value="1" checked>
-                                    正常
-                                </label>
-                                <label>
-                                    <input type="radio" name="commentRight" value="0">
-                                    禁言
-                                </label>
-                            </td>
-                            <td><img src="../image/market/edit.png" alt=""></td>
-                        </tr> -->
-                      
-                        <?php
-                        while ($memberRow = $members -> fetch()) {
-                            ?>
-                            <td><?php echo $memberRow['memId']?></td>
-                            <td><?php echo $memberRow['memNic']?></td>
-                            <td><?php echo $memberRow['memLv']?></td>
-                            <td><?php echo $memberRow['memMoney']?></td>
-                            <td><?php echo $memberRow['shipTotalVote']?>
-                            </td><td><?php echo $memberRow['shipImgAll']?></td>
-                            <td>
-                                <label>
-                                    <input type="radio" name="accStatus" value="1" <?php echo $memberRow['accStatus'] == 1? 'checked':''?> >
-                                    正常
-                                </label>
-                                <label>
-                                    <input type="radio" name="accStatus" value="0" <?php echo $memberRow['accStatus'] == 0? 'checked':''?> >
-                                    禁言
-                                </label>
-                            </td>
-                        </tr>
-                        <?php
-                        }
+    <div class="contentWrap">
+        <div class="content">
+            <h3 class="titlePri">會員管理</h3>
+            <div class="dataTable">
+                <table>
+                    <tr>
+                        <th>帳號</th>
+                        <th>ID</th>
+                        <th>等級</th>
+                        <th>金錢</th>
+                        <th>得票數</th>
+                        <th>海賊船</th>
+                        <th>狀態</th>
+                        <!-- <th>編輯狀態</th> -->
+                    </tr>
+                    <?php
+                    while ($memberRow = $members->fetch()) {
                         ?>
-                    </table>
-                </div>
-                <div class="pagination">
-                    <!-- <ul>
+                        <td><?php echo $memberRow['memId'] ?></td>
+                        <td><?php echo $memberRow['memNic'] ?></td>
+                        <td><?php echo $memberRow['memLv'] ?></td>
+                        <td><?php echo $memberRow['memMoney'] ?></td>
+                        <td><?php echo $memberRow['shipTotalVote'] ?>
+                        </td>
+                        <td><?php echo $memberRow['shipImgAll'] ?></td>
+                        <td>
+                            <label>
+                                <input type="radio" name="accStatus" value="1" <?php echo $memberRow['accStatus'] == 1 ? 'checked' : '' ?>>
+                                正常
+                            </label>
+                            <label>
+                                <input type="radio" name="accStatus" value="0" <?php echo $memberRow['accStatus'] == 0 ? 'checked' : '' ?>>
+                                禁言
+                            </label>
+                        </td>
+                        </tr>
+                    <?php
+                }
+                ?>
+                </table>
+            </div>
+            <div class="pagination">
+                <ul>
                         <li id="left"> <a href="#">
                                 < </a> </li> <li> <a href="#">1</a></li>
                         <li> <a href="#">2</a></li>
@@ -101,11 +83,11 @@ echo $errMsg;
                         <li> <a href="#">4</a></li>
                         <li> <a href="#">5</a></li>
                         <li class="right"> <a href="#"> > </a></li>
-                    </ul> -->
-                    
-                </div>
+                    </ul>
+
             </div>
         </div>
+    </div>
     </div>
     <script src="../js/wavebtn.js"></script>
 </body>
