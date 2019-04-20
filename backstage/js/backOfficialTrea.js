@@ -202,7 +202,7 @@ window.onload = function () {
         console.log(treaNo);
 
         $.ajax({
-            url: 'php/editTrea.php',
+            url:'php/editTrea.php',
             data: {
                 doType: 'update',
                 treaName: treaName,
