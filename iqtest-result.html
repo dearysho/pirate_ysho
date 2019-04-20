@@ -170,7 +170,11 @@
 		int = parseInt(storage['int']);//智力
 		lcu = parseInt(storage['lcu']);//幸運
 		agi = parseInt(storage['agi']);//敏捷
-		$('#grade').text(`${grade} `);
+		if( grade == '98' )
+			$('#grade').text('100 ');
+		else
+			$('#grade').text(`${grade} `);
+		
 		$('#correct').text(` ${grade/14} `);
 		if( grade>90 )
 			$('#abc').text(`A`);
