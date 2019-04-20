@@ -1,0 +1,14 @@
+// 字型設定
+@import '../base/font';
+// reset
+@import '../base/reset';
+body {
+    background-image: url(../image/background/BgPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*{
+	outline: 1px solid red;
+	box-sizing:border-box;
+	margin:0;padding:0;
+}
