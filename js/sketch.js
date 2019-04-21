@@ -1,0 +1,81 @@
+var star, rock, rock2, rock3, rock4, treaBox, marine;
+var endTimer
+var a;
+if(a>=200)
+	setup();
+function setup(){
+	createCanvas(windowWidth, windowHeight);
+	a=0;
+	console.log(a);
+
+	star = createSprite(random(0, width), random(0, height));
+	star.addImage(loadImage('image/play/game/asterisk_circle0006.png'));
+
+	rock = createSprite(200,400);
+	rock.addImage(loadImage('image/play/game/rock1.png'));
+
+	rock2 = createSprite(400,300);
+	rock2.addImage(loadImage('image/play/game/rock2.png'));
+
+	rock3 = createSprite(800,350);
+	rock3.addImage(loadImage('image/play/game/rock2.png'));
+
+	rock4 = createSprite(640,200);
+	rock4.addImage(loadImage('image/play/game/rock2.png'));
+
+	treaBox = createSprite(200,600);
+	treaBox.addImage(loadImage('image/play/game/treaBox.png'));
+
+	marine= createSprite(300,300);
+	marine.addImage(loadImage('image/play/game/marine.png'));
+
+	collectibles = new Group();
+	for(var i=0; i<10; i++){
+		var dot = createSprite(random(0,width),random(0,height));
+		dot.addImage(loadImage('image/play/game/coin.png'));
+    	collectibles.add(dot);
+	}
+}
+function draw(){
+	background(51,166,184);
+	star.position.x = mouseX;
+  	star.position.y = mouseY;
+
+  	marine.attractionPoint(0.2,mouseX,mouseY);
+  	marine.maxSpeed = 7;
+
+  	star.collide(rock);
+  	star.collide(rock2);
+  	star.collide(rock3);
+  	star.collide(rock4);
+  	star.displace(treaBox);
+	drawSprites();
+
+	treaBox.overlap(collectibles, collect);
+	marine.overlap(star, collect2);
+}
+
+function collect(collector, collected)
+{
+  collected.remove();
+}
+
+function collect2(collector, collected)
+{
+  collected.remove();
+  c = color('rgba(255, 0, 0, 1)');
+  fill(c);
+  textSize(24);
+  textAlign(CENTER, CENTER);
+  text("Game Over!!",
+    width/2, height*0.67);
+  a+=1;
+  console.log(a);
+  if(a==200)
+  endGame();
+}
+function endGame(){
+	$('#defaultCanvas0').css('display','none');
+	$('.button_border').css('display','block');
+	$('#playSpark').css('clipPath','circle(5px)');
+}
