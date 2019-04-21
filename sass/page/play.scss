@@ -128,11 +128,14 @@ body {
 	margin-top: 25px;
 }
 // gameTitle
+#game{
+	height: 100vh;
+}
 #gameTitle{
 	position: relative;
 	height: 75px;
 	width: 1200px;
-	margin: 100px auto;
+	margin: 100px auto 100px;
 }
 #gameTitle h2{
 	top: 25px;
@@ -142,7 +145,7 @@ body {
   position: relative;
   margin: 0 auto;
   width: 1024px;
-  height: 500px;
+  height: 600px;
 }
 /*rankTitle*/
 #rankTitle {
@@ -161,6 +164,9 @@ body {
   text-align: center;
 }
 /*rankArea*/
+#rank{
+	height: 100vh;
+}
 #rankArea{
   margin: 0 auto;
   width: 1200px;
