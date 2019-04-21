@@ -153,8 +153,9 @@ body {
 //放火燒
 #hotIssue{
     //-webkit-clip-path: url(../../image/bar/take_4.svg);
-    animation: firePath 10s;
+    //animation: firePath 10s;
     //background-color: #f00;
+    -webkit-mask-image: url(../../image/bar/take_9.svg);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: bottom right;
     -webkit-mask-size: contain;
@@ -169,8 +170,14 @@ body {
     //     left: 0;
     // }
 }
+#fire{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 @keyframes firePath{
-     0%{ -webkit-mask-image: url(../../image/bar/take_11.svg); }
+     0%{ -webkit-mask-image: url(../../image/bar/take_11.svg);
+        opacity: 0.4; }
     10%{ -webkit-mask-image: url(../../image/bar/take_10.svg);}
     20%{ -webkit-mask-image: url(../../image/bar/take_9.svg);}
     30%{ -webkit-mask-image: url(../../image/bar/take_8.svg);}
