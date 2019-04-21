@@ -2,7 +2,7 @@
             <div id="logo">
                 <img src="../image/logo.svg" alt="">
             </div>
-            <p>Hi~ 管理員 <span id="manager"></span>♥</p>
+            <p>Hi~ 管理員 <span id="manager"><?php echo $_SESSION['managerAcc'] ?></span>♥</p>
             <p>你好^___^</p>
             <ul class="menuUl">
                 <li>
@@ -32,7 +32,7 @@
                 <li>
                     <a href="backBarCommend.html">討論區留言檢舉管理</a>
                 </li>
-                <a href="#" class="btnpri" id="logout">
+                <a href="backLogout.php" class="btnpri" id="logout">
                     <span>登出</span>
                 </a>
             </ul>

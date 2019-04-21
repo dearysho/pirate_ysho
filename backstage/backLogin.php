@@ -4,7 +4,7 @@ session_start();
 $errMsg = "";
 
 try {
-    require_once("php/connectPirate.php");
+    require_once("connectPirates.php");
     $sql = "select * from manager where managerAcc = :managerAcc and managerPsw = :managerPsw";
     $manager = $pdo->prepare($sql);
     $manager->bindValue(":managerAcc", $_REQUEST["magId"]);
@@ -15,7 +15,7 @@ try {
     } else {
         $managerRow = $manager -> fetch();
         $_SESSION["managerAcc"] = $managerRow["managerAcc"];
-        header('backMember.php');
+        header('location:backMember.php');
 
     }
 
