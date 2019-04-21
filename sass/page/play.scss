@@ -90,7 +90,7 @@ body {
 	left: 260px;
 }
 #blueArea{
-	background-color: #0089A7;
+	background-color: #114d7c;
 	// opacity: 0.6;
 	position: absolute;
 	top: 350px;
@@ -136,4 +136,322 @@ body {
 }
 #gameTitle h2{
 	top: 25px;
+}
+/*now*/
+#playArea{
+  position: relative;
+  margin: 0 auto;
+  width: 1024px;
+  height: 500px;
+}
+/*rankTitle*/
+#rankTitle {
+  position: relative;
+  width: 1200px;
+  margin: 100px auto 50px; }
+
+#rankTitle h2 {
+  top: 25px;
+  margin-bottom: 80px;
+}
+
+#rankTitle p{
+  font-family: Adobe Heiti Std R;
+  font-size: 1.25rem;
+  text-align: center;
+}
+/*rankArea*/
+#rankArea{
+  margin: 0 auto;
+  width: 1200px;
+  height: 700px;
+}
+#rankList{
+  font-family: Adobe Heiti Std R;
+  display: inline-block;
+  float: left;
+  width: 486px;
+  height: 650px;
+  margin: 0px 3px 7px 7px;
+  background-color: #a6937c;
+  outline: 7px #a6937c double;
+}
+#rankPaper{
+  position: relative;
+  display: inline-block;
+  width: 700px;
+  height: 650px;
+  margin-right: -4px;
+}
+/*paperArea*/
+/*rankListBox1*/
+#rankListBox1{
+  position: relative;
+  width: 486px;
+  height: 120px;
+}
+#gobefore{
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 13px;
+  font-size: 1.25rem;
+  letter-spacing: 1.25px;
+}
+#gonext{
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 13px;
+  font-size: 1.25rem;
+  letter-spacing: 1.25px;
+}
+#rankListBox1:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 13px;
+  height: 3px;
+  width: 460px;
+  background-color: #fff;
+}
+#rankListTitle{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  display: inline-block;
+  letter-spacing: 1.5px;
+  text-align: center;
+  font-size: 1.5em;
+}
+#rankListColName{
+  position: absolute;
+  bottom: 10px;
+  width: 460px;
+  left: 13px;
+  font-size: 1.25rem;
+  letter-spacing: 1.25px;
+}
+#rankListColName span:nth-child(1){
+  margin-left: 20px;
+}
+#rankListColName span:nth-child(2){
+  margin-left: 20px;
+}
+#rankListColName span:nth-child(3){
+  margin-left: 240px;
+}
+/*rankListBox2*/
+#rankListBox2{
+  height: 460px;
+  color: #fff;
+}
+.playerList{
+  cursor: pointer;
+  height: 50px;
+  width: 460px;
+  margin: 0 auto;
+  font-size: 1.25em;
+  position: relative;
+}
+.playerList:nth-child(1){
+  margin-top: 10px;
+}
+.playerList span{
+  line-height: 50px;
+  position: absolute;
+}
+.playerList span:nth-child(1){
+  left: 40px;
+}
+.playerList span:nth-child(2){
+  left: 77px;
+}
+.playerList span:nth-child(3){
+  left: 370px;
+}
+.playerList:after{
+  content:"";
+  position: absolute;
+  width: 460px;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #fff;
+}
+.spark{
+	background-color: #000;
+	border-radius: 10px;
+}
+// paperFrame
+#paperFrame{
+	position: relative;
+	width: 240px;
+	height: 320px;
+	margin-top: 200px;
+	margin-left: 100px;
+	font-family: 王漢宗特明體繁;
+}
+.myBoat{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-68%);
+}
+.myName{
+	text-align: center;
+	width: 200px;
+	font-size: 2em;
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	letter-spacing: 1.75px;
+	transform: translateX(-50%);
+}
+.myGrade{
+	width: 197px;
+	font-size: 1.5em;
+	position: absolute;
+	top: 87%;
+	left: 50%;
+	letter-spacing: 1.5px;
+	transform: translateX(-50%);
+}
+// rank1~10
+.rankFrame{
+	transition: all 2s;
+	border: 1px solid black;
+	position: absolute;
+	height: 320px;
+}
+.rank0{
+	transform: scale(1.05);
+	box-shadow: 5px 5px #fff14e,
+	-5px 5px #fff14e,
+	5px -5px #fff14e,
+	-5px -5px #fff14e;
+}
+.rank1{
+	transform: scale(1.02);
+	z-index: -1;
+	top: -15px;
+	left: 20px;
+	box-shadow: 5px 5px #c1c1c1,
+	-5px 5px #c1c1c1,
+	5px -5px #c1c1c1,
+	-5px -5px #c1c1c1;
+}
+.rank2{
+	transform: scale(1);
+	z-index: -2;
+	top: -30px;
+	left: 40px;
+	box-shadow: 5px 5px #a86c48,
+	-5px 5px #a86c48,
+	5px -5px #a86c48,
+	-5px -5px #a86c48;
+}
+.rank3{
+	z-index: -3;
+	top: -45px;
+	left: 60px;
+}
+.rank4{
+	z-index: -4;
+	top: -60px;
+	left: 80px;
+}
+.rank5{
+	z-index: -5;
+	top: -75px;
+	left: 100px;
+}
+.rank6{
+	z-index: -6;
+	top: -90px;
+	left: 120px;
+}
+.rank7{
+	z-index: -7;
+	top: -105px;
+	left: 140px;
+}
+.rank8{
+	z-index: -8;
+	top: -120px;
+	left: 160px;
+}
+.rank9{
+	z-index: -9;
+	top: -135px;
+	left: 180px;
+}
+// btn
+.button_border{
+	display: inline-block;
+	position: absolute;
+    transition: all .5s ease 1s;
+    opacity: 1;
+    width: 88px;
+    height: 88px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    cursor: pointer;
+}
+.icon_movie {
+    background-image: url('../image/play/iconMovie.png');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 24px;
+    display: block;
+    transition: all .4s;
+}
+.button_border:hover .border_in .icon_movie{
+	transform:scale(.8);
+}
+.button_border:hover .border_in{
+	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
+}
+.button_border:hover .border_out{
+	animation: borderCircle 1s linear infinite;
+}
+.border_in {
+	transition: 0.4s;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    display: block;
+}
+.border_in:hover {
+	background-color: #fff;
+}
+.border_out {
+    width: 88px;
+    height: 88px;
+    -webkit-animation: borderCircle 3s linear infinite;
+    animation: borderCircle 3s linear infinite;
+}
+.border{
+	fill: none;
+	stroke: #fff;
+}
+@keyframes borderCircle{
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
