@@ -4,7 +4,7 @@
 
 
 #homeGame,#homeMarket,#homeBar,#homeEnd{
-    margin-top: 250px;
+    margin-top: 100vh;
 }
 
 .clearfix{
@@ -41,13 +41,16 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 }
 #WrapMap{
     width: 100%;
-    overflow: hidden;
+    // overflow-x: hidden;
     // position: fixed;
-    z-index: -1;
+    height: 100vh;
+    // z-index: -1;
 }
 .homeMap{
     width: 1200px; //之後隨著視角，調整為固定寬度及scale translate之類的
     position: relative;
+    // transition-duration: 0.1s;
+    position: fixed;
 }
 #homeMapImg{
     width: 100%;
@@ -61,9 +64,10 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     top: 40%;
     left: 9%;
     text-align: center;
+    position: fixed;
 }
 #wrapShipArea img{
-    width: 100%;
+    // width: 100%;
     position: absolute;
 }
 
@@ -81,23 +85,23 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     opacity: 0.1;
 }
 #homeMapGame{
-    top: 38%;
-    left: 25%;
+    top: 43%;
+    left: 29%;
     width: 14%;
 }
 #homeMapMarket{
-    top: 32%;
-    left: 40%;
+    top: 36%;
+    left: 43%;
     width: 15%;
 }
 #homeMapBar{
-    top: 42%;
-    left: 56%;
+    top: 47%;
+    left: 59%;
     width: 12%;
 }
 #homeMapMe{
     top: 52%;
-    left: 70%;
+    left: 74%;
     width: 8%;
 }
 #mapGameImg,#mapMarketImg,#mapBarImg,#mapMeImg{
@@ -155,7 +159,8 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     margin: auto;
 }
 #shipArea{
-    height: 150px;
+    width: 600px;
+    height: 650px;
 }
 
 //調整城市圖片可見度
@@ -168,12 +173,12 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
 }
 
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width:1024px){
     //.textEmphasis設回3rem，letter-spacing: 50px;
     .textEmphasis{
         font-size: 3rem;
     }
-    .mapLink{width: 200px;}
+    .mapLink{width: 150px;}
 
     #homeBannerLogo{
         width: 250px;
@@ -185,16 +190,18 @@ p{ //這裡其實不懂為何_font設定的在瀏覽器不執行
     .homeMap{
         width: 100%; //之後隨著視角，調整為固定寬度及scale translate之類的
         transform: scale(1) translateX(0%) translateY(0px);
+        transform-origin: 14% 62%;
     }
     //調整成為海賊的位置到中間
     #wrapShipArea{
         // width: 15%;
-        top: 40%;
-        left: 14%;
+        top: 40%; //9%
+        left: 6%;
         right: auto;
     }
     #shipArea{
-        height: 200px;
+        // height: 200px;
+        transform: scale(0.3);
     }
 
 }
@@ -257,11 +264,11 @@ header.homeHeadHide{
 //船
 #shipArea{
     position: relative;
-    height: 280px;
-    width: 300px;
-    margin: auto;
+    // height: 280px;
+    // width: 300px;
+    // margin: auto;
 }
-#partSail,#partBody,#drawFrame{
+#partSail,#partHead,#partBody,#drawFrame{
     width: 300px;
     position: absolute;
     top: 0;
@@ -412,19 +419,19 @@ header.homeHeadHide{
         width: 1200px;
         margin: auto;
     }
-    #shipArea{
-        float: left;
-    }
+    // #shipArea{
+    //     float: left;
+    // }
     #DIYPanel{
         float: right;
         margin-top: 100px;
     }
-    #shipArea{
-        position: relative;
-        height: 700px;
-    }
-    #partSail,#partBody,#drawFrame{
-        width: 750px;
+    // #shipArea{
+    //     position: relative;
+    //     height: 650px;
+    // }
+    #partSail,#partHead,#partHead,#partBody,#drawFrame{
+        width: 600px;
         position: absolute;
         top: 0;
         left: 0;
