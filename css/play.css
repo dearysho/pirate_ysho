@@ -559,5 +559,13 @@ body {
     transform: rotate(0); }
   100% {
     transform: rotate(360deg); } }
+#playSpark {
+  background-color: #66bab7;
+  width: 1024px;
+  height: 600px;
+  margin: auto;
+  transition: all 1s ease;
+  -webkit-clip-path: circle(5px);
+  background-color: #c0392b; }
 
 /*# sourceMappingURL=play.css.map */
