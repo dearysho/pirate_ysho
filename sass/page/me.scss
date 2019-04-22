@@ -143,6 +143,10 @@ body {
                     margin: 10px 0;
                     padding: 0px 20px;
                     font-family: $fofaText;
+
+                    a {
+                        color: $brown;
+                    }
                 }
             }
 
@@ -169,7 +173,7 @@ body {
                 .but {
                     position: absolute;
                     //opacity: 0;
-                    
+
                 }
 
                 #butS {
@@ -404,7 +408,7 @@ body {
         perspective: 1000px;
         margin: 0px auto;
         z-index: 20;
-        
+
 
         .drawing {
             position: relative;
@@ -417,8 +421,8 @@ body {
             .meShip {
                 position: absolute;
                 transform: rotateX(-50deg);
-                top: -410px;
-                right: 130px;
+                top: -330px;
+                right: 80px;
             }
 
 
@@ -430,23 +434,25 @@ body {
             transform-style: preserve-3d;
             transform: rotateX(50deg);
             transform-origin: bottom;
-            animation-name: lyingDown;
-            animation-duration: .5s;
+            animation-name: lyingDown .5s;
             // z-index: -10;
 
             &:hover {
                 transform: rotateX(0deg);
-                animation-name: standUp;
-                animation-duration: .5s;
-                // z-index: 50;
+                animation: standUp .5s;
             }
-            
+
 
             .meNews {
                 display: flex;
             }
 
         }
+
+        // .boxUP{
+        //     transform: rotateX(0deg);
+        //     animation: standUp .5s;
+        // }
 
     }
 

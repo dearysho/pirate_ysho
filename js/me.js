@@ -36,12 +36,16 @@ function jsTabs1(evt, tabId) {
 
 
 function standUp(){
-alert("點殺小1");
+console.log("點殺小1");
+// var aa = document.getElementById("boxNews");
+// aa.setAttribute("class", boxUp);
+
+
 }
 
 
 function standUPleft(){
-    alert("點殺小2");
+    console.log("點殺小2");
 }
 
 function init(){
