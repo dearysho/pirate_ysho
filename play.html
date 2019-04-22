@@ -11,6 +11,7 @@
 	<script src="js/p5.js" type="text/javascript"></script>
 	<script src="js/p5.play.js" type="text/javascript"></script>
 	<script src="js/sketch.js" type="text/javascript"></script>
+	<script src="js/sketch.js" type="text/javascript"></script>
 	<style type="text/css">
 		#defaultCanvas0{
 			position: fixed;
@@ -44,17 +45,17 @@
 		<div id="gameOrGps">
 			<div id="gameArea">
 				<div id="element1" class="ele">
+					<div class="black"></div>
 					<video autobuffer autoloop loop autoplay="autoplay" class="myVideo">
 						<source src="image/play/video.mp4">
 					</video>
-					<img src="image/play/chanlenge1.png" alt="change">
 					<div id="blueArea">
 						<p>通關獎勵</p>
 						<p>金幣 100枚<br>經驗值 50點<br>消耗一點體力點</p>
 					</div>
 				</div>
 				<div id="element2" class="ele">
-					<img src="image/play/chanlenge2.png" alt="change">
+					<div class="black"></div>
 					<video autobuffer autoloop loop autoplay="autoplay" class="myVideo">
 						<source src="image/play/video.mp4">
 					</video>
@@ -64,7 +65,7 @@
 					</div>
 				</div>
 				<div id="element3" class="ele">
-					<img src="image/play/chanlenge3.png" alt="change">
+					<div class="black"></div>
 					<video autobuffer autoloop loop autoplay="autoplay" class="myVideo">
 						<source src="image/play/video.mp4">
 					</video>
@@ -73,6 +74,9 @@
 						<p>金幣 300枚<br>經驗值 100點<br>消耗一點體力點</p>
 					</div>
 				</div>
+				<img src="image/play/chanlenge1.png" alt="change" id="eleImg1">
+				<img src="image/play/chanlenge2.png" alt="change" id="eleImg2">
+				<img src="image/play/chanlenge3.png" alt="change" id="eleImg3">
 			</div>
 			<div id="gpsArea"></div>
 		</div>
@@ -85,7 +89,6 @@
 		</div>
 		<div id="playSpark"></div>
 		<div id="playArea">
-			<script src="js/sketch.js" type="text/javascript"></script>
 			
 			<div class="button_border">
 				<div class="border_in">
@@ -255,25 +258,34 @@
 				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
 				$("#element2").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
 				$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element1 img").css('display','block');
-				$("#element2 img").css('display','none');
-				$("#element3 img").css('display','none');
+				$("#eleImg1").css('display','block');
+				$("#eleImg2").css('display','none');
+				$("#eleImg3").css('display','none');
+				$("#element1 .black").css('display','none');
+				$("#element2 .black").css('display','block');
+				$("#element3 .black").css('display','block');
 			});
 			$('#element2').mouseover(function(){
 				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
 				$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
 				$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element2 img").css('display','block');
-				$("#element1 img").css('display','none');
-				$("#element3 img").css('display','none');
+				$("#eleImg1").css('display','none');
+				$("#eleImg2").css('display','block');
+				$("#eleImg3").css('display','none');
+				$("#element1 .black").css('display','block');
+				$("#element2 .black").css('display','none');
+				$("#element3 .black").css('display','block');
 			});
 			$('#element3').mouseover(function(){
 				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
 				$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
 				$("#element3").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element3 img").css('display','block');
-				$("#element1 img").css('display','none');
-				$("#element2 img").css('display','none');
+				$("#eleImg1").css('display','none');
+				$("#eleImg2").css('display','none');
+				$("#eleImg3").css('display','block');
+				$("#element1 .black").css('display','block');
+				$("#element2 .black").css('display','block');
+				$("#element3 .black").css('display','none');
 			});
 			// spark
 			$('.playerList').click(function(e){

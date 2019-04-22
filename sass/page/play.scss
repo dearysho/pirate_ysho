@@ -485,3 +485,36 @@ body {
 	top: -10px;
 	left: -100px;
 }
+// 
+#eleImg1{
+  /*display: none;*/
+  position: absolute;
+  left: 110px;
+  top: 310px;
+}
+#eleImg2{
+  display: none;
+  position: absolute;
+  left: 215px;
+  top: 310px;
+}
+#eleImg3{
+  display: none;
+  position: absolute;
+  left: 320px;
+  top: 310px;
+}
+.black{
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .6;
+  width: 450px;
+  height: 500px;
+}
+#element1 .black{
+  display: none;
+}
