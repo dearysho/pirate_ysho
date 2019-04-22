@@ -37,8 +37,8 @@ function jsTabs1(evt, tabId) {
 
 function standUp(){
 console.log("點殺小1");
-// var aa = document.getElementById("boxNews");
-// aa.setAttribute("class", boxUp);
+var boxUP = document.getElementById('boxNews');
+boxUP.setAttribute("class", "boxUP");
 
 
 }

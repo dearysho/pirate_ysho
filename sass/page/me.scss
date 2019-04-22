@@ -437,10 +437,10 @@ body {
             animation-name: lyingDown .5s;
             // z-index: -10;
 
-            &:hover {
-                transform: rotateX(0deg);
-                animation: standUp .5s;
-            }
+            // &:hover {
+            //     transform: rotateX(0deg);
+            //     animation: standUp .5s;
+            // }
 
 
             .meNews {
@@ -449,10 +449,17 @@ body {
 
         }
 
-        // .boxUP{
-        //     transform: rotateX(0deg);
-        //     animation: standUp .5s;
-        // }
+        .boxUP {
+            padding-left: 90px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transform-origin: bottom;
+            animation: standUp .5s;
+
+            .meNews {
+                display: flex;
+            }
+        }
 
     }
 
