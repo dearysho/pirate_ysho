@@ -8,7 +8,7 @@ body {
     background-size: cover;
 }
 *{
-	outline: 1px solid red;
+	// outline: 1px solid red;
 	box-sizing:border-box;
 	margin:0;
 	padding:0;
@@ -20,6 +20,9 @@ body {
     position: relative;
 }
 // titleSec
+#choose{
+	height: 100vh;
+}
 #playTitleSec {
 	width: 1200px;
 	margin: 0 auto 50px;
@@ -70,6 +73,7 @@ body {
 	margin: 0 10px;
 }
 .ele{
+	overflow: hidden;
 	cursor: pointer;
 	position: absolute;
 	background-color: #16a085;
@@ -89,7 +93,7 @@ body {
 	-webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
 	left: 260px;
 }
-#blueArea{
+.blueArea{
 	background-color: #114d7c;
 	// opacity: 0.6;
 	position: absolute;
@@ -98,6 +102,14 @@ body {
 	width: 450px;
 	text-align: center;
 	color: white;
+}
+#boat{
+	position: absolute;
+	z-index: 3;
+	left: 300px;
+	top: 150px;
+	animation: gametop 2s infinite linear;
+	// transform: translate(-50%,-50%);
 }
 #infoArea{
 	z-index: 2;
@@ -109,20 +121,22 @@ body {
 	color: white;
 }
 #eleImg1{
-  /*display: none;*/
   position: absolute;
+  z-index: 4;
   left: 110px;
   top: 310px;
 }
 #eleImg2{
   display: none;
   position: absolute;
+  z-index: 4;
   left: 215px;
   top: 310px;
 }
 #eleImg3{
   display: none;
   position: absolute;
+  z-index: 4;
   left: 320px;
   top: 310px;
 }
@@ -169,12 +183,50 @@ body {
 #gameTitle h2{
 	top: 25px;
 }
-/*now*/
 #playArea{
   position: relative;
   margin: 0 auto;
   width: 1024px;
-  height: 600px;
+  height: 560px;
+  border: 2px solid #a6937c;
+  outline: 7px #a6937c double;
+}
+#playShow{
+	background-image: url('../image/play/playShow.jpg');
+	background-repeat: no-repeat;
+    background-size: cover;
+	width: 550px;
+	height: 430px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	outline: 5px #a6937c double;
+}
+#playnotice{
+	text-align: center;
+	width: 550px;
+	height: 100px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#playnotice p{
+	letter-spacing: 1.2px;
+	line-height: 100px;
+	font-family: $fofaText;
+	font-size: 1.25rem;
+	text-align: center;
+	color: $red;
+}
+#blueAppear{
+	// display: none;
+	opacity: 0;
+	position: absolute;
+	top: 1000px;
+	left: -350px;
+	background: #114d7c;
+	width: 448px;
+	height: 420px;
 }
 /*rankTitle*/
 #rankTitle {
@@ -436,7 +488,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    z-index: 3;
+    z-index: 5;
     cursor: pointer;
 }
 .icon_movie {
@@ -495,6 +547,7 @@ body {
 }
 // playArea
 #playSpark{
+	z-index: 4;
 	top: 0;
 	left: 0;
 	position: absolute;
@@ -512,4 +565,24 @@ body {
 	height: 600px;
 	top: -10px;
 	left: -100px;
+}
+// game
+#defaultCanvas0{
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+}
+// animation
+@keyframes gametop{
+	0%{
+		top: 150px;
+	}
+	50%{
+		top: 200px;
+	}
+	100%{
+		top: 150px;
+	}
 }
