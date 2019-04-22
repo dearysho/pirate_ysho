@@ -168,7 +168,8 @@ body {
                 //按鈕
                 .but {
                     position: absolute;
-
+                    //opacity: 0;
+                    
                 }
 
                 #butS {
@@ -342,7 +343,7 @@ body {
         overflow-y: hidden;
         float: left;
         width: 90%;
-        height: 400px;
+        // height: 400px;
         box-sizing: border-box;
 
         .tabs-panel1 {
@@ -350,11 +351,22 @@ body {
             min-height: 150px;
             overflow: auto;
             padding: 10px;
-            max-height: 200px;
+            max-height: 400px;
         }
 
     }
 
+}
+
+
+.tt {
+    // width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+
+    background-color: #aaf;
 }
 
 
@@ -367,7 +379,7 @@ body {
         perspective: 1000px;
         display: flex;
         overflow: hidden;
-        max-width: 1900px;
+        max-width: 1920px;
     }
 
     .meTitle {
@@ -390,12 +402,15 @@ body {
     .wrap {
         display: flex;
         perspective: 1000px;
-        margin: 60px auto;
+        margin: 0px auto;
+        z-index: 20;
+        
 
         .drawing {
             position: relative;
             margin: 0 20px;
             transform-style: preserve-3d;
+            transform-origin: bottom;
             transform: rotateX(50deg);
 
 
@@ -414,16 +429,18 @@ body {
             padding-left: 90px;
             transform-style: preserve-3d;
             transform: rotateX(50deg);
+            transform-origin: bottom;
             animation-name: lyingDown;
             animation-duration: .5s;
-            z-index: -1;
+            // z-index: -10;
 
             &:hover {
                 transform: rotateX(0deg);
                 animation-name: standUp;
                 animation-duration: .5s;
-                z-index: 50;
+                // z-index: 50;
             }
+            
 
             .meNews {
                 display: flex;
@@ -493,36 +510,31 @@ body {
     // 紀錄頁籤---------------------
     .filewrap {
         max-width: 600px;
-        margin-top: 60px;
+        margin-top: 20px;
+        // margin-right: 40px;
         position: absolute;
-        padding-left: 65px;
-        // right: 180px;
-        left: 1500px;
+        padding-left: 40px;
+        left: 1550px;
+        width: 800px;
+        overflow: visible;
+        // z-index: -1;
+
+        &:hover #js-tabs1 {
+            transform: rotateX(0deg);
+            animation-name: standUp;
+            animation-duration: .5s;
+            z-index: 100;
+            // left: -600px;
+        }
 
         #js-tabs1 {
             position: relative;
             transform: rotateX(50deg);
+            transform-origin: bottom;
             margin: 25px;
-
-            &:hover {
-                transform: rotateX(0deg);
-                animation-name: standUp;
-                animation-duration: .5s;
-                z-index: 1;
-            }
+            // padding-left: 40px;
         }
 
-
     }
-
-
-
-
-
-
-
-
-
-
 
 }
