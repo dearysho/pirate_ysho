@@ -1,6 +1,8 @@
 // function hotIssueBoxContText() {
 //     var text = get
 // }
+//熱門手機14*2
+//熱門桌機50
 function addArt() {
     var artBtn = document.getElementsByClassName('artBtn');
     var artBox = document.getElementById('addFormWrap');
