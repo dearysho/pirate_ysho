@@ -1,20 +1,23 @@
 <!-- php -->
+<!-- 熱門話題 -->
 <?php
-try{
-  require_once("connectPirate.php);
-  $sql = "select limit(6) from articlelist orderby 	artTime";
-  $hotIssue = $pdo->prepare( $sql );
-  $hotIssue->execute();
-  if( $hotIssue->rowCount() == 0 ){ //找不到
-    echo "{}";
-  }else{
-    $hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC);
-    echo json_encode($hotIssueRow);
-  }	
-}catch(PDOException $e){
-  echo $e->getMessage();
-}
+  try{
+    require_once("connectPirate.php");
+    $sql = "select limit(6) from articlelist orderby 	artTime";
+    $hotIssue = $pdo->prepare( $sql );
+    $hotIssue->execute();
+    if( $hotIssue->rowCount() == 0 ){ //找不到
+        echo "{}";
+      }else{
+        $hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($hotIssueRow);
+      };
+  }catch(PDOException $e){
+      echo $e->getMessage();
+    };
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
