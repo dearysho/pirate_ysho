@@ -3,21 +3,14 @@
 <?php
   try{
     require_once("connectPirate.php");
-    $sql = "select limit(6) from articlelist orderby 	artTime";
+    $sql = "select * from articlelist order by artTime DESC limit 6";
     $hotIssue = $pdo->prepare( $sql );
     $hotIssue->execute();
-    if( $hotIssue->rowCount() == 0 ){ //找不到
-        echo "{}";
-      }else{
-        $hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($hotIssueRow);
-      };
+    
   }catch(PDOException $e){
       echo $e->getMessage();
     };
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,99 +39,45 @@
         眾所皆知的熱門八卦你不能不知道
     </p>
     <!-- <img src="image/bar/fire_2.gif" alt="fire" id="fire"> -->
+
     <div id="hotIssue">
+    <?php 
+    while($hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC)){
+    ?>
         <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
+            <a href="javacript:;" class="hotIssueBoxLink">
                 <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
+                    <img src="image/bar/DB/artImg_1.png" alt="洩露情報者">
                 </div>
                 <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
+                    <h4 class="textM"><?php echo $hotIssueRow["artTitle"];?></h4>
                     <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
+                        <?php echo $hotIssueRow["artText"];?>
                     </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
+                    <span class="hotIssueBoxView"><?php echo $hotIssueRow["clickAmt"]?></span>
+                    <span class="hotIssueBoxCommend"><?php echo $hotIssueRow["msgAmt"]?></span>
                 </div>
             </a>
         </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
+    <?php    
+      $arr[]=$hotIssueRow["artTitle"];
+    }
+    $jsonStr = json_encode($arr);
+    ?>        
+        
+        
     </div>
 </div>
+<script>
+    var arr = <?php echo $jsonStr; ?>;
+    console.log(arr);
+    window.addEventListener("load", function(){
+        //..............
+
+        //................
+    },false);
+</script>
+
 <!-- 熱門話題內容開始 -->
 <!-- 最新情報 -->
 <div id="newsWrap">
@@ -175,7 +114,7 @@
             <div class="newsBoxInfo">
                 <div class="newsBoxInfoCont">
                     <span class="newsBoxName">尋寶</span>
-                    <div class="newsBoxTit"><a href="javascript;">2019新地圖</a></div>
+                    <div class="newsBoxTit"><a href="javascript:;">2019新地圖</a></div>
                 </div>
                 <div class="newsInfo">
                     <span class="newsBoxView">1314</span>
@@ -266,15 +205,55 @@
      </form>
 </div>
 <!-- 討論內容燈箱 -->
-<!-- <div id="articleBoxWrap">
+<div id="articleBoxWrap">
     <div id="articleBox">
+        <div id="articleBoxTit">
+            <span id="articleBoxType">尋寶</span>
+            <h3 class="textL">金斧頭GET</h3>
+            <div id="articleBoxTitInfo">
+                <a href="javascript:;" id="closeArt"></a>
+                <span id="articleBoxView">人氣</span>
+                <span id="articleBoxCommend">回覆</span>
+            </div>
+        </div>
+        <div id="articleBoxMemInfo">
+            <div id="articleBoxMemImg">
+                <img src="image/ship.png" alt="" id="">
+            </div>
+            <div id="articleBoxMemMeg">
+                <span id="articleBoxMemId">景成大帥哥</span>
+                <span id="articleBoxMemLv">7</span>
+                <span id="articleBoxMemMoney">100G</span>
+            </div>
+        </div>
+        <a href="javascript:;" id="artReport"></a>
+        <div id="articleBoxCont">
+            <div id="articleBoxImg">
+                <img src="image/bar/hotIssueImg_1.png" alt="文章圖片" id="articleBoxContImg">
+            </div>
+            <p class="textM">
+                讚嘆營運，不知道大家在開啟景成的大秘寶章節後，尋寶遊戲的運氣如何，那天玩尋寶遊戲，竟然在中大湖得到傳說中董董女神的金斧頭
 
+            </p>
+        </div>
     </div>
-</div> -->
+    <div class="artiRespondBox">
+        <div class="artiRespondBoxCont">
+            <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
+            <span class="artiRespondBoxTime"></span>
+        </div>
+        <div class="artiRespondBoxMem">
+            <div class="artiRespondBoxMemImg">
+                <img src="image/ship.png" alt="留言者">
+            </div>
+            <span class="textM">景陳船長</span>
+        </div>
+    </div>
+</div>
 
 <!-- script -->
 <script  src="https://code.jquery.com/jquery-3.4.0.min.js"   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="js/bar.js"></script>
+<script src="js/bar.js?<?php echo time();?>"></script>
 <script src="js/wavebtn.js"></script>
 </body>

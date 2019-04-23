@@ -14,8 +14,24 @@ function addArt() {
         artBox.style.display = 'none';
     });
 }
+function readArt() {
+    var hotIssue = document.getElementsByClassName('hotIssueBoxLink');
+    var news = document.getElementsByClassName('newsBoxInfo');
+    var article = document.getElementById('articleBoxWrap');
+    for (let i = 0; i < hotIssue.length; i++) {
+        hotIssue[i].addEventListener('click',function() {
+            article.style.display = 'block';
+        });
+    }
+    for (let i = 0; i < news.length; i++) {
+        news[i].addEventListener('click',function() {
+            article.style.display = 'block';
+        });
+    }
+}
 function doFirst() {
-    addArt()
+    addArt();
+    readArt();
 }
 window.addEventListener('load',doFirst());
 // function newsRotate(){
