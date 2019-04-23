@@ -185,28 +185,6 @@ body {
   -webkit-mask-position: center;
   mask-position: center; }
 
-@keyframes cloudLeftMove {
-  0% {
-    transform: translateX(0%); }
-  25% {
-    transform: translateX(3%); }
-  50% {
-    transform: translateX(5%); }
-  75% {
-    transform: translateX(3%); }
-  100% {
-    transform: translateX(0%); } }
-@keyframes cloudRightMove {
-  0% {
-    transform: translateX(0%); }
-  25% {
-    transform: translateX(-10%); }
-  50% {
-    transform: translateX(3%); }
-  75% {
-    transform: translateX(-1%); }
-  100% {
-    transform: translateX(0%); } }
 #gameOrGps {
   margin: 0 auto;
   width: 1200px;
@@ -307,10 +285,25 @@ body {
   text-align: center;
   color: white; }
 
-.next {
+#next {
+  cursor: pointer;
+  z-index: 5;
   position: absolute;
-  right: 100px;
-  bottom: 50px; }
+  right: 590px;
+  bottom: 15px;
+  font-size: 1.2em;
+  color: #fffcf2;
+  font-family: Adobe Heiti Std R; }
+
+#prev {
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font-size: 1.2em;
+  color: #fffcf2;
+  font-family: Adobe Heiti Std R; }
 
 #boat {
   position: absolute;
@@ -423,17 +416,19 @@ body {
 #playShow p {
   display: inline-block;
   font-size: 1.1rem;
-  line-height: 1.1;
+  line-height: 1.4;
   padding-left: 5px;
   letter-spacing: 1.2px; }
 
 #playShow .infoImgDesc {
+  position: relative;
   margin: 12px 24px 12px 0; }
 
 .infoImg {
-  position: relative; }
+  position: relative;
+  animation: infoMove 2s linear infinite; }
 
-.infoImg:after {
+.infoImgDesc:after {
   content: "";
   background-color: #a6937c;
   height: 3px;
@@ -441,8 +436,17 @@ body {
   width: 350px;
   position: absolute; }
 
-.infoImg:nth-child(7):after {
-  content: "";
+.infoImgDesc:nth-child(2):after {
+  right: -1px; }
+
+.infoImgDesc:nth-child(4):after {
+  right: 1px; }
+
+.infoImgDesc:nth-child(6):after {
+  right: 15px;
+  bottom: -35px; }
+
+.infoImgDesc:nth-child(8):after {
   height: 0; }
 
 #playShow .infoImg {
@@ -458,12 +462,12 @@ body {
   height: 45px; }
 
 #playShow .infoImgDesc:nth-child(6) {
-  width: 250px;
+  width: 290px;
   height: 45px;
   margin-bottom: 40px; }
 
 #playShow .infoImgDesc:nth-child(8) {
-  width: 170px;
+  width: 200px;
   height: 141px; }
 
 #playShow .infoImg:nth-child(1) {
@@ -808,11 +812,6 @@ body {
   fill: none;
   stroke: #fff; }
 
-@keyframes borderCircle {
-  0% {
-    transform: rotate(0); }
-  100% {
-    transform: rotate(360deg); } }
 #playSpark {
   z-index: 4;
   top: 0;
@@ -847,5 +846,43 @@ body {
     top: 130px; }
   100% {
     top: 100px; } }
+@keyframes cloudLeftMove {
+  0% {
+    transform: translateX(0%); }
+  25% {
+    transform: translateX(3%); }
+  50% {
+    transform: translateX(5%); }
+  75% {
+    transform: translateX(3%); }
+  100% {
+    transform: translateX(0%); } }
+@keyframes cloudRightMove {
+  0% {
+    transform: translateX(0%); }
+  25% {
+    transform: translateX(-10%); }
+  50% {
+    transform: translateX(3%); }
+  75% {
+    transform: translateX(-1%); }
+  100% {
+    transform: translateX(0%); } }
+@keyframes borderCircle {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes infoMove {
+  0% {
+    transform: translateY(0%); }
+  25% {
+    transform: translateY(3%); }
+  50% {
+    transform: translateY(5%); }
+  75% {
+    transform: translateY(3%); }
+  100% {
+    transform: translateY(0%); } }
 
 /*# sourceMappingURL=play.css.map */
