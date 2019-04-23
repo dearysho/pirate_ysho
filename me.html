@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/me.css">
+    <style type="text/css">
+        .boxUP {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,14 +66,15 @@
                 </div>
             </div>
             <!-- 個人資訊 -->
-            <div id="boxNews" class="col-12 col-md-7 boxNews">
+            <div class="col-12 col-md-7 boxNews">
+                <button id="boxNews" >按鈕</button>
                 <div class="meNews">
                     <ul class="col-12 col-md-6 field">
                         <li>
                             帳號: <span>abc123</span>
                         </li>
                         <li>
-                            密碼: <a href="#"><span>更改密碼</span></a> 
+                            密碼: <a href="#"><span>更改密碼</span></a>
                         </li>
                         <li>
                             ID: <span>祕寶尋者號</span>
@@ -134,7 +140,7 @@
             </div>
         </div>
         <div class="filewrap">
-            <div id="js-tabs1">
+            <div id="js-tabs1" class="js-tabs1">
                 <div id="tabs-nav1">
                     <a href="#tab2" onclick="jsTabs1(event,'tab2');return false"
                         class="tabs-menu1 tabs-menu-active1">交易紀錄</a>
@@ -156,15 +162,16 @@
                 </div>
                 <div style="clear: both"></div>
             </div>
-        </div>
+            <button id="qq">按鈕</button>
+        </div> 
     </div>
-    <script src="js/header.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/me.js"></script>
-    <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/radar.js">
 
-    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/radar.js"></script>
+    <script src="js/me.js"></script>
+
 </body>
 
 </html>

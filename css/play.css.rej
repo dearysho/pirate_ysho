@@ -1,0 +1,9 @@
+diff a/css/play.css b/css/play.css	(rejected hunks)
+@@ -680,7 +680,6 @@
+   z-index: 0;
+   top: 0px;
+   left: 0px;
+-  box-shadow: 5px 5px #fff14e, -5px 5px #fff14e, 5px -5px #fff14e, -5px -5px #fff14e; }
+   box-shadow: 5px 5px #fff14e,
+ -5px 5px #fff14e,
+ 5px -5px #fff14e,

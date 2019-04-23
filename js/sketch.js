@@ -1,12 +1,11 @@
 var star, rock, rock2, rock3, rock4, treaBox, marine;
-var endTimer
+var endTimer;
 var a;
-if(a>=200)
-	setup();
+var count;
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 	a=0;
-	console.log(a);
+	count=0;
 
 	star = createSprite(random(0, width), random(0, height));
 	star.addImage(loadImage('image/play/game/asterisk_circle0006.png'));
@@ -31,7 +30,7 @@ function setup(){
 
 	collectibles = new Group();
 	for(var i=0; i<10; i++){
-		var dot = createSprite(random(0,width),random(0,height));
+		var dot = createSprite(random(200,width-200),random(100,height-100));
 		dot.addImage(loadImage('image/play/game/coin.png'));
     	collectibles.add(dot);
 	}
@@ -58,6 +57,10 @@ function draw(){
 function collect(collector, collected)
 {
   collected.remove();
+  console.log(count);
+  count+=1;
+  if(count==10)
+  	wingame();
 }
 
 function collect2(collector, collected)
@@ -78,4 +81,9 @@ function endGame(){
 	$('#defaultCanvas0').css('display','none');
 	$('.button_border').css('display','block');
 	$('#playSpark').css('clipPath','circle(5px)');
+}
+function wingame(){
+	$('#defaultCanvas0').css('display','none');
+	$('.button_border').css('display','block');
+	$('#playSpark').css('clipPath','circle(5px)');	
 }

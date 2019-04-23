@@ -25,7 +25,7 @@ body {
 }
 #playTitleSec {
 	width: 1200px;
-	margin: 0 auto 50px;
+	margin: 0 auto 25px;
 }
 .titleSec {
 	margin: 0 10px 50px;
@@ -38,6 +38,12 @@ body {
 }
 #playTitleSec h2{
 	top: 25px;
+	margin-bottom: 25px;
+}
+#playTitleSec p{
+	line-height: 1.5;
+	letter-spacing: 1.5px;
+	margin-top: 100px;
 }
 .s1 {
 	position: relative;
@@ -54,6 +60,15 @@ body {
 	width: 400px;
 }
 // GameOrGps
+#myMap{
+	position: absolute;
+	-webkit-mask-image: url(../image/play/block.svg);
+    mask-image: url(../image/play/block.svg);
+     -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; 
+    -webkit-mask-position: center;
+    mask-position: center;
+}
 #gameOrGps{
 	margin: 0 auto;
 	width: 1200px;
@@ -67,10 +82,59 @@ body {
 	margin: 0 10px;
 }
 #gpsArea{
+	cursor: pointer;
+	position: relative;
 	display: inline-block;
 	width: 400px;
 	height: 500px;
 	margin: 0 10px;
+}
+#gpsArea::before{
+	content:'';
+	display: block;
+	position: absolute;
+    background:url(../image/gpsGame/cloudLeft.png) no-repeat top left;
+    background-size: 100%;
+    width: 350px;
+    height: 350px;
+    top: 0px;
+    left: -100px;
+    z-index:3;
+    animation-name: cloudLeftMove;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	transition-timing-function: ease-in-out;
+}
+#gpsArea::after{
+	content: '';
+	display: block;
+    position: absolute;
+    background: url(../image/gpsGame/cloudRight.png) no-repeat bottom right;
+    background-size: 100%;
+    width: 350px;
+    height: 350px;
+    bottom: 0px;
+    right: -100px;
+    z-index: 3;
+    animation-name: cloudRightMove;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	transition-timing-function: ease-in-out;
+}
+#blackMap{
+	transition: opacity 2s;
+	z-index: 2;
+	position: absolute;
+	background-color: #456789;
+	width: 450px;
+	height: 500px;
+	opacity: .6;
+	-webkit-mask-image: url(../image/play/block.svg);
+    mask-image: url(../image/play/block.svg);
+     -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; 
+    -webkit-mask-position: center;
+    mask-position: center;
 }
 .ele{
 	overflow: hidden;
@@ -82,14 +146,17 @@ body {
 	transition: all 1s ease;
 }
 #element1{
+	z-index: 2;
 	-webkit-clip-path: polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0);
 	left: 50px;
 }
 #element2{
+	z-index: 2;
 	-webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
 	left: 155px;
 }
 #element3{
+	z-index: 2;
 	-webkit-clip-path: polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0);
 	left: 260px;
 }
@@ -103,13 +170,32 @@ body {
 	text-align: center;
 	color: white;
 }
+#next{
+	cursor: pointer;
+	z-index: 5;
+    position: absolute;
+    right: 590px;
+    bottom: 15px;
+    font-size: 1.2em;
+    color: #fffcf2;
+    font-family: Adobe Heiti Std R;
+}
+#prev{
+	cursor: pointer;
+	z-index: 5;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-size: 1.2em;
+    color: #fffcf2;
+    font-family: Adobe Heiti Std R;
+}
 #boat{
 	position: absolute;
 	z-index: 3;
 	left: 300px;
-	top: 150px;
+	top: 100px;
 	animation: gametop 2s infinite linear;
-	// transform: translate(-50%,-50%);
 }
 #infoArea{
 	z-index: 2;
@@ -184,6 +270,9 @@ body {
 	top: 25px;
 }
 #playArea{
+  background-image: url(../image/iqtest/qabg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
   margin: 0 auto;
   width: 1024px;
@@ -191,16 +280,102 @@ body {
   border: 2px solid #a6937c;
   outline: 7px #a6937c double;
 }
+#playShow span{
+	color: $red;
+	font-size: 1.2rem;
+}
 #playShow{
-	background-image: url('../image/play/playShow.jpg');
-	background-repeat: no-repeat;
-    background-size: cover;
+	background-image: url(../image/play/infobg.jpg);
+    background-repeat: repeat;
+    background-position: center;
 	width: 550px;
 	height: 430px;
 	position: absolute;
 	right: 10px;
 	top: 10px;
 	outline: 5px #a6937c double;
+}
+#playShow div{
+	float: left;
+	display: inline-block;
+}
+#playShow p{
+	display: inline-block;
+	font-size: 1.1rem;
+	line-height: 1.4;
+	padding-left: 5px;
+    letter-spacing: 1.2px;
+    $brown : #362e2b;
+}
+#playShow .infoImgDesc{
+	position: relative;
+	margin: 12px 24px 12px 0;
+}
+.infoImg{
+	position: relative;
+	animation: infoMove 2s linear infinite;
+}
+.infoImgDesc:after{
+	content: "";
+	background-color: #a6937c;
+	height: 3px;
+	bottom: -15px;
+	width: 350px;
+	position: absolute;
+}
+.infoImgDesc:nth-child(2):after{
+	right: -1px;
+}
+.infoImgDesc:nth-child(4):after{
+	right: 1px;
+}
+.infoImgDesc:nth-child(6):after{
+	right: 15px;
+	bottom: -35px;
+}
+.infoImgDesc:nth-child(8):after{
+	height: 0;
+}
+#playShow .infoImg{
+	margin: 12px 24px;
+	margin-left: 150px;
+}
+#playShow .infoImgDesc:nth-child(2){
+	width: 260px;
+	height: 63px;
+}
+#playShow .infoImgDesc:nth-child(4){
+	width: 152px;
+	height: 45px;
+}
+#playShow .infoImgDesc:nth-child(6){
+	width: 290px;
+	height: 45px;
+	margin-bottom: 40px;
+}
+#playShow .infoImgDesc:nth-child(8){
+	width: 200px;
+	height: 141px;
+}
+#playShow .infoImg:nth-child(1){
+	background-image: url(../image/play/game/coin.png);
+	width: 63px;
+	height: 63px;
+}
+#playShow .infoImg:nth-child(3){
+	background-image: url(../image/play/game/marine.png);
+	width: 174px;
+	height: 45px;
+}
+#playShow .infoImg:nth-child(5){
+	background-image: url(../image/play/game/rock1.png);
+	width: 50px;
+	height: 69px;
+}
+#playShow .infoImg:nth-child(7){
+	background-image: url(../image/play/game/treaBox.png);
+	width: 140px;
+	height: 141px;
 }
 #playnotice{
 	text-align: center;
@@ -219,14 +394,14 @@ body {
 	color: $red;
 }
 #blueAppear{
-	// display: none;
+	z-index: 1;
 	opacity: 0;
 	position: absolute;
 	top: 1000px;
 	left: -350px;
 	background: #114d7c;
-	width: 448px;
-	height: 420px;
+	width: 450px;
+	height: 556px;
 }
 /*rankTitle*/
 #rankTitle {
@@ -537,14 +712,6 @@ body {
 	fill: none;
 	stroke: #fff;
 }
-@keyframes borderCircle{
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
 // playArea
 #playSpark{
 	z-index: 4;
@@ -568,6 +735,7 @@ body {
 }
 // game
 #defaultCanvas0{
+	z-index: 10;
 	position: fixed;
 	top: 0;
 	left: 50%;
@@ -577,12 +745,41 @@ body {
 // animation
 @keyframes gametop{
 	0%{
-		top: 150px;
+		top: 100px;
 	}
 	50%{
-		top: 200px;
+		top: 130px;
 	}
 	100%{
-		top: 150px;
+		top: 100px;
 	}
+}
+@keyframes cloudLeftMove {
+        0%   {transform: translateX(0%);}
+        25%   {transform: translateX(3%);}
+        50%  {transform: translateX(5%);}
+        75%  {transform: translateX(3%);}
+        100% {transform: translateX(0%);}
+}
+@keyframes cloudRightMove {
+    0%   {transform: translateX(0%);}
+    25%   {transform: translateX(-10%);}
+    50%  {transform: translateX(3%);}
+    75%  {transform: translateX(-1%);}
+    100% {transform: translateX(0%);}
+}
+@keyframes borderCircle{
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes infoMove{
+	0%   {transform: translateY(0%);}
+    25%  {transform: translateY(3%);}
+    50%  {transform: translateY(5%);}
+    75%  {transform: translateY(3%);}
+    100% {transform: translateY(0%);}
 }
