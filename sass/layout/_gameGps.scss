@@ -23,7 +23,6 @@ $pc: 1200px;
         margin-bottom: 2rem;
     }
     &::before{
-        display: none;
         content:'';
         background:url(../image/gpsGame/cloudLeft.png) no-repeat top left;
         background-size: 100%;
@@ -46,7 +45,6 @@ $pc: 1200px;
         }
     }
     &::after{
-        display: none;
         content:'';
         background:url(../image/gpsGame/cloudRight.png) no-repeat bottom right;
         background-size: 100%;
