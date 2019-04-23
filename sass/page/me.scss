@@ -87,21 +87,25 @@ body {
         padding: 30px 0;
 
         img {
+            height: 100%;
             width: 100%;
+            opacity: .6;
         }
 
         // 船圖
         .meShip {
-            width: 70%;
+            width: 80%;
+            height: 80%;
             margin: 30PX auto;
             // padding: 30px 0;
             position: absolute;
-            top: -135px;
-            right: 20px;
+            top: -130px;
+            right: 0;
 
             img {
                 width: 100%;
                 position: absolute;
+                opacity: 1;
             }
 
             //燈光
@@ -123,6 +127,7 @@ body {
     .boxNews {
         // margin: 5px 10px;
         padding: 10px 0 0;
+        position: relative;
 
         // 底框
         .meNews {
@@ -391,7 +396,7 @@ body {
 
         &::before {
             content: "";
-            background-image: url("../../image/background/shipWindow.png");
+            background-image: url("../image/background/shipWindow.png");
             width: 600px;
             height: 600px;
             top: -170px;
@@ -421,8 +426,8 @@ body {
             .meShip {
                 position: absolute;
                 transform: rotateX(-50deg);
-                top: -330px;
-                right: 80px;
+                top: -250px;
+                right: 40px;
             }
 
 
@@ -442,26 +447,20 @@ body {
             //     animation: standUp .5s;
             // }
 
-
             .meNews {
                 display: flex;
             }
 
         }
 
-        .boxUP {
-            padding-left: 90px;
-            transform-style: preserve-3d;
+        .bbb {
             transform: rotateX(0deg);
-            transform-origin: bottom;
             animation: standUp .5s;
-
-            .meNews {
-                display: flex;
-            }
+            animation-name: lyingDown .5s;
         }
 
     }
+
 
     //個人資訊動畫站起來
     @keyframes standUp {
@@ -520,6 +519,7 @@ body {
     }
 
 
+
     // 紀錄頁籤---------------------
     .filewrap {
         max-width: 600px;
@@ -532,21 +532,29 @@ body {
         overflow: visible;
         // z-index: -1;
 
-        &:hover #js-tabs1 {
-            transform: rotateX(0deg);
-            animation-name: standUp;
-            animation-duration: .5s;
-            z-index: 100;
-            // left: -600px;
-        }
+        // &:hover #js-tabs1 {
+        //     transform: rotateX(0deg);
+        //     animation-name: standUp;
+        //     animation-duration: .5s;
+        //     z-index: 100;
+        //     // left: -600px;
+        // }
 
-        #js-tabs1 {
+        .js-tabs1 {
             position: relative;
             transform: rotateX(50deg);
             transform-origin: bottom;
             margin: 25px;
             // padding-left: 40px;
         }
+
+    }
+
+    .vvv {
+        transform: rotateX(0deg);
+            animation-name: standUp;
+            animation-duration: .5s;
+            z-index: 100;
 
     }
 
