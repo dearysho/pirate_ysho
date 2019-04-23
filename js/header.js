@@ -38,9 +38,11 @@ window.addEventListener('load',function(){
     //網頁剛開啟時螢幕寬度小於1200啟動toggleHeader，大於就remove
     if(winWidth<1024){
         burgerCtrl.addEventListener('click',toggleHeader);
+        $id('burger').classList.remove('justHide');
         toggleHeader(); //讓他在手機板時，先出現並隱藏
     }else{
         burgerCtrl.removeEventListener('click',toggleHeader);
+        $id('burger').classList.add('justHide');
     }
 
 
