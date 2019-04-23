@@ -147,26 +147,7 @@
             <div class="newsBoxArti">
                 這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
             </div>
-        </div>
-        <div class="newsBox">
-            <div class="newsBoxInfo">
-                <div class="newsBoxInfoCont">
-                    <span class="newsBoxName">尋寶</span>
-                    <div class="newsBoxTit"><a href="javascript;">2019新地圖</a></div>
-                </div>
-                <div class="newsInfo">
-                    <span class="newsBoxView">1314</span>
-                    <span class="newsBoxCommend">520</span>
-                </div>
-                <div class="newsOwner">
-                    <a href="javascript:">景成船長</a>
-                    <span class="newsBoxTime">190409</span>
-                </div>
-            </div>
-            <div class="newsBoxArti">
-                這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
-            </div>
-        </div> -->
+        </div>-->
         <input type="button" value="點擊搜集更多情報" id="getMoreNews">
     </div>
 </div>
@@ -210,13 +191,14 @@
         <div id="articleBoxTit">
             <span id="articleBoxType">尋寶</span>
             <h3 class="textL">金斧頭GET</h3>
+            <a href="javascript:;" id="closeArt"></a>
+            <a href="javascript:;" id="artReport"></a>
+        </div>
+        <div id="articleBoxMemInfo">
             <div id="articleBoxTitInfo">
-                <a href="javascript:;" id="closeArt"></a>
                 <span id="articleBoxView">人氣</span>
                 <span id="articleBoxCommend">回覆</span>
             </div>
-        </div>
-        <div id="articleBoxMemInfo">
             <div id="articleBoxMemImg">
                 <img src="image/ship.png" alt="" id="">
             </div>
@@ -226,14 +208,12 @@
                 <span id="articleBoxMemMoney">100G</span>
             </div>
         </div>
-        <a href="javascript:;" id="artReport"></a>
         <div id="articleBoxCont">
             <div id="articleBoxImg">
                 <img src="image/bar/hotIssueImg_1.png" alt="文章圖片" id="articleBoxContImg">
             </div>
             <p class="textM">
                 讚嘆營運，不知道大家在開啟景成的大秘寶章節後，尋寶遊戲的運氣如何，那天玩尋寶遊戲，竟然在中大湖得到傳說中董董女神的金斧頭
-
             </p>
         </div>
     </div>

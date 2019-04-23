@@ -24,6 +24,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.lightboxOpen{
+    position: fixed;
+    width: 100%;
+}
 //頁面標題
 #bartitle {
     width: 100%;
@@ -743,54 +747,54 @@ body {
                 margin: 0px 0.2rem;
             }
         }
-        #articleBoxTitInfo{
-            padding-left: 1rem;
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            #articleBoxView{
-                position: relative;
-                // top: 0.5rem;
-                //left: 1rem;
-                color: $brown;
-                font-family: $fofaText;
-                font-size: 1rem;
-                line-height: 1.5rem;
-                padding-left: 1.5rem;
-                &::before{
-                    content: "";
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    display: block;
-                    width: 2rem;
-                    height: 1rem;
-                    background-repeat: no-repeat;
-                    background-image: url(../image/bar/viewed.png);
-                    background-size: contain;
-                }
+    }
+    #articleBoxTitInfo{
+        padding-left: 1rem;
+        position: absolute;
+        top: 7.5rem;
+        right: 1rem;
+        #articleBoxView{
+            position: relative;
+            // top: 0.5rem;
+            //left: 1rem;
+            color: $brown;
+            font-family: $fofaText;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            padding-left: 1.5rem;
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                display: block;
+                width: 2rem;
+                height: 1rem;
+                background-repeat: no-repeat;
+                background-image: url(../image/bar/viewed.png);
+                background-size: contain;
             }
-            #articleBoxCommend{
-                position: relative;
-                // top: 0.5rem;
-                // right: 0px;
-                color: $brown;
-                font-family: $fofaText;
-                font-size: 1rem;
-                line-height: 1.5rem;
-                padding-left: 1.2rem;
-                &::before{
-                    content: "";
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    display: block;
-                    width: 2rem;
-                    height: 1rem;
-                    background-repeat: no-repeat;
-                    background-image: url(../image/bar/commend.png);
-                    background-size: contain;
-                }
+        }
+        #articleBoxCommend{
+            position: relative;
+            // top: 0.5rem;
+            // right: 0px;
+            color: $brown;
+            font-family: $fofaText;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            padding-left: 1.2rem;
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                display: block;
+                width: 2rem;
+                height: 1rem;
+                background-repeat: no-repeat;
+                background-image: url(../image/bar/commend.png);
+                background-size: contain;
             }
         }
     }
@@ -856,9 +860,9 @@ body {
 }
 #closeArt{
     display: block;
-    position: relative;
-    top: -1rem;
-    left: 5.2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
     // font-family: $fofaText;
     // font-size: 1rem;
     // color: $brown;
@@ -877,10 +881,10 @@ body {
 #artReport{
     display: block;
     position: absolute;
-    top: 7rem;
+    bottom: -0.5rem;
     right: 1rem;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     // background-color: #f00;
     background-image: url(../image/bar/artRespond.png);
     background-size: contain;

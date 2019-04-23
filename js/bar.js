@@ -21,6 +21,7 @@ function readArt() {
     for (let i = 0; i < hotIssue.length; i++) {
         hotIssue[i].addEventListener('click',function() {
             article.style.display = 'block';
+            article.style.overflowY = 'scroll';
         });
     }
     for (let i = 0; i < news.length; i++) {
