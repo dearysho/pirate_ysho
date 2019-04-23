@@ -2,11 +2,32 @@
 @import '../base/reset';
 @import '../layout/header';
 
-.sRWrap {
+
+body {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
-    font-family: $fofaText;
     background-size: 100% auto;
+}
+.marWrap {
+    font-family: $fofaText;
+    
+}
+
+h1, h2, h3, h4 {
+    text-shadow: .1px .1px .1px #443c3a;
+}
+
+span,a {
+    color: rgb(15, 15, 15);
+    font-size: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+.clearfix {
+    clear: both;
 }
 
 h1, h2, h3, h4 {
@@ -17,213 +38,30 @@ span {
     color: #534c4c;
 }
 
-.sRCont {
-    margin-top: 130px;
+#headerMeShip img{
+    width: auto ;
+}
 
-    .sRTitBox {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 1;
-
-        .titleSec {
-            margin: 50px 0 0 0;
-        }
-
-        .sRTTitle {
-            padding: 10px;
-            
-        }
-        
+@keyframes upNDowns {
+    0%{
+        transform: rotate(20deg) translateX(-4%) translateY(-10px);
     }
-    .titFrame {
-        position: absolute;
-        margin: 33px 0 0 -57px;
-        display: block;
-        transform: translateX(0px);
-        transition: 1s;
+    50%  { 
+        transform: rotate(15deg) translateX(4%) translateY(10px); 
+    }
+    100%{
+        transform: rotate(20deg) translateX(-4%) translateY(-10px);
     }
 }
 
-.sRDisplay {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    position: relative;
-    justify-content: space-between; 
-    flex-wrap: wrap;
-    .sRDBox {
-        width: 5%;
-        position: relative;
-        z-index: 0;
-        left: 0;
-        height: 0;
-        padding-top: 24%;
-        margin: 0 0 0 30px;
+@media screen and (max-width: 1024px){
 
-        img {
-            width: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .sRShip {
-            z-index: 0;
-        }
-
-        .sRarrows {
-            width: 30%;
-            margin: 0px 0 0 36%;
-            bottom: -3vw;
-            display: none;
-        }
-        
-        .sRarrows + span {
-            margin: 10px 0 0 20%;
-        }
-    }
-
-    .sRDBox:nth-of-type(2) {
-        width: 30%;
-        margin: 0px 0 0 0;
-        height: 0;
-        padding-top: 40%;
-        animation: upNDowns 3s ease-in-out infinite;
-        overflow: hidden;
-    }
-
-    .sRDBox:last-of-type{
-        margin: 0 30px 0 0;
-    }
-
-    .sRDBox:nth-of-type(2) .sRShip {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        
-    }
-
-    @keyframes upNDowns {
-        0%{
-            transform: rotate(20deg) translateX(-4%) translateY(-10px);
-        }
-        50%  { 
-            transform: rotate(15deg) translateX(4%) translateY(10px); 
-        }
-        100%{
-            transform: rotate(20deg) translateX(-4%) translateY(-10px);
-        }
-    }
-    
-    .mainShipRing {
-        position: absolute;
-        display: block;
-        z-index: 1;
-        width: 14%;
-        // margin-top: 180px;
-        margin-top: 11%;
-        right: 12%;
-        img {
-            display: block;
-            position: absolute;
-            width: 50%;
-            float: left;
-        }
-        img:last-of-type{
-            position: absolute;
-            transition: .3s;
-            width: 40%;
-            margin: 10px 0 0 5%;
-        }
-        h4 {
-            margin: 30% 0 0 56%;
-            float: left;
-        }
-    }
-
-    .mainShipRing:hover img:last-of-type{
-        transform: scale(1.1);
-    }
-
-
-    .mainShipBody{
-        margin-top: 18%;
-        right: 11%;
-    }
-
-    .mainShipSail{
-        margin-top: 25%;
-        right: 12%;
-    }
-
-    .sRTLeaderBoard {
-        width: 100%;
-
-        .sRTleaderList {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-            box-shadow: 0px 0px 1px 5px #b6a79a, 0px 0px 50px 5px #362e2b;
-            margin-bottom: 1vw;
-            li{
-                width: 6%;
-
-                img {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
-
-
-
-@media screen and (max-width: 1200px){
-
-    .sRDisplay .mainShipRing {
-        margin-top: 9%;
-    }
-
-    .sRDisplay .mainShipBody {
-        margin-top: 17%;
-    }
-
-    .sRDisplay .mainShipSail {
-        margin-top: 25%;
-    }
 }
 
 @media screen and (max-width: 768px){
-    .sRDBox:first-of-type,  .sRDBox:last-of-type {
-        display: none;
-    }
-
-    .sRDisplay .sRDBox:nth-of-type(2) {
-        margin: 0 auto;
-    }
-
-    .sRDisplay .mainShipRing {
-        margin-top: 10%;
-    }
-
-    .sRDisplay .mainShipBody {
-        margin-top: 18%;
-    }
-
-    .sRDisplay .mainShipSail {
-        margin-top: 26%;
-    }
-    .sRDisplay .sRTLeaderBoard .sRTleaderList {
-        flex-wrap: wrap;
-        li {
-            width: 12%;
-        }
-        li:nth-of-type(n+8){
-            display: none;
-        }
-    }
+    
 }
+
+
+
+///////////////////

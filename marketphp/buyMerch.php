@@ -51,24 +51,35 @@ if($buyCount == 0){
 
         require_once("connectPirates.php");
 
-        for($i=0;$i<$buyCount;$i++){
+        for($i=2;$i>=0;$i--){
             $ModelIds = $ModelId[$i];
-            $sqlBuy = "INSERT INTO mycustom (memId,ModelId,tradeTime,wearing) VALUES ('$memId',$ModelIds,'$tradeTime',$wearing);";
-            $pdo->exec($sqlBuy);
+            if($ModelIds != 0){
+                $sqlBuy = "INSERT INTO mycustom (memId,ModelId,tradeTime,wearing) VALUES ('$memId',$ModelIds,'$tradeTime',$wearing);";
+                $pdo->exec($sqlBuy);
+            }
         }
 
-        $sqlCost = "UPDATE member SET memMoney=memMoney-$tradePrice  WHERE memId='$memId'";
-        $pdo->exec($sqlCost);
+        // $sqlCost = "UPDATE member SET memMoney=memMoney-$tradePrice  WHERE memId='$memId'";
+        // $pdo->exec($sqlCost);
 
-        if($wearing == 1) {
-            $sqlWearDisable = "UPDATE mycustom SET wearing=0  WHERE memId='$memId'";
-            $pdo->exec($sqlWearDisable);
+        // if($wearing == 1) {
+        //     $sqlWearDisable = "UPDATE mycustom SET wearing=0  WHERE memId='$memId'";
+        //     $pdo->exec($sqlWearDisable);
 
-            $sqlWearInable = "UPDATE mycustom SET wearing=1  WHERE (memId='$memId' and ModelId=$wearHead);
-                UPDATE mycustom SET wearing=1 WHERE (memId='$memId' and  ModelId=$wearBody);
-                UPDATE mycustom SET wearing=1  WHERE (memId='$memId' and  ModelId=$wearSail)";
-            $pdo->exec($sqlWearInable);
-        }
+        //     $sqlWearInable = "";
+
+        //     if($wearHead!=0){
+        //         $sqlWearInable +=  "UPDATE mycustom SET wearing=1  WHERE (memId='$memId' and ModelId=$wearHead);";
+        //     }
+        //     if($wearBody!=0){
+        //         $sqlWearInable += "UPDATE mycustom SET wearing=1 WHERE (memId='$memId' and  ModelId=$wearBody);";
+        //     }
+        //     if($wearSail!=0){
+        //         $sqlWearInable +=  "UPDATE mycustom SET wearing=1  WHERE (memId='$memId' and  ModelId=$wearSail);";
+        //     }
+
+        //     $pdo->exec($sqlWearInable);
+        // }
         
     } catch (PDOException $e) {
         echo $e->getMessage();

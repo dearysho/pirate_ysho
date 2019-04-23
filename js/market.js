@@ -65,6 +65,96 @@ function repositionFrame(n) {
     }
 }
 
+//更換造型動畫
+//////////////////////////////////////////////////
+
+var transitionEvent = whichTransitionEvent();
+var previewHeadMove = document.getElementsByClassName('sYMerchHeadImg');
+var delHeadMove = document.getElementsByClassName('merchHead')[0].getElementsByClassName("SYremoveMerch")[0];
+for (var i = 0; i < previewHeadMove.length; i++) {
+    previewHeadMove[i].parentNode.parentNode.addEventListener('click', function () {
+        document.getElementById('sYHead').classList.toggle('doHeadAnimation');
+        document.getElementById('sYHead').addEventListener(transitionEvent, transitionEndCallbackHead);
+    });
+}
+
+delHeadMove.addEventListener('click', function () {
+    document.getElementById('sYHead').classList.toggle('doHeadAnimation');
+    document.getElementById('sYHead').addEventListener(transitionEvent, transitionEndCallbackHead);
+});
+
+
+function transitionEndCallbackHead(event) {
+    document.getElementById('sYHead').removeEventListener(transitionEvent, transitionEndCallbackHead);
+    document.getElementById('sYHead').classList.remove('doHeadAnimation');
+}
+
+var previewBodyMove = document.getElementsByClassName('sYMerchBodyImg');
+var delBodydMove = document.getElementsByClassName('merchBody')[0].getElementsByClassName("SYremoveMerch")[0];
+
+for (var i = 0; i < previewBodyMove.length; i++) {
+    previewBodyMove[i].parentNode.parentNode.addEventListener('click', function () {
+        document.getElementById('sYBody').classList.toggle('doBodyAnimation');
+        document.getElementById('sYBody').addEventListener(transitionEvent, transitionEndCallbackBody);
+        document.getElementById('sYSail').classList.toggle('doBodyAnimation');
+        document.getElementById('sYSail').addEventListener(transitionEvent, transitionEndCallbackBody);
+    });
+}
+
+delBodydMove.addEventListener('click', function () {
+    document.getElementById('sYBody').classList.toggle('doBodyAnimation');
+    document.getElementById('sYBody').addEventListener(transitionEvent, transitionEndCallbackBody);
+    document.getElementById('sYSail').classList.toggle('doBodyAnimation');
+    document.getElementById('sYSail').addEventListener(transitionEvent, transitionEndCallbackBody);
+});
+
+function transitionEndCallbackBody(event) {
+    document.getElementById('sYBody').removeEventListener(transitionEvent, transitionEndCallbackBody);
+    document.getElementById('sYBody').classList.remove('doBodyAnimation');
+    document.getElementById('sYSail').removeEventListener(transitionEvent, transitionEndCallbackBody);
+    document.getElementById('sYSail').classList.remove('doBodyAnimation');
+}
+
+var previewSailMove = document.getElementsByClassName('sYMerchSailImg');
+var delSailMove = document.getElementsByClassName('merchSail')[0].getElementsByClassName("SYremoveMerch")[0];
+
+for (var i = 0; i < previewSailMove.length; i++) {
+    previewSailMove[i].parentNode.parentNode.addEventListener('click', function () {
+        document.getElementById('sYSail').classList.toggle('doSailAnimation');
+        document.getElementById('sYSail').addEventListener(transitionEvent, transitionEndCallbackSail);
+    });
+}
+
+delSailMove.addEventListener('click', function () {
+    document.getElementById('sYSail').classList.toggle('doSailAnimation');
+    document.getElementById('sYSail').addEventListener(transitionEvent, transitionEndCallbackSail);
+});
+
+function transitionEndCallbackSail(event) {
+    document.getElementById('sYSail').removeEventListener(transitionEvent, transitionEndCallbackSail);
+    document.getElementById('sYSail').classList.remove('doSailAnimation');
+
+}
+
+function whichTransitionEvent() {
+    var moveParts,
+        fakeEl = document.createElement("fakeelement");
+
+    var transitions = {
+        "transition": "transitionend",
+        "OTransition": "oTransitionEnd",
+        "MozTransition": "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
+    }
+
+    for (moveParts in transitions) {
+        if (fakeEl.style[moveParts] !== undefined) {
+            return transitions[moveParts];
+        }
+    }
+}
+
+//////////////////////////////////////////////////
 
 function defaultPreview() {
     defaultHead = document.getElementsByClassName("previewHeadBox")[0].src;
@@ -125,7 +215,7 @@ function defaultHeadPrev() {
     document.getElementsByClassName("merchHead")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "狀態 :";
     document.getElementsByClassName("merchHead")[0].getElementsByClassName("merchPartPrice")[0].innerHTML = "裝備中";
 
-
+    document.getElementsByClassName("mydefaultHead")[0].getElementsByTagName("h3")[0].innerHTML = myDefaultHeadName;
 
 }
 
@@ -152,6 +242,8 @@ function defaultBodyPrev() {
     }
     document.getElementsByClassName("merchBody")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "狀態 :";
     document.getElementsByClassName("merchBody")[0].getElementsByClassName("merchPartPrice")[0].innerHTML = "裝備中";
+
+    document.getElementsByClassName("mydefaultBody")[0].getElementsByTagName("h3")[0].innerHTML = myDefaultBodyName;
 }
 
 function defaultSailPrev() {
@@ -177,6 +269,8 @@ function defaultSailPrev() {
     }
     document.getElementsByClassName("merchSail")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "狀態 :";
     document.getElementsByClassName("merchSail")[0].getElementsByClassName("merchPartPrice")[0].innerHTML = "裝備中";
+
+    document.getElementsByClassName("mydefaultSail")[0].getElementsByTagName("h3")[0].innerHTML = myDefaultSailName;
 }
 
 var shelf = document.getElementsByClassName('sYMerchPreviewBox')[0];
@@ -279,6 +373,36 @@ function showType(n) {
 }
 
 
+////////////////////有商品時改變一鍵購買
+function changesYbuymerchesBtn() {
+    previewCount = document.getElementsByClassName("currentPreview").length;
+        
+    for (var i = 0; i < previewCount; i++) {
+        if (document.getElementsByClassName("currentPreview")[i].classList.contains("ownedMerch")) {
+            previewCount--;
+        }
+    }
+    if(previewCount>0){
+        var buyAllWaves = document.getElementsByClassName("sYbuymerchesBtn")[0].getElementsByClassName("wave");
+        for(var i =0;i<buyAllWaves.length;i++){
+            buyAllWaves[i].style.backgroundColor = '#914444';
+        }
+        document.getElementsByClassName("buyAllIntro")[0].innerHTML = "一鍵購買";
+    }else {
+        var buyAllWaves = document.getElementsByClassName("sYbuymerchesBtn")[0].getElementsByClassName("wave");
+        for(var i =0;i<buyAllWaves.length;i++){
+            buyAllWaves[i].style.backgroundColor = 'rgba(56, 84, 120,0.4)';
+        }
+        document.getElementsByClassName("buyAllIntro")[0].innerHTML = "尚無預覽";
+    }
+}
+
+
+///////////////
+
+///////////////////
+
+
 //預覽按鈕
 var merchItem = document.getElementsByClassName('sYMerch');
 var merchImg = document.getElementsByClassName('sYMerchImg');
@@ -301,11 +425,15 @@ for (var i = 0; i < merchImg.length; i++) {
         this.getElementsByClassName('visibleBtn')[0].style.display = "none";
     };
 
-    merchImg[i].onclick = function () {
-        if (this.parentNode.classList.contains("currentPreview")) {
+    var previewCount = 0;
+
+    merchImg[i].parentNode.onclick = function () {
+
+        
+        if (this.classList.contains("currentPreview")) {
             this.getElementsByClassName('visibleBtn')[0].style.display = "block";
             this.getElementsByClassName('unvisibleBtn')[0].style.display = "none";
-            this.parentNode.classList.remove("currentPreview");
+            this.classList.remove("currentPreview");
             if (this.getElementsByClassName("sYMerchHeadImg")[0]) {
                 defaultHeadPrev();
             } else if (this.getElementsByClassName("sYMerchBodyImg")[0]) {
@@ -322,6 +450,7 @@ for (var i = 0; i < merchImg.length; i++) {
             var thisType = this.getElementsByTagName('img')[0].className;
             var sameType = document.getElementsByClassName(thisType);
 
+            
 
             for (var i = 0; i < sameType.length; i++) {
                 sameType[i].parentNode.getElementsByClassName('unvisibleBtn')[0].style.display = "none";
@@ -330,7 +459,7 @@ for (var i = 0; i < merchImg.length; i++) {
 
             this.getElementsByClassName('visibleBtn')[0].style.display = "none";
             this.getElementsByClassName('unvisibleBtn')[0].style.display = "block";
-            this.parentNode.classList.add("currentPreview");
+            this.classList.add("currentPreview");
 
             //把預覽圖換成click的
             var selectedImg = this.getElementsByTagName('img')[0].src;
@@ -341,8 +470,8 @@ for (var i = 0; i < merchImg.length; i++) {
                 document.getElementsByClassName("merchHead")[0].classList.remove("mydefaultHead");
                 document.getElementById('sYHead').src = selectedImg;
                 document.getElementsByClassName('previewHeadBox')[0].src = selectedImg;
-                document.getElementsByClassName('merchHead')[0].getElementsByTagName('h3')[0].innerHTML = this.parentNode.getElementsByTagName('h3')[0].innerHTML;
-                document.getElementsByClassName('merchHead')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.parentNode.getElementsByClassName('sYIntroPrice')[0].innerHTML;
+                document.getElementsByClassName('merchHead')[0].getElementsByTagName('h3')[0].innerHTML = this.getElementsByTagName('h3')[0].innerHTML;
+                document.getElementsByClassName('merchHead')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.getElementsByClassName('sYIntroPrice')[0].innerHTML;
                 document.getElementsByClassName("merchHead")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "價格 :";
             } else if (this.getElementsByClassName('sYMerchBodyImg')[0]) {
                 // document.getElementById('sYBody').classList.add("previewAnimation");
@@ -350,8 +479,8 @@ for (var i = 0; i < merchImg.length; i++) {
                 document.getElementsByClassName("merchBody")[0].classList.remove("mydefaultBody");
                 document.getElementById('sYBody').src = selectedImg;
                 document.getElementsByClassName('previewBodyBox')[0].src = selectedImg;
-                document.getElementsByClassName('merchBody')[0].getElementsByTagName('h3')[0].innerHTML = this.parentNode.getElementsByTagName('h3')[0].innerHTML;
-                document.getElementsByClassName('merchBody')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.parentNode.getElementsByClassName('sYIntroPrice')[0].innerHTML;
+                document.getElementsByClassName('merchBody')[0].getElementsByTagName('h3')[0].innerHTML = this.getElementsByTagName('h3')[0].innerHTML;
+                document.getElementsByClassName('merchBody')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.getElementsByClassName('sYIntroPrice')[0].innerHTML;
                 document.getElementsByClassName("merchBody")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "價格 :";
             } else if (this.getElementsByClassName('sYMerchSailImg')[0]) {
                 // document.getElementById('sYSail').classList.add("previewAnimation");
@@ -359,12 +488,15 @@ for (var i = 0; i < merchImg.length; i++) {
                 document.getElementsByClassName("merchSail")[0].classList.remove("mydefaultSail");
                 document.getElementById('sYSail').src = selectedImg;
                 document.getElementsByClassName('previewSailBox')[0].src = selectedImg;
-                document.getElementsByClassName('merchSail')[0].getElementsByTagName('h3')[0].innerHTML = this.parentNode.getElementsByTagName('h3')[0].innerHTML;
-                document.getElementsByClassName('merchSail')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.parentNode.getElementsByClassName('sYIntroPrice')[0].innerHTML;
+                document.getElementsByClassName('merchSail')[0].getElementsByTagName('h3')[0].innerHTML = this.getElementsByTagName('h3')[0].innerHTML;
+                document.getElementsByClassName('merchSail')[0].getElementsByClassName('merchPartPrice')[0].innerHTML = this.getElementsByClassName('sYIntroPrice')[0].innerHTML;
                 document.getElementsByClassName("merchSail")[0].getElementsByClassName("SYPriceTag")[0].innerHTML = "價格 :";
             }
 
         }
+
+        changesYbuymerchesBtn();
+
     };
 
 };
@@ -372,12 +504,15 @@ for (var i = 0; i < merchImg.length; i++) {
 $(document).on('ready', function () {
     document.getElementsByClassName("merchHead")[0].getElementsByClassName('SYremoveMerch')[0].onclick = function () {
         defaultHeadPrev();
+        changesYbuymerchesBtn();
     };
     document.getElementsByClassName("merchBody")[0].getElementsByClassName('SYremoveMerch')[0].onclick = function () {
         defaultBodyPrev();
+        changesYbuymerchesBtn();
     };
     document.getElementsByClassName("merchSail")[0].getElementsByClassName('SYremoveMerch')[0].onclick = function () {
         defaultSailPrev();
+        changesYbuymerchesBtn();
     };
 });
 
@@ -385,6 +520,9 @@ document.getElementsByClassName("sYReverseBtn")[0].onclick = function () {
     defaultHeadPrev();
     defaultBodyPrev();
     defaultSailPrev();
+    changesYbuymerchesBtn();
+    
+    
 };
 
 $(document).on('ready', defaultPreview());
@@ -463,10 +601,10 @@ for (var i = 0; i < buyMerch.length; i++) {
                 memId: memId,
             },
             type: 'GET',
-            success: function(data){
+            success: function (data) {
                 myMoney = data;
             },
-            complete:function(){
+            complete: function () {
 
                 if (tradePrice < myMoney) {
                     $.ajax({
@@ -490,7 +628,7 @@ for (var i = 0; i < buyMerch.length; i++) {
                             alert('出錯囉???');
                         }
                     });
-        
+
                     defaultPreview();
                 } else {
                     alert("拿錢來臭乞?丐!!");
@@ -503,32 +641,42 @@ for (var i = 0; i < buyMerch.length; i++) {
     }
 }
 
+var selectCount;
+
 document.getElementsByClassName("sYbuymerchesBtn")[0].onmouseover = function () {
-    var selectCount = document.getElementsByClassName("currentPreview").length;
+
+    selectCount = document.getElementsByClassName("currentPreview").length;
+    // console.log('選了 : ',selectCount);
+    
+    var amount = 0;
+
     for (var i = 0; i < selectCount; i++) {
         if (document.getElementsByClassName("currentPreview")[i].classList.contains("ownedMerch")) {
-            selectCount--;
+            amount++;
         }
     }
+    selectCount=selectCount-amount;
+    // console.log('剩下 : ',selectCount);
+
     document.getElementsByClassName("buyAllinfo")[0].innerHTML = `目前選擇 ${selectCount} 件商品`;
 }
 
 document.getElementsByClassName("sYbuymerchesBtn")[0].onmouseout = function () {
-    document.getElementsByClassName("buyAllinfo")[0].innerHTML = `#購買預覽中造型`;
+    document.getElementsByClassName("buyAllinfo")[0].innerHTML = ` # 購買預覽中造型`;
 }
-
 
 document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
 
     var buyCount = document.getElementsByClassName("currentPreview").length;
+    var amount =0;
     for (var i = 0; i < buyCount; i++) {
         if (document.getElementsByClassName("currentPreview")[i].classList.contains("ownedMerch")) {
-            buyCount--;
+            amount++;
         }
     }
+    buyCount = selectCount-amount;
 
-
-    if (buyCount.length == 0) {
+    if (buyCount == 0) {
         alert("您尚未選擇商品!!!");
         //沒有選擇商品就一鍵購買
 
@@ -576,38 +724,38 @@ document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
         var wearing = "1";
 
         if (ModelIdFirst == 0) {
-            var wearHead = document.getElementById("sYHead").getAttribute("defaultId");
+            var wearHead = 0;
         } else {
             var wearHead = ModelIdFirst;
         }
 
         if (ModelIdSec == 0) {
-            var wearBody = document.getElementById("sYBody").getAttribute("defaultId");
+            var wearBody = 0;
         } else {
             var wearBody = ModelIdSec;
         }
 
         if (ModelIdThird == 0) {
-            var wearSail = document.getElementById("sYSail").getAttribute("defaultId");
+            var wearSail = 0;
         } else {
             var wearSail = ModelIdThird;
         }
 
         console.log(
-            buyCount,
-            memId,
-            ModelIdFirst,
-            tradePriceFirst,
-            ModelIdSec,
-            tradePriceSec,
-            ModelIdThird,
-            tradePriceThird,
+            "購買數 : ",buyCount,"\n",
+            "使用者ID : ",memId,"\n",
+            "造型ID : ",ModelIdFirst,"\n",
+            "造型價格 : ",tradePriceFirst,"\n",
+            "造型ID : ",ModelIdSec,"\n",
+            "造型價格 : ",tradePriceSec,"\n",
+            "造型ID : ",ModelIdThird,"\n",
+            "造型價格 : ",tradePriceThird,"\n",
 
-            tradeTime,
-            wearing,
-            wearHead,
-            wearBody,
-            wearSail,
+            "交易時間 : ",tradeTime,"\n",
+            "是否直接著裝 : ",wearing,"\n",
+            "更換預覽的頭Id : ",wearHead,"\n",
+            "更換預覽的身Id : ",wearBody,"\n",
+            "更換預覽的帆Id : ",wearSail,
         );
 
         var myMoney;
@@ -618,12 +766,14 @@ document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
                 memId: memId,
             },
             type: 'GET',
-            success: function(data){
+            success: function (data) {
                 myMoney = data;
             },
-            complete:function(){
+            complete: function () {
 
-                if ((tradePriceFirst+tradePriceSec+tradePriceThird) < myMoney) {
+                if ((tradePriceFirst + tradePriceSec + tradePriceThird) < myMoney) {
+                    var myCustom;
+
                     $.ajax({
                         url: 'marketphp/buyMerch.php',
                         data: {
@@ -635,7 +785,7 @@ document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
                             tradePriceSec: tradePriceSec,
                             ModelIdThird: ModelIdThird,
                             tradePriceThird: tradePriceThird,
-        
+
                             tradeTime: tradeTime,
                             wearing: wearing,
                             wearHead: wearHead,
@@ -645,10 +795,28 @@ document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
                         type: 'GET',
                         success: function () {
                             alert('購買完成');
+
                         },
                         error: function (e) {
-                            alert('出錯囉???');
-                        }
+                            alert('購買出錯囉???');
+                        },
+                        //還沒寫好的回傳穿著部位
+                        // complete:function(){
+                        //     $.ajax({
+                        //         url: 'marketphp/getMyCustom.php',
+                        //         data: {
+                        //             memId: memId,
+                        //         },
+                        //         type: 'GET',
+                        //         success: function (data) {
+                        //             myCustom = data;
+                        //             console.log(myCustom);
+                        //         },
+                        //         error: function (e) {
+                        //             alert('回傳穿著部位出錯囉???');
+                        //         },
+                        //     });
+                        // }
                     });
                 } else {
                     alert("沒錢還想白吃白喝R???");
@@ -656,12 +824,10 @@ document.getElementsByClassName("sYbuymerchesBtn")[0].onclick = function () {
 
             },
         });
-
-        
-
-
-        
     }
 }
+
+
+
 
 //買東西囉
