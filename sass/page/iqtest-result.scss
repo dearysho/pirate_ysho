@@ -2,29 +2,85 @@
 @import '../base/reset';
 //font
 @import '../base/font';
-
 body{
 	background-image: url('../image/iqtest/qabg.jpg');
+	background-size: 100% 102vh;
 	background-repeat: no-repeat;
-	background-size: cover;
 }
-
-// title
+// .row{display: none;}
+.btnpri{display: none;}
+.row .col-6:nth-child(2){display: none;}
 .resultSlogan{
+	position: relative;
 	background-image: url('../image/iqtest/qaq.png');
-	width: 1132px;
-	height: 142px;
-	line-height: 142px;
-	margin: 50px auto;
-	text-align: center;
+	background-size: 340px 140px;
+	width: 340px;
+	height: 140px;
+	margin: 50px auto 10px;
+	line-height: 140px;
+}
+.resultSlogan .titlePri{
+	color: $brown;
+	font-size: 1.5rem;
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 2px;
 }
 .titlePri{
 	color: $brown;
 	font-family: 王漢宗特明體繁;
 	letter-spacing: 5px;
 }
-.y{
-	color: $brown;
+// col-6:1
+.col-6{
+	position: relative;
+}
+.brain{width: 330px;padding: 0 5px;}
+#abc{
+	opacity: 1;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 150px;
+	animation: spark 1s infinite;
+}
+.grade{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 36px;
+	padding-bottom: 25px;
+}
+.correctop{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 36px;
+	padding-bottom: 25px;
+}
+// animation
+@keyframes spark{
+	0%{
+		display: block;
+		opacity: 1;
+	}
+	100%{
+		display: none;
+		opacity: 0;
+	}
+}
+//pc screen
+@media screen and (min-width: 768px){
+body{
+	background-size: cover;
+}
+// title
+.resultSlogan .titlePri{font-size: 3rem;}
+.resultSlogan{
+	background-size: cover;
+	width: 1132px;
+	height: 142px;
+	line-height: 142px;
+	margin: 50px auto;
+	text-align: center;
 }
 // brain area
 .row{
@@ -200,16 +256,7 @@ background-repeat: no-repeat
 
 // keyframes
 // brain
-@keyframes spark{
-	0%{
-		display: block;
-		opacity: 1;
-	}
-	100%{
-		display: none;
-		opacity: 0;
-	}
-}
+
 // btn
 @keyframes borderCircle{
 	0% {
@@ -218,4 +265,5 @@ background-repeat: no-repeat
 	100% {
 		transform: rotate(360deg);
 	}
+}
 }
