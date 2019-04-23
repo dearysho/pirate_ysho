@@ -1,5 +1,4 @@
-
-
+// 寶物造型頁籤
 function jsTabs(evt, tabId) {
     var tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabs-panel");
@@ -16,8 +15,7 @@ function jsTabs(evt, tabId) {
     return false;
 }
 
-
-
+//交易發文頁籤
 function jsTabs1(evt, tabId) {
     var tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabs-panel1");
@@ -33,3 +31,45 @@ function jsTabs1(evt, tabId) {
     evt.currentTarget.className += " tabs-menu-active1";
     return false;
 }
+
+
+
+
+function standUp(){
+console.log("點殺小1");
+var boxUP = document.getElementById('boxNews');
+boxUP.setAttribute("class", "boxUP");
+
+
+}
+
+
+function standUPleft(){
+    console.log("點殺小2");
+}
+
+function init(){
+    var boxNews = document.getElementById("boxNews");
+    var tabUp = document.getElementById("js-tabs1");
+
+    boxNews.addEventListener('click',standUp);
+    tabUp.addEventListener('click',standUPleft);
+
+}
+window.addEventListener('load', init);
+
+
+
+
+
+
+
+
+
+// function init() {
+//         document.getElementsByClassName('boxNews').onclick = standUp;
+//         document.getElementById('js-tabs1').onclick = standUPleft;
+    
+// }
+// window.onload = init;
+
