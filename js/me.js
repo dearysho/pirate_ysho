@@ -1,5 +1,4 @@
-
-
+// 寶物造型頁籤
 function jsTabs(evt, tabId) {
     var tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabs-panel");
@@ -16,8 +15,7 @@ function jsTabs(evt, tabId) {
     return false;
 }
 
-
-
+//交易發文頁籤
 function jsTabs1(evt, tabId) {
     var tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabs-panel1");
@@ -33,3 +31,34 @@ function jsTabs1(evt, tabId) {
     evt.currentTarget.className += " tabs-menu-active1";
     return false;
 }
+
+
+
+
+function standUp() {
+    console.log("123");
+    $('.boxNews').toggleClass("bbb");
+}
+
+
+function filewrapBox() {
+    console.log("888");
+    $('.filewrap').toggleClass("vvv");
+}
+
+function init() {
+    var boxNews = document.getElementById("boxNews");
+    var qq = document.getElementById("qq");
+
+    boxNews.addEventListener('click', standUp);
+    qq.addEventListener('click', filewrapBox);
+}
+window.addEventListener('load', init);
+
+
+
+
+ 
+
+
+

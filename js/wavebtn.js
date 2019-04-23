@@ -1,3 +1,7 @@
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    if (w > 1200) {
+
 var btnpri = document.getElementsByClassName("btnpri");
 var btnsec = document.getElementsByClassName("btnsec");
 
@@ -25,3 +29,4 @@ function createbtn(btntype){
 
 createbtn(btnpri);
 createbtn(btnsec);
+}
