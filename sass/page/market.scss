@@ -341,16 +341,34 @@ img {
                 transition: .6s;
                 position: absolute;
                 z-index: 0;
+                &.doHeadAnimation {
+                    transform: translateX(-100px);
+                    transition: transform 0.3s;
+                }
             }
             #sYBody {
                 transition: .6s;
+                &.doBodyAnimation {
+                    transform: translateX(100px);
+                    transition: transform 0.3s;
+                }
             }
             #sYSail {
                 transition: .6s;
                 position: absolute;
                 z-index: 0;
                 top: 0;
+                &.doSailAnimation {
+                    transform: scaleY(0) translateY(-200px);
+                    transition: transform cubic-bezier(0,1,.4,1) 0.5s;
+                    transform-origin: 50% 20%;
+                }
+                &.doBodyAnimation {
+                    transform: translateX(100px);
+                    transition: transform 0.3s;
+                }
             }
+
             .sYPreviewBtn {
                 position: absolute;
                 z-index: 0;
@@ -466,14 +484,18 @@ img {
 .shipYard .shipYardCont .sYMTypeBox .ownedMerch {
     order: 1;
     background-color: #7c6648;
-    .sYMerchImg {
-        background-color: #ad9473;
-    }
 }
 
 .ownedMerch .btnpri:hover .wave {
     animation-duration: 0s;
 }
+
+
+.slick-slider .slick-track {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 
 @-webkit-keyframes fadeIn {
 	from {
@@ -543,6 +565,7 @@ img {
         display: flex;
         background-color: rgb(219, 204, 171);
         box-shadow: 1px 1px 4px 0px #000;
+        cursor: pointer;
     }
     .shipYard .shipYardCont .currentPreview {
         box-shadow: 1px 1px 4px 0px #000,
@@ -563,16 +586,28 @@ img {
         transition: .6s;
     }
     
-    .shipYard .shipYardCont .sYMerchImg:hover .sYMerchHeadImg {
+    .shipYard .shipYardCont .sYMerch:hover .sYMerchImg .sYMerchHeadImg {
         transform: scale(1.40);
     }
 
-    .shipYard .shipYardCont .sYMerchImg:hover .sYMerchBodyImg {
+    .shipYard .shipYardCont .sYMerch:hover .sYMerchImg .sYMerchBodyImg {
         transform: scale(1.12);
     }
 
-    .shipYard .shipYardCont .sYMerchImg:hover .sYMerchSailImg {
+    .shipYard .shipYardCont .sYMerch:hover .sYMerchImg .sYMerchSailImg {
         transform: scale(1.35);
+    }
+
+    .shipYard .shipYardCont .sYMerch:hover .btnpri .wave {
+        // animation-name: dowave;
+        // animation-duration: 1.8s;
+        // animation-iteration-count: infinite;
+        // transition-timing-function: ease-in-out;
+        background-color: #914444;
+    }
+
+    .shipYard .shipYardCont .sYMerch:hover {
+        box-shadow: 1px 1px 4px 0px #000, 0 0 4px 4px #574934, 0 0 4px 8px #ce6c6c;
     }
 
     .shipYard .shipYardCont .typeHead .sYMerchImg img {
@@ -646,7 +681,9 @@ img {
                             0px 0px 1px 1px #70665c,
                             0px 0px 20px 1px rgb(0, 0, 0) inset,
                             0 0 0 4px #635950,
-                            0px 0px 10px 10px #ffffff;
+                            0px 0px 4px 5px #ffffff,
+                            0px 0px 4px 11px #ac4d4d,
+                            0px 0px 4px 12px #742e2e;
             }
             
         }
@@ -812,7 +849,16 @@ img {
     transition: 0s;
 }
 .shipYard .shipYardCont .currentPreview .sYMerchImg {
-    background-color: #e7bb69;
+    background-color: #bdaa8f;
+    box-shadow: 0px 0px 1px 1px #70665c, 0px 0px 20px 1px rgb(75, 75, 75) inset;
+}
+
+.shipYard .shipYardCont .sYMTypeBox .ownedMerch {
+    order: 1;
+    background-color: #7c6648;
+    .sYMerchImg {
+        background-color: #ad9473;
+    }
 }
 
 .buyAllinfo {
@@ -828,6 +874,7 @@ img {
 .sYbuymerchesBtn:hover .buyAllinfo {
     // margin-left: 1rem;
 }
+
 }
 
 @media screen and (min-width: 1200px) {

@@ -368,7 +368,7 @@
 
                                     foreach ($sailprods as $i=>$sailproductRow) {
                                         ?>
-
+                                
                             <div class="sYMerch">
                                 <a class="sYMerchImg" href="javascript:;">
                                     <img class="sYMerchSailImg" merchId="<?php echo $sailproductRow["modelId"]; ?>" src="image/product/<?php echo $sailproductRow["modelImg"]; ?>">
@@ -525,6 +525,7 @@
                                                         
                                                         if($wearing == 1){
                                                             echo "<script>var defaultHeadId = '$mywearing' </script>";
+                                                            echo "<script>var myDefaultHeadName = '$wearingName'</script>";
                                                             ?>
                                                             <div class="merchPartBox merchHead">
                                                                     <div class="merchPartImg">
@@ -551,6 +552,7 @@
 
                                                         }elseif ($wearing == 2) {
                                                             echo "<script>var defaultBodyId = '$mywearing' </script>";
+                                                            echo "<script>var myDefaultBodyName = '$wearingName'</script>";
                                                             ?>
 
                                                                 <div class="merchPartBox merchBody">
@@ -576,6 +578,7 @@
 
                                                         }elseif($wearing == 3) {
                                                             echo "<script>var defaultSailId = '$mywearing' </script>";
+                                                            echo "<script>var myDefaultSailName = '$wearingName'</script>";
                                                             ?>
 
                                                                 <div class="merchPartBox merchSail">
