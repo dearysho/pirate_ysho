@@ -238,15 +238,15 @@
         </div>
     </div>
     <div class="artiRespondBox">
-        <div class="artiRespondBoxCont">
-            <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-            <span class="artiRespondBoxTime"></span>
-        </div>
         <div class="artiRespondBoxMem">
             <div class="artiRespondBoxMemImg">
                 <img src="image/ship.png" alt="留言者">
             </div>
             <span class="textM">景陳船長</span>
+        </div>
+        <div class="artiRespondBoxCont">
+            <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
+            <span class="artiRespondBoxTime"></span>
         </div>
     </div>
 </div>
