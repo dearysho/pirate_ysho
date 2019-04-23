@@ -211,6 +211,8 @@ window.onload = function () {
                 var saleYN = merchUpdate.getElementsByClassName('saleYN')[0].getElementsByTagName('select')[0].value;
                 var merchId = merchUpdate.getElementsByClassName('merchNo')[0].innerHTML;
 
+                e.target.style.display= "none";
+
                 $.ajax({
                     url: 'php/editMerch.php',
                     data: {
