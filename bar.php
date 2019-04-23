@@ -239,9 +239,7 @@
     </div>
     <div class="artiRespondBox">
         <div class="artiRespondBoxMem">
-            <div class="artiRespondBoxMemImg">
-                <img src="image/ship.png" alt="留言者">
-            </div>
+                <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
             <span class="textM">景陳船長</span>
         </div>
         <div class="artiRespondBoxCont">

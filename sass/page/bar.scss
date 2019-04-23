@@ -921,7 +921,7 @@ body {
 .artiRespondBox{
     width: 100%;
     margin: 1rem auto auto;
-    background: $boxColor;
+    background: $beige;
     @media screen and (min-width: $padV){}
     @media screen and (min-width: $padH){
         width: 960px;
@@ -930,24 +930,39 @@ body {
         width: 1200px;
         border-radius: 20px;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        // justify-content: center;
     }
     .artiRespondBoxCont{
-        width: calc(100% - 100px);
+        // width: calc(100% - 10rem);
+        padding-left: 2rem;
     }
     .artiRespondBoxMem{
         text-align: center;
-        background-color: $beige;
-        padding: 1rem;
-        border-radius: 0 20px 20px 0;
-        width: 100px;
+        background-color: $boxColor;
+        padding: 1rem 2.5rem 1rem 1rem;
+        border-radius: 20px 0 0 20px;
+        text-align: center;
+        position: relative;
         .artiRespondBoxMemImg{
-            width: 50px;
             height: 50px;
-            margin: auto auto 1rem;
-            >img{
-                width: 50px;
-            }
+            vertical-align: middle;
+        }
+        .textM{
+            vertical-align: middle;
+            padding-left:1rem; 
+        }
+        &::after{
+            content:"";
+            position: absolute;
+            top: calc(50% - 1rem);
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 1rem 1.5rem 1rem 0;
+            border-color: transparent $beige transparent transparent;
+
         }
     }
 }
