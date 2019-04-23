@@ -8,7 +8,7 @@ body {
     background-size: cover;
 }
 *{
-	// outline: 1px solid red;
+	outline: 1px solid red;
 	box-sizing:border-box;
 	margin:0;
 	padding:0;
@@ -184,6 +184,11 @@ body {
 	text-align: center;
 	color: white;
 }
+.next{
+	position: absolute;
+	right: 100px;
+	bottom: 50px;
+}
 #boat{
 	position: absolute;
 	z-index: 3;
@@ -292,7 +297,6 @@ body {
 }
 #playShow div{
 	float: left;
-	outline: 1px solid blue;
 	display: inline-block;
 }
 #playShow p{
@@ -305,6 +309,21 @@ body {
 }
 #playShow .infoImgDesc{
 	margin: 12px 24px 12px 0;
+}
+.infoImg{
+	position: relative;
+}
+.infoImg:after{
+	content: "";
+	background-color: #a6937c;
+	height: 3px;
+	bottom: -15px;
+	width: 350px;
+	position: absolute;
+}
+.infoImg:nth-child(7):after{
+	content: "";
+	height: 0;
 }
 #playShow .infoImg{
 	margin: 12px 24px;

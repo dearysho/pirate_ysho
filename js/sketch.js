@@ -2,12 +2,8 @@ var star, rock, rock2, rock3, rock4, treaBox, marine;
 var endTimer;
 var a;
 var count;
-if(a>=200)
-	setup();
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-
-  	console.log(count);
 	a=0;
 	count=0;
 
@@ -34,7 +30,7 @@ function setup(){
 
 	collectibles = new Group();
 	for(var i=0; i<10; i++){
-		var dot = createSprite(random(0,width),random(0,height));
+		var dot = createSprite(random(200,width-200),random(100,height-100));
 		dot.addImage(loadImage('image/play/game/coin.png'));
     	collectibles.add(dot);
 	}
@@ -61,10 +57,10 @@ function draw(){
 function collect(collector, collected)
 {
   collected.remove();
-  
-	$('#defaultCanvas0').css('display','none');
-	$('.button_border').css('display','block');
-	$('#playSpark').css('clipPath','circle(5px)');	
+  console.log(count);
+  count+=1;
+  if(count==10)
+  	wingame();
 }
 
 function collect2(collector, collected)
