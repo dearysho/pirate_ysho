@@ -48,6 +48,7 @@ echo $errMsg;
                         <th>狀態</th>
                         <!-- <th>編輯狀態</th> -->
                     </tr>
+                    <tr>
                     <?php
                     while ($memberRow = $members->fetch()) {
                         ?>
@@ -58,6 +59,7 @@ echo $errMsg;
                         <td><?php echo $memberRow['shipTotalVote'] ?>
                         </td>
                         <td><?php echo $memberRow['shipImgAll'] ?></td>
+                        <form>
                         <td>
                             <label>
                                 <input type="radio" name="accStatus" value="1" <?php echo $memberRow['accStatus'] == 1 ? 'checked' : '' ?>>
@@ -68,9 +70,10 @@ echo $errMsg;
                                 禁言
                             </label>
                         </td>
+                        <form>
                         </tr>
                     <?php
-                }
+                    }
                 ?>
                 </table>
             </div>
