@@ -531,6 +531,8 @@ body {
         width: 800px;
         overflow: visible;
         // z-index: -1;
+        transform: rotateX(50deg);
+        transform-origin: bottom;
 
         // &:hover #js-tabs1 {
         //     transform: rotateX(0deg);
@@ -542,8 +544,8 @@ body {
 
         .js-tabs1 {
             position: relative;
-            transform: rotateX(50deg);
-            transform-origin: bottom;
+            // transform: rotateX(50deg);
+            // transform-origin: bottom;
             margin: 25px;
             // padding-left: 40px;
         }
@@ -552,9 +554,11 @@ body {
 
     .vvv {
         transform: rotateX(0deg);
-            animation-name: standUp;
-            animation-duration: .5s;
-            z-index: 100;
+        animation-name: standUp;
+        animation-duration: .5s;
+        z-index: 100;
+        left: 935px;
+
 
     }
 

@@ -43,7 +43,7 @@ function standUp() {
 
 function filewrapBox() {
     console.log("888");
-    $('.js-tabs1').toggleClass("vvv");
+    $('.filewrap').toggleClass("vvv");
 }
 
 function init() {
