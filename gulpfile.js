@@ -23,7 +23,11 @@ gulp.task('default', ['sass'], function () {
         server: {
             //根目錄
             baseDir: "./",
+<<<<<<< HEAD
             index: "bar.php"
+=======
+            index: "market.html"
+>>>>>>> 8773ff651dbec1b767f0200db10cd1b11e8f84ca
         }
     });
 
