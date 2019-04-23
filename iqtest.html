@@ -5,15 +5,10 @@
 	<title>iqtest</title>
 	<link rel="stylesheet" href="css/iqtest.css">
 	<style type="text/css">
-		#teemo{
-			position: absolute;
-			width: 180px;
-		}
-		#bonus1{
-			position: fixed;
-			top: 90px;
-			left: 30%;
-			display: none;
+		*{
+			outline: 1px solid red;
+			box-sizing:border-box;
+    		margin:0;padding:0;
 		}
 	</style>
 </head>
@@ -46,9 +41,66 @@
 	</div>
 	
 	<div class="ques">
-		<h1 class="titlePri" id="question">請問白鬍子的船叫什麼名字?</h1>
+		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
 	</div>
-	<div class="option">
+	<!-- 第7題目 -->
+	<div id="bonus2">
+		<section class="container">
+	    <div id="safe">
+	      <div class="front side">
+	        <div class="keypad">
+	          <ol class="keys">
+	           <li>0</li>
+	           <li>1</li>
+	           <li>2</li>
+	           <li>3</li>
+	           <li>4</li>
+	           <li>5</li>
+	           <li>6</li>
+	           <li>7</li>
+	           <li>8</li>
+	           <li>9</li>
+	           <li>A</li>
+	           <li>B</li>
+	           <li>C</li>
+	           <li>D</li>
+	          </ol>
+	        </div>
+	      </div>
+	   
+	      <div class="back side"></div>
+	      <div class="right side"></div>
+	      <div class="left side"></div>
+	      <div class="top side"></div>
+	      <div class="bottom side"></div>
+	    </div>
+	       <div class="treasure">
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	         <div class="coin">
+	         </div>
+	       </div>
+	  </section>
+
+	  <section class="results">
+	    <span class="results">你已經輸入:</span>
+	    <span id="entered"></span>
+	  </section>
+	  <div id="wrong">
+	    <span>錯誤!</span>
+	  </div>
+	  <div id="right">
+	    <span>正確!</span>
+	  </div>
+	</div>
+	
+	<div id="option">
 		<div class="opop o1">
 			<strong class="textHi">A</strong>
 			<strong class="describe">白鯨號</strong>
@@ -92,13 +144,53 @@
 		var lcu = 0;//幸運
 		var agi = 0;//敏捷
 
+		// 
+		$('li').click(function(){
+			var code = 'CD106';
+			var number = $(this).text();
+		    $('span.results').show();
+		    $('#wrong').hide();
+		    $('#entered').append(number);
+		    var enteredLength = $('#entered').text().length;
+		    var entered = $('#entered').text();
+		    if (enteredLength == 5 && entered === code) {
+			    $('#entered').empty();
+			    $('.keypad').delay( 400 ).fadeOut(0);
+			    $('.front').addClass('open').animate({  borderSpacing: -180 }, {
+				    step: function(now,fx) {
+				      $(this).css('transform','rotateY('+ now +'deg)');         
+					},duration:1000},'linear');
+					$('span.results').hide();
+					$('#right').show();
+					$('#hint,#anotherhint').hide();
+					$('.treasure').fadeIn(2000);
+					grade += 14;
+					str += 10;
+					int += 10;
+					lcu += 15;
+					agi += 15;
+					setInterval(change,3000);
+			}
+			if (enteredLength == 5 && entered !== code){
+				$('#wrong').show();
+				$('span.results').hide();
+				$('#entered').empty();
+				setInterval(change,3000);
+			}      
+		});
+
 		// reset題目
 		function reset(){
 			$('.ans').css('display','none');//gif檔消失
 			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
 			console.log('level: ', level);
 			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
-			if( level == 5 ) change();//測驗結束
+			if( level == 5 ){
+				$('#question').text('哈囉');
+				$('#bonus1').css('display','none');
+				$('#option').css('display','none');
+				$('#bonus2').css('display','block');
+			}
 			$.getJSON('json/iqtest.json',function(data){
 				console.log('level: ', level);
 					$('#question').text(data[level].question);
@@ -118,6 +210,7 @@
 
 		// reset時間條
 		function goNext(){
+			timesRun = 0;
 			count = 19;
 			qsNextTimer = setInterval(countdown,800);
 		}

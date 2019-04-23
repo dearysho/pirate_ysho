@@ -4,7 +4,7 @@ session_start();
 $errMsg = "";
 
 try {
-    require_once("connectPirate.php");
+    require_once("connectPirates.php");
     $sql = "select * from manager";
     $manager = $pdo->query($sql);
 } catch (PDOException $e) {
@@ -34,6 +34,9 @@ echo $errMsg;
         <div class="contentWrap">
             <div class="content">
                 <h3 class="titlePri">管理員帳號管理</h3>
+                <a href="backNewAdministrator.php">
+                    <button>新增</button>
+                </a>
                 <div class="dataTable">
                     <table>
                         <tr>

@@ -11,282 +11,255 @@
 @import'../base/media';
 
 * {
-    outline: .5px solid rgb(240, 9, 9);
+    outline: .5px solid rgb(125, 131, 211);
 }
 
 body {
     background-image: url('../image/background/BgPage.png');
     background-repeat: no-repeat;
     background-size: cover;
+    perspective: 1000px;
 }
 
-
+// 標題
 .meTitle {
     margin: auto;
     padding-top: 100px;
     position: relative;
+
+    //窗戶
+    &::before {
+        content: "";
+        background-image: url("../image/background/shipWindow.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        display: block;
+        // width: 600px;
+        height: 600px;
+        top: -100px;
+        left: 0;
+        right: 0;
+        opacity: .6;
+        margin: auto;
+    }
+
+    //桌線
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #362e2b;
+        bottom: -170px;
+        opacity: .6;
+    }
+
+    //標題
+    // .titlePri {
+    //     align-items: center;
+    // }
 }
 
-.meTitle::before {
-    content: "";
-    background-image: url("../image/background/shipWindow.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 600px;
-    top: -100px;
-    left: 0;
-    right: 0;
-    opacity: .6;
+
+.ccc {
+    position: relative;
+    // width: 1200px;
     margin: auto;
-
-}
-
-.meTitle::after {
-    content: "";
-    position: absolute;
+    perspective: 1000px;
     display: block;
-    width: 100%;
-    border-bottom: 1px solid #362e2b;
-    bottom: -170px;
-    opacity: .6;
-
+    overflow: hidden;
 }
 
+// 第一屏
 .wrap {
     max-width: 1200px;
-    margin: 120px auto;
+    margin: auto;
+    margin-top: 120px;
     padding: 10px;
     box-sizing: border-box;
     position: relative;
 
+    // 設計圖
+    .drawing {
+        position: relative;
+        box-sizing: border-box;
+        padding: 30px 0;
+
+        img {
+            width: 100%;
+        }
+
+        // 船圖
+        .meShip {
+            width: 70%;
+            margin: 30PX auto;
+            // padding: 30px 0;
+            position: absolute;
+            top: -135px;
+            right: 20px;
+
+            img {
+                width: 100%;
+                position: absolute;
+            }
+
+            //燈光
+            img:nth-child(2) {
+                position: absolute;
+                width: 100%;
+                height: 400px;
+                transform: rotateX(0deg);
+                top: -120px;
+                right: -10px;
+                z-index: 1;
+                // animation: light 5s infinite linear;
+            }
+        }
+    }
+
+
+    // 右方資訊
+    .boxNews {
+        // margin: 5px 10px;
+        padding: 10px 0 0;
+
+        // 底框
+        .meNews {
+            background-color: #f5ecdd;
+            border: 7px dashed #5f6f70;
+            // margin-top: 40px;
+            box-shadow: 0px 0px 0px 2px rgb(245, 234, 234) inset;
+            // 0px 0px 0px 2px #000;
+            outline: 7px #362e2b double;
+
+            //資訊內容
+            .field {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                li {
+                    margin: 10px 0;
+                    padding: 0px 20px;
+                    font-family: $fofaText;
+
+                    a {
+                        color: $brown;
+                    }
+                }
+            }
+
+            //雷達圖
+            .radar {
+                box-sizing: border-box;
+                padding: 15px;
+                position: relative;
+
+                h3 {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    font-family: $fofaText;
+                }
+
+                img {
+                    width: 50%;
+                    display: block;
+                    margin: auto;
+                }
+
+                //按鈕
+                .but {
+                    position: absolute;
+                    //opacity: 0;
+
+                }
+
+                #butS {
+                    top: 30px;
+                    left: 140px;
+                }
+
+                #butI {
+                    right: 15px;
+                    top: 150px;
+                }
+
+                #butL {
+                    bottom: 35px;
+                    left: 140px;
+                }
+
+                #butA {
+                    left: 15px;
+                    top: 150px;
+                }
+            }
+        }
+    }
+
 }
 
-
-
-.drawing {
-    position: relative;
-    box-sizing: border-box;
-    padding: 30px 0;
-
-    img {
-        width: 100%;
-    }
-}
-
-.meShip {
-    width: 70%;
-    margin: 30PX auto;
-    // padding: 30px 0;
-    position: absolute;
-    top: -135px;
-    right: 20px;
-
-    img {
-        width: 100%;
-        position: absolute;
-    }
-}
-
-.meShip img:nth-child(2) {
-    position: absolute;
-    width: 100%;
-    height: 400px;
-    transform: rotateX(60deg);
-    top: 60px;
-    right: 20px;
-    z-index: 1;
-    // animation: light 5s infinite linear;
-}
-
-// .meShip::before {
-//     content: "";
-//     background-image: url("../image/background/light.png");
-//     background-repeat: no-repeat;
-//     background-size: 100%;
-//     position: absolute;
-//     display: block;
-//     width: 450px;
-//     height: 450px;
-//     z-index: 1;
-//     transform: rotateX(60deg);
-//     right: -80px;
-//     top: 40px;
-//     // animation: light 5s infinite linear;
-// }
-
-@keyframes light {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
-.titlePri {
-    align-items: center;
-}
-
-.boxNews {
-    // margin: 5px 10px;
-    padding: 10px 0 0;
-}
-
-.meNews {
-    background-color: #f5ecdd;
-    border: 7px dashed #5f6f70;
-    // margin-top: 40px;
-    box-shadow: 0px 0px 0px 2px rgb(245, 234, 234) inset;
-    // 0px 0px 0px 2px #000;
-    outline: 7px #362e2b double;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    li {
-        margin: 10px 0;
-        padding: 0px 20px;
-        font-family: $fofaText;
-    }
-}
-
-.radar {
-    box-sizing: border-box;
-    padding: 15px;
-    position: relative;
-
-    h3 {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        font-family: $fofaText;
-    }
-
-    img {
-        width: 50%;
-        display: block;
-        margin: auto;
-    }
-
-    .but {
-        position: absolute;
-
-    }
-
-    #butS {
-        top: 30px;
-        left: 140px;
-    }
-
-    #butI {
-        right: 15px;
-        top: 150px;
-    }
-
-    #butL {
-        bottom: 35px;
-        left: 140px;
-    }
-
-    #butA {
-        left: 15px;
-        top: 150px;
-    }
-}
 
 //寶物造型頁籤
-
 .bookMark {
     margin-top: 50px;
     color: $brown;
     font-family: $fofaText;
+
+    //頁籤按鈕
+    #tabs-nav {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-align: left;
+
+        //     display: flex;
+        //按鈕樣式
+        a.tabs-menu {
+            display: inline-block;
+            background-color: #bcb19e;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(20, 19, 19);
+            padding: 10px 20px;
+            // text-shadow: 1px 1px 0px #1b91ab;
+            font-weight: bold;
+            text-decoration: none;
+            // border: solid 1px #1b91ab;
+            border-bottom: 0;
+            border-radius: 5px 5px 0 0;
+        }
+
+        //按鈕被點擊後樣式
+        a.tabs-menu.tabs-menu-active {
+            background-color: #f5ecdd;
+            text-shadow: 1px 1px 0px #ffffff;
+            // border: solid 1px #1b91ab;
+            // color: #6b6b6b;
+            border-bottom: 0;
+        }
+    }
+
+    //頁籤視窗
+    .tabs-container {
+        // border: solid 1px #1b91ab;
+        margin-top: -1px;
+        background-color: #f5ecdd;
+        overflow-y: hidden;
+
+        .tabs-panel {
+            display: none;
+            height: 100px;
+            overflow: auto;
+            padding: 10px;
+            // max-height: 200px;
+        }
+
+    }
+
+
 }
-
-#tabs-nav {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    text-align: left;
-    //     display: flex;
-}
-
-a.tabs-menu {
-    display: inline-block;
-    background-color: #bcb19e;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(20, 19, 19);
-    padding: 10px 20px;
-    // text-shadow: 1px 1px 0px #1b91ab;
-    font-weight: bold;
-    text-decoration: none;
-    // border: solid 1px #1b91ab;
-    border-bottom: 0;
-    border-radius: 5px 5px 0 0;
-}
-
-a.tabs-menu.tabs-menu-active {
-    background-color: #f5ecdd;
-    text-shadow: 1px 1px 0px #ffffff;
-    // border: solid 1px #1b91ab;
-    color: #6b6b6b;
-    border-bottom: 0;
-}
-
-.tabs-container {
-    // border: solid 1px #1b91ab;
-    margin-top: -1px;
-    background-color: #f5ecdd;
-    overflow-y: hidden;
-}
-
-.tabs-panel {
-    display: none;
-    height: 100px;
-    overflow: auto;
-    padding: 10px;
-    // max-height: 200px;
-}
-
-/************CSS Animation***********/
-
-.animated {
-    // animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
-
-// @keyframes bounceIn {
-//     0% {
-//         opacity: 0;
-//         transform: scale(.3);
-//     }
-
-//     50% {
-//         opacity: 1;
-//         transform: scale(1.05);
-//     }
-
-//     70% {
-//         transform: scale(.9);
-//     }
-
-//     100% {
-//         transform: scale(1);
-//     }
-// }
-
-// .bounceIn {
-//     animation-name: bounceIn;
-// }
-
 
 // 頁籤內容物
 .content ul {
@@ -314,55 +287,183 @@ a.tabs-menu.tabs-menu-active {
     }
 }
 
+/************CSS Animation***********/
 
+// .animated {
+//     // animation-duration: 1s;
+//     animation-fill-mode: both;
+// }
+
+
+// 紀錄頁籤
+.filewrap {
+    // width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: static;
+    overflow: hidden;
+
+    #js-tabs1 {
+        display: flex;
+
+        #tabs-nav1 {
+            // margin: 0;
+            // padding: 0;
+            // margin-right: -1px;
+            position: relative;
+            width: 60px;
+            // float: left;
+            box-sizing: border-box;
+
+            a.tabs-menu1 {
+                display: inline-block;
+                background-color: #bcb19e;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #141313;
+                padding: 10px 20px;
+                font-weight: bold;
+                text-decoration: none;
+                border-bottom: 0;
+                border-radius: 5px 0 0 5px;
+                // writing-mode: vertical-lr;
+            }
+
+            a.tabs-menu1.tabs-menu-active1 {
+                background-color: #f5ecdd;
+                text-shadow: 1px 1px 0px #ffffff;
+                // border: solid 1px #1b91ab;
+                // color: #6b6b6b;
+                border-bottom: 0;
+            }
+
+        }
+    }
+
+    .tabs-container1 {
+        margin-top: -1px;
+        background-color: #f5ecdd;
+        overflow-y: hidden;
+        float: left;
+        width: 90%;
+        // height: 400px;
+        box-sizing: border-box;
+
+        .tabs-panel1 {
+            display: none;
+            min-height: 150px;
+            overflow: auto;
+            padding: 10px;
+            max-height: 400px;
+        }
+
+    }
+
+}
+
+
+.tt {
+    // width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+
+    background-color: #aaf;
+}
 
 
 @media screen and(min-width: 768px) {
+
+    .ccc {
+        position: relative;
+        // width: 1200px;
+        margin: auto;
+        perspective: 1000px;
+        display: flex;
+        overflow: hidden;
+        max-width: 1920px;
+    }
+
     .meTitle {
         padding-top: 210px;
+
+        &::before {
+            content: "";
+            background-image: url("../../image/background/shipWindow.png");
+            width: 600px;
+            height: 600px;
+            top: -170px;
+            left: 0;
+            right: 0;
+            opacity: .6;
+            margin: auto;
+        }
+
     }
 
     .wrap {
         display: flex;
         perspective: 1000px;
-        margin: 60px auto;
+        margin: 0px auto;
+        z-index: 20;
+
+
+        .drawing {
+            position: relative;
+            margin: 0 20px;
+            transform-style: preserve-3d;
+            transform-origin: bottom;
+            transform: rotateX(50deg);
+
+
+            .meShip {
+                position: absolute;
+                transform: rotateX(-50deg);
+                top: -330px;
+                right: 80px;
+            }
+
+
+        }
+
+
+        .boxNews {
+            padding-left: 90px;
+            transform-style: preserve-3d;
+            transform: rotateX(50deg);
+            transform-origin: bottom;
+            animation-name: lyingDown .5s;
+            // z-index: -10;
+
+            // &:hover {
+            //     transform: rotateX(0deg);
+            //     animation: standUp .5s;
+            // }
+
+
+            .meNews {
+                display: flex;
+            }
+
+        }
+
+        .boxUP {
+            padding-left: 90px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transform-origin: bottom;
+            animation: standUp .5s;
+
+            .meNews {
+                display: flex;
+            }
+        }
+
     }
 
-    .meNews {
-        display: flex;
-    }
-
-    .drawing {
-        position: relative;
-        margin: 0 20px;
-        transform-style: preserve-3d;
-        transform: rotateX(40deg);
-    }
-
-    .meShip {
-        position: absolute;
-        transform: rotateX(-40deg);
-        top: -315px;
-        right: 80px;
-
-
-    }
-
-    .boxNews {
-        padding-left: 90px;
-        transform-style: preserve-3d;
-        transform: rotateX(50deg);
-        animation-name: lyingDown;
-        animation-duration: .5s;
-
-    }
-
-    .boxNews:hover {
-        transform: rotateX(0deg);
-        animation-name: standUp;
-        animation-duration: .5s;
-    }
-
+    //個人資訊動畫站起來
     @keyframes standUp {
         0% {
             transform: rotateX(50deg);
@@ -390,6 +491,7 @@ a.tabs-menu.tabs-menu-active {
         }
     }
 
+    //個人資訊動畫躺下
     @keyframes lyingDown {
         0% {
             transform: rotateX(0deg);
@@ -420,77 +522,32 @@ a.tabs-menu.tabs-menu-active {
 
     // 紀錄頁籤---------------------
     .filewrap {
-        max-width: 1200px;
-        margin: 120px auto;
-        padding: 10px;
-        box-sizing: border-box;
-        position: relative;
-    
-    }
-    #tabs-nav1 {
-        margin: 0;
-        padding: 0;
-        margin-right: -1px;
-        position: relative;
-        width: 10%;
-        float: left;
-        box-sizing: border-box;
-    }
+        max-width: 600px;
+        margin-top: 20px;
+        // margin-right: 40px;
+        position: absolute;
+        padding-left: 40px;
+        left: 1550px;
+        width: 800px;
+        overflow: visible;
+        // z-index: -1;
 
-    a.tabs-menu1 {
-        display: block;
-        background-color: #1b91ab;
-        font-size: 12px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #fff;
-        padding: 5px 10px;
-        text-shadow: 1px 1px 0px #1b91ab;
-        font-weight: bold;
-        text-decoration: none;
-        border: solid 1px #1b91ab;
-        border-right: 0;
-        border-radius: 3px 0 0 3px;
-        margin-bottom: 2px;
+        &:hover #js-tabs1 {
+            transform: rotateX(0deg);
+            animation-name: standUp;
+            animation-duration: .5s;
+            z-index: 100;
+            // left: -600px;
+        }
+
+        #js-tabs1 {
+            position: relative;
+            transform: rotateX(50deg);
+            transform-origin: bottom;
+            margin: 25px;
+            // padding-left: 40px;
+        }
+
     }
 
-    a.tabs-menu.tabs-menu-active1 {
-        background-color: #fff;
-        text-shadow: 1px 1px 0px #ffffff;
-        border: solid 1px #1b91ab;
-        color: #6b6b6b;
-        border-right: 0;
-    }
-
-    .tabs-container1 {
-        border: solid 1px #1b91ab;
-        background-color: #fff;
-        overflow: hidden;
-        float: left;
-        width: 90%;
-        box-sizing: border-box;
-    }
-
-    .tabs-panel1 {
-        display: none;
-        min-height: 150px;
-        overflow: auto;
-        padding: 10px;
-        max-height: 200px;
-    }
-
-
-
-    .meTitle::before {
-        content: "";
-        background-image: url("../../image/background/shipWindow.png");
-        width: 600px;
-        height: 600px;
-        top: -170px;
-        left: 0;
-        right: 0;
-        opacity: .6;
-        margin: auto;
-    }
 }
-
-@media screen and(min-width: 1200px) {}
