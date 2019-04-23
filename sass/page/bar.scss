@@ -663,10 +663,189 @@ body {
 #submitArticle{
     opacity: 0;
 }
-
+// 討論內容燈箱
 #articleBoxWrap{
-    display: block;
-    position: fixed;
+    display: none;
+    // display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
     width: 100%;
-    height: 100%;
+    background-color: $lightBox;
+    padding-top: 100px;
+    #articleBox{
+        margin: auto;
+        background: $boxColor;
+        border-radius: 20px;
+        @media screen and (min-width: $padV){}
+        @media screen and (min-width: $padH){
+            width: 960px;
+            // position: relative;
+        }
+        @media screen and (min-width: $pc){
+            width: 1200px;
+        }
+    }
+    #articleBoxTit{
+        @media screen and (min-width: $padV){}
+        @media screen and (min-width: $padH){
+            width: 960px;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            // position: absolute;
+            // top: -75px;
+            // left: 0;
+            position: relative;
+            background: $beige;
+            border-radius: 20px 20px 0 0;
+            &::after{
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -25px;
+                left: calc(50% - 12px);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 25px 25px 0 25px;
+                border-color: $beige transparent transparent transparent;
+            }
+        }
+        @media screen and (min-width: $pc){
+            width: 1200px;
+        }
+        .textL{
+            padding-right: 1rem;
+        }
+        #articleBoxType{
+            display: inline-block;
+            padding: 0.3rem 0.5rem;
+            margin: 0.2rem;
+            height: 1rem;
+            //line-height: 2rem;
+            font-family: $fofaText;
+            color: $brown;
+            text-align: center;
+            vertical-align: center;
+            border-radius: 4px;
+            background-color: #7ccbbd;
+            @media screen and (min-width: $padV){
+                
+            }
+            @media screen and (min-width: $pc){
+                padding: 0.3rem 0.5rem;
+                margin: 0px 0.2rem;
+            }
+        }
+        #articleBoxTitInfo{
+            padding-left: 1rem;
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            #articleBoxView{
+                position: relative;
+                // top: 0.5rem;
+                //left: 1rem;
+                color: $brown;
+                font-family: $fofaText;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                padding-left: 1.5rem;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    display: block;
+                    width: 2rem;
+                    height: 1rem;
+                    background-repeat: no-repeat;
+                    background-image: url(../image/bar/viewed.png);
+                    background-size: contain;
+                }
+            }
+            #articleBoxCommend{
+                position: relative;
+                // top: 0.5rem;
+                // right: 0px;
+                color: $brown;
+                font-family: $fofaText;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                padding-left: 1.2rem;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    display: block;
+                    width: 2rem;
+                    height: 1rem;
+                    background-repeat: no-repeat;
+                    background-image: url(../image/bar/commend.png);
+                    background-size: contain;
+                }
+            }
+        }
+    }
+    #articleBoxMemInfo{
+        display: flex;
+        padding: 1rem 0 0 3rem;
+        #articleBoxMemImg{
+            width: 5rem;
+            height: 5rem;
+            // padding: 20px;
+            border-radius: 50%;
+            border: 2px $brown solid;
+            // -webkit-clip-path: circle(47.0% at 50% 50%);
+            // clip-path: circle(47.0% at 50% 50%);
+            // background-color: #f00;
+            overflow: hidden;
+            text-align: center;
+            vertical-align:middle;
+            img{
+                margin-top: 0.5rem;
+                width: 4rem;
+            }
+        }
+        #articleBoxMemMeg{
+            margin: auto 0 auto 1rem ;
+            >span{
+                display: block;
+                font-family: $fofaText;
+                font-size: 1rem;
+            }
+            #articleBoxMemId{
+                font-size: 1.25rem;
+                padding-bottom: 0.5rem;
+            }
+            #articleBoxMemLv::before{
+                content: "LV. ";
+            }
+            #articleBoxMemMoney::before{
+                content: "所持有金幣數 ";
+            }
+        }
+    }
+    #articleBoxCont{
+        display: flex;
+        margin-top: 25px;
+        padding: 0.5rem 1.5rem;
+        line-height: 1.5;
+        #articleBoxImg{
+            width: 300px;
+            text-align: center;
+            #articleBoxContImg{
+                width: 250px;
+            }
+        }
+        .textM{
+            text-align: left;
+            width: calc(100% - 300px);
+        }
+    }
 }

@@ -3,14 +3,13 @@
 <?php
   try{
     require_once("connectPirate.php");
-    $sql = "select limit(6) from articlelist orderby 	artTime";
+    $sql = "select limit(6) from articlelist order by artTime";
     $hotIssue = $pdo->prepare( $sql );
     $hotIssue->execute();
     if( $hotIssue->rowCount() == 0 ){ //找不到
         echo "{}";
       }else{
         $hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($hotIssueRow);
       };
   }catch(PDOException $e){
       echo $e->getMessage();
@@ -50,19 +49,19 @@
         <div class="hotIssueBox">
             <a href="javacript;" class="hotIssueBoxLink">
                 <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
+                    <img src="image/bar/DB/ <?php echo "artImg" ?>" alt="洩露情報者">
                 </div>
                 <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
+                    <h4 class="textM"><?php echo "artTitle" ?></h4>
                     <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
+                        <?php echo "artText" ?>
                     </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
+                    <span class="hotIssueBoxView"><?php echo "clickAmt" ?></span>
+                    <span class="hotIssueBoxCommend"><?php echo "msgAmt" ?></span>
                 </div>
             </a>
         </div>
-        <div class="hotIssueBox">
+        <!-- <div class="hotIssueBox">
             <a href="javacript;" class="hotIssueBoxLink">
                 <div class="hotIssueBoxInfo">
                     <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
@@ -76,67 +75,7 @@
                     <span class="hotIssueBoxCommend">520</span>
                 </div>
             </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
-        <div class="hotIssueBox">
-            <a href="javacript;" class="hotIssueBoxLink">
-                <div class="hotIssueBoxInfo">
-                    <img src="image/bar/hotIssueImg_1.png" alt="洩露情報者">
-                </div>
-                <div class="hotIssueBoxCont">
-                    <h4 class="textM">【競技】如何打贏大媽</h4>
-                    <p class="textS hotIssueBoxContText">
-                        這次活動角竟然是酒吞，讚嘆營運為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的大媽....
-                    </p>
-                    <span class="hotIssueBoxView">1314</span>
-                    <span class="hotIssueBoxCommend">520</span>
-                </div>
-            </a>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- 熱門話題內容開始 -->
