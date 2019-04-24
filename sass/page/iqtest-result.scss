@@ -110,6 +110,27 @@ body{
 	top: 155px;
 	left: 220px;
 }
+.info{
+	position: fixed;
+}
+.titlePriX{
+	font-size: 1.7em;
+}
+.lightbox .leave:after{
+	top: 5px;
+	right: 35px;
+}
+.lightbox .leave:before{
+	top: 5px;
+	right: 35px;
+}
+.lightbox .paper{
+	width: 300px;
+}
+.lightbox .axis {
+  left: 46px;
+  width: 350px;
+  height: 20px;}
 // animation
 @keyframes spark{
 	0%{
@@ -184,4 +205,22 @@ body{
 	top: 260px;
 	left: 330px;
 }
+.titlePriX{
+	font-size: 3em;
+}
+.lightbox .leave:after{
+	right: 7%;
+    top: 40%;
+}
+.lightbox .leave:before{
+	right: 7%;
+    top: 40%;
+}
+.lightbox .paper{
+	width: 400px;
+}
+.lightbox .axis {
+  left: 0px;
+  width: 450px;
+  height: 20px;}
 }
