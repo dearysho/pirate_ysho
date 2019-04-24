@@ -51,9 +51,6 @@ a {
 .clearfix {
   clear: both; }
 
-* {
-  outline: 1px solid blue; }
-
 body {
   position: relative;
   overflow: hidden;

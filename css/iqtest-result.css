@@ -127,9 +127,6 @@ body {
   background-size: 100% 204vh;
   background-repeat: no-repeat; }
 
-* {
-  outline: 1px solid red; }
-
 .lightbox {
   display: none; }
 
@@ -317,6 +314,9 @@ body {
     text-align: left;
     left: 50%;
     transform: translateX(-50%); }
+
+  #toPlay {
+    bottom: -10px; }
 
   .infoImg:nth-child(1) {
     top: 0;
