@@ -2,38 +2,162 @@
 @import '../base/reset';
 //font
 @import '../base/font';
-
 body{
 	background-image: url('../image/iqtest/qabg.jpg');
+	background-size: 100% 204vh;
 	background-repeat: no-repeat;
-	background-size: cover;
 }
-
-// title
+.lightbox{
+	display: none;
+}
+.checkToLeave{
+	bottom: 100px;
+	left: 10%;
+	top: 50%;
+	transform: translate(-50%,50%);
+}
 .resultSlogan{
+	position: relative;
 	background-image: url('../image/iqtest/qaq.png');
-	width: 1132px;
-	height: 142px;
-	line-height: 142px;
-	margin: 50px auto;
-	text-align: center;
+	background-size: 340px 140px;
+	width: 340px;
+	height: 140px;
+	margin: 50px auto 10px;
+	line-height: 140px;
+}
+.resultSlogan .titlePri{
+	color: $brown;
+	font-size: 1.5rem;
+	font-family: 王漢宗特明體繁;
+	letter-spacing: 2px;
 }
 .titlePri{
 	color: $brown;
 	font-family: 王漢宗特明體繁;
 	letter-spacing: 5px;
 }
-.y{
-	color: $brown;
+// col-6:1
+#toPlay{
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	bottom: 5px;
+	transform: translateX(-50%);
 }
-// brain area
 .row{
 	margin: 0 auto;
-	max-width: 1200px;
+	height: 1020px;
+	position: relative;
 }
+.col-6{position: relative;}
+.brain{width: 330px;padding: 0 20px;}
+#abc{
+	opacity: 1;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 150px;
+	animation: spark 1s infinite;
+}
+.grade{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 28px;
+	padding-bottom: 20px;
+}
+.correctop{
+	text-align: center;
+	font-family: $fofaTitle;
+	font-size: 28px;
+	padding-bottom: 50px;
+}
+// radar
+.titleSec{
+	font-family: $fofaTitle;
+	margin: 20px auto;
+	font-size: 30px;
+	letter-spacing: 2.5px;
+}
+.textM{
+	font-family: Adobe Heiti Std R;
+	letter-spacing: 1.5px;
+	padding: 0 25px;
+	text-align: left;
+}
+// info
+.infoImg{
+	width: 30px;
+	cursor: pointer;
+	position: absolute;
+}
+.infoImg:nth-child(1){
+	top: 0;
+	left: 220px;
+}
+.infoImg:nth-child(2){
+	top: 75px;
+	left: 38px;
+}
+.infoImg:nth-child(3){
+	top: 76px;
+	left: 315px;
+}
+.infoImg:nth-child(4){
+	top: 155px;
+	left: 220px;
+}
+.info{
+	position: fixed;
+}
+.titlePriX{
+	font-size: 1.7em;
+}
+.lightbox .leave:after{
+	top: 5px;
+	right: 35px;
+}
+.lightbox .leave:before{
+	top: 5px;
+	right: 35px;
+}
+.lightbox .paper{
+	width: 300px;
+}
+.lightbox .axis {
+  left: 46px;
+  width: 350px;
+  height: 20px;}
+// animation
+@keyframes spark{
+	0%{
+		display: block;
+		opacity: 1;
+	}
+	100%{
+		display: none;
+		opacity: 0;
+	}
+}
+//pc screen
+@media screen and (min-width: 768px){
+body{
+	background-size: cover;
+}
+// title
+.resultSlogan .titlePri{font-size: 3rem;}
+.resultSlogan{
+	background-size: cover;
+	width: 1132px;
+	height: 142px;
+	line-height: 142px;
+	margin: 50px auto;
+	text-align: center;
+}
+// brain area
+.row{max-width: 1200px;height: 650px;}
 .col-6{
 	float: left;
-	position: relative;
 	height: 600px;
 	width: 48%;
 	padding: 0px 12px;
@@ -47,175 +171,56 @@ body{
 	height: 400px;
 	padding: 0 50px;
 }
-#abc{
-	opacity: 1;
-	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translateX(-50%);
-	font-size: 150px;
-	animation: spark 1s infinite;
-}
-.grade{
-	text-align: center;
-	font-family: $fofaTitle;
-	font-size: 36px;
-	padding-bottom: 25px;
-}
-.correctop{
-	text-align: center;
-	font-family: $fofaTitle;
-	font-size: 36px;
-	padding-bottom: 25px;
-}
+#abc{top: 15%;}
+.grade{font-size: 36px;padding-bottom: 25px;}
+.correctop{font-size: 36px;padding-bottom: 25px;}
 // 說明area
 .radar{
 	// border: 2px solid red;
 }
-.titleSec{
-	font-family: $fofaTitle;
-	margin: 40px auto;
-	font-size: 30px;
-	letter-spacing: 2.5px;
-}
-.textM{
-	font-family: Adobe Heiti Std R;
-	letter-spacing: 1.5px;
-	padding: 0 20px;
-	text-align: left;
-}
+.titleSec{margin: 40px auto;font-size: 30px;}
+.textM{padding: 0 20px;}
 .btnpri{
+	text-align: left;
 	left: 50%;
 	transform: translateX(-50%);
 }
-// ex-btn
-.exBtn1{
-	top: 50px;
+#toPlay{
+	bottom: -10px;
 }
-.exBtn2{
-	top: -10px;
-	left: 350px;
-}
-.exBtn3{
-	top: 150px;
-	left: 450px;
-}
-.exBtn4{
-	top: 200px;
-	left: 150px;
-}
-.button_border{
-	transition: all .5s ease 1s;
-	opacity: 1;
-	transform: scale(1);
-	width: 88px;
-	height: 88px;
-	position: absolute;
-	cursor: pointer;
-}
-.exBtn1 span{
-	background-image: url(../image/iqtest/str.png);
-}
-.exBtn2 span{
-	background-image: url(../image/iqtest/int.png);
-}
-.exBtn3 span{
-	background-image: url(../image/iqtest/lcu.png);
-}
-.exBtn4 span{
-	background-image: url(../image/iqtest/agi.png);
-}
-span {	
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 20px 24px;
-	display: block;
-	transition: all .4s;
-}
-.border_in {
-	overflow: hidden;
-	transition: 0.4s;
-	width: 60px;
-	height: 60px;
-	background: #fff;
-	border-radius: 50%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -30px;
-	margin-top: -30px;
-	display: block;
-}
-.border_out {
-	position: absolute;
-	left: 0;
+// info-btn
+.infoImg:nth-child(1){
 	top: 0;
-	width: 88px;
-	height: 88px;
-	animation: borderCircle 3s linear infinite;
+	left: 330px;
 }
-.border{
-	fill: none;
-	stroke: #fff;
+.infoImg:nth-child(2){
+	top: 130px;
+	left: 80px;
 }
-.bg_focus {
-	background-image: url('../image/iqtest/leaderHead.png');
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+.infoImg:nth-child(3){
+	top: 130px;
+	left: 470px;
 }
-.button_border .border_out svg,.button_border .border_in,.button_border .border_in span,.border_in .bg_focus {
-transition:all .3s
+.infoImg:nth-child(4){
+	top: 260px;
+	left: 330px;
 }
-
-.button_border:hover .border_out svg {
-transform: scale(1.95)
+.titlePriX{
+	font-size: 3em;
 }
-
-.button_border:hover .border_in {
-transform: scale(2.6)
+.lightbox .leave:after{
+	right: 7%;
+    top: 40%;
 }
-
-.button_border:hover .border_in span {
-transform: scale(.5);
-opacity: 0;
-
+.lightbox .leave:before{
+	right: 7%;
+    top: 40%;
 }
-
-.button_border:hover .border_in .bg_focus {
-opacity: 1;
-
+.lightbox .paper{
+	width: 400px;
 }
-.cover {
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat
-}
-
-// keyframes
-// brain
-@keyframes spark{
-	0%{
-		display: block;
-		opacity: 1;
-	}
-	100%{
-		display: none;
-		opacity: 0;
-	}
-}
-// btn
-@keyframes borderCircle{
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+.lightbox .axis {
+  left: 0px;
+  width: 450px;
+  height: 20px;}
 }

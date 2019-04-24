@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/me.css">
+    <style type="text/css">
+        .boxUP {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,13 +67,14 @@
             </div>
             <!-- 個人資訊 -->
             <div class="col-12 col-md-7 boxNews">
+                <button id="boxNews" >按鈕</button>
                 <div class="meNews">
                     <ul class="col-12 col-md-6 field">
                         <li>
                             帳號: <span>abc123</span>
                         </li>
                         <li>
-                            密碼: <span>更改密碼</span>
+                            密碼: <a href="#"><span>更改密碼</span></a>
                         </li>
                         <li>
                             ID: <span>祕寶尋者號</span>
@@ -134,7 +140,7 @@
             </div>
         </div>
         <div class="filewrap">
-            <div id="js-tabs1">
+            <div id="js-tabs1" class="js-tabs1">
                 <div id="tabs-nav1">
                     <a href="#tab2" onclick="jsTabs1(event,'tab2');return false"
                         class="tabs-menu1 tabs-menu-active1">交易紀錄</a>
@@ -142,23 +148,30 @@
                 </div>
                 <div class="tabs-container1">
                     <div id="tab2" class="tabs-panel1" style="display:block">
-                        123
+                        <div class="tt">紀錄1</div>
+                        <div class="tt">紀錄2</div>
+                        <div class="tt">紀錄3</div>
+                        <div class="tt">紀錄4</div>
                     </div>
                     <div id="tab3" class="tabs-panel1">
-                        987
+                        <div class="tt">紀錄5</div>
+                        <div class="tt">紀錄6</div>
+                        <div class="tt">紀錄7</div>
+                        <div class="tt">紀錄8</div>
                     </div>
                 </div>
                 <div style="clear: both"></div>
             </div>
-        </div>
+            <button id="qq">按鈕</button>
+        </div> 
     </div>
-    <script src="js/header.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/me.js"></script>
-    <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/radar.js">
 
-    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/radar.js"></script>
+    <script src="js/me.js"></script>
+
 </body>
 
 </html>
