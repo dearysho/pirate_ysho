@@ -69,13 +69,8 @@
     </div>
 </div>
 <script>
-    var arr = <?php echo $jsonStr; ?>;
+    var arrhotIssue = <?php echo $jsonStr; ?>;
     console.log(arr);
-    window.addEventListener("load", function(){
-        //..............
-
-        //................
-    },false);
 </script>
 
 <!-- 熱門話題內容開始 -->
@@ -175,6 +170,7 @@
                  <input type="text" id="articleTit" placeholder="請點擊此處輸入情報內容">
              <div id="articleCont">
                  <span id="articleContTit">情報內容</span>
+                 <input type="file" id="articleImg">
                  <textarea name="articleCont" id="articleCont" cols="30" rows="10" placeholder="請點擊此處輸入情報內容"></textarea>
              </div>
          </div>
@@ -195,10 +191,6 @@
             <a href="javascript:;" id="artReport"></a>
         </div>
         <div id="articleBoxMemInfo">
-            <div id="articleBoxTitInfo">
-                <span id="articleBoxView">人氣</span>
-                <span id="articleBoxCommend">回覆</span>
-            </div>
             <div id="articleBoxMemImg">
                 <img src="image/ship.png" alt="" id="">
             </div>
@@ -206,6 +198,10 @@
                 <span id="articleBoxMemId">景成大帥哥</span>
                 <span id="articleBoxMemLv">7</span>
                 <span id="articleBoxMemMoney">100G</span>
+            </div>
+            <div id="articleBoxTitInfo">
+                <span id="articleBoxView">人氣</span>
+                <span id="articleBoxCommend">回覆</span>
             </div>
         </div>
         <div id="articleBoxCont">
@@ -227,12 +223,50 @@
             <span class="artiRespondBoxTime"></span>
         </div>
     </div>
+    <div class="artiRespondBox">
+        <div class="artiRespondBoxMem">
+                <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
+            <span class="textM">景陳船長</span>
+        </div>
+        <div class="artiRespondBoxCont">
+            <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
+            <span class="artiRespondBoxTime"></span>
+        </div>
+    </div>
+    <div class="artiRespondBox">
+        <div class="artiRespondBoxMem">
+                <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
+            <span class="textM">景陳船長</span>
+        </div>
+        <div class="artiRespondBoxCont">
+            <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
+            <span class="artiRespondBoxTime"></span>
+        </div>
+    </div>
+    <div id="addArtRespondBox">
+        <form action="addArtRespond.php" method="post" id="addArtRespond">
+            <textarea name="addArtRespondCont" id="addArtRespondCont" placeholder="加入回覆"></textarea>
+            <a class="btnpri" href="javascript:">
+                <span><label for="submitAddArtRespond"></label>發送留言</span>
+            </a>
+        </form>
+    </div>
 </div>
+<input type="submit"  id="submitAddArtRespond">
+<!-- 討論檢舉燈箱 -->
+
 
 <!-- script -->
 <script  src="https://code.jquery.com/jquery-3.4.0.min.js"   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<!-- <script src="js/bar.js?<?//php echo time();?>"></script> -->
-<script src="js/bar.js>"></script>
+<script src="js/bar.js?<?php echo time();?>"></script>
+<script>
+    function doFirst() {
+        addArt();
+        readArt();
+    }
+    window.addEventListener('load',doFirst());
+</script>
+<!-- <script src="js/bar.js>"></script> -->
 <script src="js/wavebtn.js"></script>
 </body>
