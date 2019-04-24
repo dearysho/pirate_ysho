@@ -22,7 +22,6 @@ $paddingBetweenHeader: 150px;
 body {
     background-image: url(../image/background/BgPage.png);
     background-size: cover;
-    background-repeat: no-repeat;
 }
 .lightboxShow{
     position: fixed;
@@ -67,7 +66,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin: auto;
-    width: 100%;
+    width: 90%;
     >div:nth-child(5), >div:last-child{
         display: none;
     }
@@ -82,6 +81,10 @@ body {
     .hotIssueBox{
         //margin: 1rem 1rem 0;
         margin: 0.5rem 0.5rem;
+        width: calc(100% - 1rem);
+        @media screen and (min-width: $pc){
+            width: calc(20rem + 120px);
+        }
     }
     .hotIssueBoxLink{
         display: flex;
@@ -91,12 +94,8 @@ body {
         font-size: 1rem;
         line-height: 1.5;
         padding: 1rem;
-        width: 90%;
         @media screen and (min-width: $padV){
             margin: auto;
-        }
-        @media screen and (min-width: $pc){
-            width: calc(20rem + 120px);
         }
     }
     .hotIssueBoxInfo{
@@ -112,7 +111,7 @@ body {
         img{
             height: 90px;
             @media screen and (min-width: $pc){
-                height: 120px;
+                height: 90px;
             }
         }
     }
@@ -465,6 +464,7 @@ body {
         text-align: center;
         @media screen and (min-width: $padV){
             display: block;
+            padding-top: 200px;
         }
     }
     .textM{
@@ -485,40 +485,64 @@ body {
         padding: 0px 0px 0px;
         background-size: 30%;
     }
+    // .artBtn{
+    //     display: inline;
+    //     position: relative;
+    //     z-index: 100;
+    //     top: 0px;
+    //     left: 20%;
+    //     font-family: $fofaText;
+    //     font-size: 0.9rem;
+    //     color: $brown;
+    //     background: $beige;
+    //     opacity: 0.8;
+    //     padding: 0.5rem 0.5rem;
+    //     border: $beige  2px solid;
+    //     letter-spacing: 2px;
+    //     box-shadow: 0px 0px 0px 2px $brown inset,
+    //                 0px 0px 0px 2px $brown;
+    //     &::before{
+    //         content: "⏎";
+    //     }
+    //     @media screen and (min-width: $padH){
+    //         top: -80px;
+    //         left: 5%;
+    //     }
+    //     @media screen and (min-width: $pc){ 
+    //         top: -200px;
+    //         left: 7%;
+    //         font-size: 1.1rem;
+    //         padding: 1rem 1rem;
+    //     }
+    //     @media screen and (min-width: $pcMax){
+    //         top: -100%;
+    //     }
+    // }
     .artBtn{
-        display: inline;
-        position: relative;
-        z-index: 100;
-        top: 0px;
-        left: 20%;
-        font-family: $fofaText;
-        font-size: 0.9rem;
-        color: $brown;
-        background: $beige;
-        opacity: 0.8;
-        padding: 0.5rem 0.5rem;
-        border: $beige  2px solid;
-        letter-spacing: 2px;
-        box-shadow: 0px 0px 0px 2px $brown inset,
-                    0px 0px 0px 2px $brown;
-        &::before{
-            content: "⏎";
-        }
-        @media screen and (min-width: $padH){
-            top: -80px;
-            left: 5%;
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: $brown;
+        -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        @media screen and (min-width: $padV){
+            top: 1.5rem;
+            right: 1.5rem; 
         }
         @media screen and (min-width: $pc){ 
-            top: -200px;
-            left: 7%;
-            font-size: 1.1rem;
-            padding: 1rem 1rem;
+            top: 1rem;
+            right: 1.5rem; 
         }
         @media screen and (min-width: $pcMax){
-            top: -100%;
+            top: 1rem;
+            right: 1.5rem;  
         }
     }
     #addForm{
+        position: relative;
         width: 80%;
         margin: auto;
         padding: 2rem;
@@ -530,7 +554,14 @@ body {
         // border: #ccc  7px dashed;
         // box-shadow: 0px 0px 0px 2px $brown inset,
         //             0px 0px 0px 2px $brown;
+        @media screen and (min-width: $padH){
+            margin: 200px auto auto;
+        }
+        @media screen and (min-width: $padV){
+            margin: 50px auto auto;
+        }
         @media screen and (min-width: $pc){
+            margin: 200px auto auto;
             width: 1000px;
         }
         @media screen and (min-width: $pcMax){
@@ -593,20 +624,23 @@ body {
                         border-radius: 50%;
                         border: 2px $brown solid;
                         @media screen and (min-width: $pc){
-                            top: -0.8rem;
-                            left: -5px;
+                            top: 0rem;
+                            left: 0px;
                         }
                     }
                 }
                 input{
                     -webkit-appearance: none;
                     -moz-appearance: none;
-                    opacity: 0;
+                    opacity: 1;
                     &:checked{
-                        opacity: 0;
+                        opacity: 1;
                     }
                 }
-                #articleTypeGps:checked+::before{
+                input[type="radio"]:checked+label{
+                    color: $blue; 
+                }
+                input[type="radio"]:checked+label::before{
                     border-color: $blue;
                     background: $blue;
                     box-shadow: 0px 0px 0px 2px #fff inset; 
@@ -653,10 +687,11 @@ body {
                 }
                 #articleImg{
                     -webkit-appearance: none;
+                    -moz-appearance: none;  
                     font-size: 1.2rem;
                     font-family: $fofaTitle;
-                    color: $blue;
-                    padding-left: 1rem;
+                    color: $brown;
+                    padding: 1rem 0 0 1rem;
                 }
                 #articleCont{
                     width: 100%;
@@ -676,18 +711,19 @@ body {
     opacity: 0;
 }
 // 討論內容燈箱
-#articleBoxWrap{
-    // display: none;
-    display: block;
+#articleBoxWrapMask{
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     right: 0;
     overflow-y: scroll;
-    z-index: 5;
-    // height: 100%;
     background-color: $lightBox;
+    display: none;
+    z-index: 5;
+}
+#articleBoxWrap{
+    overflow-y: scroll;
     padding-top: 2rem;
     @media screen and (min-width: $padV){}
     @media screen and (min-width: $padH){
@@ -699,7 +735,7 @@ body {
         background: $boxColor;
         border-radius: 20px;
         position: relative;
-        overflow-y: scroll;
+        // overflow-y: scroll;
         width: 90%;
         @media screen and (min-width: $padV){}
         @media screen and (min-width: $padH){
@@ -1107,4 +1143,7 @@ body {
 }
 #submitAddArtRespond{
     opacity: 0;
+}
+#articleBoxWrapMask{
+    overflow-y: scroll;
 }
