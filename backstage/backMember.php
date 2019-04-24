@@ -4,6 +4,10 @@ session_start();
 $errMsg = "";
 
 try {
+<<<<<<< HEAD
+    require_once("php/connectPirates.php");
+    $sql = "select * from member";
+=======
     require_once("connectPirates.php");
     $sql = "select count(*) totalRecord from member";
     $records = $pdo->query($sql);
@@ -26,6 +30,7 @@ try {
     $start = ($pageNo-1) * $numPerPage;
     $sql = "select * from member limit $start, $numPerPage";
     // exit($sql);
+>>>>>>> de4c2d5f8e791733b1afa24a30227b5ab1cfd9fe
     $members = $pdo->query($sql);
 
 
