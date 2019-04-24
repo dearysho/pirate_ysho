@@ -4,7 +4,7 @@ session_start();
 $errMsg = "";
 
 try {
-    require_once("connectPirates.php");
+    require_once("php/connectPirates.php");
     $sql = "select * from member";
     $members = $pdo->query($sql);
     $totalRec = $members->fetchColumn();
