@@ -8,7 +8,7 @@ body {
     background-repeat: repeat-y;
     background-size: 100% auto;
 }
-.marWrap {
+.sRWrap {
     font-family: $fofaText;
     
 }
@@ -17,9 +17,23 @@ h1, h2, h3, h4 {
     text-shadow: .1px .1px .1px #443c3a;
 }
 
+h1 {
+    font-family: $fofaTitle;
+	color: $blue;
+	font-size: 3rem;
+	text-align: center;
+    margin: 30px auto;
+}
+
 span,a {
     color: rgb(15, 15, 15);
     font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 img {
@@ -54,14 +68,784 @@ span {
     }
 }
 
-@media screen and (max-width: 1024px){
+.sRSlidewrap {
+    width: 75%;
+    float: left;
+}
+.sRMyShipCont {
+    width: 25%;
+    float: left;
+    margin-top: 271px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .sRimg {
+        width: 50%;
+        margin: auto;
+    }
+}
 
+.sRContWrap {
+    margin-top: 200px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    // display: flex;
+}
+
+///////////////////
+
+.sRArrows {
+    display: none;
+}
+
+html {
+  position: relative;
+  overflow-x: hidden!important;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.sRrank {
+    text-align: center;
+}
+
+.sRVoteSum {
+    font-size: 2rem;
+    margin: 20px 0 30px 0;
+    color: rgb(27, 27, 27);
+}
+
+.sRitem {
+    text-align: center;
+}
+.sR-slideritem .sRShipParts {
+    .sRShipPartBox {
+        padding-bottom: 10px;
+        a {
+          padding: 5px 0;
+            margin-left: 1rem;
+            .sRShipPart {
+                color: #3ba4dd;
+                text-shadow: 0 0 10px rgb(0, 0, 0);
+                transition: .6s;
+            }
+        }
+        a:hover {
+            .sRShipPart {
+                color: rgb(255, 255, 255);
+            }
+        }
+    }
+}
+
+
+.sYItem-bg {
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  top: 30px;
+  background: #f3ca8d;
+//   box-shadow: 0px 0px 1px 1px #70665c, 0px 0px 6px 1px black inset, 0 0 0 4px #635950;
+  border-radius: 10px;
+  box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: all .3s;
+  left: -30px;
+  //left: 50%;
+  //transform: translateX(-50%);
+
+  &.active {
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
+
+}
+
+.swiper-wrapper {
+    transition: .6s;
+}
+
+.swiper-slide-active {
+    a {
+        color: #222222;
+    }
+}
+
+.sR-slider {
+    overflow: hidden;
+}
+
+.sR-sliderarrow {
+  transition: .1s;
+}
+
+.sR-sliderctr .sR-sliderarrow.sR-slider-prev {
+    left: 15%;
+    transform: translateY(200%);
+    display: block;
+  }
+
+.sR-sliderctr .sR-sliderarrow.sR-slider-next {
+    right: 30.5%;
+    transform: translateY(200%);
+    display: block;
+}
+
+.icon-arrow-right, .icon-arrow-left {
+  transition: .6s;
+}
+
+.sR-sliderarrow:hover {
+  box-shadow: 0px 0px 1px 1px #70665c, 0px 0px 6px 1px black inset, 0 0 0 4px #635950;
+  .icon-arrow-right {
+    transform: translateX(5px);
+  }
+  .icon-arrow-left {
+    transform: translateX(-5px);
+  }
+}
+
+
+.sR {
+
+  &-slider {
+    z-index: 2;
+    max-width: 900px;
+
+
+    @media screen and (max-width: 1300px){
+      max-width: 1000px;
+    }
+
+    @media screen and (max-width: 576px) {
+      margin-top: 45px;
+    }
+
+    &wrp {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+
+    &item {
+      width: 300px;
+      flex-shrink: 0;
+      //padding: 15px;
+
+      @media screen and (max-width: 992px) {
+        width: 340px;
+      }
+
+      &.swiper-slide {
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
+      }
+
+      &.swiper-slide-active,
+      &.swiper-slide-prev,
+      &.swiper-slide-next {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+
+    }
+
+    &ctr {
+    //   position: relative;
+      z-index: 12;
+    }
+
+    &arrow {
+      background: #fff;
+      border: none;
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      z-index: 12;
+      cursor: pointer;
+      outline: none!important;
+
+      &:focus {
+        outline: none!important;
+      }
+
+      .icon-font {
+        display: inline-flex;
+      }
+
+      &.sR-slider-prev {
+        left: 15px;
+        transform: translateY(-50%);
+      }
+
+      &.sR-slider-next {
+        right: 15px;
+        transform: translateY(-50%);
+      }
+
+    }
+
+    &pagination {
+      text-align: center;
+      margin-top: 50px;
+
+      // @media screen and (max-width: 576px) {
+      //   margin-top: 50px;
+      // }
+
+      .swiper-pagination-bullet {
+        width: 13px;
+        height: 10px;
+        display: inline-block;
+        background: #fff;
+        opacity: .2;
+        margin: 0 5px;
+        border-radius: 20px;
+        transition: opacity .5s, background-color .5s, width .5s;
+        transition-delay: .5s, .5s, 0s;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #ffffff;
+        width: 100px;
+        transition-delay: 0s;
+
+        @media screen and (max-width: 576px) {
+          width: 70px;
+        }
+
+      }
+    }
+
+  }
+
+  &item {
+    padding: 36px 40px;
+    color: #534c4c;
+    border-radius: 10px;
+    display: block;
+    transition: all .3s;
+
+    @media screen and (min-width: 800px) {
+      &:hover {
+        color: #222222;
+        transition-delay: .1s;
+        //background: #fff;
+        //box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+        .sRrank .sRranktitle {
+            color: #c73030;
+        }
+
+        .sRrank .sRranktxt {
+            color: #df503d;
+        }
+
+        .sRrank,.sRtitle,.sRShipParts {
+          opacity: 1;
+          transition-delay: .1s;
+        }
+
+        .sRtitle a{
+            transition: .6s;
+            text-shadow:  0px 0px 10px #fff;
+        }
+
+        .sRtitle a:hover{
+            color: #1d5370;
+        }
+
+        .sRimg {
+          box-shadow: none;
+        }
+
+      }
+    }
+
+
+
+    &.active {
+        color: #222222;
+        transition-delay: .1s;
+        //background: #fff;
+        //box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+        .sRrank .sRranktitle {
+            color: #c73030;
+        }
+
+        .sRrank .sRranktxt {
+            color: #df7b6d;
+        }
+
+        .sRrank,.sRtitle,.sRShipParts {
+          opacity: 1;
+          transition-delay: .1s;
+        }
+
+        .sRimg {
+          box-shadow: none;
+        }
+
+      }
+
+    @media screen and (max-width: 992px) {
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding: 20px;
+    }
+
+  }
+
+  &-rank {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid;
+    display: inline-block;
+    opacity: .7;
+    transition: opacity .3s;
+
+    @media screen and (max-width: 576px) {
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    &title {
+      display: inline-block;
+      padding: 0 .5rem;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: 576px) {
+        margin-right: 10px;
+      }
+
+    }
+
+    &txt {
+      font-size: 1rem;
+    }
+
+  }
+
+  &title {
+    font-size: 1.5rem;
+    opacity: .7;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: opacity .3s;
+
+    @media screen and (max-width: 576px) {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  &txt {
+    margin: 10px 0;
+    font-size: 1rem;
+    opacity: .7;
+    transition: opacity .3s;
+  }
+
+  &img {
+    border-radius: 10px;
+    // box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+    margin-top: 30px;
+    width: 100%;
+    transition: all .3s;
+    transform-origin: 0% 0%;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+  }
+}
+
+// .sR-slider {
+//     position: relative;
+// }
+
+
+
+
+.sRranktitle {
+    font-size: 2rem;
+    padding-bottom: 10px;
+    color: rgb(30, 30, 30);
+}
+
+.rNum {
+    margin-bottom: 10px;
+    color: #222222;
+    text-shadow: .1px .1px .1px #000000;
+}
+.sRtitle{
+  position: relative;
+  z-index: 1;
+}
+
+.sRtitle a{
+    color: rgb(32, 32, 32);
+    text-shadow: .1px .1px .1px #000000;
+    font-size: 1.5rem;
+}
+.sRtitle a:hover {
+    color: #1d5370;
+}
+
+@media screen and (max-width: 1024px){
+    .sRContWrap {
+        width: 100%;
+    }
+    .sRSlidewrap {
+        width: 100%;
+    }
+    .sR-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+    .sRContWrap {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 768px){
+    .sRContWrap{
+        margin-top: 0;
+    }
+    h1 {
+        margin-top: 60px;
+    }
+}
+
+///////////////////
+
+.SRWaveBox {
+    width: 100%;
+    height: 18rem;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.wave-svg-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    overflow: hidden;
     
 }
 
+.runWave {
+    animation: fillUpSvg 2.5s ease-in-out ;
+}
+
+.wave-svg-shape .wave-svg {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    fill: rgb(16, 81, 107);
+    margin: 0;
+    animation: waveSvgAnim 1.5s linear infinite;
+}
+@keyframes fillUpSvg {
+  0% {
+    transform: translateY(calc(100%/4)) scaleY(.5);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+@keyframes waveSvgAnim {
+  0% {
+    transform: translateX(-65%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.active .SRWaveBox{
+    opacity: .7;
+    .wave-svg-shape {
+        animation: fillUpSvg 2.5s ease-in-out ;
+    }
+}
+
+.sR-slideritem {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    .sRitem {
+        position: relative;
+        bottom: -120px;
+        transition: 1s;
+    }
+    .active {
+        bottom: 0;
+        .sRFullShipImg {
+            animation: moveship 2s ease-in-out infinite;
+        }
+        .SRWaveBox{
+            // animation: moveWave 2.5s ease-in-out infinite;
+        }
+        .sRtitle a {
+            color: rgb(230, 230, 230);
+        }
+        .sRVoteSum {
+            color: #fff;
+        }
+        .sRShipPartBox span {
+            color: rgb(218, 218, 218);
+        }
+        .rNum span{
+            animation: sYColorChange 15s ease-in-out infinite;
+        }
+        .sRrank .sRranktitle {
+            color: #c73030;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),0px 0px 10px rgba(255, 255, 255, 1);
+           animation: sYColorChange 0s ease-in-out;
+        }
+    }
+    
+}
+.sR-slideritem:hover{
+    .sRitem {
+        bottom: 0;
+    }
+    .SRWaveBox{
+        opacity: .7;
+        .wave-svg-shape {
+            animation: fillUpSvg 2.5s ease-in-out;
+        }
+        // animation: moveWave 2.5s ease-in-out infinite;
+    }
+    .sRFullShipImg {
+        animation: moveship 2.5s ease-in-out infinite;
+    }
+    .sRtitle a {
+        color: rgb(230, 230, 230);
+    }
+    .sRVoteSum {
+        color: #fff;
+    }
+    .sRShipPartBox span {
+        color: rgb(218, 218, 218);
+    }
+    .rNum span{
+        animation: sYColorChange 15s ease-in-out infinite;
+    }
+    .sRrank .sRranktitle {
+        color: #c73030;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),0px 0px 10px rgba(255, 255, 255, 1);
+        animation: sYColorChange 0s ease-in-out;
+    }
+}
+
+.sRFullShipImg {
+    position: relative;
+    z-index: -2;
+    
+    transition: margin-left .6s;
+}
 
 
-///////////////////
+@keyframes moveship {
+    from {
+        transform: rotate(0deg) translate(70px, 20px);
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        transform: rotate(30deg) translate(-40px, -10px);
+    }
+    to {
+        transform: rotate(0deg) translate(70px, 20px);
+    }
+}
+
+// @keyframes moveWave {
+//     from{
+//         transform: scaleY(1.1) translateY(-13px);
+//     }
+//     65%{
+//         transform: scaleY(1) translateY(0);
+//     }
+//     to{
+//         transform: scaleY(1.1) translateY(-13px);
+//     }
+// }
+
+.sYItem-bg {
+    animation: sYBgColor 15s ease-in-out infinite;
+}
+
+@keyframes sYBgColor {
+    from {
+        background-color: #f3ca8d;
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        background-color: #2b2b2b;
+    }
+    to {
+        background-color: #f3ca8d;
+    }
+}
+
+@keyframes sYColorChange {
+    from {
+        color: #534c4c;
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        color: #ddd;
+    }
+    to {
+        color: #534c4c;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .sR-sliderctr .sR-sliderarrow.sR-slider-prev {
+        left: 15px;
+        transform: translateY(-50%);
+      }
+
+    .sR-sliderctr .sR-sliderarrow.sR-slider-next {
+        right: 15px;
+        transform: translateY(-50%);
+    }   
+    .sRMyShipCont {
+        margin-top: 0;
+        width: 100%;
+    }
+}    
+
+.sRCheckPartBox {
+    position: relative;
+}
+
+.sRCheckMerchBox {
+    position: absolute;
+    margin-top: 30px;
+    transform: scale(1.1);
+}
+
+.sYPartHead {
+  margin-left: 16%;
+  position: relative;
+  top: -50px;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sYPartBody {
+  margin-left: -12%;
+  position: relative;
+  top: -30px;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sYPartSail {
+  margin-left: -40%;
+  opacity: 0;
+  transition: .6s;
+}
+
+.shiftAwayAnimation {
+  transform: translateX(300%);
+  transition: transform 0.6s;
+}
+
+.sRrank {
+  position: relative;
+}
+
+.sRrank .sRClaimReward {
+  position: absolute;
+  top: 130px;
+  left: 26%;
+  @media screen and (min-width: 768px){
+    z-index: -1;
+    opacity: 0;
+  }
+
+
+  span {
+    padding: 15px 20px;
+  }
+}
+
+.sRmyShip .sRimg {
+  position: relative;
+  z-index: 0;
+}
+
+.sRmyShip:hover{
+  .sRrank .sRClaimReward {
+    z-index: 1;
+    opacity: 1;
+  }
+}
+
+.sRmyShip .sRranktxt {
+  color: #c73030;
+}
