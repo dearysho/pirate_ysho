@@ -188,11 +188,27 @@ body {
   width: 375px;
   height: 120px;
 }
+#beforeArrow{
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  font-size: 1.25rem;
+  letter-spacing: 1.25px;
+}
+#afterArrow{
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  font-size: 1.25rem;
+  letter-spacing: 1.25px;
+}
 #gobefore{
   cursor: pointer;
   position: absolute;
   top: 5px;
-  left: 13px;
+  left: 20px;
   font-size: 1.25rem;
   letter-spacing: 1.25px;
 }
@@ -200,7 +216,7 @@ body {
   cursor: pointer;
   position: absolute;
   top: 5px;
-  right: 13px;
+  right: 22px;
   font-size: 1.25rem;
   letter-spacing: 1.25px;
 }
@@ -308,6 +324,7 @@ body {
 	transform: translateX(-50%);
 }
 .myGrade{
+	text-align: center;
 	width: 197px;
 	font-size: 1.5em;
 	position: absolute;
@@ -361,9 +378,9 @@ body {
 .rank3,.rank4,.rank5,.rank6,.rank7,.rank8,.rank9{display: none;}
 // subtitle
 @media screen and (min-width: 768px){
-	.list4,.list5,.list6,.list7,.list8,.list9,.list10{display: block;}
-	.rank3,.rank4,.rank5,.rank6,.rank7,.rank8,.rank9{display: block;}
-#playTitle {margin: 100px auto;}
+.list4,.list5,.list6,.list7,.list8,.list9,.list10{display: block;}
+.rank3,.rank4,.rank5,.rank6,.rank7,.rank8,.rank9{display: block;}
+#playTitle{margin: 100px auto;}
 // titleSec
 #choose{
 	height: 100vh;
@@ -680,7 +697,6 @@ body {
 #rankArea{
   margin: 0 auto;
   width: 1200px;
-  height: 700px;
 }
 #rankList{width: 486px;height: 650px;margin: 0px 3px 7px 7px;}
 #rankListColName span:nth-child(1) {margin-left: 40px;}
