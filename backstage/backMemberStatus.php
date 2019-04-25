@@ -4,7 +4,7 @@
  $errMsg = "";
 
  try {
-    require_once("connectPirates.php");
+    require_once("php/connectPirates.php");
     $sql = "update member set accStatus = :accStatus where memId = :memId";
     $member = $pdo->prepare($sql);
     $member -> bindValue(':accStatus', $_REQUEST['accStatus']);

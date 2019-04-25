@@ -1,10 +1,13 @@
 <?php
 ob_start();
 session_start();
+if (isset($_SESSION['managerAcc']) == false) {
+    header('location:backLogin.html');
+}
 $errMsg = "";
 
 try {
-    require_once("connectPirates.php");
+    require_once("php/connectPirates.php");
     $sql = "select count(*) totalRecord from member";
     $records = $pdo->query($sql);
     $recordsRow = $records->fetch();
@@ -100,7 +103,7 @@ echo $errMsg;
                         </td>
                         <td>
                             <input type="hidden" name="memId" value="<?php echo $memberRow['memId'] ?>">
-                            <button type="submit" class="btnpri">修改</button>
+                            <button type="submit" class="btnpri"><span>修改</span></button>
                         </td>
                     </form>
                         </tr>

@@ -79,7 +79,7 @@ function radar(str, int, lcu, agi) {
 
     //CreateData
     chartRadarData = {
-        labels: ['力量', '智力', '幸運', '敏捷'],
+        labels: ['', '', '', ''],
         datasets: [{
             label: "Skill Level",
             backgroundColor: "rgba(17, 34, 51,0.8)",

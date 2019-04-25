@@ -1,3 +1,24 @@
+<?php
+ob_start();
+session_start();
+$errMsg = "";
+
+try {
+    require_once("backstage/php/connectPirates.php");
+    $sql = "select * from traderecord";
+    $traderecord = $pdo->query($sql);
+
+
+    $sql2 = "select * from articlelist";
+    $articlelist = $pdo->query($sql2);
+} catch (PDOException $e) {
+    $errMsg .=  "錯誤原因" . $e->getMessage() . "<br>";
+    $errMsg .=  "錯誤行號" . $e->getLine() . "<br>";
+}
+
+echo $errMsg;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,53 +162,38 @@
                 </div>
                 <div class="tabs-container1">
                     <div id="tab2" class="tabs-panel1" style="display:block">
-                        <div class="tt">
+                    <?php
+                        while ($memberRow = $traderecord->fetch()) {
+                            ?>
+                    <div class="tt">
                             <ul>
-                                <li>寶物ID</li>
-                                <li>上架時間</li>
-                                <li>賣家</li>
-                                <li>交易時間</li>
-                                <li>價格</li>
+                                <li>寶物名稱:<?php echo $memberRow['treaId']?></li>
+                                <li>上架時間:<?php echo $memberRow['saleTime']?></li>
+                                <li>買家暱稱:<?php echo $memberRow['salerId']?></li>
+                                <li>交易時間:<?php echo $memberRow['tradeTime']?></li>
+                                <li>價格:<?php echo $memberRow['price']?></li>
                             </ul>
                         </div>
-                        <div class="tt">
-                            <ul>
-                                <li>寶物ID</li>
-                                <li>上架時間</li>
-                                <li>賣家</li>
-                                <li>交易時間</li>
-                                <li>價格</li>
-                            </ul>
-                        </div>
-                        <div class="tt">
-                            <ul>
-                                <li>寶物ID</li>
-                                <li>上架時間</li>
-                                <li>賣家</li>
-                                <li>交易時間</li>
-                                <li>價格</li>
-                            </ul>
-                        </div>
-                        <div class="tt">
-                            <ul>
-                                <li>寶物ID</li>
-                                <li>上架時間</li>
-                                <li>賣家</li>
-                                <li>交易時間</li>
-                                <li>價格</li>
-                            </ul>
-                        </div>
+                    <?php
+                        }
+                    ?>
                     </div>
                     <div id="tab3" class="tabs-panel1">
-                        <div class="tt">
+                    <?php
+                        while ($memberRow2 = $traderecord->fetch()) {
+                            ?>
+                    <div class="tt">
                             <ul>
-                                <li>主題:</li>
-                                <li>發文時間:</li>
-                                <li>討論人數:</li>
-                                <li>點擊次數:</li>
+                                <li>主題:<?php echo $memberRow2['artTitle']?></li>
+                                <li>發文時間:<?php echo $memberRow2['artTime']?></li>
+                                <li>討論人數:<?php echo $memberRow2['msgAmt']?></li>
+                                <li>點擊次數:<?php echo $memberRow2['clickAmt']?></li>
                                 <li> <a href="#"><button>前往文章</button></a> </li>
                             </ul>
                         </div>
+                    <?php
+                        }
+                    ?>
                         <div class="tt">
                             <ul>
                                 <li>主題:</li>

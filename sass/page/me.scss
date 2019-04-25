@@ -4,15 +4,15 @@
 //文字大小字型設定
 @import'../base/font';
 
-//@herder
+//選單
 @import'../layout/header';
 
 //媒體查詢
 @import'../base/media';
 
-* {
-    outline: .5px solid rgb(125, 131, 211);
-}
+// * {
+//     outline: .5px solid rgb(125, 131, 211);
+// }
 
 body {
     background-image: url('../image/background/BgPage.png');
@@ -60,7 +60,6 @@ body {
     // }
 }
 
-// 第一屏
 .wrap {
     max-width: 1920px;
     margin: auto;
@@ -83,13 +82,13 @@ body {
 
         // 船圖
         .meShip {
-            width: 100%;
-            height: 100%;
+            width: 60%;
+            height: 60%;
             margin: 30PX auto;
             // padding: 30px 0;
             position: absolute;
-            top: -130px;
-            right: 0;
+            top: -60px;
+            right: 40px;
 
             img {
                 width: 100%;
@@ -220,7 +219,6 @@ body {
             // text-shadow: 1px 1px 0px #1b91ab;
             font-weight: bold;
             text-decoration: none;
-            // border: solid 1px #1b91ab;
             border-bottom: 0;
             border-radius: 5px 5px 0 0;
         }
@@ -229,16 +227,12 @@ body {
         a.tabs-menu.tabs-menu-active {
             background-color: #f5ecdd;
             text-shadow: 1px 1px 0px #ffffff;
-            // border: solid 1px #1b91ab;
-            // color: #6b6b6b;
             border-bottom: 0;
         }
     }
 
     //頁籤視窗
     .tabs-container {
-        // border: solid 1px #1b91ab;
-        margin-top: -1px;
         background-color: #f5ecdd;
         overflow-y: hidden;
 
@@ -281,20 +275,13 @@ body {
     }
 }
 
-/************CSS Animation***********/
-
-// .animated {
-//     // animation-duration: 1s;
-//     animation-fill-mode: both;
-// }
-
 
 // 紀錄頁籤
 .filewrap {
     // width: 800px;
     margin: 0 auto;
     margin-top: 20px;
-    padding: 10px;
+    // padding: 10px;
     box-sizing: border-box;
     position: static;
     overflow: hidden;
@@ -303,12 +290,8 @@ body {
         display: flex;
 
         #tabs-nav1 {
-            // margin: 0;
-            // padding: 0;
-            // margin-right: -1px;
             position: relative;
             width: 60px;
-            // float: left;
             box-sizing: border-box;
 
             a.tabs-menu1 {
@@ -327,8 +310,6 @@ body {
             a.tabs-menu1.tabs-menu-active1 {
                 background-color: #f5ecdd;
                 text-shadow: 1px 1px 0px #ffffff;
-                // border: solid 1px #1b91ab;
-                // color: #6b6b6b;
                 border-bottom: 0;
             }
 
@@ -336,7 +317,7 @@ body {
     }
 
     .tabs-container1 {
-        margin-top: -1px;
+        // margin-top: -1px;
         background-color: #f5ecdd;
         overflow-y: hidden;
         float: left;
@@ -359,7 +340,7 @@ body {
 
 .tt {
     // width: 100px;
-    height: 100px;
+    // height: 100px;
     box-sizing: border-box;
     margin: 10px;
     padding: 10px;
@@ -391,6 +372,7 @@ body {
         display: flex;
         perspective: 1000px;
         margin: 0px auto;
+        // margin-top: 20px;
         z-index: 20;
 
 
@@ -403,6 +385,8 @@ body {
 
 
             .meShip {
+                width: 100%;
+                height: 100%;
                 position: absolute;
                 transform: rotateX(-50deg);
                 top: -360px;

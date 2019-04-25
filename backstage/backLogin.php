@@ -4,7 +4,7 @@ session_start();
 $errMsg = "";
 
 try {
-    require_once("connectPirates.php");
+    require_once("php/connectPirates.php");
     $sql = "select * from manager where managerAcc = :managerAcc and managerPsw = :managerPsw";
     $manager = $pdo->prepare($sql);
     $manager->bindValue(":managerAcc", $_REQUEST["magId"]);

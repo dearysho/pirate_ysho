@@ -6,7 +6,7 @@
             <p>你好^___^</p>
             <ul class="menuUl">
                 <li>
-                    <a href="backAdministrator.php">管理員帳號管理</a>
+                    <a href="backManager.php">管理員帳號管理</a>
                 </li>
                 <li>
                     <a href="backMember.php">會員帳號管理</a>
