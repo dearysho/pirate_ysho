@@ -7,7 +7,7 @@
     $hotIssue = $pdo->prepare( $sqlHotIssue );
     $hotIssue->execute();
 
-    $sqlNews = "select * from articlelist order by artTime";
+    $sqlNews = "select * from articlelist join member on(articlelist.memId = member.memId) order by artTime";
     $news = $pdo->prepare( $sqlNews );
     $news->execute();
     
@@ -105,26 +105,64 @@
             </div>
         </div>
     <!-- 內容列 -->
-        
-        <!-- <div class="newsBox">
-            <div class="newsBoxInfo">
-                <div class="newsBoxInfoCont">
-                    <span class="newsBoxName">尋寶</span>
-                    <div class="newsBoxTit"><a href="javascript;">2019新地圖</a></div>
+        <div id="newsBoxWrap">
+        <?php
+         while ($newsRow = $news ->fetch(PDO::FETCH_ASSOC)){
+            $newsCat;
+            $newsBoxNameColor;
+            switch ($newsRow["artCat"]) {
+                case "1": $newsCat = "尋寶"; 
+                          $newsBoxNameColor = "newsBoxNameGps";break;
+                case "2": $newsCat = "試煉";
+                          $newsBoxNameColor = "newsBoxNameTraining"; break;
+                case "3": $newsCat = "其他";
+                          $newsBoxNameColor = "newsBoxNameOther" ; break;
+                case "4": $newsCat = "官方";
+                          $newsBoxNameColor = "newsBoxNameNavy" ; break;
+                default:break;
+            };
+            // $artTime = $newsRow["artTime"];
+            // $artTime = substr( $artTime , 0, 10);
+            $artTime = substr( $newsRow["artTime"] , 0, 10);
+        ?>
+            <div class="newsBox">
+                <div class="newsBoxInfo">
+                    <div class="newsBoxInfoCont">
+                        <span class="newsBoxName <?php echo $newsBoxNameColor;?>"><?php echo $newsCat;?></span>
+                        <div class="newsBoxTit"><a href="javascript;"><?php echo $newsRow["artTitle"];?></a></div>
+                    </div>
+                    <div class="newsInfo">
+                        <span class="newsBoxView"><?php echo $newsRow["clickAmt"];?></span>
+                        <span class="newsBoxCommend"><?php echo $newsRow["msgAmt"];?></span>
+                    </div>
+                    <div class="newsOwner">
+                        <a href="javascript:"><?php echo $newsRow["memNic"];?></a>
+                        <span class="newsBoxTime"<?php echo $artTime?>></span>
+                    </div>
                 </div>
-                <div class="newsInfo">
-                    <span class="newsBoxView">1314</span>
-                    <span class="newsBoxCommend">520</span>
-                </div>
-                <div class="newsOwner">
-                    <a href="javascript:">景成船長</a>
-                    <span class="newsBoxTime">190409</span>
-                </div>
+                <div class="newsBoxArti"><?php echo $newsRow["artText"];?></div>
             </div>
-            <div class="newsBoxArti">
-                這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
-            </div>
-        </div>-->
+            <?php }?>
+            <!-- <div class="newsBox">
+                <div class="newsBoxInfo">
+                    <div class="newsBoxInfoCont">
+                        <span class="newsBoxName">尋寶</span>
+                        <div class="newsBoxTit"><a href="javascript;">2019新地圖</a></div>
+                    </div>
+                    <div class="newsInfo">
+                        <span class="newsBoxView">1314</span>
+                        <span class="newsBoxCommend">520</span>
+                    </div>
+                    <div class="newsOwner">
+                        <a href="javascript:">景成船長</a>
+                        <span class="newsBoxTime">190409</span>
+                    </div>
+                </div>
+                <div class="newsBoxArti">
+                    這次活動角竟然是酒吞，讚嘆營運 為了不讓縮圖停在怪怪的地方先上個預覽圖，請見諒ˊˋ 以下是全文，終於要和的....
+                </div>
+            </div> -->
+        </div>
         <input type="button" value="點擊搜集更多情報" id="getMoreNews">
     </div>
 </div>
@@ -138,24 +176,24 @@
          與海賊交換最新的情報風聲
      </p> -->
     <!-- <a href="javascript:;" class="artBtn">保密防諜回到酒館刺探情報</a> -->
-    <form action="login.php" method="post" id="addForm">
+    <form action="addArticlelist.php" method="post" id="addForm">
         <a href="javascript:;" class="artBtn"></a>
          <h2 class="textHiliR">最高機密</h2>
          <div id="addFormCont">
              <div id="articleTypeTit">
                  <span>情報分類</span>
-                 <input type="radio" name="articleType"  id="articleTypeGps">
+                 <input type="radio" name="articleType"  id="articleTypeGps" value="1">
                  <label for="articleTypeGps" class="articleTypeBtn">尋寶</label>
-                 <input type="radio" name="articleType"  id="articleTypeEle">
+                 <input type="radio" name="articleType"  id="articleTypeEle" value="2">
                  <label for="articleTypeEle" class="articleTypeBtn">試煉</label>
-                 <input type="radio" name="articleType"  id="articleTypeOth">    
+                 <input type="radio" name="articleType"  id="articleTypeOth" value="3">    
                  <label for="articleTypeOth" class="articleTypeBtn">其他</label>
              </div>
              <label for="articleTit">情報題目 :</label>
-                 <input type="text" id="articleTit" placeholder="請點擊此處輸入情報內容">
+                 <input type="text" id="articleTit" name="id="articleTit"" placeholder="請點擊此處輸入情報內容">
              <div id="articleCont">
                  <span id="articleContTit">情報內容</span>
-                 <input type="file" id="articleImg">
+                 <input type="file" id="articleImg" name="articleImg">
                  <!-- <label for="articleImg"></label> -->
                  <textarea name="articleCont" id="articleCont" cols="30" rows="10" placeholder="請點擊此處輸入情報內容"></textarea>
              </div>
@@ -283,6 +321,7 @@
         addArt();
         readArt();
         hotIssueText();
+        news();
     }
     window.addEventListener('load',doFirst());
 </script>

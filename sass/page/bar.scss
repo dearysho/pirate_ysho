@@ -352,9 +352,6 @@ body {
         }
         .newsBoxName{
             display: none;
-            @media screen and (min-width: $padV){
-                
-            }
             @media screen and (min-width: $pc){
                 display: inline-block;
                 padding: 0.3rem 0.5rem;
@@ -367,6 +364,18 @@ body {
                 border-radius: 4px;
                 background-color: #7ccbbd;
             }
+        }
+        .newsBoxNameGps{
+            background-color: #7ccbbd;
+        }
+        .newsBoxNameTraining{
+            background-color: #ffe3ac;
+        }
+        .newsBoxNameOther{
+            background-color: #fbc9bc;
+        }
+        .newsBoxNameNavy{
+            background-color: #45a0c7;
         }
         .newsBoxTit{
             display: inline-block;

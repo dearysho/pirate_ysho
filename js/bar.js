@@ -20,27 +20,73 @@ function hotIssueText() {
     }
 }
 //最新討論
-function News() {
+function news() {
+    var newsBoxWrapCont = [];
+    var newsCat, newsTime, newsBoxNameColor;
     var newsBtn = document.getElementsByClassName('newsWrapListBtn');
+    var newsBoxWrap = document.getElementById('newsBoxWrap');
+    var newsBox = document.getElementsByClassName('newsBox');
     for (let i = 0; i < newsBtn.length; i++) {
         newsBtn[i].addEventListener("click",function (){
-            var news_xhr =new XMLHttpRequest();
+            for (let k = 0; k < newsBox.length; k++) {
+                newsBoxWrap.removeChild(newsBox[k]);
+            };
+            var news_xhr = new XMLHttpRequest();
             news_xhr.onload = function(){
-                alert(xhr.responseText);
-            }
-            news_xhr.open("get","bar_news.php?cat="+i,flase);
+                news = JSON.parse(news_xhr.responseText);
+                console.log(news);
+                if (newsBoxWrapCont!='') {
+                    newsBoxWrapCont='';
+                }
+                for (let j = 0; j < news.length; j++) {
+                    switch (news[j].artCat) {
+                        case "1": newsCat = "尋寶"; 
+                                  newsBoxNameColor = "newsBoxNameGps";break;
+                        case "2": newsCat = "試煉";
+                                  newsBoxNameColor = "newsBoxNameTraining"; break;
+                        case "3": newsCat = "其他";
+                                  newsBoxNameColor = "newsBoxNameOther" ; break;
+                        case "4": newsCat = "官方";
+                                  newsBoxNameColor = "newsBoxNameNavy" ; break;
+                        default:break;
+                    };
+                    newsTime =  news[j].artTime.substr(0,10).split("-",3);
+
+                
+                    newsBoxWrapCont += `<div class="newsBox">
+                        <div class="newsBoxInfo">
+                            <div class="newsBoxInfoCont">
+                                <span class="newsBoxName ${newsBoxNameColor}">${newsCat}</span>
+                                <div class="newsBoxTit"><a href="javascript;">${news[j].artTitle}</a></div>
+                            </div>
+                            <div class="newsInfo">
+                                <span class="newsBoxView">${news[j].clickAmt}</span>
+                                <span class="newsBoxCommend">${news[j].msgAmt}</span>
+                            </div>
+                            <div class="newsOwner">
+                                <a href="javascript:">${news[j].memNic}</a>
+                                <span class="newsBoxTime">${newsTime}</span>
+                            </div>
+                        </div>
+                        <div class="newsBoxArti">
+                        </div>
+                    </div>
+                    `;
+                };
+         
+                    newsBoxWrap.innerHTML=newsBoxWrapCont;
+
+            };
+            news_xhr.open("get","bar_news.php?artCat="+i,true);
+            // news_xhr.open("get","bar_news.php?artCat="+i);
             news_xhr.send(null);
         });
     }
-    
-    
-
-    
 }
 //文章燈箱的內容放置
-// function artBox() {
+function artBox() {
     
-// }
+}
 //燈箱
 function addArt() {
     var artBtn = document.getElementsByClassName('artBtn');
