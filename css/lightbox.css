@@ -16,13 +16,6 @@ p {
 .textHiliB {
   color: #006ca6; }
 
-.titlePri {
-  font-family: 王漢宗特明體繁;
-  font-size: 3rem;
-  text-align: center;
-  margin: 0 10px;
-}
-
 .titlePriX{
   padding: 40px 0 20px;
   color: #006ca6;
@@ -113,6 +106,7 @@ a {
   clear: both; }
 
 .lightbox{
+
   display: block;
 }
 

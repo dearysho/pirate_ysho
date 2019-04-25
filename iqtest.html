@@ -4,13 +4,6 @@
 	<meta charset="UTF-8">
 	<title>iqtest</title>
 	<link rel="stylesheet" href="css/iqtest.css">
-	<style type="text/css">
-		*{
-			outline: 1px solid red;
-			box-sizing:border-box;
-    		margin:0;padding:0;
-		}
-	</style>
 </head>
 <body>
 	<div id="mytime">
@@ -33,9 +26,7 @@
 				</svg>
 			</div>
 		</div>
-	</div>
-	
-	
+	</div>	
 	<div class="time">
 		<strong id="changeT">時間 20</strong>
 	</div>
@@ -99,7 +90,6 @@
 	    <span>正確!</span>
 	  </div>
 	</div>
-	
 	<div id="option">
 		<div class="opop o1">
 			<strong class="textHi">A</strong>
@@ -143,6 +133,7 @@
 		var int = 0;//智力
 		var lcu = 0;//幸運
 		var agi = 0;//敏捷
+		var h = $('.ques').height();//為了rwd用
 
 		// 
 		$('li').click(function(){
@@ -183,22 +174,22 @@
 		function reset(){
 			$('.ans').css('display','none');//gif檔消失
 			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
-			console.log('level: ', level);
 			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
 			if( level == 5 ){
+				$('#question').css('text-align','center');
 				$('#question').text('哈囉');
 				$('#bonus1').css('display','none');
 				$('#option').css('display','none');
 				$('#bonus2').css('display','block');
 			}
 			$.getJSON('json/iqtest.json',function(data){
-				console.log('level: ', level);
 					$('#question').text(data[level].question);
 					$('.describe').eq(0).text(data[level].op1);
 					$('.describe').eq(1).text(data[level].op2);
 					$('.describe').eq(2).text(data[level].op3);
 					$('.describe').eq(3).text(data[level].op4);
 					$('.ans').eq(parseInt(data[level].trueans)).attr('src','image/iqtest/correct.gif');//correct
+					if(level==4 && h==140)$('#question').css('text-align','right');
 					level++;
 				});
 			$('#mytimeHeight').css('height','');
@@ -219,7 +210,8 @@
 		function countdown(){
 			if(count <= 0){
 				$('#timeRow').css('display','none');
-				$('#mytimeHeight').css('height','80px');
+				if(h==140)$('#mytimeHeight').css('height','40px');
+				else $('#mytimeHeight').css('height','80px');
 				count%2 == 0?
 					document.getElementById("changeT").innerHTML = '時間到!' :
 					document.getElementById("changeT").innerHTML = '';
@@ -292,7 +284,12 @@
 			if( level == 5 )
 				$('#teemo').attr("src","image/iqtest/teemoAns.png");
 			$('#timeRow').css('display','none');
-			$('#mytimeHeight').css('height','80px');
+			// 為了rwd不跑版用
+			if(h==140)$('#mytimeHeight').css('height','40px');
+			else $('#mytimeHeight').css('height','80px');
+				
+			
+			
 			showTimer = setInterval(reset,3000);
 		}
 

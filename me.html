@@ -7,11 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/me.css">
-    <style type="text/css">
-        .boxUP {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -56,90 +51,88 @@
     <div class="meTitle">
         <h1 class="titlePri">俺の海賊船</h1>
     </div>
-    <div class="ccc">
-        <div class="wrap">
-            <div class="col-12 col-md-5 drawing">
-                <img src="image/background/blueprint.png" alt="">
-                <div class="meShip">
-                    <img src="image/ship/shipComplete.png" alt="">
-                    <!-- <img src="image/background/light1.png" alt=""> -->
+
+    <div class="wrap">
+        <div class="col-12 col-md-4 drawing">
+            <img src="image/background/blueprint.png" alt="">
+            <div class="meShip">
+                <img src="image/ship/shipComplete.png" alt="">
+                <!-- <img src="image/background/light1.png" alt=""> -->
+            </div>
+        </div>
+        <!-- 個人資訊 -->
+        <div class="col-12 col-md-4 boxNews">
+            <div class="meNews">
+                <ul class="col-12 col-md-6 field">
+                    <li>
+                        帳號: <span>abc123</span>
+                    </li>
+                    <li>
+                        密碼: <a href="#"><span>更改密碼</span></a>
+                    </li>
+                    <li>
+                        ID: <span>祕寶尋者號</span>
+                    </li>
+                    <li>
+                        LV: <span>10</span>
+                    </li>
+                    <li>
+                        金幣: <span>500</span> G
+                    </li>
+                </ul>
+                <!-- 雷達圖 -->
+                <div class="col-12 col-md-6 radar">
+                    <h3>天賦值: <span id="points">30</span> 點</h3>
+                    <div class="chartRadarDiv">
+                        <canvas id="chartRadar" style="height:50px; width: 50px;"></canvas>
+                    </div>
+                    <button id="butS" class="but">力量</button>
+                    <button id="butI" class="but">智力</button>
+                    <button id="butL" class="but">幸運</button>
+                    <button id="butA" class="but">敏捷</button>
                 </div>
             </div>
-            <!-- 個人資訊 -->
-            <div class="col-12 col-md-7 boxNews">
-                <button id="boxNews" >按鈕</button>
-                <div class="meNews">
-                    <ul class="col-12 col-md-6 field">
-                        <li>
-                            帳號: <span>abc123</span>
-                        </li>
-                        <li>
-                            密碼: <a href="#"><span>更改密碼</span></a>
-                        </li>
-                        <li>
-                            ID: <span>祕寶尋者號</span>
-                        </li>
-                        <li>
-                            LV: <span>10</span>
-                        </li>
-                        <li>
-                            金幣: <span>500</span> G
-                        </li>
-                    </ul>
-                    <!-- 雷達圖 -->
-                    <div class="col-12 col-md-6 radar">
-                        <h3>天賦值: <span id="points">30</span> 點</h3>
-                        <div class="chartRadarDiv">
-                            <canvas id="chartRadar" style="height:50px; width: 50px;"></canvas>
-                        </div>
-                        <button id="butS" class="but">力量</button>
-                        <button id="butI" class="but">智力</button>
-                        <button id="butL" class="but">幸運</button>
-                        <button id="butA" class="but">敏捷</button>
+            <!-- 寶物造型頁籤 -->
+            <div class="col-12  bookMark">
+                <div id="js-tabs">
+                    <div id="tabs-nav">
+                        <a href="#tab0" onclick="jsTabs(event,'tab0');return false"
+                            class="tabs-menu tabs-menu-active">寶物</a>
+                        <a href="#tab1" onclick="jsTabs(event,'tab1');return false" class="tabs-menu">造型</a>
                     </div>
-                </div>
-                <!-- 寶物造型頁籤 -->
-                <div class="bookMark">
-                    <div id="js-tabs">
-                        <div id="tabs-nav">
-                            <a href="#tab0" onclick="jsTabs(event,'tab0');return false"
-                                class="tabs-menu tabs-menu-active">寶物</a>
-                            <a href="#tab1" onclick="jsTabs(event,'tab1');return false" class="tabs-menu">造型</a>
+                    <div class="tabs-container">
+                        <div id="tab0" class="tabs-panel" style="display:block">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <img src="image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea4.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea5.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea6.svg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="tabs-container">
-                            <div id="tab0" class="tabs-panel" style="display:block">
-                                <div class="content">
-                                    <ul>
-                                        <li>
-                                            <img src="image/treasure/trea1.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea2.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea3.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea4.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea5.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea6.svg" alt="">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="tab1" class="tabs-panel">
-                                我是內容222222
-                            </div>
+                        <div id="tab1" class="tabs-panel">
+                            我是內容222222
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="filewrap">
+        <div class="col-12 col-md-4 filewrap">
             <div id="js-tabs1" class="js-tabs1">
                 <div id="tabs-nav1">
                     <a href="#tab2" onclick="jsTabs1(event,'tab2');return false"
@@ -162,9 +155,10 @@
                 </div>
                 <div style="clear: both"></div>
             </div>
-            <button id="qq">按鈕</button>
-        </div> 
+            <!-- <button id="qq">按鈕</button> -->
+        </div>
     </div>
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Chart.bundle.min.js"></script>

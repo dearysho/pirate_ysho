@@ -7,9 +7,6 @@
 	<link rel="stylesheet" href="css/wavebtn.css">
 	<link rel="stylesheet" href="css/lightbox.css">
 	<style type="text/css">
-		*{
-			outline: 1px solid red;
-		}
 		.lightbox{
 			display: none;
 		}
@@ -23,7 +20,7 @@
 </head>
 <body>
 	<div class="resultSlogan">
-		<h1 class="titlePri y">你的大腦測驗結果</h1>
+		<h1 class="titlePri">你的大腦測驗結果</h1>
 	</div>
 	<div class="row">
 		<div class="col-6">
@@ -39,62 +36,10 @@
 		<div class="col-6">
 			<div class="radar">
 				<div id="explain">
-					<div class="button_border exBtn1">
-						<div class="border_in">
-							<div class="bg_focus cover"></div>
-							<span class="icon_movie"></span>
-						</div>
-						<div class="border_out">
-							<svg viewBox="0 0 88 88">
-								<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
-								<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
-								<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
-								<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
-							</svg>
-						</div>
-					</div>
-					<div class="button_border exBtn2">
-						<div class="border_in">
-							<div class="bg_focus cover"></div>
-							<span class="icon_movie"></span>
-						</div>
-						<div class="border_out">
-							<svg viewBox="0 0 88 88">
-								<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
-								<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
-								<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
-								<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
-							</svg>
-						</div>
-					</div>
-					<div class="button_border exBtn3">
-						<div class="border_in">
-							<div class="bg_focus cover"></div>
-							<span class="icon_movie"></span>
-						</div>
-						<div class="border_out">
-							<svg viewBox="0 0 88 88">
-								<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
-								<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
-								<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
-								<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
-							</svg>
-						</div>
-					</div>
-					<div class="button_border exBtn4">
-						<div class="border_in">
-							<div class="bg_focus cover"></div>
-							<span class="icon_movie"></span>
-						</div>
-						<div class="border_out">
-							<svg viewBox="0 0 88 88">
-								<path class="border" d="M39.2,86C19.7,83.8,4.2,68.3,2,48.8"></path>
-								<path class="border" d="M86,48.8c-2.2,19.5-17.7,35-37.2,37.2"></path>
-								<path class="border" d="M48.8,2c19.5,2.2,35,17.7,37.2,37.2"></path>
-								<path class="border" d="M2,39.2C4.2,19.7,19.7,4.2,39.2,2"></path>
-							</svg>
-						</div>
-					</div>
+					<img src="image/iqtest/info.png" alt="power" class="infoImg">
+					<img src="image/iqtest/info.png" alt="knowledge" class="infoImg">
+					<img src="image/iqtest/info.png" alt="luck" class="infoImg">
+					<img src="image/iqtest/info.png" alt="quick" class="infoImg">
 				</div>
 				<canvas id="chartRadar"></canvas>
 			</div>
@@ -102,7 +47,7 @@
 			<p class="textM">恭喜你成功通過海賊IQ測驗，接下來前方還有更多冒險必須去挑戰。試著在海賊試煉場中通過試煉,獲得經驗值與金錢。<br>等級提升後會獲得技能點數，你可以在我的海賊船頁面中使用點數提升技能。<br>在海上市集中可以使用金錢購買裝備。
 			</p>
 		</div>
-		<a class="btnpri" href="game.html"><span>海賊試煉場</span></a>
+		<a class="btnpri" href="game.html" id="toPlay"><span>海賊試煉場</span></a>
 		<div class="lightbox">//智力燈箱
 				<div class="popbg"></div>
 				<div class="info">
@@ -261,7 +206,7 @@
 		function init() {
 		    radar();
 			for(i=0; i<=3; i++){
-				document.getElementsByClassName('button_border')[i].onclick = show;
+				document.getElementsByClassName('infoImg')[i].onclick = show;
 				document.getElementsByClassName("leave")[i].onclick=off;    // i代入這個頁面的第幾個燈箱
 				document.getElementsByClassName("popbg")[i].onclick=off2;    // i代入這個頁面的第幾個燈箱
 			}				

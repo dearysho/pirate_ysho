@@ -283,13 +283,21 @@
 	<script type="js/TweenMaxPlay.js"></script>
 	<script src="js/playRank.js"></script>
 	<script>
+		var rwd=0;//判斷如果為手機螢幕不執行動畫
 		var animation_04;
 		var animation_08;
 		var section_04;
 		var gameStartTimer;
 		var controller = new ScrollMagic.Controller();
 		var flag = 0;
-		$(document).ready(function(){
+		var w = $('#playTitleSec').width();
+		if(w==375)rwd=1;
+		if(rwd==0){
+			$(document).ready(function(){
+			
+			console.log(w);
+			//手機螢幕
+
 
 			// 選擇寶藏遊戲時黑幕消失
 			$('#gpsArea').mouseover(function(){
@@ -542,6 +550,8 @@
 
 			
 		});
+		}
+		
 		
 		
 
