@@ -28,11 +28,11 @@
 		</div>
 	</div>	
 	<div class="time">
-		<strong id="changeT">時間 20</strong>
+		<strong id="changeT"></strong>
 	</div>
 	
 	<div class="ques">
-		<h1 class="titlePri" id="question">第一問: 請問白鬍子的船叫什麼名字?</h1>
+		<h1 class="titlePri" id="question"></h1>
 	</div>
 	<!-- 第7題目 -->
 	<div id="bonus2">
@@ -93,23 +93,23 @@
 	<div id="option">
 		<div class="opop o1">
 			<strong class="textHi">A</strong>
-			<strong class="describe">白鯨號</strong>
-			<img class="ans" src="image/iqtest/correct.gif" alt="true">
+			<strong class="describe"></strong>
+			<img class="ans" src="image/iqtest/false.gif" alt="false">
 		</div>
 		<div class="opop o2">
 			<strong class="textHi">B</strong>
-			<strong class="describe">白蛇號</strong>
+			<strong class="describe"></strong>
 			<img class="ans" src="image/iqtest/false.gif" alt="false">
 		</div>
 		<div class="opop o3">
 			<strong class="textHi">C</strong>
-			<strong class="describe">白龍號</strong>
+			<strong class="describe"></strong>
 			<img class="ans" src="image/iqtest/false.gif" alt="false">
 		</div>
 		<div class="opop o4">
 			<strong class="textHi">D</strong>
-			<strong class="describe">白蝦號</strong>
-			<img class="ans" src="image/iqtest/false.gif" alt="false">
+			<strong class="describe"></strong>
+			<img class="ans" src="image/iqtest/correct.gif" alt="false">
 		</div>
 	</div>
 	<div id="chat">
@@ -127,12 +127,13 @@
 		var qsNextTimer;
 		var showTimer;
 		var timesRun = 0;
-		var truea = 3;
 		var grade = 0;
 		var str = 0;//力量
 		var int = 0;//智力
 		var lcu = 0;//幸運
 		var agi = 0;//敏捷
+		var tans = 0;
+		var iqtest;
 		var h = $('.ques').height();//為了rwd用
 
 		// 
@@ -155,7 +156,7 @@
 					$('#right').show();
 					$('#hint,#anotherhint').hide();
 					$('.treasure').fadeIn(2000);
-					grade += 14;
+					grade += 10;
 					str += 10;
 					int += 10;
 					lcu += 15;
@@ -171,33 +172,33 @@
 		});
 
 		// reset題目
-		function reset(){
-			$('.ans').css('display','none');//gif檔消失
-			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
-			if( level == 4 ) $('#bonus1').css('display','block');//提摩題
-			if( level == 5 ){
-				$('#question').css('text-align','center');
-				$('#question').text('哈囉');
-				$('#bonus1').css('display','none');
-				$('#option').css('display','none');
-				$('#bonus2').css('display','block');
-			}
-			$.getJSON('json/iqtest.json',function(data){
-					$('#question').text(data[level].question);
-					$('.describe').eq(0).text(data[level].op1);
-					$('.describe').eq(1).text(data[level].op2);
-					$('.describe').eq(2).text(data[level].op3);
-					$('.describe').eq(3).text(data[level].op4);
-					$('.ans').eq(parseInt(data[level].trueans)).attr('src','image/iqtest/correct.gif');//correct
-					if(level==4 && h==140)$('#question').css('text-align','right');
-					level++;
-				});
-			$('#mytimeHeight').css('height','');
-			$('#timeRow').css('display','block');
-			$('#timeRow').width(1400);
-			clearInterval(showTimer);
-			goNext();
-		}
+		// function reset(){
+		// 	$('.ans').css('display','none');//gif檔消失
+		// 	$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
+		// 	if( level == 4 ) $('#bonus1').css('display','block');//提摩題
+		// 	if( level == 5 ){
+		// 		$('#question').css('text-align','center');
+		// 		$('#question').text('哈囉');
+		// 		$('#bonus1').css('display','none');
+		// 		$('#option').css('display','none');
+		// 		$('#bonus2').css('display','block');
+		// 	}
+		// 	$.getJSON('json/iqtest.json',function(data){
+		// 			$('#question').text(data[level].question);
+		// 			$('.describe').eq(0).text(data[level].op1);
+		// 			$('.describe').eq(1).text(data[level].op2);
+		// 			$('.describe').eq(2).text(data[level].op3);
+		// 			$('.describe').eq(3).text(data[level].op4);
+		// 			$('.ans').eq(parseInt(data[level].trueans)).attr('src','image/iqtest/correct.gif');//correct
+		// 			if(level==4 && h==140)$('#question').css('text-align','right');
+		// 			level++;
+		// 		});
+		// 	$('#mytimeHeight').css('height','');
+		// 	$('#timeRow').css('display','block');
+		// 	$('#timeRow').width(1400);
+		// 	clearInterval(showTimer);
+		// 	goNext();
+		// }
 
 		// reset時間條
 		function goNext(){
@@ -210,11 +211,8 @@
 		function countdown(){
 			if(count <= 0){
 				$('#timeRow').css('display','none');
-				if(h==140)$('#mytimeHeight').css('height','40px');
-				else $('#mytimeHeight').css('height','80px');
-				count%2 == 0?
-					document.getElementById("changeT").innerHTML = '時間到!' :
-					document.getElementById("changeT").innerHTML = '';
+				h==140? $('#mytimeHeight').css('height','40px') : $('#mytimeHeight').css('height','80px');
+				count%2 == 0? $('#changeT').innerHTML = '時間到!' : $('#changeT').innerHTML = '';
 			}else{
 				document.getElementById("changeT").innerHTML = '時間 '+count;
 			}
@@ -223,90 +221,195 @@
 			if( timesRun == 25 ){
 				clearInterval(qsNextTimer);
 				timesRun = 0;
-				reset();
+				showIqtest();
 			}
-			// console.log('countDown: ',count);
 		}
 
 		// 選擇答案
-		function show(e){
-			e.target.children[2].style.display = 'block';
-			if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
-				grade += 14;//答對加分
-				switch(level){//第幾題
-					case 0:
-						str += 10;
-						int += 5;
-						lcu += 10;
-						agi += 5;
-						break;
-					case 1:
-						str += 10;
-						int += 15;
-						lcu += 10;
-						agi += 10;
-						break;
-					case 2:
-						str += 5;
-						int += 10;
-						lcu += 5;
-						agi += 10;
-						break;
-					case 3:
-						str += 15;
-						int += 10;
-						lcu += 10;
-						agi += 10;
-						break;
-					case 4:
-						str += 10;
-						int += 5;
-						lcu += 10;
-						agi += 5;
-						break;
-					case 5:
-						str += 5;
-						int += 5;
-						lcu += 10;
-						agi += 5;
-						break;
-					case 6:
-						str += 15;
-						int += 15;
-						lcu += 10;
-						agi += 15;
-						break;
-				}
-			}
-			clearInterval(qsNextTimer);
+		// function show(e){
+		// 	e.target.children[2].style.display = 'block';
+		// 	if( e.target.children[2].src.indexOf('correct') != -1 ){//加分區
+		// 		grade += 14;//答對加分
+		// 		switch(level){//第幾題
+		// 			case 0:
+		// 				str += 10;
+		// 				int += 5;
+		// 				lcu += 10;
+		// 				agi += 5;
+		// 				break;
+		// 			case 1:
+		// 				str += 10;
+		// 				int += 15;
+		// 				lcu += 10;
+		// 				agi += 10;
+		// 				break;
+		// 			case 2:
+		// 				str += 5;
+		// 				int += 10;
+		// 				lcu += 5;
+		// 				agi += 10;
+		// 				break;
+		// 			case 3:
+		// 				str += 15;
+		// 				int += 10;
+		// 				lcu += 10;
+		// 				agi += 10;
+		// 				break;
+		// 			case 4:
+		// 				str += 10;
+		// 				int += 5;
+		// 				lcu += 10;
+		// 				agi += 5;
+		// 				break;
+		// 			case 5:
+		// 				str += 5;
+		// 				int += 5;
+		// 				lcu += 10;
+		// 				agi += 5;
+		// 				break;
+		// 			case 6:
+		// 				str += 15;
+		// 				int += 15;
+		// 				lcu += 10;
+		// 				agi += 15;
+		// 				break;
+		// 		}
+		// 	}
+		// 	clearInterval(qsNextTimer);
 
 
-			if( level == 5 )
-				$('#teemo').attr("src","image/iqtest/teemoAns.png");
-			$('#timeRow').css('display','none');
-			// 為了rwd不跑版用
-			if(h==140)$('#mytimeHeight').css('height','40px');
-			else $('#mytimeHeight').css('height','80px');
+		// 	if( level == 5 )
+		// 		$('#teemo').attr("src","image/iqtest/teemoAns.png");
+		// 	$('#timeRow').css('display','none');
+		// 	// 為了rwd不跑版用
+		// 	if(h==140)$('#mytimeHeight').css('height','40px');
+		// 	else $('#mytimeHeight').css('height','80px');
 				
 			
 			
-			showTimer = setInterval(reset,3000);
-		}
+		// 	showTimer = setInterval(reset,3000);
+		// }
 
 		function change(){
-			storage['grade'] = grade;
-			storage['str'] = str;
-			storage['int'] = int;
-			storage['lcu'] = lcu;
-			storage['agi'] = agi;
-			window.location="iqtest-result.html";
+			tans+=1;
+			grade += parseInt(iqtest[level].point);
+			switch(level){//第幾題
+				case 1:
+					str += 10;
+					int += 5;
+					lcu += 10;
+					agi += 5;
+					break;
+				case 2:
+					str += 10;
+					int += 15;
+					lcu += 10;
+					agi += 10;
+					break;
+				case 3:
+					str += 5;
+					int += 10;
+					lcu += 5;
+					agi += 10;
+					break;
+				case 4:
+					str += 15;
+					int += 10;
+					lcu += 10;
+					agi += 10;
+					break;
+				case 5:
+					str += 10;
+					int += 5;
+					lcu += 10;
+					agi += 5;
+					break;
+				case 6:
+					str += 5;
+					int += 5;
+					lcu += 10;
+					agi += 5;
+					break;
+			}
+			
+			if(level==6){
+				storage['grade'] = grade;
+				storage['str'] = str;
+				storage['int'] = int;
+				storage['lcu'] = lcu;
+				storage['agi'] = agi;
+				storage['tans'] = tans;
+				window.location="iqtest-result.html";
+			}
+		}
+
+		function showAns(e){
+			e.target.children[2].style.display = 'block';
+			$('#timeRow').css('display','none');
+			if(e.target.children[2].src.indexOf('correct') != -1)change();//+分
+			if( level==5 )$('#teemo').attr("src","image/iqtest/teemoAns.png");//公布提摩img
+			h==140?$('#mytimeHeight').css('height','40px'):$('#mytimeHeight').css('height','80px');//rwd用
+			clearInterval(qsNextTimer);
+			showTimer = setInterval(showIqtest,3000);
+		}
+
+		function showIqtest(){
+			level+=1;
+			$('.ans').css('display','none');//gif檔消失
+			$('.ans').attr('src','image/iqtest/false.gif');//預設false.gif
+			$('.ans').eq(parseInt(`${iqtest[level].answer}`-1)).attr('src','image/iqtest/correct.gif');//correct
+			$('#question').text(`${iqtest[level].testText}`);
+			$('.o1 .describe').text(`${iqtest[level].option1}`);
+			$('.o2 .describe').text(`${iqtest[level].option2}`);
+			$('.o3 .describe').text(`${iqtest[level].option3}`);
+			$('.o4 .describe').text(`${iqtest[level].option4}`);
+			if( level==5 ) $('#bonus1').css('display','block');//提摩題
+			if(level==5 && h==140)$('#question').css('text-align','right');//rwd用
+			if( level==6 ){
+				$('#question').css('text-align','center');//rwd用
+				$('#bonus1').css('display','none');
+				$('#option').css('display','none');
+				$('#bonus2').css('display','block');
+			}
+
+			$('#mytimeHeight').css('height','');
+			$('#timeRow').css('display','block');
+			$('#timeRow').width(1400);
+			clearInterval(showTimer);
+			goNext();
+		}
+
+		function getIqJSON(jsonStr){
+			iqtest = JSON.parse(jsonStr);
+			$('#question').text(`${iqtest[level].testText}`);
+			$('.o1 .describe').text(`${iqtest[level].option1}`);
+			$('.o2 .describe').text(`${iqtest[level].option2}`);
+			$('.o3 .describe').text(`${iqtest[level].option3}`);
+			$('.o4 .describe').text(`${iqtest[level].option4}`);
+			$('.ans').attr('src','image/iqtest/false.gif');//預設false
+			$('.ans').eq(parseInt(`${iqtest[level].answer}`-1)).attr('src','image/iqtest/correct.gif');//correct
+		}
+
+		function getIq(){
+			var xhr = new XMLHttpRequest();
+		    xhr.onload=function (){
+		        if( xhr.status == 200 ){
+			        getIqJSON( xhr.responseText );
+			    }else{
+			        alert( xhr.status );
+			    }
+		    }
+		    var url = "php/iqtest_JSON.php";
+		    xhr.open("Get", url, true);
+		    xhr.send( null );
 		}
 
 		window.addEventListener('load',function(){
 			// 第一題
+			getIq();
 			qsNextTimer = setInterval(countdown,800);
 			for(i = 0; i<=3; i++){
-				document.getElementsByClassName("opop")[i].onclick = show;
+				document.getElementsByClassName("opop")[i].onclick = showAns;
 			}
 		},false);
 	</script>

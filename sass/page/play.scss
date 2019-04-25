@@ -382,6 +382,9 @@ body {
 }
 // GameOrGps
 #myMap{
+	width: 450px;
+    top: 0px;
+    left: 0px;
 	position: absolute;
 	-webkit-mask-image: url(../image/play/block.svg);
     mask-image: url(../image/play/block.svg);
