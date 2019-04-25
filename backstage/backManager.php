@@ -1,10 +1,13 @@
 <?php
 ob_start();
 session_start();
+if (isset($_SESSION['managerAcc']) == false) {
+    header('location:backLogin.html');
+}
 $errMsg = "";
 
 try {
-    require_once("connectPirates.php");
+    require_once("php/connectPirates.php");
     $sql = "select * from manager";
     $manager = $pdo->query($sql);
 } catch (PDOException $e) {
@@ -40,7 +43,7 @@ echo $errMsg;
             <div class="content">
                 <h3 class="titlePri">管理員帳號管理</h3>
                 <a href="backNewManager.php">
-                    <button class="btnpri">新增</button>
+                    <button class="btnpri"><span>新增</span></button>
                 </a>
                 <div class="dataTable">
                     <table>
@@ -51,6 +54,7 @@ echo $errMsg;
                             <th>權限</th>
                             <th>編輯</th>
                         </tr>
+                        <tr>
                         <?php
                         while ($memberRow = $manager->fetch()) {
                             ?>
@@ -62,20 +66,9 @@ echo $errMsg;
                             </tr>
                         <?php
                         }
-                    ?>
+                        ?>
                     </table>
                 </div>
-                <!-- <div class="pagination">
-                    <ul>
-                        <li id="left"> <a href="#">
-                                < </a> </li> <li> <a href="#">1</a></li>
-                        <li> <a href="#">2</a></li>
-                        <li> <a href="#">3</a></li>
-                        <li> <a href="#">4</a></li>
-                        <li> <a href="#">5</a></li>
-                        <li class="right"> <a href="#"> > </a></li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </div>
