@@ -115,18 +115,17 @@
 		int = parseInt(storage['int']);//智力
 		lcu = parseInt(storage['lcu']);//幸運
 		agi = parseInt(storage['agi']);//敏捷
-		if( grade == '98' )
-			$('#grade').text('100 ');
-		else
-			$('#grade').text(`${grade} `);
-		
-		$('#correct').text(` ${grade/14} `);
+		tans = parseInt(storage['tans']);//答對題數
+		$('#grade').text(`${grade}`);
+		$('#correct').text(`${tans}`);
 		if( grade>90 )
 			$('#abc').text(`A`);
 		else if( grade>=70 )
 			$('#abc').text(`B`);
-		else
+		else if( grade>=50 )
 			$('#abc').text(`C`);
+		else
+			$('#abc').text(`87`);
 		function radar(){
 			//定義變數
 			var chartRadarDOM;
