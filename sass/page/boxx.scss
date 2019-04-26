@@ -4,9 +4,9 @@
 //文字大小字型設定
 @import'sass/base/font';
 
-* {
-    outline: 1px solid black;
-}
+// * {
+//     outline: 1px solid black;
+// }
 
 body {
     background-image: url('../image/background/BgPage.png');
@@ -57,7 +57,7 @@ body {
     left: 0;
 }
 
-.content {
+.contents {
     padding: 20px 0;
 }
 
