@@ -25,6 +25,17 @@ $(document).ready(function () {
 
     //客製的下一步紐
     var DIYNexts = document.querySelectorAll('#DIYPanel .DIYNext');
+    var DIYSta = $('#DIYStatus li');
+    var DIYStaLine = $('.DIYStatLine');
+    var DIYSlide = $('.DIYSlide');
+
+    $('#DIYStatus li').click(function(){
+        
+        console.log(this);
+        $(this).css({backgroundColor:"yellow"})
+
+    })
+    
     DIYNexts.forEach(element => {
         element.addEventListener('click',function(e){
             e.currentTarget.parentNode.classList.add('justHide');
