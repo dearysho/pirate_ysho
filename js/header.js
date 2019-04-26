@@ -1,3 +1,6 @@
+function $id(id){
+    return document.getElementById(id);
+}
 window.addEventListener('load',function(){
     //取得header角色資訊
     // var headerMe= document.getElementById("headerMe");
