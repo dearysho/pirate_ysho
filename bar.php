@@ -3,7 +3,7 @@
 <?php
   try{
     require_once("connectPirate.php");
-    $sqlHotIssue = "select * from articlelist order by clickAmt desc limit 6";
+    $sqlHotIssue = "select * from articlelist join member on(articlelist.memId = member.memId) order by clickAmt desc limit 6";
     $hotIssue = $pdo->prepare( $sqlHotIssue );
     $hotIssue->execute();
 
@@ -23,7 +23,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》在情報酒館探索海賊們的秘密吧！</title>
     <link rel="stylesheet" href="css/bar.css">
-    <link rel="stylesheet" href="css/wavebtn.css"> 
+    <link rel="stylesheet" href="css/wavebtn.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script> 
 </head>
 <body>
 <!-- 頁面標題 -->
@@ -49,12 +53,20 @@
     while($hotIssueRow = $hotIssue ->fetch(PDO::FETCH_ASSOC)){
     ?>
         <div class="hotIssueBox">
-            <a href="javacript:;" class="hotIssueBoxLink">
+            <a href="javacript:;" class="hotIssueBoxLink artShow">
+                <input type="hidden"  value="<?php echo $hotIssueRow["artId"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["artText"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["memNic"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["memLv"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["memMoney"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["shipImgAll"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["artCat"];?>">
+                <input type="hidden"  value="<?php echo $hotIssueRow["artImg"];?>">
                 <div class="hotIssueBoxInfo">
-                    <img src="image/bar/DB/artImg_1.png" alt="洩露情報者">
+                    <img src="image/bar/DB/<?php echo $hotIssueRow["artImg"];?>" alt="情報圖片">
                 </div>
                 <div class="hotIssueBoxCont">
-                    <h4 class="textM"><?php echo $hotIssueRow["artTitle"];?></h4>
+                    <h4 class="textM artTit"><?php echo $hotIssueRow["artTitle"];?></h4>
                     <p class="textS hotIssueBoxContText"></p>
                     <span class="hotIssueBoxView"><?php echo $hotIssueRow["clickAmt"]?></span>
                     <span class="hotIssueBoxCommend"><?php echo $hotIssueRow["msgAmt"]?></span>
@@ -124,20 +136,29 @@
             // $artTime = $newsRow["artTime"];
             // $artTime = substr( $artTime , 0, 10);
             $artTime = substr( $newsRow["artTime"] , 0, 10);
+            $artTimeStr = str_replace("-","","$artTime");
         ?>
-            <div class="newsBox">
+            <div class="newsBox artShow">
+                <input type="hidden"  value="<?php echo $newsRow["artId"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["artText"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["memNic"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["memLv"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["memMoney"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["shipImgAll"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["artCat"];?>">
+                <input type="hidden"  value="<?php echo $newsRow["artImg"];?>">
                 <div class="newsBoxInfo">
                     <div class="newsBoxInfoCont">
                         <span class="newsBoxName <?php echo $newsBoxNameColor;?>"><?php echo $newsCat;?></span>
-                        <div class="newsBoxTit"><a href="javascript;"><?php echo $newsRow["artTitle"];?></a></div>
+                        <div class="newsBoxTit artTit"><a href="javascript:;"><?php echo $newsRow["artTitle"];?></a></div>
                     </div>
                     <div class="newsInfo">
                         <span class="newsBoxView"><?php echo $newsRow["clickAmt"];?></span>
                         <span class="newsBoxCommend"><?php echo $newsRow["msgAmt"];?></span>
                     </div>
                     <div class="newsOwner">
-                        <a href="javascript:"><?php echo $newsRow["memNic"];?></a>
-                        <span class="newsBoxTime"<?php echo $artTime?>></span>
+                        <a href="javascript:;"><?php echo $newsRow["memNic"];?></a>
+                        <span class="newsBoxTime"><?php echo $artTimeStr ?></span>
                     </div>
                 </div>
                 <div class="newsBoxArti"><?php echo $newsRow["artText"];?></div>
@@ -176,7 +197,7 @@
          與海賊交換最新的情報風聲
      </p> -->
     <!-- <a href="javascript:;" class="artBtn">保密防諜回到酒館刺探情報</a> -->
-    <form action="addArticlelist.php" method="post" id="addForm">
+    <form action="addArticlelist.php" method="post" id="addForm" enctype="multipart/form-data">
         <a href="javascript:;" class="artBtn"></a>
          <h2 class="textHiliR">最高機密</h2>
          <div id="addFormCont">
@@ -194,11 +215,11 @@
              <div id="articleCont">
                  <span id="articleContTit">情報內容</span>
                  <input type="file" id="articleImg" name="articleImg">
+                 <input type="hidden" name="MAX_FILE_SIZE" value="2048">
                  <!-- <label for="articleImg"></label> -->
                  <textarea name="articleCont" id="articleCont" cols="30" rows="10" placeholder="請點擊此處輸入情報內容"></textarea>
              </div>
          </div>
-         <!-- <input class="btnpri" type="submit" value="發出情報"> -->
          <a class="btnpri" href="javascript:">
                  <span><label for="submitArticle"></label>發出情報</span>
          </a>
@@ -208,7 +229,7 @@
 <!-- 討論內容燈箱 -->
 <div id="articleBoxWrapMask" >
     <div id="articleBoxWrap">
-        <div id="articleBox">
+        <!-- <div id="articleBox">
             <div id="articleBoxTit">
                 <span id="articleBoxType">尋寶</span>
                 <h3 class="textL">金斧頭GET</h3>
@@ -248,64 +269,15 @@
                 <span class="artiRespondBoxTime"></span>
             </div>
         </div>
-        <div class="artiRespondBox">
-            <div class="artiRespondBoxMem">
-                    <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
-                <span class="textM">景陳船長</span>
-            </div>
-            <div class="artiRespondBoxCont">
-                <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-                <span class="artiRespondBoxTime"></span>
-            </div>
-        </div>
-        <div class="artiRespondBox">
-            <div class="artiRespondBoxMem">
-                    <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
-                <span class="textM">景陳船長</span>
-            </div>
-            <div class="artiRespondBoxCont">
-                <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-                <span class="artiRespondBoxTime"></span>
-            </div>
-        </div>
-        <div class="artiRespondBox">
-            <div class="artiRespondBoxMem">
-                    <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
-                <span class="textM">景陳船長</span>
-            </div>
-            <div class="artiRespondBoxCont">
-                <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-                <span class="artiRespondBoxTime"></span>
-            </div>
-        </div>
-        <div class="artiRespondBox">
-            <div class="artiRespondBoxMem">
-                    <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
-                <span class="textM">景陳船長</span>
-            </div>
-            <div class="artiRespondBoxCont">
-                <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-                <span class="artiRespondBoxTime"></span>
-            </div>
-        </div>
-        <div class="artiRespondBox">
-            <div class="artiRespondBoxMem">
-                    <img src="image/ship.png" alt="留言者" class="artiRespondBoxMemImg">
-                <span class="textM">景陳船長</span>
-            </div>
-            <div class="artiRespondBoxCont">
-                <p class="textM artiRespondBoxContText">有 人稱中大黃金手不是叫假的</p>
-                <span class="artiRespondBoxTime"></span>
-            </div>
-        </div>
         <div id="addArtRespondBox">
             <form action="addArtRespond.php" method="post" id="addArtRespond">
+                <input type="hidden" value="">
                 <textarea name="addArtRespondCont" id="addArtRespondCont" placeholder="加入回覆"></textarea>
                 <a class="btnpri" href="javascript:">
                     <span><label for="submitAddArtRespond"></label>發送留言</span>
                 </a>
             </form>
-        </div>
+        </div> -->
     </div>
 </div>
 <input type="submit"  id="submitAddArtRespond">
@@ -318,10 +290,25 @@
 <script src="js/bar.js?<?php echo time();?>"></script>
 <script>
     function doFirst() {
-        addArt();
-        readArt();
         hotIssueText();
+        addArt();
         news();
+        //get queryString
+        if (location.search.match("from=index")) {
+            // var location = location.search;
+            console.log(location.search);
+            console.log(location.search.indexOf("artId"));
+            console.log(location.search.substring(location.search.indexOf("artId"),location.search.length));
+            var artId = location.search.substring(location.search.indexOf("artId"),location.search.length);
+            artId = artId.substring((artId.indexOf("=")+1),artId.length);
+            console.log(artId);
+            artBox(artId);
+        }else{
+            artBox();
+        }
+        readArt();
+        // alert(location.search);
+        
     }
     window.addEventListener('load',doFirst());
 </script>
