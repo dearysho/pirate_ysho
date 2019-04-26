@@ -84,7 +84,8 @@ function news() {
                     `;
                 };
                 $id('newsBoxWrap').innerHTML=newsBoxWrapCont;
-                readArt();
+                artBox();
+                // readArt();
             };
             news_xhr.open("get","bar_news.php?artCat="+i,true);
             // news_xhr.open("get","bar_news.php?artCat="+i);
@@ -100,16 +101,20 @@ function news() {
 // });
 function artBox(artId) {
     var artBox, artTit ,msgAmt,clickAmt, artId,artText ,memNic ,memLv ,memMoney ,shipImgAll ,artType ,artImg;
-    var artBoxContText, artBoxContTextMain, artBoxContTextMeg=[],artBoxContTextRespond;
+    var artBoxContText = [];
+    // var artBoxContText, artBoxContTextMain, artBoxContTextMeg=[],artBoxContTextRespond;
     if (artId == undefined) {
         console.log("bar");
         for (let i = 0; i < $class('artShow').length; i++) {
             $class('artShow')[i].addEventListener('click',function(e) {
+                if (artBoxContText!='') {
+                    artBoxContText='';
+                }
                 artBox = e.currentTarget;
                 let inputs = artBox.getElementsByTagName("input");
-                artTit = $class("artTit")[0].innerText;
-                msgAmt = $class("newsBoxCommend")[0].innerText;
-                clickAmt =$class("newsBoxView")[0].innerText;
+                artTit = artBox.getElementsByClassName("artTit")[0].innerText;
+                msgAmt = artBox.getElementsByClassName("newsBoxCommend")[0].innerText;
+                clickAmt = artBox.getElementsByClassName("newsBoxView")[0].innerText;
                 artId = inputs[0].value;
                 artText = inputs[1].value;
                 memNic = inputs[2].value;
@@ -120,19 +125,19 @@ function artBox(artId) {
                 artImg = inputs[7].value;
                 switch (inputs[6].value) {
                     case "1": artType = "尋寶"; 
-                              newsBoxNameColor = "newsBoxNameGps";break;
+                                newsBoxNameColor = "#7ccbbd";break;
                     case "2": artType = "試煉";
-                              newsBoxNameColor = "newsBoxNameTraining"; break;
+                                newsBoxNameColor = "#ffe3ac"; break;
                     case "3": artType = "其他";
-                              newsBoxNameColor = "newsBoxNameOther" ; break;
+                                newsBoxNameColor = "#fbc9bc" ; break;
                     case "4": artType = "官方";
-                              newsBoxNameColor = "newsBoxNameNavy" ; break;
+                                newsBoxNameColor = "#45a0c7" ; break;
                     default:break;
                 };
                 // console.log(inputs);
-                artBoxContTextMain =`<div id="articleBox">
+                artBoxContText +=`<div id="articleBox">
                 <div id="articleBoxTit">
-                    <span id="articleBoxType" class="${newsBoxNameColor}">${artType}</span>
+                    <span id="articleBoxType" style="background-color:${newsBoxNameColor}">${artType}</span>
                     <h3 class="textL">${artTit}</h3>
                     <a href="javascript:;" id="closeArt"></a>
                     <a href="javascript:;" id="artReport"></a>
@@ -160,54 +165,109 @@ function artBox(artId) {
             </div>`;
                 // body[0].classList.add("lightboxShow");
                 // $id('articleBoxWrapMask').style.display = 'block';
-            console.log(artBoxContTextMain);
+            // console.log(artBoxContTextMain);
             // 
-            $id('articleBoxWrap').innerHTML=artBoxContTextMain;
+            // $id('articleBoxWrap').innerHTML=artBoxContTextMain;
+            addMeg();
             });
         }
     } else {
         console.log("index");
-    }
-    var artBox_xhr = new XMLHttpRequest();
-    artBox_xhr.onload=function (){
-        if (artBox_xhr.responseText != undefined) {
-            var artBoxCont = JSON.parse(artBox_xhr.responseText);
-            for (let i = 0; i < artBoxCont.length; i++) {
-                // ${artBoxCont[i].}
-                // var msgTime = artBoxCont[i].msgTime.substr(0,10).replace(/-/g,"");
-                artBoxContTextMeg =`<div class="artiRespondBox">
-                <div class="artiRespondBoxMem">
-                        <img src="image/ship.png" alt="${artBoxCont[i].memNic}" class="artiRespondBoxMemImg">
-                    <span class="textM">${artBoxCont[i].memNic}</span>
+        if (artBoxContText!='') {
+            artBoxContText='';
+        }
+        var artBoxText_xhr = new XMLHttpRequest();
+        artBoxText_xhr.onload = function () {
+            var artBoxText = JSON.parse(artBoxText.responseText);
+            console.log(artBoxText);
+            switch (artBoxText.artCat) {
+                case "1": artType = "尋寶"; 
+                            newsBoxNameColor = "#7ccbbd";break;
+                case "2": artType = "試煉";
+                            newsBoxNameColor = "#ffe3ac"; break;
+                case "3": artType = "其他";
+                            newsBoxNameColor = "#fbc9bc" ; break;
+                case "4": artType = "官方";
+                            newsBoxNameColor = "#45a0c7" ; break;
+                default:break;
+            };
+            // console.log(inputs);
+            artBoxContText +=`<div id="articleBox">
+            <div id="articleBoxTit">
+                <span id="articleBoxType" style="background-color:${newsBoxNameColor}">${artType}</span>
+                <h3 class="textL">${artBoxText.artTit}</h3>
+                <a href="javascript:;" id="closeArt"></a>
+                <a href="javascript:;" id="artReport"></a>
+            </div>
+            <div id="articleBoxMemInfo">
+                <div id="articleBoxMemImg">
+                    <img src="image/ship${artBoxText.shipImgAll}" alt="${artBoxText.memNic}">
                 </div>
-                <div class="artiRespondBoxCont">
-                    <p class="textM artiRespondBoxContText">${artBoxCont[i].msgText}</p>
+                <div id="articleBoxMemMeg">
+                    <span id="articleBoxMemId">${artBoxText.memNic}</span>
+                    <span id="articleBoxMemLv">${artBoxText.memLv}</span>
+                    <span id="articleBoxMemMoney">${artBoxText.memMoney}</span>
                 </div>
-            </div>`;  
-            }
-            console.log(artBoxContTextMeg);
-            artBoxContText += `${artBoxContTextMeg}`;
-        };
-        artBoxContTextRespond = ` <div id="addArtRespondBox">
-        <form action="addArtRespond.php" method="post" id="addArtRespond">
-            <input type="hidden" value="${artId}">
-            <textarea name="addArtRespondCont" id="addArtRespondCont" placeholder="加入回覆"></textarea>
-            <a class="btnpri" href="javascript:;">
-                <span><label for="submitAddArtRespond"></label>發送留言</span>
-            </a>
-        </form>
+                <div id="articleBoxTitInfo">
+                    <span id="articleBoxView">${artBoxText.clickAmt}</span>
+                    <span id="articleBoxCommend">${artBoxText.msgAmt}</span>
+                </div>
+            </div>
+            <div id="articleBoxCont">
+                <div id="articleBoxImg">
+                    <img src="image/bar/${artBoxText.artImg}" alt="${artType}" id="articleBoxContImg">
+                </div>
+                <p class="textM">${artBoxText.artText}</p>
+            </div>
         </div>`;
-        console.log(artBoxContTextRespond);
-        // artBoxContText += `${artBoxContTextRespond}`;
-        $id('articleBoxWrap').innerHTML=artBoxContTextRespond;
-        readArt();
-        // $id('closeArt').addEventListener('click',function() {
-        //     $id('articleBoxWrapMask').style.display = 'none';
-        //     body[0].classList.remove("lightboxShow");
-        // });
+        addMeg();
+        }
+        artBoxText_xhr.open("Get", "artBoxText.php?artId=" + artId);
+        artBoxText_xhr.send( null );
     }
-    artBox_xhr.open("Get", "artBoxCont.php?artId=" + artId);
-    artBox_xhr.send( null );
+    function addMeg() {
+        var artBox_xhr = new XMLHttpRequest();
+        artBox_xhr.onload=function (){
+            if (artBox_xhr.responseText != undefined) {
+                var artBoxCont = JSON.parse(artBox_xhr.responseText);
+                console.log(artBoxCont);
+                for (let i = 0; i < artBoxCont.length; i++) {
+                    // ${artBoxCont[i].}
+                    // var msgTime = artBoxCont[i].msgTime.substr(0,10).replace(/-/g,"");
+                    artBoxContText +=`<div class="artiRespondBox">
+                    <div class="artiRespondBoxMem">
+                            <img src="image/ship.png" alt="${artBoxCont[i].memNic}" class="artiRespondBoxMemImg">
+                        <span class="textM">${artBoxCont[i].memNic}</span>
+                    </div>
+                    <div class="artiRespondBoxCont">
+                        <p class="textM artiRespondBoxContText">${artBoxCont[i].msgText}</p>
+                    </div>
+                </div>`;  
+                }
+                console.log(artBoxContText);
+            };
+            artBoxContText += ` <div id="addArtRespondBox">
+            <form action="addArtRespond.php" method="post" id="addArtRespond">
+                <input type="hidden" value="${artId}">
+                <textarea name="addArtRespondCont" id="addArtRespondCont" placeholder="加入回覆"></textarea>
+                <a class="btnpri" href="javascript:;">
+                    <span><label for="submitAddArtRespond"></label>發送留言</span>
+                </a>
+            </form>
+            </div>`;
+            console.log(artBoxContText);
+            // artBoxContText += `${artBoxContTextRespond}`;
+            $id('articleBoxWrap').innerHTML=artBoxContText;
+            readArt();
+            // $id('closeArt').addEventListener('click',function() {
+            //     $id('articleBoxWrapMask').style.display = 'none';
+            //     body[0].classList.remove("lightboxShow");
+            // });
+        }
+        artBox_xhr.open("Get", "artBoxCont.php?artId=" + artId);
+        artBox_xhr.send( null );
+    }
+    // $id('articleBoxWrap').innerHTML=artBoxContText;
 }
 //文章燈箱
 function readArt() {
@@ -223,10 +283,10 @@ function readArt() {
             $id('articleBoxWrapMask').style.display = 'block';
         });
     }
-    // $id('closeArt').addEventListener('click',function() {
-    //     $id('articleBoxWrapMask').style.display = 'none';
-    //     body[0].classList.remove("lightboxShow");
-    // });
+    $id('closeArt').addEventListener('click',function() {
+        $id('articleBoxWrapMask').style.display = 'none';
+        body[0].classList.remove("lightboxShow");
+    });
 }
 //新增討論燈箱
 function addArt() {

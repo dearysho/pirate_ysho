@@ -1129,6 +1129,7 @@ body {
             text-align: center;
             padding: 1rem 2.5rem 1rem 1rem;
             text-align: center;
+            width:10rem;
             .artiRespondBoxMemImg{
                 height: 50px;
                 vertical-align: middle;
@@ -1182,4 +1183,16 @@ body {
 }
 #submitAddArtRespond{
     opacity: 0;
+}
+.newsBoxNameGps{
+    background-color: #7ccbbd;
+}
+.newsBoxNameTraining{
+    background-color: #ffe3ac;
+}
+.newsBoxNameOther{
+    background-color: #fbc9bc;
+}
+.newsBoxNameNavy{
+    background-color: #45a0c7;
 }

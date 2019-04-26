@@ -68,8 +68,8 @@
                 <div class="hotIssueBoxCont">
                     <h4 class="textM artTit"><?php echo $hotIssueRow["artTitle"];?></h4>
                     <p class="textS hotIssueBoxContText"></p>
-                    <span class="hotIssueBoxView"><?php echo $hotIssueRow["clickAmt"]?></span>
-                    <span class="hotIssueBoxCommend"><?php echo $hotIssueRow["msgAmt"]?></span>
+                    <span class="hotIssueBoxView newsBoxCommend"><?php echo $hotIssueRow["clickAmt"]?></span>
+                    <span class="hotIssueBoxCommend newsBoxView"><?php echo $hotIssueRow["msgAmt"]?></span>
                 </div>
             </a>
         </div>
@@ -184,7 +184,7 @@
                 </div>
             </div> -->
         </div>
-        <input type="button" value="點擊搜集更多情報" id="getMoreNews">
+        <!-- <input type="button" value="點擊搜集更多情報" id="getMoreNews"> -->
     </div>
 </div>
 <!-- 新增討論燈箱 -->
@@ -292,7 +292,6 @@
     function doFirst() {
         hotIssueText();
         addArt();
-        news();
         //get queryString
         if (location.search.match("from=index")) {
             // var location = location.search;
@@ -306,6 +305,7 @@
         }else{
             artBox();
         }
+        news();
         readArt();
         // alert(location.search);
         
