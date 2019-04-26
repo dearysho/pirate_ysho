@@ -6,22 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>大海賊帝國後端管理系統</title>
-    <link rel="stylesheet" href="../css/backLogin.css">
     <link rel="stylesheet" href="../css/wavebtn.css">
-    <link rel="stylesheet" href="../css/lightbox.css">
+    <link rel="stylesheet" href="../css/backLogin.css">
 </head>
 
 <body>
-    <div class="lightbox">
-        <div class="popbg">
+    <div class="black">
+        <div class="box">
+            <div class="axis axis1"></div>
             <div class="info">
-                <div class="axis axis1"></div>
-                <div class="axis axis2"></div>
-                <div class="leave"></div>
-                <div class="paper">
+                <div class="content">
                     <img src="../image/logo.svg" alt="">
                     <form action="backLogin.php" method="POST">
-                        <h2 class="titlePri">大海賊帝國</h2>
                         <h2 class="textM">後端管理系統</h2>
                         <label class="labelBox">
                             <span>帳號</span>
@@ -31,12 +27,14 @@
                             <span>密碼</span>
                             <input type="password" name="magPsw">
                         </label class="labelBox">
-                        <button class="btnpri" type="submit" class="step">登入</button>
+                        <button class="btnpri" type="submit"><span>登入</span></button>
                     </form>
                 </div>
             </div>
+            <div class="axis axis2"></div>
         </div>
-        <script src="js/wavebtn.js"></script>
+    </div>
+    <script src="js/wavebtn.js"></script>
 </body>
 
 </html>

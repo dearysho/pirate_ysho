@@ -7,9 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>《大海賊帝國》去追尋吧！</title>
     <link rel="stylesheet" href="css/me.css">
+    <link rel="stylesheet" href="css/boxx.css">
 </head>
 
 <body>
+        <div class="black" style="display:none;">
+                <div class="box">
+                    <div class="axis axis1"></div>
+                    <div class="info">
+                        <div class="content">
+                            <form action="" method="POST">
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="axis axis2"></div>
+                </div>
+            </div>
 
     <!-- 選單 -->
     <header>
@@ -51,90 +65,89 @@
     <div class="meTitle">
         <h1 class="titlePri">俺の海賊船</h1>
     </div>
-    <div class="ccc">
-        <div class="wrap">
-            <div class="col-12 col-md-5 drawing">
-                <img src="image/background/blueprint.png" alt="">
-                <div class="meShip">
-                    <img src="image/ship/shipComplete.png" alt="">
-                    <!-- <img src="image/background/light1.png" alt=""> -->
+
+    <div class="wrap">
+        <div class="col-12 col-md-4 drawing">
+            <img src="image/background/blueprint.png" alt="">
+            <div class="meShip">
+                <img src="image/ship/shipComplete.png" alt="">
+                <!-- <img src="image/background/light1.png" alt=""> -->
+            </div>
+        </div>
+        <!-- 個人資訊 -->
+        <div class="col-12 col-md-4 boxNews">
+            <div class="meNews">
+                <ul class="col-12 col-md-5 field">
+                    <li>
+                        帳號: <span>abc123</span>
+                    </li>
+                    <li>
+                        密碼: <a href="#"><span>更改密碼</span></a>
+                    </li>
+                    <li>
+                        ID: <span>祕寶尋者號</span>
+                    </li>
+                    <li>
+                        LV: <span>10</span>
+                    </li>
+                    <li>
+                        金幣: <span>500</span> G
+                    </li>
+                </ul>
+                <!-- 雷達圖 -->
+                <div class="col-12 col-md-7 radar">
+                    <h3>天賦值: <span id="points">30</span> 點</h3>
+                    <div class="chartRadarDiv">
+                        <canvas id="chartRadar" style="height:100px; width: 100px;"></canvas>
+                    </div>
+                    <button id="butS" class="but">力量</button>
+                    <button id="butI" class="but">智力</button>
+                    <button id="butL" class="but">幸運</button>
+                    <button id="butA" class="but">敏捷</button>
                 </div>
             </div>
-            <!-- 個人資訊 -->
-            <div id="boxNews" class="col-12 col-md-7 boxNews">
-                <div class="meNews">
-                    <ul class="col-12 col-md-6 field">
-                        <li>
-                            帳號: <span>abc123</span>
-                        </li>
-                        <li>
-                            密碼: <a href="#"><span>更改密碼</span></a> 
-                        </li>
-                        <li>
-                            ID: <span>祕寶尋者號</span>
-                        </li>
-                        <li>
-                            LV: <span>10</span>
-                        </li>
-                        <li>
-                            金幣: <span>500</span> G
-                        </li>
-                    </ul>
-                    <!-- 雷達圖 -->
-                    <div class="col-12 col-md-6 radar">
-                        <h3>天賦值: <span id="points">30</span> 點</h3>
-                        <div class="chartRadarDiv">
-                            <canvas id="chartRadar" style="height:50px; width: 50px;"></canvas>
-                        </div>
-                        <button id="butS" class="but">力量</button>
-                        <button id="butI" class="but">智力</button>
-                        <button id="butL" class="but">幸運</button>
-                        <button id="butA" class="but">敏捷</button>
+            <!-- 寶物造型頁籤 -->
+            <div class="col-12  bookMark">
+                <div id="js-tabs">
+                    <div id="tabs-nav">
+                        <a href="#tab0" onclick="jsTabs(event,'tab0');return false"
+                            class="tabs-menu tabs-menu-active">寶物</a>
+                        <a href="#tab1" onclick="jsTabs(event,'tab1');return false" class="tabs-menu">造型</a>
                     </div>
-                </div>
-                <!-- 寶物造型頁籤 -->
-                <div class="bookMark">
-                    <div id="js-tabs">
-                        <div id="tabs-nav">
-                            <a href="#tab0" onclick="jsTabs(event,'tab0');return false"
-                                class="tabs-menu tabs-menu-active">寶物</a>
-                            <a href="#tab1" onclick="jsTabs(event,'tab1');return false" class="tabs-menu">造型</a>
+                    <div class="tabs-container">
+                        <div id="tab0" class="tabs-panel" style="display:block">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <img src="image/treasure/trea1.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea2.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea3.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea4.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea5.svg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="image/treasure/trea6.svg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="tabs-container">
-                            <div id="tab0" class="tabs-panel" style="display:block">
-                                <div class="content">
-                                    <ul>
-                                        <li>
-                                            <img src="image/treasure/trea1.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea2.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea3.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea4.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea5.svg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="image/treasure/trea6.svg" alt="">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="tab1" class="tabs-panel">
-                                我是內容222222
-                            </div>
+                        <div id="tab1" class="tabs-panel">
+                            我是內容222222
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="filewrap">
-            <div id="js-tabs1">
+        <div class="col-12 col-md-4 filewrap">
+            <div id="js-tabs1" class="js-tabs1">
                 <div id="tabs-nav1">
                     <a href="#tab2" onclick="jsTabs1(event,'tab2');return false"
                         class="tabs-menu1 tabs-menu-active1">交易紀錄</a>
@@ -142,29 +155,87 @@
                 </div>
                 <div class="tabs-container1">
                     <div id="tab2" class="tabs-panel1" style="display:block">
-                        <div class="tt">紀錄1</div>
-                        <div class="tt">紀錄2</div>
-                        <div class="tt">紀錄3</div>
-                        <div class="tt">紀錄4</div>
+                        <div class="tt">
+                            <ul>
+                                <li>寶物ID</li>
+                                <li>上架時間</li>
+                                <li>賣家</li>
+                                <li>交易時間</li>
+                                <li>價格</li>
+                            </ul>
+                        </div>
+                        <div class="tt">
+                            <ul>
+                                <li>寶物ID</li>
+                                <li>上架時間</li>
+                                <li>賣家</li>
+                                <li>交易時間</li>
+                                <li>價格</li>
+                            </ul>
+                        </div>
+                        <div class="tt">
+                            <ul>
+                                <li>寶物ID</li>
+                                <li>上架時間</li>
+                                <li>賣家</li>
+                                <li>交易時間</li>
+                                <li>價格</li>
+                            </ul>
+                        </div>
+                        <div class="tt">
+                            <ul>
+                                <li>寶物ID</li>
+                                <li>上架時間</li>
+                                <li>賣家</li>
+                                <li>交易時間</li>
+                                <li>價格</li>
+                            </ul>
+                        </div>
                     </div>
                     <div id="tab3" class="tabs-panel1">
-                        <div class="tt">紀錄5</div>
-                        <div class="tt">紀錄6</div>
-                        <div class="tt">紀錄7</div>
-                        <div class="tt">紀錄8</div>
+                        <div class="tt">
+                            <ul>
+                                <li>主題:</li>
+                                <li>發文時間:</li>
+                                <li>討論人數:</li>
+                                <li>點擊次數:</li>
+                                <li> <a href="#"><button>前往文章</button></a> </li>
+                            </ul>
+                        </div>
+                        <div class="tt">
+                            <ul>
+                                <li>主題:</li>
+                                <li>發文時間:</li>
+                                <li>討論人數:</li>
+                                <li>點擊次數:</li>
+                                <li> <a href="#"><button>前往文章</button></a> </li>
+                            </ul>
+                        </div>
+                        <div class="tt">
+                            <ul>
+                                <li>主題:</li>
+                                <li>發文時間:</li>
+                                <li>討論人數:</li>
+                                <li>點擊次數:</li>
+                                <li> <a href="#"><button>前往文章</button></a> </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div style="clear: both"></div>
             </div>
         </div>
     </div>
-    <script src="js/header.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/me.js"></script>
-    <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/radar.js">
 
-    </script>
+    
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/radar.js"></script>
+    <script src="js/me.js"></script>
+
 </body>
 
 </html>

@@ -8,8 +8,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
-	<script src="js/p5.js" type="text/javascript"></script>
-	<script src="js/p5.play.js" type="text/javascript"></script>
+	<!-- <script src="js/p5.js" type="text/javascript"></script> -->
+	<!-- <script src="js/p5.play.js" type="text/javascript"></script> -->
 	<script src="js/sketch.js" type="text/javascript"></script>
 	<script src="js/sketch.js" type="text/javascript"></script>
 	<script src="js/TweenMax.min.js"></script>
@@ -17,9 +17,7 @@
     <script src="js/debug.addIndicators.min.js"></script>
     <script src="js/animation.gsap.min.js"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
-	<style type="text/css">
-		.st0{fill:none;stroke:#000000;stroke-miterlimit:10;}
-	</style>
+	<script src="js/ScrollToPlugin.js"></script>
 </head>
 <body>
 	<div id="choose">
@@ -31,10 +29,20 @@
 			<div class="s1">
 				<img class="titFrame" src="image/play/titFrame.png" alt="frame">
 				<h2 class="titleSec">海賊試煉</h2>
+				<p class="textM introP">
+				通過海賊試煉,獲得經驗值與金錢!<br>
+				試煉分初級、中級、高級<br>
+				要注意等級數必須符合才能挑戰!
+				</p>
 			</div>
 			<div class="s2">
 				<img class="titFrame" src="image/play/titFrame.png" alt="frame">
 				<h2 class="titleSec">啟航尋寶</h2>
+				<p class="textM introP">
+				在地圖上尋找神秘的寶箱,<br>
+				解鎖寶箱,得到寶箱裡面的禮物<br>
+				請注意每開一次寶箱會減少一點體力值
+				</p>
 			</div>
 		</div>
 
@@ -76,18 +84,8 @@
 				<img src="image/play/chanlenge3.png" alt="change" id="eleImg3">
 			</div>
 			<div id="gpsArea">
-				
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450" height="500"
-	 viewBox="0 0 383 504
-	 " style="enable-background:new 0 0 383 504;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-miterlimit:10;}
-</style>
-<path class="st0" d="M153.6,502.5h195.7c76.3-265.3,0-500,0-500H153.6h77.7H35.6c0,0-76.3,234.7,0,500h195.7"/>
-</svg>
-
+				<img src="image/play/map.png" alt="map" id="myMap">
+				<div id="blackMap"></div>
 			</div>
 		</div>
 	</div>
@@ -102,9 +100,30 @@
 		<div id="playArea">
 			<img src="image/play/boat.png" alt="boat" id="boat">
 			<div id="blueAppear"></div>
-			<div id="playShow"></div>
+			<span id="prev">&larr;上一關</span>
+			<span id="next">下一關&rarr;</span>
+			<div id="playShow">
+				<div class="infoImg"></div>
+				<div class="infoImgDesc">
+					<p class="textS"><span>金幣: </span>利用寶箱蒐集金幣,一旦被寶箱碰到金幣會蒐集到箱子裡</p>
+				</div>
+				<div class="infoImg"></div>
+				<div class="infoImgDesc">
+					<p class="textS"><span>海軍: </span>一旦被海軍碰到將會被吃掉</p>
+				</div>
+				<div class="infoImg"></div>
+				<div class="infoImgDesc">
+					<p class="textS"><span>礁岩: </span>你的船不能夠穿越這些礁岩</p>
+				</div>
+				<div class="infoImg"></div>
+				<div class="infoImgDesc">
+					<p class="textS"><span>海賊寶箱: </span>能夠蒐集金幣,當你把所有的金幣都蒐集完了以後，就破關囉。要注意在越短時間內破關,你的排名越高!</p>
+				</div>
+				
+				
+			</div>
 			<div id="playnotice">
-				<p>遊戲說明: 避開海軍潛艇的追擊,蒐集金幣抵達終點!</p>
+				<p>遊戲說明: 避開海軍潛艇的追擊,蒐集完所有金幣!</p>
 			</div>
 			<div class="button_border">
 				<div class="border_in">
@@ -131,8 +150,8 @@
 		<div id="rankArea">
 			<div id="rankList">
 				<div id="rankListBox1">
-					<span id="gobefore">&larr;中階</span>
-					<span id="gonext">中階&rarr;</span>
+					<span id="beforeArrow">&larr;</span><span id="gobefore">中階</span>
+					<span id="gonext">中階</span><span id="afterArrow">&rarr;</span>
 					<p id="rankListTitle">初階試煉排行</p>
 					<p id="rankListColName">
 						<span>名次</span>
@@ -143,54 +162,54 @@
 				<div id="rankListBox2">
 					<div id="rankList1">
 						<div class="list1 playerList spark">
-							<span>1</span>
-							<span>林以騰</span>
-							<span>34.81秒</span>
+							<span class="rankNum">1</span>
+							<span class="rankName">林以騰</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list2 playerList">
-							<span>2</span>
-							<span>貝多芬</span>
-							<span>34.81秒</span>
+							<span class="rankNum">2</span>
+							<span class="rankName">貝多芬</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list3 playerList">
-							<span>3</span>
-							<span>拿破崙</span>
-							<span>34.81秒</span>
+							<span class="rankNum">3</span>
+							<span class="rankName">拿破崙</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list4 playerList">
-							<span>4</span>
-							<span>織田信asd</span>
-							<span>34.81秒</span>
+							<span class="rankNum">4</span>
+							<span class="rankName">織田信asd</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list5 playerList">
-							<span>5</span>
-							<span>德川家</span>
-							<span>34.81秒</span>
+							<span class="rankNum">5</span>
+							<span class="rankName">德川家</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list6 playerList">
-							<span>6</span>
-							<span>宮本武</span>
-							<span>34.81秒</span>
+							<span class="rankNum">6</span>
+							<span class="rankName">宮本武</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list7 playerList">
-							<span>7</span>
-							<span>佐佐木</span>
-							<span>34.81秒</span>
+							<span class="rankNum">7</span>
+							<span class="rankName">佐佐木</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list8 playerList">
-							<span>8</span>
-							<span>武田勝</span>
-							<span>34.81秒</span>
+							<span class="rankNum">8</span>
+							<span class="rankName">武田勝</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list9 playerList">
-							<span>9</span>
-							<span>小早川</span>
-							<span>34.81秒</span>
+							<span class="rankNum">9</span>
+							<span class="rankName">小早川</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 						<div class="list10 playerList">
-							<span>10</span>
-							<span>蘭陵王</span>
-							<span>34.81秒</span>
+							<span class="rankNum">10</span>
+							<span class="rankName">蘭陵王</span>
+							<span class="rankSec">34.81秒</span>
 						</div>
 					</div>
 				</div>
@@ -261,201 +280,273 @@
 			</div>
 		</div>
 	</div>
-	<!-- <video autobuffer autoloop loop autoplay="autoplay" class="myVideo">
-						<source src="image/play/playVideo.mp4">
-					</video> -->
-	<script type="js/TweenMaxPlay.js"></script>
-	<script>
-		var choose=1;
-		var animation_01;
-		var animation_02;
-		var animation_03;
-		var animation_04;
-		var animation_05;
-		var animation_06;
-		var animation_07;
-		var animation_08;
-		var section_01;
-		var section_02;
-		var section_03;
-		var section_04;
-		var section_05;
-		var section_06;
-		var section_07;
-		var end;
-		var gameStartTimer;
-		var controller = new ScrollMagic.Controller();
-		$(document).ready(function(){
+<script type="js/TweenMaxPlay.js"></script>
+<script src="js/playRank.js"></script>
+<script>
+var rwd=0;//判斷如果為手機螢幕不執行動畫
+var animation_04;
+var animation_08;
+var section_04;
+var gameStartTimer;
+var controller = new ScrollMagic.Controller();
+var flag = 0;
+var w = $('#playTitleSec').width();
+if(w==375)rwd=1;
+if(rwd==0){
+$(document).ready(function(){
+// 選擇寶藏遊戲時黑幕消失
+$('#gpsArea').mouseover(function(){
+	$('#blackMap').css('opacity','0');
+});
+$('#gpsArea').mouseleave(function(){
+	$('#blackMap').css('opacity','.6');
+});
+// 滑到第二屏時藍色布幕動畫
+animation_04 = TweenMax.to(`#blueAppear`,10, {
+	top:0,
+	left:0,
+	opacity:1,
+});
+section_04 = new ScrollMagic.Scene({
+    triggerElement: "#trigger_02",
+    duration: 300,
+    reverse:false,
+}).setTween(animation_04)
+.addIndicators()
+.addTo(controller);
+// 滑到第二屏時小船動畫
+animation_08 = TweenMax.to(`#boat`,10, {
+	left:120,
+});
+section_04 = new ScrollMagic.Scene({
+    triggerElement: "#trigger_02",
+    duration: 300,
+    reverse:false,
+}).setTween(animation_08)
+.addIndicators()
+.addTo(controller);
+	
+// gps第一屏到第二屏的動畫變化
+// next
+$('#next').click(function(){
+if(flag==1||flag==0){
+	$("#eleImg2").css('display','block');
+	$("#eleImg1").css('display','none');
+	$("#element2 .black").css('display','none');
+	$("#element1 .black").css('display','block');
+	$('#prev').css('display','block');
+	TweenMax.to(`#element1`,1, {
+	y: 0,
+	x: 0,
+	webkitClipPath:'polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)',
+	});
+	TweenMax.to(`#eleImg1`,1, {
+		y: 0,
+		x: 0,
+	});
+	TweenMax.to(`#element2`,1, {
+	y: 742,
+	x: -75,
+	webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	TweenMax.to(`#eleImg2`,1, {
+		y: 390,
+		x: -77,
+	});
+	flag=2;
+}else if(flag==2){
+	$("#eleImg3").css('display','block');
+	$("#eleImg2").css('display','none');
+	$("#element3 .black").css('display','none');
+	$("#element2 .black").css('display','block');
+	$('#next').css('display','none');
+	TweenMax.to(`#element2`,1, {
+		y: 0,
+		x: 0,
+		webkitClipPath:'polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)',
+	});
+	TweenMax.to(`#eleImg2`,1, {
+		y: 0,
+		x: 0,
+	});
+	TweenMax.to(`#eleImg3`,1, {
+		y: 390,
+		x: -181,
+	});
+	TweenMax.to(`#element3`,1, {
+		y: 742,
+		x: -180,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	flag=3;
+}
+});
+$('#prev').click(function(){
+if(flag==3){
+	$("#eleImg2").css('display','block');
+	$("#eleImg3").css('display','none');
+	$("#element3 .black").css('display','block');
+	$("#element2 .black").css('display','none');
+	$('#next').css('display','block');
+	TweenMax.to(`#element3`,1, {
+		y: 0,
+		x: 0,
+		webkitClipPath:'polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)',
+	});
+	TweenMax.to(`#eleImg3`,1, {
+		y: 0,
+		x: 0,
+	});
+	TweenMax.to(`#eleImg2`,1, {
+		y: 390,
+		x: -77,
+	});
+	TweenMax.to(`#element2`,1, {
+		y: 742,
+		x: -75,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	flag=2;
+}else if(flag==2){
+	$("#eleImg1").css('display','block');
+	$("#eleImg2").css('display','none');
+	$("#element1 .black").css('display','none');
+	$("#element2 .black").css('display','block');
+	$('#prev').css('display','none');
+	flag=1;
+	TweenMax.to(`#element2`,1, {
+		y: 0,
+		x: 0,
+		webkitClipPath:'polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)',
+	});
+	TweenMax.to(`#eleImg2`,1, {
+		y: 0,
+		x: 0,
+	});
+	TweenMax.to(`#eleImg1`,1, {
+		y: 390,
+		x: 28,
+	});
+	TweenMax.to(`#element1`,1, {
+		y: 742,
+		x: 30,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+}
+});
+// click
+$('#element1').click(function(){
+	flag = 1;
+	TweenLite.to(window, 1, {scrollTo:{y:"#game", offsetY:70, autoKill:false}});
+	TweenMax.to(`#element1`,1, {
+		y: 742,
+		x: 30,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	TweenMax.to(`#eleImg1`,1, {
+		y: 390,
+		x: 28,
+	});
+	$('#prev').css('display','none');
+});
+$('#element2').click(function(){
+	flag = 2;
+	TweenLite.to(window, 1, {scrollTo:{y:"#game", offsetY:70, autoKill:false}});
+	TweenMax.to(`#element2`,1, {
+		y: 742,
+		x: -75,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	TweenMax.to(`#eleImg2`,1, {
+		y: 390,
+		x: -77,
+	});
+	$('#prev').css('display','block');
+});
+$('#element3').click(function(){
+	flag = 3;
+	TweenLite.to(window, 1, {scrollTo:{y:"#game", offsetY:70, autoKill:false}});
+	TweenMax.to(`#element3`,1, {
+		y: 742,
+		x: -180,
+		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
+	});
+	TweenMax.to(`#eleImg3`,1, {
+		y: 390,
+		x: -181,
+	});
+	$('#prev').css('display','block');
+	$('#next').css('display','block');
+});
+// mouseover
+$('#element1').mouseover(function(){//初階
+	// 初中高試煉frame變形
+	$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
+	$("#element2").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
+	$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
+	// 初中高試煉slogan出現與消失
+	$("#eleImg1").css('display','block');
+	$("#eleImg2").css('display','none');
+	$("#eleImg3").css('display','none');
+	// 初中高試煉black screen出現與消失 
+	$("#element1 .black").css('display','none');
+	$("#element2 .black").css('display','block');
+	$("#element3 .black").css('display','block');
+    // 取消其他試煉frame移到第二屏的動畫
+    TweenMax.killTweensOf(`#element2`);
+    TweenMax.killTweensOf(`#element3`);
+});
+$('#element2').mouseover(function(){//中階
+	// 初中高試煉frame變形
+	$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
+	$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
+	$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
+	// 初中高試煉slogan出現與消失
+	$("#eleImg1").css('display','none');
+	$("#eleImg2").css('display','block');
+	$("#eleImg3").css('display','none');
+	// 初中高試煉black screen出現與消失 
+	$("#element1 .black").css('display','block');
+	$("#element2 .black").css('display','none');
+	$("#element3 .black").css('display','block');
+	// 初中高試煉frame移動到第二屏
+    // 取消其他試煉frame移到第二屏的動畫
+    TweenMax.killTweensOf(`#element1`);
+    TweenMax.killTweensOf(`#element3`);
+});
+$('#element3').mouseover(function(){//高階
+	// 初中高試煉frame變形
+	$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
+	$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
+	$("#element3").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
+	// 初中高試煉slogan出現與消失
+	$("#eleImg1").css('display','none');
+	$("#eleImg2").css('display','none');
+	$("#eleImg3").css('display','block');
+	// 初中高試煉black screen出現與消失 
+	$("#element1 .black").css('display','block');
+	$("#element2 .black").css('display','block');
+	$("#element3 .black").css('display','none');
+	// 初中高試煉frame移動到第二屏
+    // 取消其他試煉frame移到第二屏的動畫
+    TweenMax.killTweensOf(`#element1`);
+    TweenMax.killTweensOf(`#element2`);
+});
+// playBtn
+$('.button_border').click(function(){
+	$('#playSpark').css('clipPath','circle(1900px)');
+	gameStartTimer = setInterval(play,1000);
+});
+function play(){
+	clearInterval(gameStartTimer);
+	$('.button_border').css('display','none');
+	$('#defaultCanvas0').css('display','block');
+}
 
-			animation_04 = TweenMax.to(`#blueAppear`,10, {
-						top:0,
-			    		left:0,
-			    		opacity:1,
-					})
-			animation_08 = TweenMax.to(`#boat`,10, {
-			    		left:120,
-					})
-			section_04 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_02",
-			        duration: 300,
-			    }).setTween(animation_04)
-			    .addIndicators()
-			    .addTo(controller)
-			section_04 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_02",
-			        duration: 300,
-			    }).setTween(animation_08)
-			    .addIndicators()
-			    .addTo(controller)
-				
-			$('#element1').mouseover(function(){
-				choose = 1;
-				console.log(choose);
-				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element2").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#eleImg1").css('display','block');
-				$("#eleImg2").css('display','none');
-				$("#eleImg3").css('display','none');
-				$("#element1 .black").css('display','none');
-				$("#element2 .black").css('display','block');
-				$("#element3 .black").css('display','block');
-				animation_01 = TweenMax.to(`#element${choose}`,1, {
-			    		y: 1000,
-			    		x: 28,
-			    		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
-					})
-				section_01 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_01",
-			        duration: 600,
-        			triggerHook: 0
-			    }).setTween(animation_01)
-			    .addIndicators()
-			    .addTo(controller)
-
-			    animation_05 = TweenMax.to(`#eleImg${choose}`,1, {
-			    		y: 700,
-			    		x: 28,
-					})
-			    section_05 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_01",
-			        duration: 600,
-        			triggerHook: 0
-			    }).setTween(animation_05)
-			    .addIndicators()
-			    .addTo(controller)
-			    TweenMax.killTweensOf(`#element${2}`);
-			    TweenMax.killTweensOf(`#element${3}`);
-			});
-			$('#element2').mouseover(function(){
-				choose=2;
-				console.log(choose);
-				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
-				$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#element3").css('clipPath','polygon(300px 0, 350px 250px, 300px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#eleImg1").css('display','none');
-				$("#eleImg2").css('display','block');
-				$("#eleImg3").css('display','none');
-				$("#element1 .black").css('display','block');
-				$("#element2 .black").css('display','none');
-				$("#element3 .black").css('display','block');
-				animation_02 = TweenMax.to(`#element${choose}`,1, {
-			    		y: 1000,
-			    		x: -77,
-			    		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
-					})
-					section_02 = new ScrollMagic.Scene({
-				        triggerElement: "#trigger_01",
-				        duration: 600,
-	        			triggerHook: 0
-
-				    }).setTween(animation_02)
-				    .addIndicators()
-				    .addTo(controller)
-
-				animation_06 = TweenMax.to(`#eleImg${choose}`,1, {
-			    		y: 700,
-			    		x: -77,
-					})
-			    section_06 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_01",
-			        duration: 600,
-        			triggerHook: 0
-			    }).setTween(animation_06)
-			    .addIndicators()
-			    .addTo(controller)
-			    TweenMax.killTweensOf(`#element${1}`);
-			    TweenMax.killTweensOf(`#element${3}`);
-			});
-			$('#element3').mouseover(function(){
-				choose = 3;
-				$("#element1").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
-				$("#element2").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 150px 500px, 100px 250px, 150px 0)');
-				$("#element3").css('clipPath','polygon(50px 0, 0 250px, 50px 500px, 400px 500px, 450px 250px, 400px 0)');
-				$("#eleImg1").css('display','none');
-				$("#eleImg2").css('display','none');
-				$("#eleImg3").css('display','block');
-				$("#element1 .black").css('display','block');
-				$("#element2 .black").css('display','block');
-				$("#element3 .black").css('display','none');
-				animation_03 = TweenMax.to(`#element${choose}`,1, {
-			    		y: 1000,
-			    		x: -181,
-			    		webkitClipPath:'polygon(0 0, 0 250px, 0px 500px, 450px 500px, 450px 250px, 450px 0)',
-					})
-					section_03 = new ScrollMagic.Scene({
-				        triggerElement: "#trigger_01",
-				        duration: 600,
-	        			triggerHook: 0
-
-				    }).setTween(animation_03)
-				    .addIndicators()
-				    .addTo(controller)
-
-				animation_07 = TweenMax.to(`#eleImg${choose}`,1, {
-			    		y: 700,
-			    		x: -181,
-					})
-			    section_07 = new ScrollMagic.Scene({
-			        triggerElement: "#trigger_01",
-			        duration: 600,
-        			triggerHook: 0
-			    }).setTween(animation_07)
-			    .addIndicators()
-			    .addTo(controller)
-			    TweenMax.killTweensOf(`#element${1}`);
-			    TweenMax.killTweensOf(`#element${2}`);
-			});
-			// spark
-			$('.playerList').click(function(e){
-				$('.playerList').removeClass('spark');
-				$(this).addClass('spark');
-				// rankArea
-				index = $(this).index();
-				count = 10-index;
-				console.log('index: ',index,'count: ',count);
-				$('.rankFrame').removeClass('rank0').removeClass('rank1').removeClass('rank2').removeClass('rank3').removeClass('rank4').removeClass('rank5').removeClass('rank6').removeClass('rank7').removeClass('rank8').removeClass('rank9');
-				for(var i=0; i<=9; i++){
-					if(count==10){
-						count = 0;
-					}
-					$('.rankFrame').eq(i).addClass(`rank${count}`);//0->7 1->8 2->9 3->0
-					count+=1;
-				}
-			});
-			// playBtn
-			$('.button_border').click(function(){
-				$('#playSpark').css('clipPath','circle(1900px)');
-				gameStartTimer = setInterval(play,1000);
-			});
-			function play(){
-				clearInterval(gameStartTimer);
-				$('.button_border').css('display','none');
-				$('#defaultCanvas0').css('display','block');
-			}
-
-			
-		});
+	
+});
+}
+		
 		
 		
 

@@ -35,41 +35,30 @@ function jsTabs1(evt, tabId) {
 
 
 
-function standUp(){
-console.log("點殺小1");
-var boxUP = document.getElementById('boxNews');
-boxUP.setAttribute("class", "boxUP");
+// function standUp() {
+//     console.log("123");
+//     $('.boxNews').toggleClass("bbb");
+// }
 
 
-}
-
-
-function standUPleft(){
-    console.log("點殺小2");
-}
-
-function init(){
-    var boxNews = document.getElementById("boxNews");
-    var tabUp = document.getElementById("js-tabs1");
-
-    boxNews.addEventListener('click',standUp);
-    tabUp.addEventListener('click',standUPleft);
-
-}
-window.addEventListener('load', init);
-
-
-
-
-
-
-
-
+// function filewrapBox() {
+//     console.log("888");
+//     $('.filewrap').toggleClass("vvv");
+// }
 
 // function init() {
-//         document.getElementsByClassName('boxNews').onclick = standUp;
-//         document.getElementById('js-tabs1').onclick = standUPleft;
-    
+//     var boxNews = document.getElementById("boxNews");
+//     var qq = document.getElementById("qq");
+
+//     boxNews.addEventListener('click', standUp);
+//     qq.addEventListener('click', filewrapBox);
 // }
-// window.onload = init;
+// window.addEventListener('load', init);
+
+
+
+
+ 
+
+
 

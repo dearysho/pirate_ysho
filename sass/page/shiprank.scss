@@ -2,11 +2,46 @@
 @import '../base/reset';
 @import '../layout/header';
 
-.sRWrap {
+
+body {
     background-image: url("../image/background/BgPage.png");
     background-repeat: repeat-y;
-    font-family: $fofaText;
     background-size: 100% auto;
+}
+.sRWrap {
+    font-family: $fofaText;
+    
+}
+
+h1, h2, h3, h4 {
+    text-shadow: .1px .1px .1px #443c3a;
+}
+
+h1 {
+    font-family: $fofaTitle;
+	color: $blue;
+	font-size: 3rem;
+	text-align: center;
+    margin: 30px auto;
+}
+
+span,a {
+    color: rgb(15, 15, 15);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+img {
+    width: 100%;
+}
+
+.clearfix {
+    clear: both;
 }
 
 h1, h2, h3, h4 {
@@ -17,213 +52,800 @@ span {
     color: #534c4c;
 }
 
-.sRCont {
-    margin-top: 130px;
+#headerMeShip img{
+    width: auto ;
+}
 
-    .sRTitBox {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 1;
-
-        .titleSec {
-            margin: 50px 0 0 0;
-        }
-
-        .sRTTitle {
-            padding: 10px;
-            
-        }
-        
+@keyframes upNDowns {
+    0%{
+        transform: rotate(20deg) translateX(-4%) translateY(-10px);
     }
-    .titFrame {
-        position: absolute;
-        margin: 33px 0 0 -57px;
-        display: block;
-        transform: translateX(0px);
-        transition: 1s;
+    50%  { 
+        transform: rotate(15deg) translateX(4%) translateY(10px); 
+    }
+    100%{
+        transform: rotate(20deg) translateX(-4%) translateY(-10px);
     }
 }
 
-.sRDisplay {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    position: relative;
-    justify-content: space-between; 
-    flex-wrap: wrap;
-    .sRDBox {
-        width: 5%;
-        position: relative;
-        z-index: 0;
-        left: 0;
-        height: 0;
-        padding-top: 24%;
-        margin: 0 0 0 30px;
-
-        img {
-            width: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .sRShip {
-            z-index: 0;
-        }
-
-        .sRarrows {
-            width: 30%;
-            margin: 0px 0 0 36%;
-            bottom: -3vw;
-            display: none;
-        }
-        
-        .sRarrows + span {
-            margin: 10px 0 0 20%;
-        }
+.sRSlidewrap {
+    width: 75%;
+    float: left;
+}
+.sRMyShipCont {
+    width: 25%;
+    float: left;
+    margin-top: 271px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .sRimg {
+        width: 50%;
+        margin: auto;
     }
+}
 
-    .sRDBox:nth-of-type(2) {
-        width: 30%;
-        margin: 0px 0 0 0;
-        height: 0;
-        padding-top: 40%;
-        animation: upNDowns 3s ease-in-out infinite;
-        overflow: hidden;
-    }
+.sRContWrap {
+    margin-top: 200px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    // display: flex;
+}
 
-    .sRDBox:last-of-type{
-        margin: 0 30px 0 0;
-    }
+///////////////////
 
-    .sRDBox:nth-of-type(2) .sRShip {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        
-    }
+.sRArrows {
+    display: none;
+}
 
-    @keyframes upNDowns {
-        0%{
-            transform: rotate(20deg) translateX(-4%) translateY(-10px);
+html {
+  position: relative;
+  overflow-x: hidden!important;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.sRrank {
+    text-align: center;
+}
+
+.sRVoteSum {
+    font-size: 2rem;
+    margin: 20px 0 30px 0;
+    color: rgb(27, 27, 27);
+}
+
+.sRitem {
+    text-align: center;
+}
+.sR-slideritem .sRShipParts {
+    .sRShipPartBox {
+        padding-bottom: 10px;
+        a {
+          padding: 5px 0;
+            margin-left: 1rem;
+            .sRShipPart {
+                color: #3ba4dd;
+                text-shadow: 0 0 10px rgb(0, 0, 0);
+                transition: .6s;
+            }
         }
-        50%  { 
-            transform: rotate(15deg) translateX(4%) translateY(10px); 
-        }
-        100%{
-            transform: rotate(20deg) translateX(-4%) translateY(-10px);
-        }
-    }
-    
-    .mainShipRing {
-        position: absolute;
-        display: block;
-        z-index: 1;
-        width: 14%;
-        // margin-top: 180px;
-        margin-top: 11%;
-        right: 12%;
-        img {
-            display: block;
-            position: absolute;
-            width: 50%;
-            float: left;
-        }
-        img:last-of-type{
-            position: absolute;
-            transition: .3s;
-            width: 40%;
-            margin: 10px 0 0 5%;
-        }
-        h4 {
-            margin: 30% 0 0 56%;
-            float: left;
-        }
-    }
-
-    .mainShipRing:hover img:last-of-type{
-        transform: scale(1.1);
-    }
-
-
-    .mainShipBody{
-        margin-top: 18%;
-        right: 11%;
-    }
-
-    .mainShipSail{
-        margin-top: 25%;
-        right: 12%;
-    }
-
-    .sRTLeaderBoard {
-        width: 100%;
-
-        .sRTleaderList {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-            box-shadow: 0px 0px 1px 5px #b6a79a, 0px 0px 50px 5px #362e2b;
-            margin-bottom: 1vw;
-            li{
-                width: 6%;
-
-                img {
-                    width: 100%;
-                }
+        a:hover {
+            .sRShipPart {
+                color: rgb(255, 255, 255);
             }
         }
     }
 }
 
 
+.sYItem-bg {
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  top: 30px;
+  background: #f3ca8d;
+//   box-shadow: 0px 0px 1px 1px #70665c, 0px 0px 6px 1px black inset, 0 0 0 4px #635950;
+  border-radius: 10px;
+  box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: all .3s;
+  left: -30px;
+  //left: 50%;
+  //transform: translateX(-50%);
 
-@media screen and (max-width: 1200px){
+  &.active {
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
 
-    .sRDisplay .mainShipRing {
-        margin-top: 9%;
+}
+
+.swiper-wrapper {
+    transition: .6s;
+}
+
+.swiper-slide-active {
+    a {
+        color: #222222;
+    }
+}
+
+.sR-slider {
+    overflow: hidden;
+}
+
+.sR-sliderarrow {
+  transition: .1s;
+}
+
+.sR-sliderctr .sR-sliderarrow.sR-slider-prev {
+    left: 15%;
+    transform: translateY(200%);
+    display: block;
+  }
+
+.sR-sliderctr .sR-sliderarrow.sR-slider-next {
+    right: 30.5%;
+    transform: translateY(200%);
+    display: block;
+}
+
+.icon-arrow-right, .icon-arrow-left {
+  transition: .6s;
+}
+
+.sR-sliderarrow:hover {
+  box-shadow: 0px 0px 1px 1px #70665c, 0px 0px 6px 1px black inset, 0 0 0 4px #635950;
+  .icon-arrow-right {
+    transform: translateX(5px);
+  }
+  .icon-arrow-left {
+    transform: translateX(-5px);
+  }
+}
+
+
+.sR {
+
+  &-slider {
+    z-index: 2;
+    max-width: 900px;
+
+
+    @media screen and (max-width: 1300px){
+      max-width: 1000px;
     }
 
-    .sRDisplay .mainShipBody {
-        margin-top: 17%;
+    @media screen and (max-width: 576px) {
+      margin-top: 45px;
     }
 
-    .sRDisplay .mainShipSail {
-        margin-top: 25%;
+    &wrp {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+
+    &item {
+      width: 300px;
+      flex-shrink: 0;
+      //padding: 15px;
+
+      @media screen and (max-width: 992px) {
+        width: 340px;
+      }
+
+      &.swiper-slide {
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
+      }
+
+      &.swiper-slide-active,
+      &.swiper-slide-prev,
+      &.swiper-slide-next {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+
+    }
+
+    &ctr {
+    //   position: relative;
+      z-index: 12;
+    }
+
+    &arrow {
+      background: #fff;
+      border: none;
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      z-index: 12;
+      cursor: pointer;
+      outline: none!important;
+
+      &:focus {
+        outline: none!important;
+      }
+
+      .icon-font {
+        display: inline-flex;
+      }
+
+      &.sR-slider-prev {
+        left: 15px;
+        transform: translateY(-50%);
+      }
+
+      &.sR-slider-next {
+        right: 15px;
+        transform: translateY(-50%);
+      }
+
+    }
+
+    &pagination {
+      text-align: center;
+      margin-top: 50px;
+
+      // @media screen and (max-width: 576px) {
+      //   margin-top: 50px;
+      // }
+
+      .swiper-pagination-bullet {
+        width: 13px;
+        height: 10px;
+        display: inline-block;
+        background: #fff;
+        opacity: .2;
+        margin: 0 5px;
+        border-radius: 20px;
+        transition: opacity .5s, background-color .5s, width .5s;
+        transition-delay: .5s, .5s, 0s;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #ffffff;
+        width: 100px;
+        transition-delay: 0s;
+
+        @media screen and (max-width: 576px) {
+          width: 70px;
+        }
+
+      }
+    }
+
+  }
+
+  &item {
+    padding: 36px 40px;
+    color: #534c4c;
+    border-radius: 10px;
+    display: block;
+    transition: all .3s;
+
+    @media screen and (min-width: 800px) {
+      &:hover {
+        color: #222222;
+        transition-delay: .1s;
+        //background: #fff;
+        //box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+        .sRrank .sRranktitle {
+            color: #c73030;
+        }
+
+        .sRrank .sRranktxt {
+            color: #df503d;
+        }
+
+        .sRrank,.sRtitle,.sRShipParts {
+          opacity: 1;
+          transition-delay: .1s;
+        }
+
+        .sRtitle a{
+            transition: .6s;
+            text-shadow:  0px 0px 10px #fff;
+        }
+
+        .sRtitle a:hover{
+            color: #1d5370;
+        }
+
+        .sRimg {
+          box-shadow: none;
+        }
+
+      }
+    }
+
+
+
+    &.active {
+        color: #222222;
+        transition-delay: .1s;
+        //background: #fff;
+        //box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+        .sRrank .sRranktitle {
+            color: #c73030;
+        }
+
+        .sRrank .sRranktxt {
+            color: #df7b6d;
+        }
+
+        .sRrank,.sRtitle,.sRShipParts {
+          opacity: 1;
+          transition-delay: .1s;
+        }
+
+        .sRimg {
+          box-shadow: none;
+        }
+
+      }
+
+    @media screen and (max-width: 992px) {
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding: 20px;
+    }
+
+  }
+
+  &-rank {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid;
+    display: inline-block;
+    opacity: .7;
+    transition: opacity .3s;
+
+    @media screen and (max-width: 576px) {
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    &title {
+      display: inline-block;
+      padding: 0 .5rem;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: 576px) {
+        margin-right: 10px;
+      }
+
+    }
+
+    &txt {
+      font-size: 1rem;
+    }
+
+  }
+
+  &title {
+    font-size: 1.5rem;
+    opacity: .7;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: opacity .3s;
+
+    @media screen and (max-width: 576px) {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  &txt {
+    margin: 10px 0;
+    font-size: 1rem;
+    opacity: .7;
+    transition: opacity .3s;
+  }
+
+  &img {
+    border-radius: 10px;
+    // box-shadow: 0 6px 26px 6px rgba(0,0,0,0.25);
+    margin-top: 30px;
+    width: 100%;
+    transition: all .3s;
+    transform-origin: 0% 0%;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+  }
+}
+
+// .sR-slider {
+//     position: relative;
+// }
+
+
+
+
+.sRranktitle {
+    font-size: 2rem;
+    padding-bottom: 10px;
+    color: rgb(30, 30, 30);
+}
+
+.rNum {
+    margin-bottom: 10px;
+    color: #222222;
+    text-shadow: .1px .1px .1px #000000;
+}
+.sRtitle{
+  position: relative;
+  z-index: 1;
+}
+
+.sRtitle a{
+    color: rgb(32, 32, 32);
+    text-shadow: .1px .1px .1px #000000;
+    font-size: 1.5rem;
+}
+.sRtitle a:hover {
+    color: #1d5370;
+}
+
+@media screen and (max-width: 1024px){
+    .sRContWrap {
+        width: 100%;
+    }
+    .sRSlidewrap {
+        width: 100%;
+    }
+    .sR-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+    .sRContWrap {
+        display: block;
     }
 }
 
 @media screen and (max-width: 768px){
-    .sRDBox:first-of-type,  .sRDBox:last-of-type {
-        display: none;
+    .sRContWrap{
+        margin-top: 0;
     }
+    h1 {
+        margin-top: 60px;
+    }
+}
 
-    .sRDisplay .sRDBox:nth-of-type(2) {
-        margin: 0 auto;
-    }
+///////////////////
 
-    .sRDisplay .mainShipRing {
-        margin-top: 10%;
-    }
+.SRWaveBox {
+    width: 100%;
+    height: 18rem;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.wave-svg-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    overflow: hidden;
+    
+}
 
-    .sRDisplay .mainShipBody {
-        margin-top: 18%;
-    }
+.runWave {
+    animation: fillUpSvg 2.5s ease-in-out ;
+}
 
-    .sRDisplay .mainShipSail {
-        margin-top: 26%;
+.wave-svg-shape .wave-svg {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    fill: rgb(16, 81, 107);
+    margin: 0;
+    animation: waveSvgAnim 1.5s linear infinite;
+}
+@keyframes fillUpSvg {
+  0% {
+    transform: translateY(calc(100%/4)) scaleY(.5);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+@keyframes waveSvgAnim {
+  0% {
+    transform: translateX(-65%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.active .SRWaveBox{
+    opacity: .7;
+    .wave-svg-shape {
+        animation: fillUpSvg 2.5s ease-in-out ;
     }
-    .sRDisplay .sRTLeaderBoard .sRTleaderList {
-        flex-wrap: wrap;
-        li {
-            width: 12%;
+}
+
+.sR-slideritem {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    .sRitem {
+        position: relative;
+        bottom: -120px;
+        transition: 1s;
+    }
+    .active {
+        bottom: 0;
+        .sRFullShipImg {
+            animation: moveship 2s ease-in-out infinite;
         }
-        li:nth-of-type(n+8){
-            display: none;
+        .SRWaveBox{
+            // animation: moveWave 2.5s ease-in-out infinite;
+        }
+        .sRtitle a {
+            color: rgb(230, 230, 230);
+        }
+        .sRVoteSum {
+            color: #fff;
+        }
+        .sRShipPartBox span {
+            color: rgb(218, 218, 218);
+        }
+        .rNum span{
+            animation: sYColorChange 15s ease-in-out infinite;
+        }
+        .sRrank .sRranktitle {
+            color: #c73030;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),0px 0px 10px rgba(255, 255, 255, 1);
+           animation: sYColorChange 0s ease-in-out;
         }
     }
+    
+}
+.sR-slideritem:hover{
+    .sRitem {
+        bottom: 0;
+    }
+    .SRWaveBox{
+        opacity: .7;
+        .wave-svg-shape {
+            animation: fillUpSvg 2.5s ease-in-out;
+        }
+        // animation: moveWave 2.5s ease-in-out infinite;
+    }
+    .sRFullShipImg {
+        animation: moveship 2.5s ease-in-out infinite;
+    }
+    .sRtitle a {
+        color: rgb(230, 230, 230);
+    }
+    .sRVoteSum {
+        color: #fff;
+    }
+    .sRShipPartBox span {
+        color: rgb(218, 218, 218);
+    }
+    .rNum span{
+        animation: sYColorChange 15s ease-in-out infinite;
+    }
+    .sRrank .sRranktitle {
+        color: #c73030;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),0px 0px 10px rgba(255, 255, 255, 1);
+        animation: sYColorChange 0s ease-in-out;
+    }
+}
+
+.sRFullShipImg {
+    position: relative;
+    z-index: -2;
+    
+    transition: margin-left .6s;
+}
+
+
+@keyframes moveship {
+    from {
+        transform: rotate(0deg) translate(70px, 20px);
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        transform: rotate(30deg) translate(-40px, -10px);
+    }
+    to {
+        transform: rotate(0deg) translate(70px, 20px);
+    }
+}
+
+// @keyframes moveWave {
+//     from{
+//         transform: scaleY(1.1) translateY(-13px);
+//     }
+//     65%{
+//         transform: scaleY(1) translateY(0);
+//     }
+//     to{
+//         transform: scaleY(1.1) translateY(-13px);
+//     }
+// }
+
+.sYItem-bg {
+    animation: sYBgColor 15s ease-in-out infinite;
+}
+
+@keyframes sYBgColor {
+    from {
+        background-color: #f3ca8d;
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        background-color: #2b2b2b;
+    }
+    to {
+        background-color: #f3ca8d;
+    }
+}
+
+@keyframes sYColorChange {
+    from {
+        color: #534c4c;
+    }
+    25%{
+        
+    }
+    50%{
+        
+    }
+    65%{
+        color: #ddd;
+    }
+    to {
+        color: #534c4c;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .sR-sliderctr .sR-sliderarrow.sR-slider-prev {
+        left: 15px;
+        transform: translateY(-50%);
+      }
+
+    .sR-sliderctr .sR-sliderarrow.sR-slider-next {
+        right: 15px;
+        transform: translateY(-50%);
+    }   
+    .sRMyShipCont {
+        margin-top: 0;
+        width: 100%;
+    }
+}    
+
+.sRCheckPartBox {
+    position: relative;
+}
+
+.sRCheckMerchBox {
+    position: absolute;
+    margin-top: 30px;
+    transform: scale(1.1);
+}
+
+.sYPartHead {
+  margin-left: 16%;
+  position: relative;
+  top: -50px;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sYPartBody {
+  margin-left: -12%;
+  position: relative;
+  top: -30px;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sYPartSail {
+  margin-left: -40%;
+  opacity: 0;
+  transition: .6s;
+}
+
+.shiftAwayAnimation {
+  transform: translateX(300%);
+  transition: transform 0.6s;
+}
+
+.sRrank {
+  position: relative;
+}
+
+.sRrank .sRClaimReward {
+  position: absolute;
+  top: 130px;
+  left: 26%;
+  @media screen and (min-width: 768px){
+    z-index: -1;
+    opacity: 0;
+  }
+
+
+  span {
+    padding: 15px 20px;
+  }
+}
+
+.sRmyShip .sRimg {
+  position: relative;
+  z-index: 0;
+}
+
+.sRmyShip:hover{
+  .sRrank .sRClaimReward {
+    z-index: 1;
+    opacity: 1;
+  }
+}
+
+.sRmyShip .sRranktxt {
+  color: #c73030;
 }
