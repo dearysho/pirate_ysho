@@ -94,11 +94,6 @@ function news() {
     }
 }
 //文章燈箱的內容放置
-// $('.hotIssueBoxLink').click(function(){
-//     index = $(this).indexOf();
-//     str = arr[index];
-//     $('#articleBoxWrap .textM').eq(index).text('123');
-// });
 function artBox(artId) {
     var artBox, artTit ,msgAmt,clickAmt, artId,artText ,memNic ,memLv ,memMoney ,shipImgAll ,artType ,artImg;
     var artBoxContText = [];
@@ -259,6 +254,8 @@ function artBox(artId) {
             // artBoxContText += `${artBoxContTextRespond}`;
             $id('articleBoxWrap').innerHTML=artBoxContText;
             readArt();
+            artId= 0;
+            console.log(artId);
             // $id('closeArt').addEventListener('click',function() {
             //     $id('articleBoxWrapMask').style.display = 'none';
             //     body[0].classList.remove("lightboxShow");

@@ -1,9 +1,9 @@
 <?php
   try{
     require_once("connectPirate.php");
-    $sql = "select * from select * from articlelist join member on(articlelist.memId = member.memId) where artId = :artId";
+    $sqlArtBoxText = "select * from select * from articlelist join member on(articlelist.memId = member.memId) where artId = :artId";
     
-    $artBoxText = $pdo->prepare( $sql );
+    $artBoxText = $pdo->prepare( $sqlArtBoxText );
     $artBoxText->bindValue(":artId", $_REQUEST["artId"]);
     // $artBoxText->bindValue(":artId", 14);
     $artBoxText->execute();
