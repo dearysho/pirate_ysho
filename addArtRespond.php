@@ -16,8 +16,8 @@ try {
 	require_once("connectPirate.php");
 	$sql = "insert into `artrespond`(`msgId`, `artId`, `memId`, `msgText`, `msgTime`) VALUES ([null],[:artId],[:memAcc],[:msgText],[null])";
 	$products = $pdo->prepare( $sql );
-	$products->bindValue(":artId", $_REQUEST["文章編號"]);
-	$products->bindValue(":memAcc", $_REQUEST["articleTit"]);
+	$products->bindValue(":artId", $_REQUEST["artId"]);
+	$products->bindValue(":memId", $_REQUEST["memId"]);
 	$products->bindValue(":msgText", $_REQUEST["addArtRespondCont"]);
 	
 	$products->execute();

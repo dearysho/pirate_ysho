@@ -1,0 +1,140 @@
+// css-reset
+@import'sass/base/reset';
+
+//文字大小字型設定
+@import'sass/base/font';
+
+// * {
+//     outline: 1px solid black;
+// }
+
+body {
+    background-image: url('../image/background/BgPage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.black {
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 500;
+}
+
+.box {
+    max-width: 500px;
+    height: 500px;
+    margin: auto;
+    /* background-color: blue; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.info {
+    margin: auto;
+    padding: 20px;
+    margin: 0 20px;
+    box-sizing: border-box;
+    background-image: linear-gradient(0deg, rgba(255, 211, 130, 1) 0%, rgba(255, 211, 130, 1) 100%);
+}
+
+.axis {
+    /* width: 450px; */
+    height: 20px;
+    background-image: linear-gradient(0deg, rgba(175, 69, 7, 0.5) 0%, transparent 80%), linear-gradient(90deg, #af4507 30px, #f5ba61 30px, #f5ba61 60px, #af4507 60px);
+    background-size: 60px 100%;
+    border: 3px solid #724a0e;
+    border-radius: 15px;
+    /* position: absolute; */
+    margin: auto;
+    right: 0;
+    left: 0;
+}
+
+.contents {
+    padding: 20px 0;
+}
+
+.leave {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    right: 32px;
+    top: 32px;
+}
+
+.leave::after {
+    content: " ";
+    width: 40px;
+    height: 8px;
+    position: absolute;
+    background-color: brown;
+    transform: rotate(45deg);
+    right: 7%;
+    top: 40%;
+}
+
+.leave::before {
+    content: " ";
+    width: 40px;
+    height: 8px;
+    background-color: brown;
+    transform: rotate(135deg);
+    position: absolute;
+    right: 7%;
+    top: 40%;
+}
+
+// .labelBox {
+//     display: flex;
+//     justify-content: center;
+//     padding: 10px;
+
+//     input {
+//         border-radius: 10px;
+//         border: 1px solid transparent;
+//     }
+
+//     span {
+//         margin-right: 10px;
+//         color: $brown;
+//         font-family: Adobe Heiti Std R;
+//     }
+// }
+
+.shipwrap {
+    display: flex;
+
+    .shiping {
+        width: 50%;
+        font-size: 0;
+
+        img {
+            width: 100%;
+
+        }
+    }
+
+}
+
+.textM {
+    padding: 10px;
+}
+
+.btnpri {
+    border: 1px solid transparent;
+    margin: 10px auto;
+    display: block;
+
+}
+.titleThi{
+    padding: 10px;
+}

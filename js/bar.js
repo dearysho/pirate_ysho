@@ -9,6 +9,7 @@ function $class(className) {
 function hotIssueText() {
     var innerWidth = window.innerWidth;
     let text;
+    let title = $class('artTit');
     for (let i = 0; i < arrhotIssue.length; i++) {
         if (innerWidth <= 768) {
             text = arrhotIssue[i].substr(0,20);
@@ -16,12 +17,22 @@ function hotIssueText() {
                 text += `...`;
             }
         } else {
-            text = arrhotIssue[i].substr(0,50);
-            if(arrhotIssue[i].length > 50){
+            text = arrhotIssue[i].substr(0,30);
+            if(arrhotIssue[i].length > 40){
                 text += `...`;
             }
         }
         $class('hotIssueBoxContText')[i].innerText = text;
+    }
+    for (let j = 0; j < title.length; j++) {
+        titLength = title[j].innerText.length;
+        if (innerWidth <= 768) {
+            if (titLength > 15) {
+                title[j].style.fontSize = "18px";
+            }
+        } else{
+            title[j].style.fontSize = "18px";
+        }
     }
 }
 //最新討論
@@ -110,8 +121,10 @@ function artBox(artId) {
                 artTit = artBox.getElementsByClassName("artTit")[0].innerText;
                 msgAmt = artBox.getElementsByClassName("newsBoxCommend")[0].innerText;
                 clickAmt = artBox.getElementsByClassName("newsBoxView")[0].innerText;
+                // clickAmt = parseInt(clickAmt)+1;
                 artId = inputs[0].value;
                 artText = inputs[1].value;
+                artText = artText.replace("\n","&nbsp");
                 memNic = inputs[2].value;
                 memLv = inputs[3].value;
                 memMoney = inputs[4].value;
@@ -153,7 +166,7 @@ function artBox(artId) {
                 </div>
                 <div id="articleBoxCont">
                     <div id="articleBoxImg">
-                        <img src="image/bar/${artImg}" alt="${artType}" id="articleBoxContImg">
+                        <img src="image/bar/DB/${artImg}" alt="${artType}" id="articleBoxContImg">
                     </div>
                     <p class="textM">${artText}</p>
                 </div>
@@ -210,7 +223,7 @@ function artBox(artId) {
             </div>
             <div id="articleBoxCont">
                 <div id="articleBoxImg">
-                    <img src="image/bar/${artBoxText.artImg}" alt="${artType}" id="articleBoxContImg">
+                    <img src="image/bar/DB/${artBoxText.artImg}" alt="${artType}" id="articleBoxContImg">
                 </div>
                 <p class="textM">${artBoxText.artText}</p>
             </div>
@@ -243,7 +256,8 @@ function artBox(artId) {
             };
             artBoxContText += ` <div id="addArtRespondBox">
             <form action="addArtRespond.php" method="post" id="addArtRespond">
-                <input type="hidden" value="${artId}">
+                <input type="hidden" value="${artId}" name="artId">
+                <input type="hidden" value="4" name="memId">
                 <textarea name="addArtRespondCont" id="addArtRespondCont" placeholder="加入回覆"></textarea>
                 <a class="btnpri" href="javascript:;">
                     <span><label for="submitAddArtRespond"></label>發送留言</span>
@@ -296,4 +310,33 @@ function addArt() {
         $id('addFormWrap').style.display = 'none';
         body[0].classList.remove("lightboxShow");
     });
+    $id("articleImg").onchange = function(e){
+        let fileType;
+        var file = e.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e){
+            $id("showArticleImg").src = reader.result;
+            // let fileName = $id('showArticleImg').src.split("/").pop();
+            // console.log(fileName);
+            fileType = file.name;
+            fileType = fileType.substr((fileType.lastIndexOf(".")+1),fileType.length);
+            let fileTypeAllow = ["png", "jpg", "0svg"];
+            if (fileTypeAllow.indexOf(fileType) == -1) {
+                alert("請上傳png,jpg或svg");
+                e.preventDefault();
+                e.target.value ="";
+                console.log(e.target.value);
+                file.name ="transparent";
+                $id("showArticleImg").src ="";
+                $id("submitArticle").style.display= "none";
+                $id("submitArticleLabel").style.display= "none";
+            }else{
+                $id("submitArticle").style.display= "inline";
+                $id("submitArticleLabel").style.display= "inline-block";
+            }
+            console.log($id("submitArticle").nodeType);
+            console.log(fileTypeAllow.indexOf(fileType));
+        }
+        reader.readAsDataURL(file);
+    }
 }

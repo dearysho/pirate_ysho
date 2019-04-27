@@ -1,7 +1,11 @@
 <!-- php -->
 <!-- 熱門話題 -->
+
 <?php
-  try{
+    // ssession_start();
+    // $_SESSION["memId"];
+
+    try{
     require_once("connectPirate.php");
     $sqlHotIssue = "select * from articlelist join member on(articlelist.memId = member.memId) order by clickAmt desc limit 6";
     $hotIssue = $pdo->prepare( $sqlHotIssue );
@@ -10,9 +14,9 @@
     $sqlNews = "select * from articlelist join member on(articlelist.memId = member.memId) order by artTime";
     $news = $pdo->prepare( $sqlNews );
     $news->execute();
-    
-  }catch(PDOException $e){
-      echo $e->getMessage();
+
+    }catch(PDOException $e){
+    echo $e->getMessage();
     };
 ?>
 <!DOCTYPE html>
@@ -68,8 +72,8 @@
                 <div class="hotIssueBoxCont">
                     <h4 class="textM artTit"><?php echo $hotIssueRow["artTitle"];?></h4>
                     <p class="textS hotIssueBoxContText"></p>
-                    <span class="hotIssueBoxView newsBoxCommend"><?php echo $hotIssueRow["clickAmt"]?></span>
-                    <span class="hotIssueBoxCommend newsBoxView"><?php echo $hotIssueRow["msgAmt"]?></span>
+                    <span class="hotIssueBoxView newsBoxView"><?php echo $hotIssueRow["msgAmt"]?></span>
+                    <span class="hotIssueBoxCommend newsBoxCommend"><?php echo $hotIssueRow["clickAmt"]?></span>
                 </div>
             </a>
         </div>
@@ -198,6 +202,7 @@
      </p> -->
     <!-- <a href="javascript:;" class="artBtn">保密防諜回到酒館刺探情報</a> -->
     <form action="addArticlelist.php" method="post" id="addForm" enctype="multipart/form-data">
+        <input type="hidden" name="thisMemId" value="14">
         <a href="javascript:;" class="artBtn"></a>
          <h2 class="textHiliR">最高機密</h2>
          <div id="addFormCont">
@@ -211,17 +216,18 @@
                  <label for="articleTypeOth" class="articleTypeBtn">其他</label>
              </div>
              <label for="articleTit">情報題目 :</label>
-                 <input type="text" id="articleTit" name="id="articleTit"" placeholder="請點擊此處輸入情報內容">
+                 <input type="text" id="articleTit" name="articleTit" placeholder="請點擊此處輸入情報內容">
              <div id="articleCont">
                  <span id="articleContTit">情報內容</span>
                  <input type="file" id="articleImg" name="articleImg">
+                 <img src="" alt="" id="showArticleImg">
                  <input type="hidden" name="MAX_FILE_SIZE" value="2048">
                  <!-- <label for="articleImg"></label> -->
                  <textarea name="articleCont" id="articleCont" cols="30" rows="10" placeholder="請點擊此處輸入情報內容"></textarea>
              </div>
          </div>
-         <a class="btnpri" href="javascript:">
-                 <span><label for="submitArticle"></label>發出情報</span>
+         <a class="btnpri" href="javascript:;" id="submitArticleLabel">
+                 <span><label for="submitArticle">發出情報</label></span>
          </a>
          <input type="submit"  id="submitArticle">
      </form>
@@ -282,22 +288,58 @@
 </div>
 <input type="submit"  id="submitAddArtRespond">
 <!-- 討論檢舉燈箱 -->
+<div class="black" id="lightBoxReport">
+    <div class="box" >
+        <div class="axis axis1"></div>
+        <div class="info">
+            <div class="contents">
+                <div class="leave"></div>
+                <div>
+                    <form action="get" method="post" id="addNavyReportForm" enctype="multipart/form-data">
+                        <h2 class="titleThi">讓海軍為你主持公道吧</h2>
+                        <input type="text" name="navyReport" id="navyReportCont" placeholder="請點擊此處填入通報項目">
+                        <a class="btnpri" href="javascript:;" ><span><label for="submitNavyReport">一鍵通報海軍</label></span>
+                        </a>
+                        <input type="submit" name="navyReport" id="submitNavyReport">
+                    </form>
+            </div>
+            </div>
+        </div>
+        <div class="axis axis2"></div>
+    </div>
+</div>
+<!-- 未登入燈箱 -->
+<div class="black" id="lightBoxLogin">
+    <div class="box" >
+        <div class="axis axis1"></div>
+        <div class="info">
+            <div class="contents">
+                <div class="leave"></div>
+                <div>
+                    <h2 class="titleThi">來者何人<br>光明正大的亮出你的海賊旗<br>宣告來你的名號吧</h2>
+                    <a class="btnpri" href="javascript:;" ><span>一秒登入</span>
+                    </a>
 
+            </div>
+            </div>
+        </div>
+        <div class="axis axis2"></div>
+    </div>
+</div>
 
 <!-- script -->
-<script  src="https://code.jquery.com/jquery-3.4.0.min.js"   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <script src="js/bar.js?<?php echo time();?>"></script>
 <script>
     function doFirst() {
         hotIssueText();
         addArt();
         //get queryString
-        if (location.search.match("from=index")) {
+        if (location.search.match("from=index") || location.search.match("from=me")) {
             // var location = location.search;
             console.log(location.search);
             console.log(location.search.indexOf("artId"));
             console.log(location.search.substring(location.search.indexOf("artId"),location.search.length));
+            var locationSearch = location.search;
             var artId = location.search.substring(location.search.indexOf("artId"),location.search.length);
             artId = artId.substring((artId.indexOf("=")+1),artId.length);
             console.log(artId);
